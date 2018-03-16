@@ -5,7 +5,12 @@ VisualStudioVersion = 15.0.27428.2005
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LIC_KIHD_GUI", "LIC_KIHD_GUI\LIC_KIHD_GUI.csproj", "{FC6CE755-F84A-483C-9A79-1EC8BE24EB72}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "LIC_KIHD_MW", "LIC_KIHD_MW\LIC_KIHD_MW.shproj", "{8696EC91-2141-4330-AD49-CAB61FBC05BB}"
+EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		LIC_KIHD_MW\LIC_KIHD_MW.projitems*{8696ec91-2141-4330-ad49-cab61fbc05bb}*SharedItemsImports = 13
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
