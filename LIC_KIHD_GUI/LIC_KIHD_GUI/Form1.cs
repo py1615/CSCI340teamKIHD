@@ -10,11 +10,50 @@ using System.Windows.Forms;
 
 namespace LIC_KIHD_GUI
 {
-    public partial class Form1 : Form
+    public partial class loginPage : Form
     {
-        public Form1()
+        public loginPage()
         {
             InitializeComponent();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (barForPassword.Text == "12" && barForID
+                .Text == "12")
+            {
+                Application.Exit();
+            }
+            else
+            {
+                MessageBox.Show(String.Format("Username or Password is Incorrect"));
+
+            }
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void barForID_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void barForPassword_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
