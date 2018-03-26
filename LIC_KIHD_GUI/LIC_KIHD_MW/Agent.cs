@@ -6,5 +6,6 @@ namespace LIC_KIHD_MW
 {
     class Agent
     {
+        private string name;
     }
 }
