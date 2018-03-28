@@ -9,6 +9,14 @@
     <Import_RootNamespace>LIC_KIHD_MW</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Address.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Agent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Beneficiary.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Manager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Matrix.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Payment.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Policy.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PolicyHolder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Report.cs" />
   </ItemGroup>
 </Project>
