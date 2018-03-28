@@ -30,13 +30,22 @@ namespace LIC_KIHD_GUI
         private void button1_Click(object sender, EventArgs e)
         {
             if (barForPassword.Text == "12" && barForID
-                .Text == "12")
+                .Text == "12") // Agent access the search page
             {
-                Application.Exit();
+                AgentSearch agent = new AgentSearch();
+                agent.Show();
+                Hide();
             }
+            else if (barForPassword.Text == "33" && barForID
+                .Text == "23")
+            {
+                managerSearch agent = new managerSearch();
+                agent.Show();
+                Hide();
+            }//manager access the search page
             else
             {
-                MessageBox.Show(String.Format("Username or Password is Incorrect"));
+                MessageBox.Show(String.Format("Username or Password is Incorrect")); //wrong id or pw
 
             }
         }
