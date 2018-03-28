@@ -36,5 +36,12 @@ namespace LIC_KIHD_GUI
         {
 
         }
+
+        private void UserRegistrationButton_Click(object sender, EventArgs e)
+        {
+            UserRegister register = new UserRegister();
+            register.Show();
+            Hide();
+        }
     }
 }
