@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace LIC_KIHD_GUI
 {
-    public partial class Form1 : Form
+    public partial class Policyinfo : Form
     {
-        public Form1()
+        public Policyinfo()
         {
             InitializeComponent();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

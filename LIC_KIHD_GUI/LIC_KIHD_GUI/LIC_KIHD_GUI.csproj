@@ -45,14 +45,77 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="AgentSearch.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="AgentSearch.Designer.cs">
+      <DependentUpon>AgentSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DelinquentPolicyInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DelinquentPolicyInfo.Designer.cs">
+      <DependentUpon>DelinquentPolicyInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginPage.Designer.cs">
+      <DependentUpon>LoginPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManagerSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagerSearch.Designer.cs">
+      <DependentUpon>ManagerSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PolicyHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PolicyHistory.Designer.cs">
+      <DependentUpon>PolicyHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Policyinfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Policyinfo.Designer.cs">
+      <DependentUpon>Policyinfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PolicyRegistration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PolicyRegistration.Designer.cs">
+      <DependentUpon>PolicyRegistration.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserRegister.Designer.cs">
+      <DependentUpon>UserRegister.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AgentSearch.resx">
+      <DependentUpon>AgentSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DelinquentPolicyInfo.resx">
+      <DependentUpon>DelinquentPolicyInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginPage.resx">
+      <DependentUpon>LoginPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagerSearch.resx">
+      <DependentUpon>ManagerSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PolicyHistory.resx">
+      <DependentUpon>PolicyHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Policyinfo.resx">
+      <DependentUpon>Policyinfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PolicyRegistration.resx">
+      <DependentUpon>PolicyRegistration.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -62,6 +125,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserRegister.resx">
+      <DependentUpon>UserRegister.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
