@@ -39,12 +39,12 @@
             this.Submit = new System.Windows.Forms.Button();
             this.Agent = new System.Windows.Forms.CheckBox();
             this.Manager = new System.Windows.Forms.CheckBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.IDBOX = new System.Windows.Forms.TextBox();
+            this.FNameBox = new System.Windows.Forms.TextBox();
+            this.LNameBox = new System.Windows.Forms.TextBox();
+            this.UserNameBox = new System.Windows.Forms.TextBox();
+            this.PasswordBox = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -172,56 +172,65 @@
             this.Manager.UseVisualStyleBackColor = true;
             this.Manager.CheckedChanged += new System.EventHandler(this.UtNo_CheckedChanged);
             // 
-            // textBox1
+            // IDBOX
             // 
-            this.textBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(634, 176);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(136, 30);
-            this.textBox1.TabIndex = 11;
+            this.IDBOX.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.IDBOX.Location = new System.Drawing.Point(634, 176);
+            this.IDBOX.Margin = new System.Windows.Forms.Padding(4);
+            this.IDBOX.MaxLength = 20;
+            this.IDBOX.Name = "IDBOX";
+            this.IDBOX.Size = new System.Drawing.Size(136, 30);
+            this.IDBOX.TabIndex = 11;
+            this.IDBOX.TextChanged += new System.EventHandler(this.IDBOX_TextChanged);
             // 
-            // textBox2
+            // FNameBox
             // 
-            this.textBox2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(634, 241);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(136, 30);
-            this.textBox2.TabIndex = 12;
+            this.FNameBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FNameBox.Location = new System.Drawing.Point(634, 241);
+            this.FNameBox.Margin = new System.Windows.Forms.Padding(4);
+            this.FNameBox.MaxLength = 100;
+            this.FNameBox.Name = "FNameBox";
+            this.FNameBox.Size = new System.Drawing.Size(136, 30);
+            this.FNameBox.TabIndex = 12;
+            this.FNameBox.TextChanged += new System.EventHandler(this.FNameBox_TextChanged);
             // 
-            // textBox3
+            // LNameBox
             // 
-            this.textBox3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(634, 305);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(136, 30);
-            this.textBox3.TabIndex = 13;
+            this.LNameBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LNameBox.Location = new System.Drawing.Point(634, 305);
+            this.LNameBox.Margin = new System.Windows.Forms.Padding(4);
+            this.LNameBox.MaxLength = 100;
+            this.LNameBox.Name = "LNameBox";
+            this.LNameBox.Size = new System.Drawing.Size(136, 30);
+            this.LNameBox.TabIndex = 13;
+            this.LNameBox.TextChanged += new System.EventHandler(this.LNameBox_TextChanged);
             // 
-            // textBox4
+            // UserNameBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(634, 370);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(136, 30);
-            this.textBox4.TabIndex = 14;
+            this.UserNameBox.Location = new System.Drawing.Point(634, 370);
+            this.UserNameBox.Margin = new System.Windows.Forms.Padding(4);
+            this.UserNameBox.MaxLength = 20;
+            this.UserNameBox.Name = "UserNameBox";
+            this.UserNameBox.Size = new System.Drawing.Size(136, 30);
+            this.UserNameBox.TabIndex = 14;
+            this.UserNameBox.TextChanged += new System.EventHandler(this.UserNameBox_TextChanged);
             // 
-            // textBox5
+            // PasswordBox
             // 
-            this.textBox5.Location = new System.Drawing.Point(634, 435);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(136, 30);
-            this.textBox5.TabIndex = 15;
+            this.PasswordBox.Location = new System.Drawing.Point(634, 435);
+            this.PasswordBox.Margin = new System.Windows.Forms.Padding(4);
+            this.PasswordBox.MaxLength = 255;
+            this.PasswordBox.Name = "PasswordBox";
+            this.PasswordBox.Size = new System.Drawing.Size(136, 30);
+            this.PasswordBox.TabIndex = 15;
             // 
-            // textBox6
+            // comboBox1
             // 
-            this.textBox6.Location = new System.Drawing.Point(634, 500);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(136, 30);
-            this.textBox6.TabIndex = 16;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(634, 503);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 30);
+            this.comboBox1.TabIndex = 16;
             // 
             // UserRegister
             // 
@@ -229,12 +238,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1213, 974);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.PasswordBox);
+            this.Controls.Add(this.UserNameBox);
+            this.Controls.Add(this.LNameBox);
+            this.Controls.Add(this.FNameBox);
+            this.Controls.Add(this.IDBOX);
             this.Controls.Add(this.Manager);
             this.Controls.Add(this.Agent);
             this.Controls.Add(this.Submit);
@@ -268,11 +277,11 @@
         private System.Windows.Forms.Button Submit;
         private System.Windows.Forms.CheckBox Agent;
         private System.Windows.Forms.CheckBox Manager;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox IDBOX;
+        private System.Windows.Forms.TextBox FNameBox;
+        private System.Windows.Forms.TextBox LNameBox;
+        private System.Windows.Forms.TextBox UserNameBox;
+        private System.Windows.Forms.TextBox PasswordBox;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
