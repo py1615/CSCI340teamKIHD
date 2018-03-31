@@ -21,12 +21,12 @@ create table client_policy (
 policy_number varchar(30) NOT NULL,
 first_name varchar(100),
 last_name varchar(100),
-dob date,
-fathers_aod date,
-mothers_aod date,
+date_of_birth date,
+fathers_age_at_death date,
+mothers_age_at_death date,
 cigs_day varchar(5),
 smoking_history date,
-sbp varchar(4),
+systolic blood pressure varchar(4),
 avg_grams_fat_day varchar(5),
 heart_disease varchar(1),
 cancer varchar(1),
@@ -47,4 +47,8 @@ first_name varchar(100),
 last_name varchar(100),
 PRIMARY KEY (policy_number),
 FOREIGN KEY (policy_number) REFERENCES client_policy(policy_number)
+);
+
+create table policy_holder (
+policy_holder_id varchar(30)
 );
