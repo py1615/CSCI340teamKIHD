@@ -31,5 +31,10 @@ namespace LIC_KIHD_GUI
         {
             Agent.Checked = !Manager.Checked;
         }
+
+        private void Submit_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

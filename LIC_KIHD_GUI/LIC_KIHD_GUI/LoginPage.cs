@@ -32,9 +32,11 @@ namespace LIC_KIHD_GUI
             if (barForPassword.Text == "12" && barForID
                 .Text == "12") // Agent access the search page
             {
-                AgentSearch agent = new AgentSearch();
-                agent.Show();
                 Hide();
+                AgentSearch agent = new AgentSearch();
+                agent.Closed += (s, arges) => this.Close();
+                agent.Show();
+                
             }
             else if (barForPassword.Text == "33" && barForID
                 .Text == "23")

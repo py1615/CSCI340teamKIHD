@@ -29,12 +29,24 @@ namespace LIC_KIHD_GUI
 
         private void logOutButton_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show(String.Format("You are successfully logged out"));
+            Hide();
+            loginPage login = new loginPage();
+            login.Closed += (s, arges) => this.Close();
+            login.Show();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void registrationButton_Click(object sender, EventArgs e)
+        {
+            Hide();
+            PolicyRegistration policyRegiser = new PolicyRegistration();
+            policyRegiser.Closed += (s, arges) => this.Close();
+            policyRegiser.Show();
         }
     }
 }

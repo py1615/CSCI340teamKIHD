@@ -140,18 +140,19 @@
             // 
             this.Submit.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Submit.Location = new System.Drawing.Point(396, 685);
-            this.Submit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Submit.Margin = new System.Windows.Forms.Padding(4);
             this.Submit.Name = "Submit";
             this.Submit.Size = new System.Drawing.Size(103, 41);
             this.Submit.TabIndex = 8;
             this.Submit.Text = "Submit";
             this.Submit.UseVisualStyleBackColor = true;
+            this.Submit.Click += new System.EventHandler(this.Submit_Click);
             // 
             // Agent
             // 
             this.Agent.AutoSize = true;
             this.Agent.Location = new System.Drawing.Point(634, 588);
-            this.Agent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Agent.Margin = new System.Windows.Forms.Padding(4);
             this.Agent.Name = "Agent";
             this.Agent.Size = new System.Drawing.Size(78, 26);
             this.Agent.TabIndex = 9;
@@ -163,7 +164,7 @@
             // 
             this.Manager.AutoSize = true;
             this.Manager.Location = new System.Drawing.Point(634, 622);
-            this.Manager.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Manager.Margin = new System.Windows.Forms.Padding(4);
             this.Manager.Name = "Manager";
             this.Manager.Size = new System.Drawing.Size(101, 26);
             this.Manager.TabIndex = 10;
@@ -175,7 +176,7 @@
             // 
             this.textBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(634, 176);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(136, 30);
             this.textBox1.TabIndex = 11;
@@ -184,7 +185,7 @@
             // 
             this.textBox2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.Location = new System.Drawing.Point(634, 241);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(136, 30);
             this.textBox2.TabIndex = 12;
@@ -193,7 +194,7 @@
             // 
             this.textBox3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox3.Location = new System.Drawing.Point(634, 305);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(136, 30);
             this.textBox3.TabIndex = 13;
@@ -201,7 +202,7 @@
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(634, 370);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(4);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(136, 30);
             this.textBox4.TabIndex = 14;
@@ -209,7 +210,7 @@
             // textBox5
             // 
             this.textBox5.Location = new System.Drawing.Point(634, 435);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(4);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(136, 30);
             this.textBox5.TabIndex = 15;
@@ -217,7 +218,7 @@
             // textBox6
             // 
             this.textBox6.Location = new System.Drawing.Point(634, 500);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(4);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(136, 30);
             this.textBox6.TabIndex = 16;
@@ -246,7 +247,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UserRegister";
             this.Text = "UserRegister";
             this.ResumeLayout(false);

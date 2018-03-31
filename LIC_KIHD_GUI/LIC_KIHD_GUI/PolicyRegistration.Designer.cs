@@ -49,20 +49,19 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.FirstNameBox = new System.Windows.Forms.TextBox();
+            this.LastNameBox = new System.Windows.Forms.TextBox();
+            this.BirthBox = new System.Windows.Forms.TextBox();
             this.addBeneficiary = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.AddressBox = new System.Windows.Forms.TextBox();
+            this.CityBox = new System.Windows.Forms.TextBox();
+            this.ZipBox = new System.Windows.Forms.TextBox();
+            this.FatherBox = new System.Windows.Forms.TextBox();
+            this.motherBox = new System.Windows.Forms.TextBox();
+            this.cigBox = new System.Windows.Forms.TextBox();
+            this.smokeBox = new System.Windows.Forms.TextBox();
+            this.bloodBox = new System.Windows.Forms.TextBox();
+            this.aveGramsBox = new System.Windows.Forms.TextBox();
             this.HDYes = new System.Windows.Forms.CheckBox();
             this.HDNo = new System.Windows.Forms.CheckBox();
             this.CancerYes = new System.Windows.Forms.CheckBox();
@@ -73,6 +72,7 @@
             this.textBox15 = new System.Windows.Forms.TextBox();
             this.textBox16 = new System.Windows.Forms.TextBox();
             this.textBox17 = new System.Windows.Forms.TextBox();
+            this.StateBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -88,7 +88,7 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(268, 943);
+            this.label24.Location = new System.Drawing.Point(268, 993);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(201, 22);
             this.label24.TabIndex = 28;
@@ -97,7 +97,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(268, 985);
+            this.label23.Location = new System.Drawing.Point(268, 1033);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(197, 22);
             this.label23.TabIndex = 26;
@@ -106,7 +106,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(268, 903);
+            this.label20.Location = new System.Drawing.Point(268, 953);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(132, 22);
             this.label20.TabIndex = 23;
@@ -265,105 +265,112 @@
             this.label25.TabIndex = 29;
             this.label25.Text = "First Name:";
             // 
-            // textBox1
+            // FirstNameBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(632, 146);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 30);
-            this.textBox1.TabIndex = 30;
+            this.FirstNameBox.Location = new System.Drawing.Point(632, 146);
+            this.FirstNameBox.MaxLength = 100;
+            this.FirstNameBox.Name = "FirstNameBox";
+            this.FirstNameBox.Size = new System.Drawing.Size(142, 30);
+            this.FirstNameBox.TabIndex = 30;
             // 
-            // textBox2
+            // LastNameBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(632, 183);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 30);
-            this.textBox2.TabIndex = 31;
+            this.LastNameBox.Location = new System.Drawing.Point(632, 183);
+            this.LastNameBox.MaxLength = 100;
+            this.LastNameBox.Name = "LastNameBox";
+            this.LastNameBox.Size = new System.Drawing.Size(142, 30);
+            this.LastNameBox.TabIndex = 31;
             // 
-            // textBox3
+            // BirthBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(632, 220);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 30);
-            this.textBox3.TabIndex = 32;
+            this.BirthBox.Location = new System.Drawing.Point(632, 220);
+            this.BirthBox.MaxLength = 8;
+            this.BirthBox.Name = "BirthBox";
+            this.BirthBox.Size = new System.Drawing.Size(142, 30);
+            this.BirthBox.TabIndex = 32;
             // 
             // addBeneficiary
             // 
-            this.addBeneficiary.Location = new System.Drawing.Point(272, 1048);
+            this.addBeneficiary.Location = new System.Drawing.Point(272, 1083);
             this.addBeneficiary.Name = "addBeneficiary";
             this.addBeneficiary.Size = new System.Drawing.Size(162, 33);
             this.addBeneficiary.TabIndex = 33;
             this.addBeneficiary.Text = "Add Beneficiary";
             this.addBeneficiary.UseVisualStyleBackColor = true;
+            this.addBeneficiary.Click += new System.EventHandler(this.addBeneficiary_Click);
             // 
-            // textBox4
+            // AddressBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(632, 262);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 30);
-            this.textBox4.TabIndex = 34;
+            this.AddressBox.Location = new System.Drawing.Point(632, 262);
+            this.AddressBox.MaxLength = 30;
+            this.AddressBox.Name = "AddressBox";
+            this.AddressBox.Size = new System.Drawing.Size(142, 30);
+            this.AddressBox.TabIndex = 34;
             // 
-            // textBox5
+            // CityBox
             // 
-            this.textBox5.Location = new System.Drawing.Point(632, 302);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 30);
-            this.textBox5.TabIndex = 35;
+            this.CityBox.Location = new System.Drawing.Point(632, 302);
+            this.CityBox.MaxLength = 20;
+            this.CityBox.Name = "CityBox";
+            this.CityBox.Size = new System.Drawing.Size(100, 30);
+            this.CityBox.TabIndex = 35;
             // 
-            // textBox6
+            // ZipBox
             // 
-            this.textBox6.Location = new System.Drawing.Point(632, 342);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 30);
-            this.textBox6.TabIndex = 36;
+            this.ZipBox.Location = new System.Drawing.Point(632, 382);
+            this.ZipBox.MaxLength = 9;
+            this.ZipBox.Name = "ZipBox";
+            this.ZipBox.Size = new System.Drawing.Size(100, 30);
+            this.ZipBox.TabIndex = 37;
             // 
-            // textBox7
+            // FatherBox
             // 
-            this.textBox7.Location = new System.Drawing.Point(632, 382);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 30);
-            this.textBox7.TabIndex = 37;
+            this.FatherBox.Location = new System.Drawing.Point(632, 422);
+            this.FatherBox.MaxLength = 5;
+            this.FatherBox.Name = "FatherBox";
+            this.FatherBox.Size = new System.Drawing.Size(100, 30);
+            this.FatherBox.TabIndex = 38;
             // 
-            // textBox8
+            // motherBox
             // 
-            this.textBox8.Location = new System.Drawing.Point(632, 422);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(100, 30);
-            this.textBox8.TabIndex = 38;
+            this.motherBox.Location = new System.Drawing.Point(632, 462);
+            this.motherBox.MaxLength = 5;
+            this.motherBox.Name = "motherBox";
+            this.motherBox.Size = new System.Drawing.Size(100, 30);
+            this.motherBox.TabIndex = 39;
             // 
-            // textBox9
+            // cigBox
             // 
-            this.textBox9.Location = new System.Drawing.Point(632, 462);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(100, 30);
-            this.textBox9.TabIndex = 39;
+            this.cigBox.Location = new System.Drawing.Point(632, 502);
+            this.cigBox.MaxLength = 5;
+            this.cigBox.Name = "cigBox";
+            this.cigBox.Size = new System.Drawing.Size(100, 30);
+            this.cigBox.TabIndex = 40;
             // 
-            // textBox10
+            // smokeBox
             // 
-            this.textBox10.Location = new System.Drawing.Point(632, 502);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(100, 30);
-            this.textBox10.TabIndex = 40;
+            this.smokeBox.Location = new System.Drawing.Point(632, 542);
+            this.smokeBox.MaxLength = 5;
+            this.smokeBox.Name = "smokeBox";
+            this.smokeBox.Size = new System.Drawing.Size(100, 30);
+            this.smokeBox.TabIndex = 41;
             // 
-            // textBox11
+            // bloodBox
             // 
-            this.textBox11.Location = new System.Drawing.Point(632, 542);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(100, 30);
-            this.textBox11.TabIndex = 41;
+            this.bloodBox.Location = new System.Drawing.Point(632, 582);
+            this.bloodBox.MaxLength = 4;
+            this.bloodBox.Name = "bloodBox";
+            this.bloodBox.Size = new System.Drawing.Size(100, 30);
+            this.bloodBox.TabIndex = 42;
             // 
-            // textBox12
+            // aveGramsBox
             // 
-            this.textBox12.Location = new System.Drawing.Point(632, 582);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(100, 30);
-            this.textBox12.TabIndex = 42;
-            // 
-            // textBox13
-            // 
-            this.textBox13.Location = new System.Drawing.Point(632, 622);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(100, 30);
-            this.textBox13.TabIndex = 43;
+            this.aveGramsBox.Location = new System.Drawing.Point(632, 622);
+            this.aveGramsBox.MaxLength = 5;
+            this.aveGramsBox.Name = "aveGramsBox";
+            this.aveGramsBox.Size = new System.Drawing.Size(100, 30);
+            this.aveGramsBox.TabIndex = 43;
+            this.aveGramsBox.TextChanged += new System.EventHandler(this.aveGramsBox_TextChanged);
             // 
             // HDYes
             // 
@@ -434,30 +441,41 @@
             // textBox14
             // 
             this.textBox14.Location = new System.Drawing.Point(632, 863);
+            this.textBox14.MaxLength = 256;
             this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(100, 30);
+            this.textBox14.Size = new System.Drawing.Size(239, 30);
             this.textBox14.TabIndex = 50;
             // 
             // textBox15
             // 
-            this.textBox15.Location = new System.Drawing.Point(632, 899);
+            this.textBox15.Location = new System.Drawing.Point(632, 945);
+            this.textBox15.MaxLength = 10;
             this.textBox15.Name = "textBox15";
             this.textBox15.Size = new System.Drawing.Size(100, 30);
             this.textBox15.TabIndex = 51;
             // 
             // textBox16
             // 
-            this.textBox16.Location = new System.Drawing.Point(632, 935);
+            this.textBox16.Location = new System.Drawing.Point(632, 985);
+            this.textBox16.MaxLength = 100;
             this.textBox16.Name = "textBox16";
             this.textBox16.Size = new System.Drawing.Size(100, 30);
             this.textBox16.TabIndex = 51;
             // 
             // textBox17
             // 
-            this.textBox17.Location = new System.Drawing.Point(632, 971);
+            this.textBox17.Location = new System.Drawing.Point(632, 1025);
+            this.textBox17.MaxLength = 100;
             this.textBox17.Name = "textBox17";
             this.textBox17.Size = new System.Drawing.Size(100, 30);
             this.textBox17.TabIndex = 51;
+            // 
+            // StateBox
+            // 
+            this.StateBox.Location = new System.Drawing.Point(632, 343);
+            this.StateBox.Name = "StateBox";
+            this.StateBox.Size = new System.Drawing.Size(100, 30);
+            this.StateBox.TabIndex = 53;
             // 
             // PolicyRegistration
             // 
@@ -466,6 +484,7 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1213, 974);
+            this.Controls.Add(this.StateBox);
             this.Controls.Add(this.textBox17);
             this.Controls.Add(this.textBox16);
             this.Controls.Add(this.textBox15);
@@ -476,20 +495,19 @@
             this.Controls.Add(this.CancerYes);
             this.Controls.Add(this.HDNo);
             this.Controls.Add(this.HDYes);
-            this.Controls.Add(this.textBox13);
-            this.Controls.Add(this.textBox12);
-            this.Controls.Add(this.textBox11);
-            this.Controls.Add(this.textBox10);
-            this.Controls.Add(this.textBox9);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.aveGramsBox);
+            this.Controls.Add(this.bloodBox);
+            this.Controls.Add(this.smokeBox);
+            this.Controls.Add(this.cigBox);
+            this.Controls.Add(this.motherBox);
+            this.Controls.Add(this.FatherBox);
+            this.Controls.Add(this.ZipBox);
+            this.Controls.Add(this.CityBox);
+            this.Controls.Add(this.AddressBox);
             this.Controls.Add(this.addBeneficiary);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.BirthBox);
+            this.Controls.Add(this.LastNameBox);
+            this.Controls.Add(this.FirstNameBox);
             this.Controls.Add(this.label25);
             this.Controls.Add(this.label24);
             this.Controls.Add(this.label23);
@@ -512,7 +530,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "PolicyRegistration";
             this.Text = "PolicyRegistration";
             this.ResumeLayout(false);
@@ -543,20 +561,19 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox FirstNameBox;
+        private System.Windows.Forms.TextBox LastNameBox;
+        private System.Windows.Forms.TextBox BirthBox;
         private System.Windows.Forms.Button addBeneficiary;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.TextBox AddressBox;
+        private System.Windows.Forms.TextBox CityBox;
+        private System.Windows.Forms.TextBox ZipBox;
+        private System.Windows.Forms.TextBox FatherBox;
+        private System.Windows.Forms.TextBox motherBox;
+        private System.Windows.Forms.TextBox cigBox;
+        private System.Windows.Forms.TextBox smokeBox;
+        private System.Windows.Forms.TextBox bloodBox;
+        private System.Windows.Forms.TextBox aveGramsBox;
         private System.Windows.Forms.CheckBox HDYes;
         private System.Windows.Forms.CheckBox HDNo;
         private System.Windows.Forms.CheckBox CancerYes;
@@ -567,5 +584,6 @@
         private System.Windows.Forms.TextBox textBox15;
         private System.Windows.Forms.TextBox textBox16;
         private System.Windows.Forms.TextBox textBox17;
+        private System.Windows.Forms.TextBox StateBox;
     }
 }

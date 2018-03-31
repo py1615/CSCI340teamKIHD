@@ -54,6 +54,7 @@
             resources.ApplyResources(this.registrationButton, "registrationButton");
             this.registrationButton.Name = "registrationButton";
             this.registrationButton.UseVisualStyleBackColor = true;
+            this.registrationButton.Click += new System.EventHandler(this.registrationButton_Click);
             // 
             // searchButton
             // 
