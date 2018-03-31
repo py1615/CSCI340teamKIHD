@@ -72,7 +72,7 @@
             this.textBox15 = new System.Windows.Forms.TextBox();
             this.textBox16 = new System.Windows.Forms.TextBox();
             this.textBox17 = new System.Windows.Forms.TextBox();
-            this.StateBox = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -272,6 +272,7 @@
             this.FirstNameBox.Name = "FirstNameBox";
             this.FirstNameBox.Size = new System.Drawing.Size(142, 30);
             this.FirstNameBox.TabIndex = 30;
+            this.FirstNameBox.TextChanged += new System.EventHandler(this.FirstNameBox_TextChanged);
             // 
             // LastNameBox
             // 
@@ -280,6 +281,7 @@
             this.LastNameBox.Name = "LastNameBox";
             this.LastNameBox.Size = new System.Drawing.Size(142, 30);
             this.LastNameBox.TabIndex = 31;
+            this.LastNameBox.TextChanged += new System.EventHandler(this.LastNameBox_TextChanged);
             // 
             // BirthBox
             // 
@@ -288,6 +290,7 @@
             this.BirthBox.Name = "BirthBox";
             this.BirthBox.Size = new System.Drawing.Size(142, 30);
             this.BirthBox.TabIndex = 32;
+            this.BirthBox.TextChanged += new System.EventHandler(this.BirthBox_TextChanged);
             // 
             // addBeneficiary
             // 
@@ -306,6 +309,7 @@
             this.AddressBox.Name = "AddressBox";
             this.AddressBox.Size = new System.Drawing.Size(142, 30);
             this.AddressBox.TabIndex = 34;
+            this.AddressBox.TextChanged += new System.EventHandler(this.AddressBox_TextChanged);
             // 
             // CityBox
             // 
@@ -314,14 +318,16 @@
             this.CityBox.Name = "CityBox";
             this.CityBox.Size = new System.Drawing.Size(100, 30);
             this.CityBox.TabIndex = 35;
+            this.CityBox.TextChanged += new System.EventHandler(this.CityBox_TextChanged);
             // 
             // ZipBox
             // 
             this.ZipBox.Location = new System.Drawing.Point(632, 382);
-            this.ZipBox.MaxLength = 9;
+            this.ZipBox.MaxLength = 5;
             this.ZipBox.Name = "ZipBox";
             this.ZipBox.Size = new System.Drawing.Size(100, 30);
             this.ZipBox.TabIndex = 37;
+            this.ZipBox.TextChanged += new System.EventHandler(this.ZipBox_TextChanged);
             // 
             // FatherBox
             // 
@@ -330,6 +336,7 @@
             this.FatherBox.Name = "FatherBox";
             this.FatherBox.Size = new System.Drawing.Size(100, 30);
             this.FatherBox.TabIndex = 38;
+            this.FatherBox.TextChanged += new System.EventHandler(this.FatherBox_TextChanged);
             // 
             // motherBox
             // 
@@ -338,6 +345,7 @@
             this.motherBox.Name = "motherBox";
             this.motherBox.Size = new System.Drawing.Size(100, 30);
             this.motherBox.TabIndex = 39;
+            this.motherBox.TextChanged += new System.EventHandler(this.motherBox_TextChanged);
             // 
             // cigBox
             // 
@@ -346,6 +354,7 @@
             this.cigBox.Name = "cigBox";
             this.cigBox.Size = new System.Drawing.Size(100, 30);
             this.cigBox.TabIndex = 40;
+            this.cigBox.TextChanged += new System.EventHandler(this.cigBox_TextChanged);
             // 
             // smokeBox
             // 
@@ -354,6 +363,7 @@
             this.smokeBox.Name = "smokeBox";
             this.smokeBox.Size = new System.Drawing.Size(100, 30);
             this.smokeBox.TabIndex = 41;
+            this.smokeBox.TextChanged += new System.EventHandler(this.smokeBox_TextChanged);
             // 
             // bloodBox
             // 
@@ -362,6 +372,7 @@
             this.bloodBox.Name = "bloodBox";
             this.bloodBox.Size = new System.Drawing.Size(100, 30);
             this.bloodBox.TabIndex = 42;
+            this.bloodBox.TextChanged += new System.EventHandler(this.bloodBox_TextChanged);
             // 
             // aveGramsBox
             // 
@@ -445,6 +456,7 @@
             this.textBox14.Name = "textBox14";
             this.textBox14.Size = new System.Drawing.Size(239, 30);
             this.textBox14.TabIndex = 50;
+            this.textBox14.TextChanged += new System.EventHandler(this.textBox14_TextChanged);
             // 
             // textBox15
             // 
@@ -453,6 +465,7 @@
             this.textBox15.Name = "textBox15";
             this.textBox15.Size = new System.Drawing.Size(100, 30);
             this.textBox15.TabIndex = 51;
+            this.textBox15.TextChanged += new System.EventHandler(this.textBox15_TextChanged);
             // 
             // textBox16
             // 
@@ -461,6 +474,7 @@
             this.textBox16.Name = "textBox16";
             this.textBox16.Size = new System.Drawing.Size(100, 30);
             this.textBox16.TabIndex = 51;
+            this.textBox16.TextChanged += new System.EventHandler(this.textBox16_TextChanged);
             // 
             // textBox17
             // 
@@ -469,13 +483,15 @@
             this.textBox17.Name = "textBox17";
             this.textBox17.Size = new System.Drawing.Size(100, 30);
             this.textBox17.TabIndex = 51;
+            this.textBox17.TextChanged += new System.EventHandler(this.textBox17_TextChanged);
             // 
-            // StateBox
+            // comboBox1
             // 
-            this.StateBox.Location = new System.Drawing.Point(632, 343);
-            this.StateBox.Name = "StateBox";
-            this.StateBox.Size = new System.Drawing.Size(100, 30);
-            this.StateBox.TabIndex = 53;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(632, 343);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 30);
+            this.comboBox1.TabIndex = 54;
             // 
             // PolicyRegistration
             // 
@@ -484,7 +500,7 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1213, 974);
-            this.Controls.Add(this.StateBox);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.textBox17);
             this.Controls.Add(this.textBox16);
             this.Controls.Add(this.textBox15);
@@ -584,6 +600,6 @@
         private System.Windows.Forms.TextBox textBox15;
         private System.Windows.Forms.TextBox textBox16;
         private System.Windows.Forms.TextBox textBox17;
-        private System.Windows.Forms.TextBox StateBox;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

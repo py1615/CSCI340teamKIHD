@@ -52,5 +52,11 @@ namespace LIC_KIHD_GUI
             register.Show();
             
         }
+
+        private void agentSearchButton_Click(object sender, EventArgs e)
+        {
+            DataTable table = new DataTable();
+            dataGridView1.DataSource = table;
+        }
     }
 }

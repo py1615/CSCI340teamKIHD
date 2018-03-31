@@ -60,23 +60,33 @@ namespace LIC_KIHD_GUI
 
         private void aveGramsBox_TextChanged(object sender, EventArgs e)
         {
-
+            string tString = aveGramsBox.Text;
+            if (tString.Trim() == "") return;
+            for (int i = 0; i < tString.Length; i++)
+            {
+                if (!char.IsNumber(tString[i]))
+                {
+                    MessageBox.Show("Please enter a valid information");
+                    aveGramsBox.Text = "";
+                    return;
+                }
+            }
         }
 
         private void addBeneficiary_Click(object sender, EventArgs e)
         {
             bool fieldFilled = true;
-            foreach(TextBox tb in GetControls(this).OfType<TextBox>())
+            foreach (TextBox tb in GetControls(this).OfType<TextBox>())
             {
-                
+
                 if (string.IsNullOrEmpty(tb.Text))
                 {
                     fieldFilled = false;
-                    
+
                 }
             }
 
-            if(fieldFilled)
+            if (fieldFilled)
             {
                 Hide();
                 managerSearch manaSearch = new managerSearch();
@@ -86,6 +96,222 @@ namespace LIC_KIHD_GUI
             else
             {
                 MessageBox.Show(String.Format("You need to fill all the boxes"));
+            }
+        }
+
+        private void AddressBox_TextChanged(object sender, EventArgs e)
+        {
+
+            
+        }
+
+        private void FirstNameBox_TextChanged(object sender, EventArgs e)
+        {
+            string tString = FirstNameBox.Text;
+            if (tString.Trim() == "") return;
+            for (int i = 0; i < tString.Length; i++)
+            {
+                if (!char.IsLetter(tString[i]))
+                {
+                    MessageBox.Show("Please enter a valid information");
+                    FirstNameBox.Text = "";
+                    return;
+                }
+            }
+        }
+
+        private void LastNameBox_TextChanged(object sender, EventArgs e)
+        {
+            string tString = LastNameBox.Text;
+            if (tString.Trim() == "") return;
+            for (int i = 0; i < tString.Length; i++)
+            {
+                if (!char.IsLetter(tString[i]))
+                {
+                    MessageBox.Show("Please enter a valid information");
+                    LastNameBox.Text = "";
+                    return;
+                }
+            }
+        }
+
+        private void BirthBox_TextChanged(object sender, EventArgs e)
+        {
+            string tString = BirthBox.Text;
+            if (tString.Trim() == "") return;
+            for (int i = 0; i < tString.Length; i++)
+            {
+                if (!char.IsNumber(tString[i]))
+                {
+                    MessageBox.Show("Please enter a valid information");
+                    BirthBox.Text = "";
+                    return;
+                }
+            }
+        }
+
+        private void CityBox_TextChanged(object sender, EventArgs e)
+        {
+            string tString = CityBox.Text;
+            if (tString.Trim() == "") return;
+            for (int i = 0; i < tString.Length; i++)
+            {
+                if (!char.IsLetter(tString[i]))
+                {
+                    MessageBox.Show("Please enter a valid information");
+                    CityBox.Text = "";
+                    return;
+                }
+            }
+        }
+
+        private void ZipBox_TextChanged(object sender, EventArgs e)
+        {
+            string tString = ZipBox.Text;
+            if (tString.Trim() == "") return;
+            for (int i = 0; i < tString.Length; i++)
+            {
+                if (!char.IsNumber(tString[i]))
+                {
+                    MessageBox.Show("Please enter a valid information");
+                    ZipBox.Text = "";
+                    return;
+                }
+            }
+        }
+
+        private void FatherBox_TextChanged(object sender, EventArgs e)
+        {
+            string tString = FatherBox.Text;
+            if (tString.Trim() == "") return;
+            for (int i = 0; i < tString.Length; i++)
+            {
+                if (!char.IsNumber(tString[i]))
+                {
+                    MessageBox.Show("Please enter a valid information");
+                    FatherBox.Text = "";
+                    return;
+                }
+            }
+        }
+
+        private void motherBox_TextChanged(object sender, EventArgs e)
+        {
+            string tString = motherBox.Text;
+            if (tString.Trim() == "") return;
+            for (int i = 0; i < tString.Length; i++)
+            {
+                if (!char.IsNumber(tString[i]))
+                {
+                    MessageBox.Show("Please enter a valid information");
+                    motherBox.Text = "";
+                    return;
+                }
+            }
+        }
+
+        private void cigBox_TextChanged(object sender, EventArgs e)
+        {
+            string tString = cigBox.Text;
+            if (tString.Trim() == "") return;
+            for (int i = 0; i < tString.Length; i++)
+            {
+                if (!char.IsNumber(tString[i]))
+                {
+                    MessageBox.Show("Please enter a valid information");
+                    cigBox.Text = "";
+                    return;
+                }
+            }
+        }
+
+        private void smokeBox_TextChanged(object sender, EventArgs e)
+        {
+            string tString = smokeBox.Text;
+            if (tString.Trim() == "") return;
+            for (int i = 0; i < tString.Length; i++)
+            {
+                if (!char.IsNumber(tString[i]))
+                {
+                    MessageBox.Show("Please enter a valid information");
+                    smokeBox.Text = "";
+                    return;
+                }
+            }
+        }
+
+        private void bloodBox_TextChanged(object sender, EventArgs e)
+        {
+            string tString = bloodBox.Text;
+            if (tString.Trim() == "") return;
+            for (int i = 0; i < tString.Length; i++)
+            {
+                if (!char.IsNumber(tString[i]))
+                {
+                    MessageBox.Show("Please enter a valid information");
+                    bloodBox.Text = "";
+                    return;
+                }
+            }
+        }
+
+        private void textBox14_TextChanged(object sender, EventArgs e)
+        {
+            string tString = textBox14.Text;
+            if (tString.Trim() == "") return;
+            for (int i = 0; i < tString.Length; i++)
+            {
+                if (!char.IsLetter(tString[i]))
+                {
+                    MessageBox.Show("Please enter a valid information");
+                    textBox14.Text = "";
+                    return;
+                }
+            }
+        }
+
+        private void textBox15_TextChanged(object sender, EventArgs e)
+        {
+            string tString = textBox15.Text;
+            if (tString.Trim() == "") return;
+            for (int i = 0; i < tString.Length; i++)
+            {
+                if (!char.IsNumber(tString[i]))
+                {
+                    MessageBox.Show("Please enter a valid information");
+                    textBox15.Text = "";
+                    return;
+                }
+            }
+        }
+
+        private void textBox16_TextChanged(object sender, EventArgs e)
+        {
+            string tString = textBox16.Text;
+            if (tString.Trim() == "") return;
+            for (int i = 0; i < tString.Length; i++)
+            {
+                if (!char.IsLetter(tString[i]))
+                {
+                    MessageBox.Show("Please enter a valid information");
+                    textBox16.Text = "";
+                    return;
+                }
+            }
+        }
+
+        private void textBox17_TextChanged(object sender, EventArgs e)
+        {
+            string tString = textBox17.Text;
+            if (tString.Trim() == "") return;
+            for (int i = 0; i < tString.Length; i++)
+            {
+                if (!char.IsLetter(tString[i]))
+                {
+                    MessageBox.Show("Please enter a valid information");
+                    textBox17.Text = "";
+                    return;
+                }
             }
         }
     }

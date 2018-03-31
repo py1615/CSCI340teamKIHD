@@ -38,6 +38,7 @@ namespace LIC_KIHD_GUI
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            
 
         }
 
@@ -47,6 +48,12 @@ namespace LIC_KIHD_GUI
             PolicyRegistration policyRegiser = new PolicyRegistration();
             policyRegiser.Closed += (s, arges) => this.Close();
             policyRegiser.Show();
+        }
+
+        private void agentSearchButton_Click(object sender, EventArgs e)
+        {
+            DataTable table = new DataTable();
+            dataGridView1.DataSource = table;
         }
     }
 }
