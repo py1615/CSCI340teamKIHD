@@ -359,7 +359,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.PolicyNumTitle);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Policyinfo";
             this.Text = "Policyinfo";
             this.ResumeLayout(false);

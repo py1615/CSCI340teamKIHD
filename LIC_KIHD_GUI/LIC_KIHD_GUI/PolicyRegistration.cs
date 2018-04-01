@@ -60,16 +60,14 @@ namespace LIC_KIHD_GUI
 
         private void aveGramsBox_TextChanged(object sender, EventArgs e)
         {
-            string tString = aveGramsBox.Text;
-            if (tString.Trim() == "") return;
-            for (int i = 0; i < tString.Length; i++)
+            try
             {
-                if (!char.IsNumber(tString[i]))
-                {
-                    MessageBox.Show("Please enter a valid information");
-                    aveGramsBox.Text = "";
-                    return;
-                }
+                int i = Int32.Parse(aveGramsBox.Text.Trim());
+                errorProvider1.SetError(aveGramsBox, "");
+            }
+            catch
+            {
+                errorProvider1.SetError(aveGramsBox, "Please enter a valid number！");
             }
         }
 
@@ -102,7 +100,7 @@ namespace LIC_KIHD_GUI
         private void AddressBox_TextChanged(object sender, EventArgs e)
         {
 
-            
+
         }
 
         private void FirstNameBox_TextChanged(object sender, EventArgs e)
@@ -113,9 +111,12 @@ namespace LIC_KIHD_GUI
             {
                 if (!char.IsLetter(tString[i]))
                 {
-                    MessageBox.Show("Please enter a valid information");
-                    FirstNameBox.Text = "";
+                    errorProvider1.SetError(FirstNameBox, "Please enter a valid information");//MessageBox.Show("Please enter a valid information");     
                     return;
+                }
+                else
+                {
+                    errorProvider1.SetError(FirstNameBox, "");
                 }
             }
         }
@@ -128,27 +129,29 @@ namespace LIC_KIHD_GUI
             {
                 if (!char.IsLetter(tString[i]))
                 {
-                    MessageBox.Show("Please enter a valid information");
-                    LastNameBox.Text = "";
+                    errorProvider1.SetError(LastNameBox, "Please enter a valid information");//MessageBox.Show("Please enter a valid information");     
                     return;
+                }
+                else
+                {
+                    errorProvider1.SetError(LastNameBox, "");
                 }
             }
         }
 
         private void BirthBox_TextChanged(object sender, EventArgs e)
         {
-            string tString = BirthBox.Text;
-            if (tString.Trim() == "") return;
-            for (int i = 0; i < tString.Length; i++)
+            try
             {
-                if (!char.IsNumber(tString[i]))
-                {
-                    MessageBox.Show("Please enter a valid information");
-                    BirthBox.Text = "";
-                    return;
-                }
+                int i = Int32.Parse(BirthBox.Text.Trim());
+                errorProvider1.SetError(BirthBox, "");
+            }
+            catch
+            {
+                errorProvider1.SetError(BirthBox, "Please enter a valid date！");
             }
         }
+    
 
         private void CityBox_TextChanged(object sender, EventArgs e)
         {
@@ -158,130 +161,109 @@ namespace LIC_KIHD_GUI
             {
                 if (!char.IsLetter(tString[i]))
                 {
-                    MessageBox.Show("Please enter a valid information");
-                    CityBox.Text = "";
+                    errorProvider1.SetError(CityBox, "Please enter a valid information");//MessageBox.Show("Please enter a valid information");     
                     return;
+                }
+                else
+                {
+                    errorProvider1.SetError(CityBox, "");
                 }
             }
         }
 
         private void ZipBox_TextChanged(object sender, EventArgs e)
         {
-            string tString = ZipBox.Text;
-            if (tString.Trim() == "") return;
-            for (int i = 0; i < tString.Length; i++)
+            try
             {
-                if (!char.IsNumber(tString[i]))
-                {
-                    MessageBox.Show("Please enter a valid information");
-                    ZipBox.Text = "";
-                    return;
-                }
+                int i = Int32.Parse(ZipBox.Text.Trim());
+                errorProvider1.SetError(ZipBox, "");
+            }
+            catch
+            {
+                errorProvider1.SetError(ZipBox, "Please enter a valid zip code！");
             }
         }
 
         private void FatherBox_TextChanged(object sender, EventArgs e)
         {
-            string tString = FatherBox.Text;
-            if (tString.Trim() == "") return;
-            for (int i = 0; i < tString.Length; i++)
+            try
             {
-                if (!char.IsNumber(tString[i]))
-                {
-                    MessageBox.Show("Please enter a valid information");
-                    FatherBox.Text = "";
-                    return;
-                }
+                int i = Int32.Parse(FatherBox.Text.Trim());
+                errorProvider1.SetError(FatherBox, "");
+            }
+            catch
+            {
+                errorProvider1.SetError(FatherBox, "Please enter a valid date！");
             }
         }
 
         private void motherBox_TextChanged(object sender, EventArgs e)
         {
-            string tString = motherBox.Text;
-            if (tString.Trim() == "") return;
-            for (int i = 0; i < tString.Length; i++)
+            try
             {
-                if (!char.IsNumber(tString[i]))
-                {
-                    MessageBox.Show("Please enter a valid information");
-                    motherBox.Text = "";
-                    return;
-                }
+                int i = Int32.Parse(motherBox.Text.Trim());
+                errorProvider1.SetError(motherBox, "");
+            }
+            catch
+            {
+                errorProvider1.SetError(motherBox, "Please enter a valid date！");
             }
         }
 
         private void cigBox_TextChanged(object sender, EventArgs e)
         {
-            string tString = cigBox.Text;
-            if (tString.Trim() == "") return;
-            for (int i = 0; i < tString.Length; i++)
+            try
             {
-                if (!char.IsNumber(tString[i]))
-                {
-                    MessageBox.Show("Please enter a valid information");
-                    cigBox.Text = "";
-                    return;
-                }
+                int i = Int32.Parse(cigBox.Text.Trim());
+                errorProvider1.SetError(cigBox, "");
+            }
+            catch
+            {
+                errorProvider1.SetError(cigBox, "Please enter a valid number！");
             }
         }
 
         private void smokeBox_TextChanged(object sender, EventArgs e)
         {
-            string tString = smokeBox.Text;
-            if (tString.Trim() == "") return;
-            for (int i = 0; i < tString.Length; i++)
+            try
             {
-                if (!char.IsNumber(tString[i]))
-                {
-                    MessageBox.Show("Please enter a valid information");
-                    smokeBox.Text = "";
-                    return;
-                }
+                int i = Int32.Parse(smokeBox.Text.Trim());
+                errorProvider1.SetError(smokeBox, "");
+            }
+            catch
+            {
+                errorProvider1.SetError(smokeBox, "Please enter a valid date！");
             }
         }
 
         private void bloodBox_TextChanged(object sender, EventArgs e)
         {
-            string tString = bloodBox.Text;
-            if (tString.Trim() == "") return;
-            for (int i = 0; i < tString.Length; i++)
+            try
             {
-                if (!char.IsNumber(tString[i]))
-                {
-                    MessageBox.Show("Please enter a valid information");
-                    bloodBox.Text = "";
-                    return;
-                }
+                int i = Int32.Parse(bloodBox.Text.Trim());
+                errorProvider1.SetError(bloodBox, "");
+            }
+            catch
+            {
+                errorProvider1.SetError(bloodBox, "Please enter a valid number！");
             }
         }
 
         private void textBox14_TextChanged(object sender, EventArgs e)
         {
-            string tString = textBox14.Text;
-            if (tString.Trim() == "") return;
-            for (int i = 0; i < tString.Length; i++)
-            {
-                if (!char.IsLetter(tString[i]))
-                {
-                    MessageBox.Show("Please enter a valid information");
-                    textBox14.Text = "";
-                    return;
-                }
-            }
+           
         }
 
         private void textBox15_TextChanged(object sender, EventArgs e)
         {
-            string tString = textBox15.Text;
-            if (tString.Trim() == "") return;
-            for (int i = 0; i < tString.Length; i++)
+            try
             {
-                if (!char.IsNumber(tString[i]))
-                {
-                    MessageBox.Show("Please enter a valid information");
-                    textBox15.Text = "";
-                    return;
-                }
+                int i = Int32.Parse(textBox15.Text.Trim());
+                errorProvider1.SetError(textBox15, "");
+            }
+            catch
+            {
+                errorProvider1.SetError(textBox15, "Please enter a valid number！");
             }
         }
 
@@ -293,9 +275,12 @@ namespace LIC_KIHD_GUI
             {
                 if (!char.IsLetter(tString[i]))
                 {
-                    MessageBox.Show("Please enter a valid information");
-                    textBox16.Text = "";
+                    errorProvider1.SetError(textBox16, "Please enter a valid information");//MessageBox.Show("Please enter a valid information");     
                     return;
+                }
+                else
+                {
+                    errorProvider1.SetError(textBox16, "");
                 }
             }
         }
@@ -308,11 +293,19 @@ namespace LIC_KIHD_GUI
             {
                 if (!char.IsLetter(tString[i]))
                 {
-                    MessageBox.Show("Please enter a valid information");
-                    textBox17.Text = "";
+                    errorProvider1.SetError(textBox17, "Please enter a valid information");//MessageBox.Show("Please enter a valid information");     
                     return;
                 }
+                else
+                {
+                    errorProvider1.SetError(textBox17, "");
+                }
             }
+        }
+
+        private void PolicyRegistration_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -66,16 +66,14 @@ namespace LIC_KIHD_GUI
 
         private void IDBOX_TextChanged(object sender, EventArgs e)
         {
-            string tString = IDBOX.Text;
-            if (tString.Trim() == "") return;
-            for (int i = 0; i < tString.Length; i++)
+            try
             {
-                if (!char.IsNumber(tString[i]))
-                {
-                    MessageBox.Show("Please enter a valid information");
-                    IDBOX.Text = "";
-                    return;
-                }
+                int i = Int32.Parse(IDBOX.Text.Trim());
+                errorProvider1.SetError(IDBOX, "");
+            }
+            catch
+            {
+                errorProvider1.SetError(IDBOX, "Please enter a valid ID！");
             }
         }
 
@@ -87,9 +85,12 @@ namespace LIC_KIHD_GUI
             {
                 if (!char.IsLetter(tString[i]))
                 {
-                    MessageBox.Show("Please enter a valid information");
-                    FNameBox.Text = "";
+                    errorProvider1.SetError(FNameBox, "Please enter a valid information");//MessageBox.Show("Please enter a valid information");     
                     return;
+                }
+                else
+                {
+                    errorProvider1.SetError(FNameBox, "");
                 }
             }
         }
@@ -102,24 +103,30 @@ namespace LIC_KIHD_GUI
             {
                 if (!char.IsLetter(tString[i]))
                 {
-                    MessageBox.Show("Please enter a valid information");
-                    LNameBox.Text = "";
+                    errorProvider1.SetError(LNameBox, "Please enter a valid information");//MessageBox.Show("Please enter a valid information");     
                     return;
+                }
+                else
+                {
+                    errorProvider1.SetError(LNameBox, "");
                 }
             }
         }
 
         private void UserNameBox_TextChanged(object sender, EventArgs e)
         {
-            string tString = LNameBox.Text;
+            string tString = UserNameBox.Text;
             if (tString.Trim() == "") return;
             for (int i = 0; i < tString.Length; i++)
             {
                 if (!char.IsLetter(tString[i]))
                 {
-                    MessageBox.Show("Please enter a valid information");
-                    LNameBox.Text = "";
+                    errorProvider1.SetError(UserNameBox, "Please enter a valid information");//MessageBox.Show("Please enter a valid information");     
                     return;
+                }
+                else
+                {
+                    errorProvider1.SetError(UserNameBox, "");
                 }
             }
         }

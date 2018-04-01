@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,6 +46,8 @@
             this.UserNameBox = new System.Windows.Forms.TextBox();
             this.PasswordBox = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -232,6 +235,10 @@
             this.comboBox1.Size = new System.Drawing.Size(121, 30);
             this.comboBox1.TabIndex = 16;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // UserRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
@@ -259,6 +266,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UserRegister";
             this.Text = "UserRegister";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -283,5 +291,6 @@
         private System.Windows.Forms.TextBox UserNameBox;
         private System.Windows.Forms.TextBox PasswordBox;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
