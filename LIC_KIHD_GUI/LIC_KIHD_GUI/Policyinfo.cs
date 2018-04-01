@@ -21,5 +21,20 @@ namespace LIC_KIHD_GUI
         {
 
         }
+
+        private void CancelPolicyButton_Click(object sender, EventArgs e)
+        {
+            var confirmResult = MessageBox.Show("Are you sure to cancel this policy ??",
+                                     "Confirm Delete!!",
+                                     MessageBoxButtons.YesNo);
+            if (confirmResult == DialogResult.Yes)
+            {
+                MessageBox.Show("Policy has been cancelled successfully");// If 'Yes', do something here.
+            }
+            else
+            {
+
+            }
+        }
     }
 }

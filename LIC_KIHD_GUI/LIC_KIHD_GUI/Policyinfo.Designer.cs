@@ -321,6 +321,7 @@
             this.CancelPolicyButton.TabIndex = 9;
             this.CancelPolicyButton.Text = "Cancel Policy";
             this.CancelPolicyButton.UseVisualStyleBackColor = true;
+            this.CancelPolicyButton.Click += new System.EventHandler(this.CancelPolicyButton_Click);
             // 
             // Policyinfo
             // 

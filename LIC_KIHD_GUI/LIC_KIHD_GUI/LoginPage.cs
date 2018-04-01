@@ -35,7 +35,7 @@ namespace LIC_KIHD_GUI
                 Hide();
                 AgentSearch agent = new AgentSearch();
                 agent.Closed += (s, arges) => this.Close();
-                agent.Show();
+                agent.ShowDialog();
                 
             }
             else if (barForPassword.Text == "33" && barForID

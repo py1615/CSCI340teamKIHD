@@ -86,10 +86,7 @@ namespace LIC_KIHD_GUI
 
             if (fieldFilled)
             {
-                Hide();
-                managerSearch manaSearch = new managerSearch();
-                manaSearch.Closed += (s, arges) => this.Close();
-                manaSearch.Show();
+                this.DialogResult = DialogResult.OK;
             }
             else
             {

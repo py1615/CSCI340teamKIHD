@@ -36,7 +36,7 @@ namespace LIC_KIHD_GUI
             Hide();
             PolicyRegistration policyRegiser = new PolicyRegistration();
             policyRegiser.Closed += (s, arges) => this.Close();
-            policyRegiser.Show();
+            policyRegiser.ShowDialog();
         }
 
         private void saveFileDialog1_FileOk(object sender, CancelEventArgs e)
@@ -57,6 +57,11 @@ namespace LIC_KIHD_GUI
         {
             DataTable table = new DataTable();
             dataGridView1.DataSource = table;
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
