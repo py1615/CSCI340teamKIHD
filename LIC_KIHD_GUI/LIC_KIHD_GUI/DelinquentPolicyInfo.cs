@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace LIC_KIHD_GUI
 {
-    public partial class Form1 : Form
+    public partial class DelinquentPolicyInfo : Form
     {
-        public Form1()
+        public DelinquentPolicyInfo()
         {
             InitializeComponent();
+        }
+
+        private void ReturnButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
