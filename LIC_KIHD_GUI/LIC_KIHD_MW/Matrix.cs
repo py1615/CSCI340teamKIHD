@@ -15,6 +15,10 @@ namespace LIC_KIHD_MW
             column = theCol;
             data = new double[row, column];
         }
+        public Matrix()
+        {
+
+        }
         public void addData(int row, int col, double data)
         {
 
