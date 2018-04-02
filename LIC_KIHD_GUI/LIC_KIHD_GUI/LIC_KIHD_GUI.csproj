@@ -150,5 +150,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <Import Project="..\LIC_KIHD_MW\LIC_KIHD_MW.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

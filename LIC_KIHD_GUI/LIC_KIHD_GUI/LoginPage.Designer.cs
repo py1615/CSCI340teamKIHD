@@ -51,8 +51,8 @@
             // loginButton
             // 
             this.loginButton.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginButton.Location = new System.Drawing.Point(561, 419);
-            this.loginButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.loginButton.Location = new System.Drawing.Point(558, 447);
+            this.loginButton.Margin = new System.Windows.Forms.Padding(4);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(87, 43);
             this.loginButton.TabIndex = 1;
@@ -63,8 +63,8 @@
             // cancelButton
             // 
             this.cancelButton.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelButton.Location = new System.Drawing.Point(656, 419);
-            this.cancelButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cancelButton.Location = new System.Drawing.Point(654, 447);
+            this.cancelButton.Margin = new System.Windows.Forms.Padding(4);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(81, 43);
             this.cancelButton.TabIndex = 2;
@@ -99,7 +99,7 @@
             // 
             this.barForID.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.barForID.Location = new System.Drawing.Point(561, 274);
-            this.barForID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.barForID.Margin = new System.Windows.Forms.Padding(4);
             this.barForID.Name = "barForID";
             this.barForID.Size = new System.Drawing.Size(174, 30);
             this.barForID.TabIndex = 5;
@@ -108,8 +108,8 @@
             // barForPassword
             // 
             this.barForPassword.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.barForPassword.Location = new System.Drawing.Point(561, 368);
-            this.barForPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.barForPassword.Location = new System.Drawing.Point(558, 367);
+            this.barForPassword.Margin = new System.Windows.Forms.Padding(4);
             this.barForPassword.Name = "barForPassword";
             this.barForPassword.Size = new System.Drawing.Size(174, 30);
             this.barForPassword.TabIndex = 6;
@@ -130,7 +130,7 @@
             this.Controls.Add(this.loginButton);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "loginPage";
             this.Text = "LIC";
             this.ResumeLayout(false);

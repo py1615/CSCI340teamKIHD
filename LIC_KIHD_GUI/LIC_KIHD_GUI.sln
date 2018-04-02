@@ -10,6 +10,7 @@ EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		LIC_KIHD_MW\LIC_KIHD_MW.projitems*{8696ec91-2141-4330-ad49-cab61fbc05bb}*SharedItemsImports = 13
+		LIC_KIHD_MW\LIC_KIHD_MW.projitems*{fc6ce755-f84a-483c-9a79-1ec8be24eb72}*SharedItemsImports = 4
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
