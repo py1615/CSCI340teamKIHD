@@ -23,11 +23,24 @@ namespace LIC_KIHD_MW
         }
         public static Boolean login(string userName, string passWord)
         {
-            String connectionString = Properties.Settings.Default.SQLConnection;
+            /*
+             * there are 2 ways to connect with SQL Server:
+             * (1) using the Windows account of the current user, called "Integrated security".
+             * (2) using a SQL account with a password, called "SQL Server authentication".
+             * 
+             * In a SQL connection string, we list the following information:
+             * Initial Catalog = name of database
+             * Data Source = name of server machine, which can be a networked machine or URL
+            */
+            String connectionString = "DATABASE" + "\\" + "CSCI3400011030";//"Initial Catalog=Restaurant;Data Source=SROSEN-LT-5000;" + "Integrated Security=False;user='middleware';pwd='password'";
             SqlConnection conn = new SqlConnection(connectionString);
             //String query = "";
 
-            //insert catch here
+
+
+            //insert catch here <----------------------------------------------------------------------------------------------------DO THIS!
+
+
 
             //SqlCommand cmd = new SqlCommand(query);
             //cmd.Connection = conn;
