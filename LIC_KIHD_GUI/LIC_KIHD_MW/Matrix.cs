@@ -43,7 +43,7 @@ namespace LIC_KIHD_MW
         }
         public Matrix multiplication(Matrix m, Matrix n)
         {
-            Matrix value = new Matrix();
+            Matrix value = new Matrix(m.row, m.column);
             return value;
         }
         public Matrix transpose()

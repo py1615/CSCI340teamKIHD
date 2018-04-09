@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Data.SqlClient;
 
 namespace LIC_KIHD_MW
 {
@@ -25,11 +26,20 @@ namespace LIC_KIHD_MW
         {
 
         }
-        public void cancel(Policy policy)
+        public void Cancel(Policy policy)
         {
-
+            String connectionString = "Data Source=DATABASE" + "\\" + "CSCI3400011030;Initial Catalog=LIC_KIHD;"
+        + "Integrated Security=false;user='LIC_KIHD_MW';pwd='KIHD';";
+            SqlConnection conn = new SqlConnection(connectionString);
+            String policyNumber = policy.policyNum;
+            String query = "update Policy set policy_status = 'cancel' where policy_no = '" + policyNumber + "'";
+            SqlCommand command = new SqlCommand(query);
+            command.Connection = conn;
+            conn.Open();
+            command.ExecuteNonQuery();
+            conn.Close();
         }
-        public void makeClaim(Policy policy)
+        public void MakeClaim(Policy policy)
         {
 
         }
@@ -38,12 +48,12 @@ namespace LIC_KIHD_MW
             Report rept = new Report();
             return rept;
         }
-        public double calculatePremium(Policy policy)
+        public double CalculatePremium(Policy policy)
         {
             double result = 0;
             return result;
         }
-        private double predictAgeAtDeath(Matrix D, Matrix y)
+        private double PredictAgeAtDeath(Matrix D, Matrix y)
         {
             double age = 0;
             return age;

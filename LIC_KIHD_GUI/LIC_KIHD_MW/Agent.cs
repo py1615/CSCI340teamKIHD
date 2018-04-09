@@ -58,6 +58,14 @@ namespace LIC_KIHD_MW
             if (reader.Read())
             {
                 conn.Close();
+                /*
+                String query1 = "select manager from agent where userName = '" + userName + "'";
+                SqlCommand cmd = new SqlCommand(query1);
+                cmd.Connection = conn;
+                conn.Open();
+                SqlDataReader rdr = cmd.ExecuteReader();
+                if (reader.Read()) ;
+                */
                 return true;
             } else
             {
