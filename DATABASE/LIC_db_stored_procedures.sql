@@ -32,7 +32,7 @@ agent_id,
 payoff_amount,
 monthly_premium)
 SELECT *
-FROM dbo.policy
+FROM dbo.client_policy
 WHERE policy_number = @policy_number
 END
 GO
