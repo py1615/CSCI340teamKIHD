@@ -40,12 +40,12 @@ namespace LIC_KIHD_MW
         }
         public double calculatePremium(Policy policy)
         {
-            double result;
+            double result = 0;
             return result;
         }
         private double predictAgeAtDeath(Matrix D, Matrix y)
         {
-            double age;
+            double age = 0;
             return age;
         }
     }
