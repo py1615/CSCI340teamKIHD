@@ -21,7 +21,7 @@ namespace LIC_KIHD_MW
             Policy client = new Policy();
             return client;
         }
-        public static Boolean login(string userName, string passWord)
+        public static string login(string userName, string passWord)
         {
             /*
              * there are 2 ways to connect with SQL Server:
@@ -39,9 +39,16 @@ namespace LIC_KIHD_MW
             //String query = "";
 
 
-
+            if(userName.Contains(" ") || userName.Contains("'"))
+            {
+                return false;
+            }
+            if(passWord.Contains(" ") || passWord.Contains("'"))
+            {
+                return false;
+            }
             //insert catch here <----------------------------------------------------------------------------------------------------DO THIS!
-
+            
 
 
             //SqlCommand cmd = new SqlCommand(query);
@@ -49,29 +56,14 @@ namespace LIC_KIHD_MW
             //conn.Open();
             //cmd.ExecuteNonQuery();
             //conn.Close();
-            String query = "execute get_login '" + userName + "', '" + passWord + "'";
+            string query = "execute get_login '" + userName + "', '" + passWord + "'";
             SqlCommand command = new SqlCommand(query);
             command.Connection = conn;
             conn.Open();
             SqlDataReader reader = command.ExecuteReader();
-
-            if (reader.Read())
-            {
-                conn.Close();
-                /*
-                String query1 = "select manager from agent where userName = '" + userName + "'";
-                SqlCommand cmd = new SqlCommand(query1);
-                cmd.Connection = conn;
-                conn.Open();
-                SqlDataReader rdr = cmd.ExecuteReader();
-                if (reader.Read()) ;
-                */
-                return true;
-            } else
-            {
-                conn.Close();
-                return false;
-            }
+            string userType = reader.Read();
+            conn.Close();
+            return userType;
         }
         public void logout()
         {

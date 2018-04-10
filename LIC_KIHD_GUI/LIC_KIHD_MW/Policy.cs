@@ -32,7 +32,7 @@ namespace LIC_KIHD_MW
         + "Integrated Security=false;user='LIC_KIHD_MW';pwd='KIHD';";
             SqlConnection conn = new SqlConnection(connectionString);
             String policyNumber = policy.policyNum;
-            String query = "update Policy set policy_status = 'cancel' where policy_no = '" + policyNumber + "'";
+            String query = "execute cancel '" + policyNumber + "'";
             SqlCommand command = new SqlCommand(query);
             command.Connection = conn;
             conn.Open();
