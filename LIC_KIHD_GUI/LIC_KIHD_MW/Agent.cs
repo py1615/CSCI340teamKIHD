@@ -39,13 +39,13 @@ namespace LIC_KIHD_MW
             //String query = "";
 
 
-            if(userName.Contains(" ") || userName.Contains("'"))
+            if(userName.Contains("'"))
             {
-                return false;
+                return "";
             }
-            if(passWord.Contains(" ") || passWord.Contains("'"))
+            if(passWord.Contains("'"))
             {
-                return false;
+                return "";
             }
             //insert catch here <----------------------------------------------------------------------------------------------------DO THIS!
             
