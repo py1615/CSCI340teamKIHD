@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace LIC_KIHD_GUI
 {
@@ -53,6 +54,7 @@ namespace LIC_KIHD_GUI
 
             if (fieldFilled)
             {
+
                 Hide();
                 managerSearch manaSearch = new managerSearch();
                 manaSearch.Closed += (s, arges) => this.Close();
@@ -134,6 +136,15 @@ namespace LIC_KIHD_GUI
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            String connectionString = "Data Source=DATABASE" + "\\" + "CSCI3400011030;Initial Catalog=LIC_KIHD;"
+       + "Integrated Security=false;user='LIC_KIHD_MW';pwd='KIHD';";
+            SqlConnection conn = new SqlConnection(connectionString);
+            string ID = "";
+            IDBOX.Text = ID;
         }
     }
 }

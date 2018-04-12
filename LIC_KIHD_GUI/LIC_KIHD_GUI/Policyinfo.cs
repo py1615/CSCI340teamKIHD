@@ -14,7 +14,9 @@ namespace LIC_KIHD_GUI
     {
         public Policyinfo()
         {
+
             InitializeComponent();
+            
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -29,12 +31,18 @@ namespace LIC_KIHD_GUI
                                      MessageBoxButtons.YesNo);
             if (confirmResult == DialogResult.Yes)
             {
+                //LIC_KIHD_MW.Policy.Cancel();
                 MessageBox.Show("Policy has been cancelled successfully");// If 'Yes', do something here.
             }
             else
             {
 
             }
+        }
+
+        private void Policyinfo_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }
