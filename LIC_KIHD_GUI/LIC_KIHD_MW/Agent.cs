@@ -7,10 +7,19 @@ namespace LIC_KIHD_MW
 {
     class Agent
     {
+        private string agentID;
         private string firstName;
         private string lastName;
         private string department;
-        private string agentName;
+        private char agentType;
+        public Agent(string theAgentID, string theFirstName, string theLastName, string theDepartment, char theAgentType)
+        {
+            agentID = theAgentID;
+            firstName = theFirstName;
+            lastName = theLastName;
+            department = theDepartment;
+            agentType = theAgentType;
+        }
         public List<Policy> search(string name, Boolean delinquent = false)
         {
             List<Policy> policies = new List<Policy>();
