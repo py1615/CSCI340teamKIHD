@@ -13,13 +13,13 @@ namespace LIC_KIHD_MW
         private string department;
         private string agentType;*/
         public Manager(string theAgentID, string theFirstName, string theLastName, string theDepartment, 
-            char theAgentType, string userName, string passWord) : base(theAgentID, theFirstName, theLastName, theDepartment, theAgentType)
+            string theAgentType, string userName, string passWord) : base(theAgentID, theFirstName, theLastName, theDepartment, theAgentType)
         {
             string agentID = theAgentID;
             string firstName = theFirstName;
             string lastName = theLastName;
             string department = theDepartment;
-            char agentType = theAgentType;
+            string agentType = theAgentType;
             string id = userName;
             string psw = passWord;
             String connectionString = "Data Source=DATABASE" + "\\" + "CSCI3400011030;Initial Catalog=LIC_KIHD;"

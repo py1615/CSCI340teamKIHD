@@ -29,8 +29,7 @@ namespace LIC_KIHD_GUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-            if (LIC_KIHD_MW.Agent.login(barForID.Text, barForPassword.Text)== 'A') // Agent access the search page// made up id and pw
+            if (LIC_KIHD_MW.Agent.login(barForID.Text, barForPassword.Text)== "A") // Agent access the search page// made up id and pw
             {
                 Hide();
                 AgentSearch agent = new AgentSearch();
@@ -38,7 +37,7 @@ namespace LIC_KIHD_GUI
                 agent.ShowDialog();
                 
             }
-            else if (LIC_KIHD_MW.Manager.login(barForID.Text, barForPassword.Text)=='M')
+            else if (LIC_KIHD_MW.Manager.login(barForID.Text, barForPassword.Text)=="M")
             {
                 managerSearch agent = new managerSearch();
                 agent.Closed += (s, arges) => this.Close();

@@ -11,8 +11,8 @@ namespace LIC_KIHD_MW
         private string firstName;
         private string lastName;
         private string department;
-        private char agentType;
-        public Agent(string theAgentID, string theFirstName, string theLastName, string theDepartment, char theAgentType)
+        private string agentType;
+        public Agent(string theAgentID, string theFirstName, string theLastName, string theDepartment, string theAgentType)
         {
             agentID = theAgentID;
             firstName = theFirstName;
@@ -30,7 +30,7 @@ namespace LIC_KIHD_MW
             Policy client = new Policy();
             return client;
         }
-        public static char login(string userName, string passWord)
+        public static string login(string userName, string passWord)
         {
             /*
              * there are 2 ways to connect with SQL Server:
@@ -50,11 +50,11 @@ namespace LIC_KIHD_MW
 
             if(userName.Contains("'"))
             {
-                return '\0';
+                return "";
             }
             if(passWord.Contains("'"))
             {
-                return '\0';
+                return "";
             }
             //insert catch here <----------------------------------------------------------------------------------------------------DO THIS!
             
@@ -70,9 +70,14 @@ namespace LIC_KIHD_MW
             command.Connection = conn;
             conn.Open();
             SqlDataReader reader = command.ExecuteReader();
-            //char userType = reader.GetChars(reader.GetOrdinal("user_type"));
+            string userType = "";
+            userType = "";
+            if(reader.Read())
+            {
+                userType = reader.GetString(reader.GetOrdinal("user_type"));
+            }
             conn.Close();
-            return 'M';
+            return userType;
         }
         public void logout()
         {
