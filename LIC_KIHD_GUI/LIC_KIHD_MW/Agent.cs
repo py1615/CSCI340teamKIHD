@@ -30,7 +30,7 @@ namespace LIC_KIHD_MW
             Policy client = new Policy();
             return client;
         }
-        public static string login(string userName, string passWord)
+        public static char login(string userName, string passWord)
         {
             /*
              * there are 2 ways to connect with SQL Server:
@@ -50,11 +50,11 @@ namespace LIC_KIHD_MW
 
             if(userName.Contains("'"))
             {
-                return "";
+                return '\0';
             }
             if(passWord.Contains("'"))
             {
-                return "";
+                return '\0';
             }
             //insert catch here <----------------------------------------------------------------------------------------------------DO THIS!
             
@@ -70,9 +70,9 @@ namespace LIC_KIHD_MW
             command.Connection = conn;
             conn.Open();
             SqlDataReader reader = command.ExecuteReader();
-            string userType = reader.Read();
+            //char userType = reader.GetChars(reader.GetOrdinal("user_type"));
             conn.Close();
-            return userType;
+            return 'M';
         }
         public void logout()
         {
