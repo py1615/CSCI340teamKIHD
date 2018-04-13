@@ -230,6 +230,15 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Obfuscation",
+            "Finance",
+            "Legal",
+            "Macekting",
+            "Human Resource",
+            "Sales",
+            "Claims",
+            "Customer Service"});
             this.comboBox1.Location = new System.Drawing.Point(634, 503);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 27);
