@@ -46,9 +46,9 @@ namespace LIC_KIHD_GUI
 
         private void UserRegistrationButton_Click(object sender, EventArgs e)
         {
-            Hide();
+            
             UserRegister register = new UserRegister();
-            register.Closed += (s, arges) => this.Close();
+           
             register.Show();
             
         }

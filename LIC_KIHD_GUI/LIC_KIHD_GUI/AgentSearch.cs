@@ -53,6 +53,8 @@ namespace LIC_KIHD_GUI
         private void agentSearchButton_Click(object sender, EventArgs e)
         {
             DataTable table = new DataTable();
+            //List<LIC_KIHD_MW.Policy> policy = LIC_KIHD_MW.Agent.search(policyNumBox.Text, false);
+
             dataGridView1.DataSource = table;
         }
     }

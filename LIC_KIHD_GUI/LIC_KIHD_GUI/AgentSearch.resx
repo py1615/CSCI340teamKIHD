@@ -122,14 +122,10 @@
     <value>Times New Roman, 12pt</value>
   </data>
   <data name="registrationButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>789, 18</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="registrationButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>646, 16</value>
   </data>
   <data name="registrationButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 48</value>
+    <value>151, 41</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="registrationButton.TabIndex" type="System.Int32, mscorlib">
@@ -154,13 +150,10 @@
     <value>Times New Roman, 12pt</value>
   </data>
   <data name="searchButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>982, 18</value>
-  </data>
-  <data name="searchButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>803, 16</value>
   </data>
   <data name="searchButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 48</value>
+    <value>84, 41</value>
   </data>
   <data name="searchButton.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -184,13 +177,10 @@
     <value>Times New Roman, 12pt</value>
   </data>
   <data name="logOutButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1093, 18</value>
-  </data>
-  <data name="logOutButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>894, 16</value>
   </data>
   <data name="logOutButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 48</value>
+    <value>84, 41</value>
   </data>
   <data name="logOutButton.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -210,6 +200,7 @@
   <data name="&gt;&gt;logOutButton.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="searchTitle.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
@@ -220,13 +211,10 @@
     <value>Times New Roman, 19.8000011pt</value>
   </data>
   <data name="searchTitle.Location" type="System.Drawing.Point, System.Drawing">
-    <value>481, 110</value>
-  </data>
-  <data name="searchTitle.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>394, 95</value>
   </data>
   <data name="searchTitle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>207, 39</value>
+    <value>166, 31</value>
   </data>
   <data name="searchTitle.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -253,13 +241,10 @@
     <value>Times New Roman, 12pt</value>
   </data>
   <data name="policyNumber.Location" type="System.Drawing.Point, System.Drawing">
-    <value>359, 208</value>
-  </data>
-  <data name="policyNumber.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>294, 180</value>
   </data>
   <data name="policyNumber.Size" type="System.Drawing.Size, System.Drawing">
-    <value>135, 22</value>
+    <value>103, 19</value>
   </data>
   <data name="policyNumber.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -289,13 +274,10 @@
     <value>NoControl</value>
   </data>
   <data name="ClientName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>359, 278</value>
-  </data>
-  <data name="ClientName.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>294, 240</value>
   </data>
   <data name="ClientName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>115, 22</value>
+    <value>88, 19</value>
   </data>
   <data name="ClientName.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -315,71 +297,62 @@
   <data name="&gt;&gt;ClientName.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="textBox1.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="policyNumBox.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 12pt</value>
   </data>
-  <data name="textBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>553, 208</value>
+  <data name="policyNumBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>452, 180</value>
   </data>
-  <data name="textBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+  <data name="policyNumBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>197, 26</value>
   </data>
-  <data name="textBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>240, 30</value>
-  </data>
-  <data name="textBox1.TabIndex" type="System.Int32, mscorlib">
+  <data name="policyNumBox.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
-  <data name="&gt;&gt;textBox1.Name" xml:space="preserve">
-    <value>textBox1</value>
+  <data name="&gt;&gt;policyNumBox.Name" xml:space="preserve">
+    <value>policyNumBox</value>
   </data>
-  <data name="&gt;&gt;textBox1.Type" xml:space="preserve">
+  <data name="&gt;&gt;policyNumBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;textBox1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;policyNumBox.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;textBox1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;policyNumBox.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="textBox2.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="clientNameBox.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 12pt</value>
   </data>
-  <data name="textBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>553, 278</value>
+  <data name="clientNameBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>452, 240</value>
   </data>
-  <data name="textBox2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+  <data name="clientNameBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>197, 26</value>
   </data>
-  <data name="textBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>240, 30</value>
-  </data>
-  <data name="textBox2.TabIndex" type="System.Int32, mscorlib">
+  <data name="clientNameBox.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
-  <data name="&gt;&gt;textBox2.Name" xml:space="preserve">
-    <value>textBox2</value>
+  <data name="&gt;&gt;clientNameBox.Name" xml:space="preserve">
+    <value>clientNameBox</value>
   </data>
-  <data name="&gt;&gt;textBox2.Type" xml:space="preserve">
+  <data name="&gt;&gt;clientNameBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;textBox2.Parent" xml:space="preserve">
+  <data name="&gt;&gt;clientNameBox.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;textBox2.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;clientNameBox.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="agentSearchButton.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 12pt</value>
   </data>
   <data name="agentSearchButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>359, 348</value>
-  </data>
-  <data name="agentSearchButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>294, 301</value>
   </data>
   <data name="agentSearchButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 43</value>
+    <value>84, 37</value>
   </data>
   <data name="agentSearchButton.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -400,13 +373,10 @@
     <value>1</value>
   </data>
   <data name="dataGridView1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-3, 399</value>
-  </data>
-  <data name="dataGridView1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>-2, 345</value>
   </data>
   <data name="dataGridView1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1220, 599</value>
+    <value>998, 517</value>
   </data>
   <data name="dataGridView1.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -427,16 +397,13 @@
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>11, 22</value>
+    <value>9, 19</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1213, 974</value>
+    <value>992, 841</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 12pt</value>
-  </data>
-  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>LIC</value>
