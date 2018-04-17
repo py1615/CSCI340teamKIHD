@@ -47,14 +47,14 @@ namespace LIC_KIHD_MW
             SqlConnection conn = new SqlConnection(connectionString);
             //String query = "";
 
-
+            string userType = "";
             if(userName.Contains("'"))
             {
-                return "";
+                return userType;
             }
             if(passWord.Contains("'"))
             {
-                return "";
+                return userType;
             }
             //insert catch here <----------------------------------------------------------------------------------------------------DO THIS!
             
@@ -70,8 +70,6 @@ namespace LIC_KIHD_MW
             command.Connection = conn;
             conn.Open();
             SqlDataReader reader = command.ExecuteReader();
-            string userType = "";
-            userType = "";
             if(reader.Read())
             {
                 userType = reader.GetString(reader.GetOrdinal("user_type"));
