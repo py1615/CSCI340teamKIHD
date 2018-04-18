@@ -50,40 +50,75 @@ namespace LIC_KIHD_MW
             this.data[row, col] = data;
         }
 
-        public Matrix add(Matrix m)
-        {
-            if(this.column != m.column || this.row != m.column)
+        public static Matrix operator +(Matrix m, Matrix n)
+            {
+            if(m.column != n.column || m.row != n.column)
                 {
                throw new Exception("matrices size don't match");
                 }
-            Matrix sum = new Matrix(row,column);
-            for(int i = 0; i < m.column; i++)
+            Matrix sum = new Matrix(m.row,m.column);
+            for(int i = 0; i < n.column; i++)
                 {
-                for(int j = 0; j < m.row; j++)
+                for(int j = 0; j < n.row; j++)
                     {
-                    sum.data[i,j] = this.data[i,j] + m.data[i,j];
+                    sum.data[i,j] = m.data[i,j] + n.data[i,j];
                     }
                 }  
                 return sum;
-        }
+            }
 
-        public Matrix subtract(Matrix m)
-        {
-            if(this.column != m.column || this.row != m.column)
+        public static Matrix operator -(Matrix m, Matrix n)
+            {
+            if(m.column != n.column || m.row != n.column)
                 {
                throw new Exception("matrices size don't match");
                 }
-            Matrix sum = new Matrix(row, column);
-            for(int i = 0; i < m.column; i++)
+            Matrix difference = new Matrix(m.row, m.column);
+            for(int i = 0; i < n.column; i++)
                 {
-                for(int j = 0; j < m.row; j++)
+                for(int j = 0; j < n.row; j++)
                     {
-                    sum.data[i,j] = this.data[i,j] - m.data[i,j];
+                    difference.data[i,j] = m.data[i,j] - n.data[i,j];
                     }
                 }  
-                return sum;
-        }
+                return difference;
+            }
 
+        public static Matrix operator*(Matrix m, Matrix n)
+            {
+            if(m.column != n.row)
+                {
+                 throw new Exception("matrices size don't match");
+                }
+            Matrix multiplication = new Matrix(m.row, n.column);
+            for(int i = 0; i < multiplication.row; i++)
+                {
+                for(int j = 0; j < multiplication.column; j++)
+                    {
+                    for(int k = 0; k < n.column; k++)
+                        {
+                        multiplication.data[i,j] += m.data[i,k]*n.data[k,j]; 
+                        }
+                   
+                    }
+                }
+
+            return multiplication;
+            }
+
+        public static Matrix operator*(double c, Matrix m)
+            {
+            Matrix multiplication = new Matrix(m.row, m.column);
+            for(int i = 0; i < multiplication.row; i++)
+                {
+                for(int j = 0; j < multiplication.column; j++)
+                    {
+                    multiplication.data[i,j] = c*m.data[i,j]; 
+                    }
+                }
+            return multiplication;
+            }
+       
         public Matrix transpose()
         {
             Matrix xTranspose = new Matrix(column, row);
@@ -97,88 +132,56 @@ namespace LIC_KIHD_MW
             return xTranspose;
         }
 
-        public Matrix multiply(Matrix m)
-        {
-            if(column != m.row)
-                {
-                 throw new Exception("matrices size don't match");
-                }
-            Matrix multiplication = new Matrix(row, m.column);
-            for(int i = 0; i < multiplication.row; i++)
-                {
-                for(int j = 0; j < multiplication.column; j++)
-                    {
-                    for(int k = 0; k < m.column; k++)
-                        {
-                        multiplication.data[i,j] += data[i,k]*m.data[k,j]; 
-                        }
-                   
-                    }
-                }
-
-            return multiplication;
-        }
-        
-        public Matrix multiply(double c)
-        {
-            Matrix multiplication = new Matrix(row, column);
-            for(int i = 0; i < multiplication.row; i++)
-                {
-                for(int j = 0; j < multiplication.column; j++)
-                    {
-                    
-                    multiplication.data[i,j] = c*data[i,j]; 
-                    }
-                }
-
-            return multiplication;
-        }
-
-        public Matrix invert()
-        {
-             if(row != column)
-                {
-               throw new Exception("matrice is not square");
-                }
-            Matrix inverse = new Matrix(row, column);
+        private Matrix augment()
+            {
             Matrix inverseTemp = new Matrix(row, 2*column);
             for(int i = 0; i < row; i++)
                 {
+                for(int k = 0; k < column; k++)
+                    {
+                    inverseTemp.data[i,k] = data[i,k];
+                    }
                 for(int j = column; j < 2*column; j++ )
                     {
-                    inverseTemp.data[i, j] =  0;
-                    }
-                }
-
-            Matrix tempRow1 = new Matrix(1, inverseTemp.column);
-            Matrix tempRow2 = new Matrix(1, inverseTemp.column);
-           
-            for(int i = 1; i < inverseTemp.row; i++)
-                {
-                for(int j = 0; j < inverseTemp.column; j++)
-                    {
-                    tempRow1.data[1,j] = inverseTemp.data[i-1,j];
-                    tempRow2.data[1,j] = inverse.data[i,j];
-                    double firstEntryTemp1 = tempRow1.data[1,1];
-                    double firstEntryTemp2 = tempRow2.data[1,1];
-                    if(firstEntryTemp1 != firstEntryTemp2)
+                    if(j-i == i)
                         {
-                        tempRow1 = tempRow1.multiply(firstEntryTemp2);
-                        tempRow2 = tempRow2.multiply(firstEntryTemp1);
+                        inverseTemp.data[i, j] = 1;
                         }
-                    tempRow2 = tempRow2.subtract(tempRow1);
-                    inverseTemp.data[i,j] = tempRow2.data[i,j];
-                    }                
-                }
-            for(int i = 0; i < inverse.row; i++)
-                {
-                for(int j = 0; j < inverse.column; j++)
-                    {
-                    inverse.data[i,j] = inverseTemp.data[i,inverseTemp.column + j]; 
+                    else inverseTemp.data[i, j] = 0;
                     }
                 }
-            return inverse;
-        }
-       
+            return inverseTemp;
+            }
+
+       public Matrix invert()
+       {
+             if(row != column)
+             {
+               throw new Exception("matrice is not square");
+             }
+            Matrix augmented = augment();
+            Matrix inverse = new Matrix(row, column);
+           
+            Matrix tempRow1 = new Matrix(1, augmented.column);
+            Matrix tempRow2 = new Matrix(1, augmented.column);
+            for(int i = 0; i < augmented.row; i++)
+                {
+                for(int j = 0; j < augmented.column; j++)
+                    {
+                    tempRow1.data[1,j] = augmented.data[i,j];
+                    for(int k = 0; k < augmented.row; k++)
+                        {
+                        tempRow2.data[1,j] = augmented.data[k,j];
+
+                        }
+                    
+                  
+                    }
+                }
+            
+            return inverse;        
+       }
+
+      
     }
 }
