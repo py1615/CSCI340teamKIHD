@@ -35,8 +35,8 @@
             this.searchTitle = new System.Windows.Forms.Label();
             this.policyNumber = new System.Windows.Forms.Label();
             this.ClientName = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.policyNumBox = new System.Windows.Forms.TextBox();
+            this.clientNameBox = new System.Windows.Forms.TextBox();
             this.agentSearchButton = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -78,15 +78,15 @@
             resources.ApplyResources(this.ClientName, "ClientName");
             this.ClientName.Name = "ClientName";
             // 
-            // textBox1
+            // policyNumBox
             // 
-            resources.ApplyResources(this.textBox1, "textBox1");
-            this.textBox1.Name = "textBox1";
+            resources.ApplyResources(this.policyNumBox, "policyNumBox");
+            this.policyNumBox.Name = "policyNumBox";
             // 
-            // textBox2
+            // clientNameBox
             // 
-            resources.ApplyResources(this.textBox2, "textBox2");
-            this.textBox2.Name = "textBox2";
+            resources.ApplyResources(this.clientNameBox, "clientNameBox");
+            this.clientNameBox.Name = "clientNameBox";
             // 
             // agentSearchButton
             // 
@@ -110,8 +110,8 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.agentSearchButton);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.clientNameBox);
+            this.Controls.Add(this.policyNumBox);
             this.Controls.Add(this.ClientName);
             this.Controls.Add(this.policyNumber);
             this.Controls.Add(this.searchTitle);
@@ -134,8 +134,8 @@
         private System.Windows.Forms.Label searchTitle;
         private System.Windows.Forms.Label policyNumber;
         private System.Windows.Forms.Label ClientName;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox policyNumBox;
+        private System.Windows.Forms.TextBox clientNameBox;
         private System.Windows.Forms.Button agentSearchButton;
         private System.Windows.Forms.DataGridView dataGridView1;
     }

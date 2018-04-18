@@ -7,12 +7,13 @@ namespace LIC_KIHD_MW
 {
     class Policy
     {
+        private PolicyHolder insured;
         private string policyNum;
         private double payoffAmount;
         private Agent agent;
-        private double duration;
+        //private double duration;
         private Beneficiary beneficiary;
-        private double fartherDeathAge;
+        private double fatherDeathAge;
         private double motherDeathAge;
         private double cigsPerDay;
         private double smokingHistory;
@@ -22,9 +23,29 @@ namespace LIC_KIHD_MW
         private Boolean cancer;
         private Boolean hospitalized;
         private string dangerousAct;
-        public Policy()
+        public Policy(PolicyHolder theInsured, double thePayOffAmount, double theFatherDeathAge, double theMotherDeathAge,
+            double theCigsPerDay, double theSmokingHistory, double theBloodPressure, double theGramsFatPerDay, Boolean theHeartDisease,
+            Boolean theCancer, Boolean theHospitalized, string theDangerousAct, Beneficiary theHeir, Agent theAgent)
         {
-
+            insured = theInsured;
+            payoffAmount = thePayOffAmount;
+            agent = theAgent;
+            beneficiary = theHeir;
+            fatherDeathAge = theFatherDeathAge;
+            motherDeathAge = theMotherDeathAge;
+            cigsPerDay = theCigsPerDay;
+            smokingHistory = theSmokingHistory;
+            bloodPressure = theBloodPressure;
+            gramsFatPerDay = theGramsFatPerDay;
+            heartDisease = theHeartDisease;
+            cancer = theCancer;
+            hospitalized = theHospitalized;
+            dangerousAct = theDangerousAct;
+            policyNum = PolicyNumReg();
+        }
+        public String PolicyNumReg()
+        {
+            return "";
         }
         public void Cancel(Policy policy)
         {

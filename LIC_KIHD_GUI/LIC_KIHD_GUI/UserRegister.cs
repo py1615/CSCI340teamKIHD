@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace LIC_KIHD_GUI
 {
@@ -18,6 +19,13 @@ namespace LIC_KIHD_GUI
             .Controls
             .Cast<Control>().SelectMany(x => GetControls(x))
             .Concat(control.Controls.Cast<Control>());
+        private string userType;
+        private string ID;
+        private string FirstName;
+        private string LastName;
+        private string Department;
+        private string Username;
+        private string password;
 
         public UserRegister()
         {
@@ -32,12 +40,15 @@ namespace LIC_KIHD_GUI
         private void UtYes_CheckedChanged(object sender, EventArgs e)
         {
             Manager.Checked = !Agent.Checked;
+            userType = "A";
         }
 
         private void UtNo_CheckedChanged(object sender, EventArgs e)
         {
             Agent.Checked = !Manager.Checked;
+            userType = "M";
         }
+
 
         private void Submit_Click(object sender, EventArgs e)
         {
@@ -52,8 +63,10 @@ namespace LIC_KIHD_GUI
                 }
             }
 
-            if (fieldFilled)
+            if (fieldFilled && comboBox1.SelectedIndex > -1)
             {
+                
+                LIC_KIHD_MW.Manager agentRegister = new LIC_KIHD_MW.Manager(IDBOX.Text, FNameBox.Text, LNameBox.Text, userType, comboBox1.Text, UserNameBox.Text, PasswordBox.Text);
                 Hide();
                 managerSearch manaSearch = new managerSearch();
                 manaSearch.Closed += (s, arges) => this.Close();
@@ -130,6 +143,20 @@ namespace LIC_KIHD_GUI
                     errorProvider1.SetError(UserNameBox, "");
                 }
             }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            String connectionString = "Data Source=DATABASE" + "\\" + "CSCI3400011030;Initial Catalog=LIC_KIHD;"
+       + "Integrated Security=false;user='LIC_KIHD_MW';pwd='KIHD';";
+            SqlConnection conn = new SqlConnection(connectionString);
+            string ID = "";
+            IDBOX.Text = ID;
         }
     }
 }

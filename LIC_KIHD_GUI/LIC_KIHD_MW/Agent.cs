@@ -7,10 +7,19 @@ namespace LIC_KIHD_MW
 {
     class Agent
     {
+        private string agentID;
         private string firstName;
         private string lastName;
         private string department;
-        private string agentName;
+        private string agentType;
+        public Agent(string theAgentID, string theFirstName, string theLastName, string theDepartment, string theAgentType)
+        {
+            agentID = theAgentID;
+            firstName = theFirstName;
+            lastName = theLastName;
+            department = theDepartment;
+            agentType = theAgentType;
+        }
         public List<Policy> search(string name, Boolean delinquent = false)
         {
             List<Policy> policies = new List<Policy>();
@@ -38,14 +47,14 @@ namespace LIC_KIHD_MW
             SqlConnection conn = new SqlConnection(connectionString);
             //String query = "";
 
-
+            string userType = "";
             if(userName.Contains("'"))
             {
-                return "";
+                return userType;
             }
             if(passWord.Contains("'"))
             {
-                return "";
+                return userType;
             }
             //insert catch here <----------------------------------------------------------------------------------------------------DO THIS!
             
@@ -61,7 +70,10 @@ namespace LIC_KIHD_MW
             command.Connection = conn;
             conn.Open();
             SqlDataReader reader = command.ExecuteReader();
-            string userType = reader.Read();
+            if(reader.Read())
+            {
+                userType = reader.GetString(reader.GetOrdinal("user_type"));
+            }
             conn.Close();
             return userType;
         }
