@@ -159,20 +159,24 @@ namespace LIC_KIHD_MW
              {
                throw new Exception("matrice is not square");
              }
-             Matrix inverse = new Matrix (row , column);
+            Matrix inverse = new Matrix (row , column);
             Matrix augmented = augment();
-            double multiplicand;
+            double subtract;
+            double subtractor;
             for(int i = 0; i < augmented.row; i++)
                 {
                 for(int j = 0; j < augmented.column; j++)
                     {
                     if(augmented.data[i,i]!=augmented.data[i+j,i])
                         {
-                        multiplicand = augmented.data[i,i]*augmented.data[i+j,i];
+                        subtract = augmented.data[i,i] * augmented.data[i+j,j];
+                        subtractor = augmented.data[i+j,i]* augmented.data[i,j];
                         }
-                    else multiplicand = augmented.data[i,i];
-                    double subtract = multiplicand * augmented.data[i+j,j];
-                    double subtractor = multiplicand * augmented.data[i,j];
+                    else
+                        {
+                        subtract = augmented.data[i+j,j];
+                        subtractor = augmented.data[i,j];
+                        }
                     augmented.data[i+j,j] = subtract - subtractor;
                     }
                 }
@@ -181,13 +185,16 @@ namespace LIC_KIHD_MW
                 {
                 for(int j = augmented.column - 1; j > 0; j--)
                     {
-                    if(augmented.data[i,i]!=augmented.data[i+j,i])
+                    if(augmented.data[i,i]!=augmented.data[i-j,i])
                         {
-                        multiplicand = augmented.data[i,i]*augmented.data[i-j,i];
+                        subtract = augmented.data[i,i] * augmented.data[i-j,j];
+                        subtractor = augmented.data[i-j,i]* augmented.data[i,j];
                         }
-                    else multiplicand = augmented.data[i,i];
-                    double subtract = multiplicand * augmented.data[i-j,j];
-                    double subtractor = multiplicand * augmented.data[i,j];
+                    else
+                        {
+                        subtract = augmented.data[i-j,j];
+                        subtractor = augmented.data[i,j];
+                        }
                     augmented.data[i-j,j] = subtract - subtractor;
                     }
                 }
