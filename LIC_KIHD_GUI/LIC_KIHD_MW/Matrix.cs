@@ -134,23 +134,23 @@ namespace LIC_KIHD_MW
 
         private Matrix augment()
             {
-            Matrix inverseTemp = new Matrix(row, 2*column);
+            Matrix augmentedMatrix = new Matrix(row, 2*column);
             for(int i = 0; i < row; i++)
                 {
                 for(int k = 0; k < column; k++)
                     {
-                    inverseTemp.data[i,k] = data[i,k];
+                    augmentedMatrix.data[i,k] = data[i,k];
                     }
                 for(int j = column; j < 2*column; j++ )
                     {
                     if(j-i == i)
                         {
-                        inverseTemp.data[i, j] = 1;
+                        augmentedMatrix.data[i, j] = 1;
                         }
-                    else inverseTemp.data[i, j] = 0;
+                    else augmentedMatrix.data[i, j] = 0;
                     }
                 }
-            return inverseTemp;
+            return augmentedMatrix;
             }
 
        public Matrix invert()
@@ -159,27 +159,51 @@ namespace LIC_KIHD_MW
              {
                throw new Exception("matrice is not square");
              }
+             Matrix inverse = new Matrix (row , column);
             Matrix augmented = augment();
-            Matrix inverse = new Matrix(row, column);
-           
-            Matrix tempRow1 = new Matrix(1, augmented.column);
-            Matrix tempRow2 = new Matrix(1, augmented.column);
+            double multiplicand;
             for(int i = 0; i < augmented.row; i++)
                 {
                 for(int j = 0; j < augmented.column; j++)
                     {
-                    tempRow1.data[1,j] = augmented.data[i,j];
-                    for(int k = 0; k < augmented.row; k++)
+                    if(augmented.data[i,i]!=augmented.data[i+j,i])
                         {
-                        tempRow2.data[1,j] = augmented.data[k,j];
-
+                        multiplicand = augmented.data[i,i]*augmented.data[i+j,i];
                         }
-                    
-                  
+                    else multiplicand = augmented.data[i,i];
+                    double subtract = multiplicand * augmented.data[i+j,j];
+                    double subtractor = multiplicand * augmented.data[i,j];
+                    augmented.data[i+j,j] = subtract - subtractor;
                     }
                 }
             
-            return inverse;        
+            for(int i = augmented.row - 1; i > 0 ; i--)
+                {
+                for(int j = augmented.column - 1; j > 0; j--)
+                    {
+                    if(augmented.data[i,i]!=augmented.data[i+j,i])
+                        {
+                        multiplicand = augmented.data[i,i]*augmented.data[i-j,i];
+                        }
+                    else multiplicand = augmented.data[i,i];
+                    double subtract = multiplicand * augmented.data[i-j,j];
+                    double subtractor = multiplicand * augmented.data[i,j];
+                    augmented.data[i-j,j] = subtract - subtractor;
+                    }
+                }
+
+            for(int i = 0; i < inverse.row; i++)
+                {
+                for(int j = 0; j < inverse.column; j++)
+                    {
+                    inverse.data[i,j] = augmented.data[i, inverse.column+j];
+                    }
+                }
+            return inverse;    
+
+            
+            
+                
        }
 
       
