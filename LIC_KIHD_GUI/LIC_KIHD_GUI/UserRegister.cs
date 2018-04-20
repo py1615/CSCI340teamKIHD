@@ -67,10 +67,10 @@ namespace LIC_KIHD_GUI
             {
                 
                 LIC_KIHD_MW.Manager agentRegister = new LIC_KIHD_MW.Manager(IDBOX.Text, FNameBox.Text, LNameBox.Text, userType, comboBox1.Text, UserNameBox.Text, PasswordBox.Text);
-                Hide();
+                
                 managerSearch manaSearch = new managerSearch();
                 manaSearch.Closed += (s, arges) => this.Close();
-                manaSearch.Show();
+                
             }
             else
             {
@@ -80,15 +80,25 @@ namespace LIC_KIHD_GUI
 
         private void IDBOX_TextChanged(object sender, EventArgs e)
         {
-            try
+            string tString = IDBOX.Text;
+            if (tString.Trim() == "") return;
+            for (int i = 0; i < tString.Length; i++)
             {
-                int i = Int32.Parse(IDBOX.Text.Trim());
-                errorProvider1.SetError(IDBOX, "");
+                if (!char.IsNumber(tString[i]))
+                {
+                    errorProvider1.SetError(IDBOX, "Please enter a valid information");//MessageBox.Show("Please enter a valid information");     
+              
+                }
+                else if (string.IsNullOrEmpty(tString))
+                {
+                    errorProvider1.SetError(IDBOX, "");
+                }
+                else
+                {
+                    errorProvider1.SetError(IDBOX, "");
+                }
             }
-            catch
-            {
-                errorProvider1.SetError(IDBOX, "Please enter a valid ID！");
-            }
+         
         }
 
         private void FNameBox_TextChanged(object sender, EventArgs e)
@@ -120,10 +130,11 @@ namespace LIC_KIHD_GUI
                     errorProvider1.SetError(LNameBox, "Please enter a valid information");//MessageBox.Show("Please enter a valid information");     
                     return;
                 }
-                else
+                else if(string.IsNullOrEmpty(tString))
                 {
                     errorProvider1.SetError(LNameBox, "");
                 }
+                
             }
         }
 
@@ -133,12 +144,12 @@ namespace LIC_KIHD_GUI
             if (tString.Trim() == "") return;
             for (int i = 0; i < tString.Length; i++)
             {
-                if (!char.IsLetter(tString[i]))
+                if (char.IsLetter(tString[i]))
                 {
                     errorProvider1.SetError(UserNameBox, "Please enter a valid information");//MessageBox.Show("Please enter a valid information");     
-                    return;
+                    
                 }
-                else
+                else if (string.IsNullOrEmpty(tString))
                 {
                     errorProvider1.SetError(UserNameBox, "");
                 }
@@ -163,5 +174,6 @@ namespace LIC_KIHD_GUI
         {
 
         }
+        
     }
 }

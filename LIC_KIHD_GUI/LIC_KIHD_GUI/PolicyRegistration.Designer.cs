@@ -75,6 +75,8 @@
             this.textBox17 = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,7 +93,7 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(268, 993);
+            this.label24.Location = new System.Drawing.Point(268, 1033);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(151, 19);
             this.label24.TabIndex = 28;
@@ -100,7 +102,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(268, 1033);
+            this.label23.Location = new System.Drawing.Point(269, 1073);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(150, 19);
             this.label23.TabIndex = 26;
@@ -297,7 +299,7 @@
             // 
             // addBeneficiary
             // 
-            this.addBeneficiary.Location = new System.Drawing.Point(272, 1083);
+            this.addBeneficiary.Location = new System.Drawing.Point(272, 1113);
             this.addBeneficiary.Name = "addBeneficiary";
             this.addBeneficiary.Size = new System.Drawing.Size(162, 33);
             this.addBeneficiary.TabIndex = 33;
@@ -472,7 +474,7 @@
             // 
             // textBox16
             // 
-            this.textBox16.Location = new System.Drawing.Point(632, 985);
+            this.textBox16.Location = new System.Drawing.Point(632, 1025);
             this.textBox16.MaxLength = 100;
             this.textBox16.Name = "textBox16";
             this.textBox16.Size = new System.Drawing.Size(100, 26);
@@ -481,7 +483,7 @@
             // 
             // textBox17
             // 
-            this.textBox17.Location = new System.Drawing.Point(632, 1025);
+            this.textBox17.Location = new System.Drawing.Point(632, 1065);
             this.textBox17.MaxLength = 100;
             this.textBox17.Name = "textBox17";
             this.textBox17.Size = new System.Drawing.Size(100, 26);
@@ -502,13 +504,31 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(632, 985);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 26);
+            this.textBox1.TabIndex = 55;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(268, 992);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(107, 19);
+            this.label18.TabIndex = 56;
+            this.label18.Text = "Policy End Date";
+            // 
             // PolicyRegistration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(1230, 974);
+            this.ClientSize = new System.Drawing.Size(1213, 974);
+            this.Controls.Add(this.label18);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.textBox17);
             this.Controls.Add(this.textBox16);
@@ -613,5 +633,7 @@
         private System.Windows.Forms.TextBox textBox17;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

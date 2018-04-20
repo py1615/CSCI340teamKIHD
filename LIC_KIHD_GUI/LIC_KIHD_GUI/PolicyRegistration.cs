@@ -84,6 +84,7 @@ namespace LIC_KIHD_GUI
         private void addBeneficiary_Click(object sender, EventArgs e)
         {
             bool fieldFilled = true;
+            bool noError = true; 
             foreach (TextBox tb in GetControls(this).OfType<TextBox>())
             {
 
@@ -93,19 +94,37 @@ namespace LIC_KIHD_GUI
 
                 }
             }
+            if(!fieldFilled)
+            {
+                MessageBox.Show("You need to fill all the boxes!");
+                
+            }
 
-            if (fieldFilled && comboBox1.SelectedIndex > -1)
+            foreach (Control c in this.Controls)
+            {
+                if (errorProvider1.GetError(c).Length > 0)
+                    noError = false;
+            }
+
+            if(!noError)
+            {
+                MessageBox.Show("You need to enter valid information!");
+            }
+
+        
+
+            if (fieldFilled && comboBox1.SelectedIndex < -1 && noError)
             {
                 state = comboBox1.SelectedItem.ToString();
                 
                 QuoteForm quote = new QuoteForm(FirstNameBox.Text, LastNameBox.Text, BirthBox.Text, AddressBox.Text, CityBox.Text, state, ZipBox.Text, FatherBox.Text, motherBox.Text,
                                     cigBox.Text, smokeBox.Text, bloodBox.Text, aveGramsBox.Text, HeartDisease, cancer, hospital, textBox14.Text, textBox15.Text, textBox16.Text, textBox17.Text
-                                    );
+                                    , textBox1.Text);
                 quote.Show();
             }
             else
             {
-                MessageBox.Show(String.Format("You need to fill all the boxes"));
+                MessageBox.Show("You need to enter valid information!");
             }
         }
 

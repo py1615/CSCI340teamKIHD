@@ -79,6 +79,7 @@
             this.Status = new System.Windows.Forms.Label();
             this.BeneficiaryFirstName = new System.Windows.Forms.Label();
             this.BeneficiaryLastName = new System.Windows.Forms.Label();
+            this.PolicyNumber = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label24
@@ -301,7 +302,7 @@
             // 
             this.PolicyNumTitle.AutoSize = true;
             this.PolicyNumTitle.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PolicyNumTitle.Location = new System.Drawing.Point(509, 80);
+            this.PolicyNumTitle.Location = new System.Drawing.Point(417, 73);
             this.PolicyNumTitle.Name = "PolicyNumTitle";
             this.PolicyNumTitle.Size = new System.Drawing.Size(163, 27);
             this.PolicyNumTitle.TabIndex = 30;
@@ -315,6 +316,7 @@
             this.confirmButton.TabIndex = 31;
             this.confirmButton.Text = "confirm";
             this.confirmButton.UseVisualStyleBackColor = true;
+            this.confirmButton.Click += new System.EventHandler(this.confirmButton_Click);
             // 
             // cancelButton
             // 
@@ -488,6 +490,7 @@
             this.PolicyStart.Size = new System.Drawing.Size(53, 19);
             this.PolicyStart.TabIndex = 50;
             this.PolicyStart.Text = "label40";
+            this.PolicyStart.Click += new System.EventHandler(this.PolicyStart_Click);
             // 
             // PolicyEnd
             // 
@@ -512,9 +515,9 @@
             this.MonthlyPremium.AutoSize = true;
             this.MonthlyPremium.Location = new System.Drawing.Point(577, 787);
             this.MonthlyPremium.Name = "MonthlyPremium";
-            this.MonthlyPremium.Size = new System.Drawing.Size(53, 19);
+            this.MonthlyPremium.Size = new System.Drawing.Size(41, 19);
             this.MonthlyPremium.TabIndex = 53;
-            this.MonthlyPremium.Text = "label43";
+            this.MonthlyPremium.Text = "$120";
             // 
             // Status
             // 
@@ -524,6 +527,7 @@
             this.Status.Size = new System.Drawing.Size(53, 19);
             this.Status.TabIndex = 54;
             this.Status.Text = "label44";
+            this.Status.Click += new System.EventHandler(this.Status_Click);
             // 
             // BeneficiaryFirstName
             // 
@@ -543,6 +547,16 @@
             this.BeneficiaryLastName.TabIndex = 56;
             this.BeneficiaryLastName.Text = "label46";
             // 
+            // PolicyNumber
+            // 
+            this.PolicyNumber.AutoSize = true;
+            this.PolicyNumber.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PolicyNumber.Location = new System.Drawing.Point(586, 73);
+            this.PolicyNumber.Name = "PolicyNumber";
+            this.PolicyNumber.Size = new System.Drawing.Size(82, 27);
+            this.PolicyNumber.TabIndex = 57;
+            this.PolicyNumber.Text = "label25";
+            // 
             // QuoteForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -550,6 +564,7 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1213, 811);
+            this.Controls.Add(this.PolicyNumber);
             this.Controls.Add(this.BeneficiaryLastName);
             this.Controls.Add(this.BeneficiaryFirstName);
             this.Controls.Add(this.Status);
@@ -665,5 +680,6 @@
         private System.Windows.Forms.Label Status;
         private System.Windows.Forms.Label BeneficiaryFirstName;
         private System.Windows.Forms.Label BeneficiaryLastName;
+        private System.Windows.Forms.Label PolicyNumber;
     }
 }
