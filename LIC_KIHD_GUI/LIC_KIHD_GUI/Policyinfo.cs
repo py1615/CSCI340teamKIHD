@@ -12,6 +12,7 @@ namespace LIC_KIHD_GUI
 {
     public partial class Policyinfo : Form
     {
+        private LIC_KIHD_MW.Policy userPolicy;
         public Policyinfo()
         {
 

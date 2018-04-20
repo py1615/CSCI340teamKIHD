@@ -276,6 +276,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UserRegister";
             this.Text = "UserRegister";
+            this.Load += new System.EventHandler(this.UserRegister_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

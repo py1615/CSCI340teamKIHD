@@ -17,7 +17,11 @@ namespace LIC_KIHD_GUI
             .Controls
             .Cast<Control>().SelectMany(x => GetControls(x))
             .Concat(control.Controls.Cast<Control>());
-
+        private string HeartDisease;
+        private string cancer;
+        private string hospital;
+        private string state;
+        
         public PolicyRegistration()
         {
             InitializeComponent();
@@ -26,31 +30,37 @@ namespace LIC_KIHD_GUI
         private void HDYes_CheckedChanged(object sender, EventArgs e)
         {
             HDNo.Checked = !HDYes.Checked;
+            HeartDisease = "Y";
         }
 
         private void HDNo_CheckedChanged(object sender, EventArgs e)
         {
             HDYes.Checked = !HDNo.Checked;
+            HeartDisease = "N";
         }
 
         private void CancerYes_CheckedChanged(object sender, EventArgs e)
         {
             CancerNo.Checked = !CancerYes.Checked;
+            cancer = "Y";
         }
 
         private void CancerNo_CheckedChanged(object sender, EventArgs e)
         {
             CancerYes.Checked = !CancerNo.Checked;
+            cancer = "N";
         }
 
         private void HosYes_CheckedChanged(object sender, EventArgs e)
         {
             HosNo.Checked = !HosYes.Checked;
+            hospital = "Y";
         }
 
         private void HosNo_CheckedChanged(object sender, EventArgs e)
         {
             HosYes.Checked = !HosNo.Checked;
+            hospital = "N";
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -84,9 +94,14 @@ namespace LIC_KIHD_GUI
                 }
             }
 
-            if (fieldFilled)
+            if (fieldFilled && comboBox1.SelectedIndex > -1)
             {
-                this.DialogResult = DialogResult.OK;
+                state = comboBox1.SelectedItem.ToString();
+                
+                QuoteForm quote = new QuoteForm(FirstNameBox.Text, LastNameBox.Text, BirthBox.Text, AddressBox.Text, CityBox.Text, state, ZipBox.Text, FatherBox.Text, motherBox.Text,
+                                    cigBox.Text, smokeBox.Text, bloodBox.Text, aveGramsBox.Text, HeartDisease, cancer, hospital, textBox14.Text, textBox15.Text, textBox16.Text, textBox17.Text
+                                    );
+                quote.Show();
             }
             else
             {

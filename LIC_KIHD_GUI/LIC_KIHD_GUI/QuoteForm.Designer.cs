@@ -55,6 +55,30 @@
             this.PolicyNumTitle = new System.Windows.Forms.Label();
             this.confirmButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
+            this.firstName = new System.Windows.Forms.Label();
+            this.LastName = new System.Windows.Forms.Label();
+            this.dateOfBirth = new System.Windows.Forms.Label();
+            this.StreetAdress = new System.Windows.Forms.Label();
+            this.CityLabel = new System.Windows.Forms.Label();
+            this.StateLabel = new System.Windows.Forms.Label();
+            this.zipCode = new System.Windows.Forms.Label();
+            this.FatherAgeAtDeath = new System.Windows.Forms.Label();
+            this.MotherAgeAtDeath = new System.Windows.Forms.Label();
+            this.CigarettesPerDay = new System.Windows.Forms.Label();
+            this.SmokingHistory = new System.Windows.Forms.Label();
+            this.BloodPressure = new System.Windows.Forms.Label();
+            this.AverageGrams = new System.Windows.Forms.Label();
+            this.HeartDisease = new System.Windows.Forms.Label();
+            this.CancerLabel = new System.Windows.Forms.Label();
+            this.Hospitalized = new System.Windows.Forms.Label();
+            this.DangerousActivities = new System.Windows.Forms.Label();
+            this.PolicyStart = new System.Windows.Forms.Label();
+            this.PolicyEnd = new System.Windows.Forms.Label();
+            this.PayoffAmount = new System.Windows.Forms.Label();
+            this.MonthlyPremium = new System.Windows.Forms.Label();
+            this.Status = new System.Windows.Forms.Label();
+            this.BeneficiaryFirstName = new System.Windows.Forms.Label();
+            this.BeneficiaryLastName = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label24
@@ -62,7 +86,7 @@
             this.label24.AutoSize = true;
             this.label24.Location = new System.Drawing.Point(259, 847);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(201, 22);
+            this.label24.Size = new System.Drawing.Size(151, 19);
             this.label24.TabIndex = 29;
             this.label24.Text = "Beneficiary First Name:";
             // 
@@ -71,7 +95,7 @@
             this.label23.AutoSize = true;
             this.label23.Location = new System.Drawing.Point(259, 877);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(197, 22);
+            this.label23.Size = new System.Drawing.Size(150, 19);
             this.label23.TabIndex = 27;
             this.label23.Text = "Beneficiary Last Name:";
             // 
@@ -80,7 +104,7 @@
             this.label21.AutoSize = true;
             this.label21.Location = new System.Drawing.Point(259, 817);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(63, 22);
+            this.label21.Size = new System.Drawing.Size(49, 19);
             this.label21.TabIndex = 26;
             this.label21.Text = "Status:";
             // 
@@ -89,7 +113,7 @@
             this.label22.AutoSize = true;
             this.label22.Location = new System.Drawing.Point(259, 787);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(156, 22);
+            this.label22.Size = new System.Drawing.Size(119, 19);
             this.label22.TabIndex = 25;
             this.label22.Text = "Monthly Premium:";
             // 
@@ -98,7 +122,7 @@
             this.label20.AutoSize = true;
             this.label20.Location = new System.Drawing.Point(259, 757);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(132, 22);
+            this.label20.Size = new System.Drawing.Size(102, 19);
             this.label20.TabIndex = 24;
             this.label20.Text = "Payoff Amount:";
             // 
@@ -107,7 +131,7 @@
             this.label19.AutoSize = true;
             this.label19.Location = new System.Drawing.Point(259, 727);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(145, 22);
+            this.label19.Size = new System.Drawing.Size(110, 19);
             this.label19.TabIndex = 23;
             this.label19.Text = "Policy End Date:";
             // 
@@ -116,7 +140,7 @@
             this.label18.AutoSize = true;
             this.label18.Location = new System.Drawing.Point(259, 697);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(151, 22);
+            this.label18.Size = new System.Drawing.Size(115, 19);
             this.label18.TabIndex = 22;
             this.label18.Text = "Policy Start Date:";
             // 
@@ -125,7 +149,7 @@
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(259, 477);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(207, 22);
+            this.label12.Size = new System.Drawing.Size(156, 19);
             this.label12.TabIndex = 21;
             this.label12.Text = "Systolic Blood Pressure:";
             // 
@@ -134,7 +158,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(259, 297);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(55, 22);
+            this.label6.Size = new System.Drawing.Size(43, 19);
             this.label6.TabIndex = 19;
             this.label6.Text = "State:";
             // 
@@ -143,7 +167,7 @@
             this.label17.AutoSize = true;
             this.label17.Location = new System.Drawing.Point(259, 647);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(182, 22);
+            this.label17.Size = new System.Drawing.Size(135, 19);
             this.label17.TabIndex = 18;
             this.label17.Text = "Dangerous Activities:";
             // 
@@ -152,7 +176,7 @@
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(259, 447);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(148, 22);
+            this.label11.Size = new System.Drawing.Size(113, 19);
             this.label11.TabIndex = 28;
             this.label11.Text = "Smoking History:";
             // 
@@ -161,7 +185,7 @@
             this.label16.AutoSize = true;
             this.label16.Location = new System.Drawing.Point(259, 597);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(117, 22);
+            this.label16.Size = new System.Drawing.Size(86, 19);
             this.label16.TabIndex = 17;
             this.label16.Text = "Hospitalized:";
             // 
@@ -170,7 +194,7 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(259, 417);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(164, 22);
+            this.label10.Size = new System.Drawing.Size(126, 19);
             this.label10.TabIndex = 16;
             this.label10.Text = "Cigarettes per Day:";
             // 
@@ -179,7 +203,7 @@
             this.label15.AutoSize = true;
             this.label15.Location = new System.Drawing.Point(259, 567);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(72, 22);
+            this.label15.Size = new System.Drawing.Size(56, 19);
             this.label15.TabIndex = 14;
             this.label15.Text = "Cancer:";
             // 
@@ -188,7 +212,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(259, 267);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(49, 22);
+            this.label5.Size = new System.Drawing.Size(37, 19);
             this.label5.TabIndex = 20;
             this.label5.Text = "City:";
             // 
@@ -197,7 +221,7 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(259, 387);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(191, 22);
+            this.label9.Size = new System.Drawing.Size(149, 19);
             this.label9.TabIndex = 13;
             this.label9.Text = "Mother\'s Age at Death:";
             // 
@@ -206,7 +230,7 @@
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(259, 537);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(128, 22);
+            this.label14.Size = new System.Drawing.Size(97, 19);
             this.label14.TabIndex = 10;
             this.label14.Text = "Heart Disease:";
             // 
@@ -215,7 +239,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(259, 237);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(132, 22);
+            this.label4.Size = new System.Drawing.Size(102, 19);
             this.label4.TabIndex = 15;
             this.label4.Text = "Street Address:";
             // 
@@ -224,7 +248,7 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(259, 357);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(184, 22);
+            this.label8.Size = new System.Drawing.Size(143, 19);
             this.label8.TabIndex = 9;
             this.label8.Text = "Father\'s Age at Death:";
             // 
@@ -233,7 +257,7 @@
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(259, 507);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(258, 22);
+            this.label13.Size = new System.Drawing.Size(199, 19);
             this.label13.TabIndex = 8;
             this.label13.Text = "Average Grams of Fat per Day:";
             // 
@@ -242,7 +266,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(259, 207);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(119, 22);
+            this.label3.Size = new System.Drawing.Size(90, 19);
             this.label3.TabIndex = 12;
             this.label3.Text = "Date of Birth:";
             // 
@@ -251,7 +275,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(259, 327);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(90, 22);
+            this.label7.Size = new System.Drawing.Size(70, 19);
             this.label7.TabIndex = 7;
             this.label7.Text = "Zip Code:";
             // 
@@ -260,7 +284,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(259, 177);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 22);
+            this.label2.Size = new System.Drawing.Size(79, 19);
             this.label2.TabIndex = 11;
             this.label2.Text = "Last Name:";
             // 
@@ -269,7 +293,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(259, 147);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 22);
+            this.label1.Size = new System.Drawing.Size(80, 19);
             this.label1.TabIndex = 6;
             this.label1.Text = "First Name:";
             // 
@@ -279,7 +303,7 @@
             this.PolicyNumTitle.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PolicyNumTitle.Location = new System.Drawing.Point(509, 80);
             this.PolicyNumTitle.Name = "PolicyNumTitle";
-            this.PolicyNumTitle.Size = new System.Drawing.Size(202, 34);
+            this.PolicyNumTitle.Size = new System.Drawing.Size(163, 27);
             this.PolicyNumTitle.TabIndex = 30;
             this.PolicyNumTitle.Text = "Policy Number:";
             // 
@@ -300,14 +324,256 @@
             this.cancelButton.TabIndex = 32;
             this.cancelButton.Text = "cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            // 
+            // firstName
+            // 
+            this.firstName.AutoSize = true;
+            this.firstName.Location = new System.Drawing.Point(577, 147);
+            this.firstName.Name = "firstName";
+            this.firstName.Size = new System.Drawing.Size(53, 19);
+            this.firstName.TabIndex = 33;
+            this.firstName.Text = "label25";
+            // 
+            // LastName
+            // 
+            this.LastName.AutoSize = true;
+            this.LastName.Location = new System.Drawing.Point(577, 177);
+            this.LastName.Name = "LastName";
+            this.LastName.Size = new System.Drawing.Size(53, 19);
+            this.LastName.TabIndex = 34;
+            this.LastName.Text = "label26";
+            // 
+            // dateOfBirth
+            // 
+            this.dateOfBirth.AutoSize = true;
+            this.dateOfBirth.Location = new System.Drawing.Point(577, 207);
+            this.dateOfBirth.Name = "dateOfBirth";
+            this.dateOfBirth.Size = new System.Drawing.Size(53, 19);
+            this.dateOfBirth.TabIndex = 35;
+            this.dateOfBirth.Text = "label25";
+            // 
+            // StreetAdress
+            // 
+            this.StreetAdress.AutoSize = true;
+            this.StreetAdress.Location = new System.Drawing.Point(577, 237);
+            this.StreetAdress.Name = "StreetAdress";
+            this.StreetAdress.Size = new System.Drawing.Size(53, 19);
+            this.StreetAdress.TabIndex = 36;
+            this.StreetAdress.Text = "label26";
+            // 
+            // CityLabel
+            // 
+            this.CityLabel.AutoSize = true;
+            this.CityLabel.Location = new System.Drawing.Point(577, 267);
+            this.CityLabel.Name = "CityLabel";
+            this.CityLabel.Size = new System.Drawing.Size(53, 19);
+            this.CityLabel.TabIndex = 37;
+            this.CityLabel.Text = "label27";
+            // 
+            // StateLabel
+            // 
+            this.StateLabel.AutoSize = true;
+            this.StateLabel.Location = new System.Drawing.Point(577, 297);
+            this.StateLabel.Name = "StateLabel";
+            this.StateLabel.Size = new System.Drawing.Size(53, 19);
+            this.StateLabel.TabIndex = 38;
+            this.StateLabel.Text = "label28";
+            // 
+            // zipCode
+            // 
+            this.zipCode.AutoSize = true;
+            this.zipCode.Location = new System.Drawing.Point(577, 327);
+            this.zipCode.Name = "zipCode";
+            this.zipCode.Size = new System.Drawing.Size(53, 19);
+            this.zipCode.TabIndex = 39;
+            this.zipCode.Text = "label29";
+            // 
+            // FatherAgeAtDeath
+            // 
+            this.FatherAgeAtDeath.AutoSize = true;
+            this.FatherAgeAtDeath.Location = new System.Drawing.Point(577, 357);
+            this.FatherAgeAtDeath.Name = "FatherAgeAtDeath";
+            this.FatherAgeAtDeath.Size = new System.Drawing.Size(53, 19);
+            this.FatherAgeAtDeath.TabIndex = 40;
+            this.FatherAgeAtDeath.Text = "label30";
+            this.FatherAgeAtDeath.Click += new System.EventHandler(this.label30_Click);
+            // 
+            // MotherAgeAtDeath
+            // 
+            this.MotherAgeAtDeath.AutoSize = true;
+            this.MotherAgeAtDeath.Location = new System.Drawing.Point(577, 387);
+            this.MotherAgeAtDeath.Name = "MotherAgeAtDeath";
+            this.MotherAgeAtDeath.Size = new System.Drawing.Size(53, 19);
+            this.MotherAgeAtDeath.TabIndex = 41;
+            this.MotherAgeAtDeath.Text = "label31";
+            // 
+            // CigarettesPerDay
+            // 
+            this.CigarettesPerDay.AutoSize = true;
+            this.CigarettesPerDay.Location = new System.Drawing.Point(577, 417);
+            this.CigarettesPerDay.Name = "CigarettesPerDay";
+            this.CigarettesPerDay.Size = new System.Drawing.Size(53, 19);
+            this.CigarettesPerDay.TabIndex = 42;
+            this.CigarettesPerDay.Text = "label32";
+            // 
+            // SmokingHistory
+            // 
+            this.SmokingHistory.AutoSize = true;
+            this.SmokingHistory.Location = new System.Drawing.Point(577, 447);
+            this.SmokingHistory.Name = "SmokingHistory";
+            this.SmokingHistory.Size = new System.Drawing.Size(53, 19);
+            this.SmokingHistory.TabIndex = 43;
+            this.SmokingHistory.Text = "label33";
+            // 
+            // BloodPressure
+            // 
+            this.BloodPressure.AutoSize = true;
+            this.BloodPressure.Location = new System.Drawing.Point(577, 477);
+            this.BloodPressure.Name = "BloodPressure";
+            this.BloodPressure.Size = new System.Drawing.Size(53, 19);
+            this.BloodPressure.TabIndex = 44;
+            this.BloodPressure.Text = "label34";
+            // 
+            // AverageGrams
+            // 
+            this.AverageGrams.AutoSize = true;
+            this.AverageGrams.Location = new System.Drawing.Point(577, 507);
+            this.AverageGrams.Name = "AverageGrams";
+            this.AverageGrams.Size = new System.Drawing.Size(53, 19);
+            this.AverageGrams.TabIndex = 45;
+            this.AverageGrams.Text = "label35";
+            // 
+            // HeartDisease
+            // 
+            this.HeartDisease.AutoSize = true;
+            this.HeartDisease.Location = new System.Drawing.Point(577, 537);
+            this.HeartDisease.Name = "HeartDisease";
+            this.HeartDisease.Size = new System.Drawing.Size(53, 19);
+            this.HeartDisease.TabIndex = 46;
+            this.HeartDisease.Text = "label36";
+            // 
+            // CancerLabel
+            // 
+            this.CancerLabel.AutoSize = true;
+            this.CancerLabel.Location = new System.Drawing.Point(577, 567);
+            this.CancerLabel.Name = "CancerLabel";
+            this.CancerLabel.Size = new System.Drawing.Size(53, 19);
+            this.CancerLabel.TabIndex = 47;
+            this.CancerLabel.Text = "label37";
+            // 
+            // Hospitalized
+            // 
+            this.Hospitalized.AutoSize = true;
+            this.Hospitalized.Location = new System.Drawing.Point(577, 597);
+            this.Hospitalized.Name = "Hospitalized";
+            this.Hospitalized.Size = new System.Drawing.Size(53, 19);
+            this.Hospitalized.TabIndex = 48;
+            this.Hospitalized.Text = "label38";
+            // 
+            // DangerousActivities
+            // 
+            this.DangerousActivities.AutoSize = true;
+            this.DangerousActivities.Location = new System.Drawing.Point(577, 647);
+            this.DangerousActivities.Name = "DangerousActivities";
+            this.DangerousActivities.Size = new System.Drawing.Size(53, 19);
+            this.DangerousActivities.TabIndex = 49;
+            this.DangerousActivities.Text = "label39";
+            // 
+            // PolicyStart
+            // 
+            this.PolicyStart.AutoSize = true;
+            this.PolicyStart.Location = new System.Drawing.Point(577, 697);
+            this.PolicyStart.Name = "PolicyStart";
+            this.PolicyStart.Size = new System.Drawing.Size(53, 19);
+            this.PolicyStart.TabIndex = 50;
+            this.PolicyStart.Text = "label40";
+            // 
+            // PolicyEnd
+            // 
+            this.PolicyEnd.AutoSize = true;
+            this.PolicyEnd.Location = new System.Drawing.Point(577, 727);
+            this.PolicyEnd.Name = "PolicyEnd";
+            this.PolicyEnd.Size = new System.Drawing.Size(53, 19);
+            this.PolicyEnd.TabIndex = 51;
+            this.PolicyEnd.Text = "label41";
+            // 
+            // PayoffAmount
+            // 
+            this.PayoffAmount.AutoSize = true;
+            this.PayoffAmount.Location = new System.Drawing.Point(577, 757);
+            this.PayoffAmount.Name = "PayoffAmount";
+            this.PayoffAmount.Size = new System.Drawing.Size(53, 19);
+            this.PayoffAmount.TabIndex = 52;
+            this.PayoffAmount.Text = "label42";
+            // 
+            // MonthlyPremium
+            // 
+            this.MonthlyPremium.AutoSize = true;
+            this.MonthlyPremium.Location = new System.Drawing.Point(577, 787);
+            this.MonthlyPremium.Name = "MonthlyPremium";
+            this.MonthlyPremium.Size = new System.Drawing.Size(53, 19);
+            this.MonthlyPremium.TabIndex = 53;
+            this.MonthlyPremium.Text = "label43";
+            // 
+            // Status
+            // 
+            this.Status.AutoSize = true;
+            this.Status.Location = new System.Drawing.Point(577, 817);
+            this.Status.Name = "Status";
+            this.Status.Size = new System.Drawing.Size(53, 19);
+            this.Status.TabIndex = 54;
+            this.Status.Text = "label44";
+            // 
+            // BeneficiaryFirstName
+            // 
+            this.BeneficiaryFirstName.AutoSize = true;
+            this.BeneficiaryFirstName.Location = new System.Drawing.Point(577, 847);
+            this.BeneficiaryFirstName.Name = "BeneficiaryFirstName";
+            this.BeneficiaryFirstName.Size = new System.Drawing.Size(53, 19);
+            this.BeneficiaryFirstName.TabIndex = 55;
+            this.BeneficiaryFirstName.Text = "label45";
+            // 
+            // BeneficiaryLastName
+            // 
+            this.BeneficiaryLastName.AutoSize = true;
+            this.BeneficiaryLastName.Location = new System.Drawing.Point(577, 877);
+            this.BeneficiaryLastName.Name = "BeneficiaryLastName";
+            this.BeneficiaryLastName.Size = new System.Drawing.Size(53, 19);
+            this.BeneficiaryLastName.TabIndex = 56;
+            this.BeneficiaryLastName.Text = "label46";
             // 
             // QuoteForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1213, 811);
+            this.Controls.Add(this.BeneficiaryLastName);
+            this.Controls.Add(this.BeneficiaryFirstName);
+            this.Controls.Add(this.Status);
+            this.Controls.Add(this.MonthlyPremium);
+            this.Controls.Add(this.PayoffAmount);
+            this.Controls.Add(this.PolicyEnd);
+            this.Controls.Add(this.PolicyStart);
+            this.Controls.Add(this.DangerousActivities);
+            this.Controls.Add(this.Hospitalized);
+            this.Controls.Add(this.CancerLabel);
+            this.Controls.Add(this.HeartDisease);
+            this.Controls.Add(this.AverageGrams);
+            this.Controls.Add(this.BloodPressure);
+            this.Controls.Add(this.SmokingHistory);
+            this.Controls.Add(this.CigarettesPerDay);
+            this.Controls.Add(this.MotherAgeAtDeath);
+            this.Controls.Add(this.FatherAgeAtDeath);
+            this.Controls.Add(this.zipCode);
+            this.Controls.Add(this.StateLabel);
+            this.Controls.Add(this.CityLabel);
+            this.Controls.Add(this.StreetAdress);
+            this.Controls.Add(this.dateOfBirth);
+            this.Controls.Add(this.LastName);
+            this.Controls.Add(this.firstName);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.confirmButton);
             this.Controls.Add(this.PolicyNumTitle);
@@ -336,10 +602,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "QuoteForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "QuoteForm";
+            this.Load += new System.EventHandler(this.QuoteForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -374,5 +641,29 @@
         private System.Windows.Forms.Label PolicyNumTitle;
         private System.Windows.Forms.Button confirmButton;
         private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.Label firstName;
+        private System.Windows.Forms.Label LastName;
+        private System.Windows.Forms.Label dateOfBirth;
+        private System.Windows.Forms.Label StreetAdress;
+        private System.Windows.Forms.Label CityLabel;
+        private System.Windows.Forms.Label StateLabel;
+        private System.Windows.Forms.Label zipCode;
+        private System.Windows.Forms.Label FatherAgeAtDeath;
+        private System.Windows.Forms.Label MotherAgeAtDeath;
+        private System.Windows.Forms.Label CigarettesPerDay;
+        private System.Windows.Forms.Label SmokingHistory;
+        private System.Windows.Forms.Label BloodPressure;
+        private System.Windows.Forms.Label AverageGrams;
+        private System.Windows.Forms.Label HeartDisease;
+        private System.Windows.Forms.Label CancerLabel;
+        private System.Windows.Forms.Label Hospitalized;
+        private System.Windows.Forms.Label DangerousActivities;
+        private System.Windows.Forms.Label PolicyStart;
+        private System.Windows.Forms.Label PolicyEnd;
+        private System.Windows.Forms.Label PayoffAmount;
+        private System.Windows.Forms.Label MonthlyPremium;
+        private System.Windows.Forms.Label Status;
+        private System.Windows.Forms.Label BeneficiaryFirstName;
+        private System.Windows.Forms.Label BeneficiaryLastName;
     }
 }

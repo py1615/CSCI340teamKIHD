@@ -158,5 +158,10 @@ namespace LIC_KIHD_GUI
             string ID = "";
             IDBOX.Text = ID;
         }
+
+        private void UserRegister_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

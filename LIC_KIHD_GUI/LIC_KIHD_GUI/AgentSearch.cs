@@ -45,16 +45,18 @@ namespace LIC_KIHD_GUI
 
         private void registrationButton_Click(object sender, EventArgs e)
         {
-            Hide();
+           
             PolicyRegistration policyRegiser = new PolicyRegistration();
-            policyRegiser.Closed += (s, arges) => this.Close();
+            
             policyRegiser.Show();
         }
 
         private void agentSearchButton_Click(object sender, EventArgs e)
         {
             DataTable table = new DataTable();
+            
             //List<LIC_KIHD_MW.Policy> policy = LIC_KIHD_MW.Agent.search(policyNumBox.Text, false);
+            //table = ToDataTable(policy);
 
             dataGridView1.DataSource = table;
         }
@@ -62,7 +64,6 @@ namespace LIC_KIHD_GUI
         {
             DataTable dataTable = new DataTable(typeof(T).Name);
 
-            //Get all the properties
             PropertyInfo[] Props = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);
             foreach (PropertyInfo prop in Props)
             {

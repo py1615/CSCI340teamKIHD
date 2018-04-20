@@ -39,6 +39,7 @@
             this.clientNameBox = new System.Windows.Forms.TextBox();
             this.agentSearchButton = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.View = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -98,10 +99,18 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.View});
             resources.ApplyResources(this.dataGridView1, "dataGridView1");
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 27;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // View
+            // 
+            resources.ApplyResources(this.View, "View");
+            this.View.Name = "View";
+            this.View.Text = "View";
             // 
             // AgentSearch
             // 
@@ -138,5 +147,6 @@
         private System.Windows.Forms.TextBox clientNameBox;
         private System.Windows.Forms.Button agentSearchButton;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewButtonColumn View;
     }
 }
