@@ -158,5 +158,10 @@ namespace LIC_KIHD_GUI
             string ID = "";
             IDBOX.Text = ID;
         }
+
+        private void PasswordBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

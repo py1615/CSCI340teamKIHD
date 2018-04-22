@@ -22,8 +22,7 @@ namespace LIC_KIHD_MW
             string agentType = theAgentType;
             string id = userName;
             string psw = passWord;
-            String connectionString = "Data Source=DATABASE" + "\\" + "CSCI3400011030;Initial Catalog=LIC_KIHD;"
-        + "Integrated Security=false;user='LIC_KIHD_MW';pwd='KIHD';";
+            String connectionString = LIC_KIHD_GUI.Properties.Settings.Default.SQL_connection;
             SqlConnection conn = new SqlConnection(connectionString);
             String query = "execute userRegistrater '" + agentID + "', '" + firstName + "', '" + lastName + "', '" + department + "', '" + agentType + "', '" + id + "', '" + psw + "'";
             SqlCommand command = new SqlCommand(query);
@@ -32,10 +31,10 @@ namespace LIC_KIHD_MW
             command.ExecuteNonQuery();
             conn.Close();
         }
-        public List<Policy> search(string agent, Boolean delinquent = false)
+        /*public List<Policy> search(string policyNum, ,string agentNum, string clientName)
         {
             List<Policy> list = new List<Policy>();
             return list;
-        }
+        }*/
     }
 }

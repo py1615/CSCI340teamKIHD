@@ -20,16 +20,26 @@ namespace LIC_KIHD_MW
             department = theDepartment;
             agentType = theAgentType;
         }
-        public List<Policy> search(string name, Boolean delinquent = false)
+        /*public List<Policy> search(string policyNum, string clientName)
         {
-            List<Policy> policies = new List<Policy>();
-            return policies;
-        }
-        public Policy search(string policyNumber, string name = "", Boolean delinquent = false)
-        {
-            Policy client = new Policy();
-            return client;
-        }
+            List<Policy> list = new List<Policy>();
+            string[][] policyInfo = new string[][];
+            String connectionString = LIC_KIHD_GUI.Properties.Settings.Default.SQL_connection;
+            SqlConnection conn = new SqlConnection(connectionString);
+            String query = "execute Search ''";
+            SqlCommand command = new SqlCommand(query);
+            command.Connection = conn;
+            conn.Open();
+            SqlDataReader reader = command.ExecuteReader();
+            if (reader.Read())
+            {
+                int columnNum = reader.GetOrdinal("PolicyHolder");
+                string policyholder = reader.GetString(columnNum);
+            }
+            conn.Close();
+            return list;
+        }*/
+
         public static string login(string userName, string passWord)
         {
             /*
@@ -41,8 +51,9 @@ namespace LIC_KIHD_MW
              * Initial Catalog = name of database
              * Data Source = name of server machine, which can be a networked machine or URL
             */
-            String connectionString = "Data Source=DATABASE" + "\\" + "CSCI3400011030;Initial Catalog=LIC_KIHD;"
-        + "Integrated Security=false;user='LIC_KIHD_MW';pwd='KIHD';";
+            String connectionString = LIC_KIHD_GUI.Properties.Settings.Default.SQL_connection;
+            /*"Data Source=DATABASE" + "\\" + "CSCI3400011030;Initial Catalog=LIC_KIHD;"
+        + "Integrated Security=false;user='LIC_KIHD_MW';pwd='KIHD';"*/
             //"Initial Catalog=Restaurant;Data Source=SROSEN-LT-5000;" + "Integrated Security=False;user='middleware';pwd='password'";
             SqlConnection conn = new SqlConnection(connectionString);
             //String query = "";
