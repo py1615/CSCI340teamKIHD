@@ -161,13 +161,15 @@ namespace LIC_KIHD_MW
              }
             Matrix inverse = new Matrix (row , column);
             Matrix augmented = augment();
-            double subtract;
-            double subtractor;
+            //double subtract;
+            //double subtractor;
             for(int i = 0; i < augmented.row; i++)
                 {
                 for(int j = 0; j < augmented.column; j++)
                     {
-                    if(augmented.data[i,i]!=augmented.data[i+j,i])
+                    augmented.data[i+j,j] = augmented.data[i,i] * augmented.data[i+j,j]
+                                            -augmented.data[i+j,i]* augmented.data[i,j];
+                    /*if(augmented.data[i,i]!=augmented.data[i+j,i])
                         {
                         subtract = augmented.data[i,i] * augmented.data[i+j,j];
                         subtractor = augmented.data[i+j,i]* augmented.data[i,j];
@@ -177,7 +179,7 @@ namespace LIC_KIHD_MW
                         subtract = augmented.data[i+j,j];
                         subtractor = augmented.data[i,j];
                         }
-                    augmented.data[i+j,j] = subtract - subtractor;
+                    augmented.data[i+j,j] = subtract - subtractor;*/
                     }
                 }
             
@@ -185,7 +187,7 @@ namespace LIC_KIHD_MW
                 {
                 for(int j = augmented.column - 1; j > 0; j--)
                     {
-                    if(augmented.data[i,i]!=augmented.data[i-j,i])
+                   /* if(augmented.data[i,i]!=augmented.data[i-j,i])
                         {
                         subtract = augmented.data[i,i] * augmented.data[i-j,j];
                         subtractor = augmented.data[i-j,i]* augmented.data[i,j];
@@ -196,7 +198,12 @@ namespace LIC_KIHD_MW
                         subtractor = augmented.data[i,j];
                         }
                     augmented.data[i-j,j] = subtract - subtractor;
+                    */
+                    augmented.data[i+j,j] = augmented.data[i,i] * augmented.data[i+j,j]
+                                        -augmented.data[i+j,i]* augmented.data[i,j];
+                    augmented.data[i+j,j] /= augmented.data[i,i];
                     }
+                
                 }
 
             for(int i = 0; i < inverse.row; i++)
