@@ -28,30 +28,7 @@ policy_end DATE,
 agent_id VARCHAR(20),
 payoff_amount VARCHAR(10),
 monthly_premium VARCHAR(10),
-PRIMARY KEY (policy_number),
-FOREIGN KEY (agent_id) REFERENCES employee(id)
-);
-
-CREATE TABLE deliquent (
-policy_number VARCHAR(30) NOT NULL,
-first_name VARCHAR(100),
-last_name VARCHAR(100),
-dob DATE,
-fathers_age_of_death VARCHAR(5),
-mothers_afe_of_death VARCHAR(5),
-cigs_day VARCHAR(5),
-smoking_history DATE,
-systolic_blood_pressure VARCHAR(4),
-avg_grams_fat_day VARCHAR(5),
-heart_disease VARCHAR(1),
-cancer VARCHAR(1),
-hospitalized VARCHAR(1),
-dangerous_activities VARCHAR(255),
-policy_start DATE,
-policy_end DATE,
-agent_id VARCHAR(20),
-payoff_amount VARCHAR(10),
-monthly_premium VARCHAR(10),
+deliquent VARCHAR(1),
 PRIMARY KEY (policy_number),
 FOREIGN KEY (agent_id) REFERENCES employee(id)
 );
