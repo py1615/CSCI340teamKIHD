@@ -16,36 +16,7 @@ namespace LIC_KIHD_MW
             data = new double[row, column];
         }
 
-        /*public Matrix(double[,] entry)
-        {
-            row = entry.Rank;
-            column = entry.GetLength(0);
-            data = new double[row , column];
-            for(int i = 0; i<row; i++)
-            {
-                for(int j = 0; j < column; j++)
-                {
-                    data[i,j] = entry[i, j];
-                }
-            }
-
-        }
-        public Matrix addData(Matrix m)
-        {
-            Matrix sum = new Matrix(row, column);
-            for (int i = 0; i < row; i++)
-            {
-                for (int j = 0; j < column; j++)
-                {
-                    sum.data[i, j] = data[i, j] + m.data[i,j];
-                }
-            }
-            return sum;
-        }
-        */
-
-
-        public void setData(int row, int col, double data)
+       public void setData(int row, int col, double data)
         {
             this.data[row, col] = data;
         }
@@ -161,23 +132,13 @@ namespace LIC_KIHD_MW
              }
             Matrix inverse = new Matrix (row , column);
             Matrix augmented = augment();
-            double subtract;
-            double subtractor;
+            
             for(int i = 0; i < augmented.row; i++)
                 {
                 for(int j = 0; j < augmented.column; j++)
                     {
-                    if(augmented.data[i,i]!=augmented.data[i+j,i])
-                        {
-                        subtract = augmented.data[i,i] * augmented.data[i+j,j];
-                        subtractor = augmented.data[i+j,i]* augmented.data[i,j];
-                        }
-                    else
-                        {
-                        subtract = augmented.data[i+j,j];
-                        subtractor = augmented.data[i,j];
-                        }
-                    augmented.data[i+j,j] = subtract - subtractor;
+                    augmented.data[i+j,j] = augmented.data[i,i] * augmented.data[i+j,j]
+                                            -augmented.data[i+j,i]* augmented.data[i,j];
                     }
                 }
             
@@ -185,17 +146,9 @@ namespace LIC_KIHD_MW
                 {
                 for(int j = augmented.column - 1; j > 0; j--)
                     {
-                    if(augmented.data[i,i]!=augmented.data[i-j,i])
-                        {
-                        subtract = augmented.data[i,i] * augmented.data[i-j,j];
-                        subtractor = augmented.data[i-j,i]* augmented.data[i,j];
-                        }
-                    else
-                        {
-                        subtract = augmented.data[i-j,j];
-                        subtractor = augmented.data[i,j];
-                        }
-                    augmented.data[i-j,j] = subtract - subtractor;
+                    augmented.data[i+j,j] = augmented.data[i,i] * augmented.data[i+j,j]
+                                        -augmented.data[i+j,i]* augmented.data[i,j];
+                    augmented.data[i+j,j] /= augmented.data[i,i];
                     }
                 }
 

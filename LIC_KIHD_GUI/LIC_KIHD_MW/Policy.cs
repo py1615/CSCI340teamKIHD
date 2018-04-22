@@ -23,7 +23,7 @@ namespace LIC_KIHD_MW
         private Boolean cancer;
         private Boolean hospitalized;
         private string dangerousAct;
-        public Policy(PolicyHolder theInsured, double thePayOffAmount, double theFatherDeathAge, double theMotherDeathAge,
+       /* public Policy(PolicyHolder theInsured, double thePayOffAmount, double theFatherDeathAge, double theMotherDeathAge,
             double theCigsPerDay, double theSmokingHistory, double theBloodPressure, double theGramsFatPerDay, Boolean theHeartDisease,
             Boolean theCancer, Boolean theHospitalized, string theDangerousAct, Beneficiary theHeir, Agent theAgent)
         {
@@ -42,7 +42,7 @@ namespace LIC_KIHD_MW
             hospitalized = theHospitalized;
             dangerousAct = theDangerousAct;
             policyNum = PolicyNumReg();
-        }
+        }*/
         public String PolicyNumReg()
         {
             return "";
