@@ -7,14 +7,12 @@ namespace LIC_KIHD_MW
 {
     class Agent
     {
-        private string agentID;
         private string firstName;
         private string lastName;
         private string department;
         private string agentType;
-        public Agent(string theAgentID, string theFirstName, string theLastName, string theDepartment, string theAgentType)
+        public Agent(string theFirstName, string theLastName, string theDepartment, string theAgentType)
         {
-            agentID = theAgentID;
             firstName = theFirstName;
             lastName = theLastName;
             department = theDepartment;
@@ -67,6 +65,11 @@ namespace LIC_KIHD_MW
             conn.Close();
             return policyInfo;
         }
+
+        /*public Policy searchOnClick(string policyNum)
+        {
+
+        }*/
 
         public static string login(string userName, string passWord)
         {
