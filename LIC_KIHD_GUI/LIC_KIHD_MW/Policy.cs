@@ -19,11 +19,11 @@ namespace LIC_KIHD_MW
         private double smokingHistory;
         private double bloodPressure;
         private double gramsFatPerDay;
-        private string heartDisease;
-        private string cancer;
-        private string hospitalized;
+        private Boolean heartDisease;
+        private Boolean cancer;
+        private Boolean hospitalized;
         private string dangerousAct;
-        /*public Policy(PolicyHolder theInsured, double thePayOffAmount, double theFatherDeathAge, double theMotherDeathAge,
+       /* public Policy(PolicyHolder theInsured, double thePayOffAmount, double theFatherDeathAge, double theMotherDeathAge,
             double theCigsPerDay, double theSmokingHistory, double theBloodPressure, double theGramsFatPerDay, Boolean theHeartDisease,
             Boolean theCancer, Boolean theHospitalized, string theDangerousAct, Beneficiary theHeir, Agent theAgent)
         {
@@ -49,7 +49,8 @@ namespace LIC_KIHD_MW
         }
         public void Cancel(Policy policy)
         {
-            String connectionString = LIC_KIHD_GUI.Properties.Settings.Default.SQL_connection; ;
+            String connectionString = "Data Source=DATABASE" + "\\" + "CSCI3400011030;Initial Catalog=LIC_KIHD;"
+        + "Integrated Security=false;user='LIC_KIHD_MW';pwd='KIHD';";
             SqlConnection conn = new SqlConnection(connectionString);
             String policyNumber = policy.policyNum;
             String query = "execute cancel '" + policyNumber + "'";
