@@ -33,7 +33,7 @@ namespace LIC_KIHD_GUI
             if (userAccess  == "A") // Agent access the search page// made up id and pw
             {
                 Hide();
-                AgentSearch agent = new AgentSearch();
+                AgentSearch agent = new AgentSearch(barForID.Text);
                 agent.Closed += (s, arges) => this.Close();
                 agent.ShowDialog();
                 
@@ -46,7 +46,7 @@ namespace LIC_KIHD_GUI
                 Hide();
             }//manager access the search page
             else
-            {
+            { 
                 MessageBox.Show(String.Format("Username or Password is Incorrect")); //wrong id or pw
 
             }
