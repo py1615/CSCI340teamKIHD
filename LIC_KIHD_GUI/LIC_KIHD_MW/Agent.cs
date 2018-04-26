@@ -20,25 +20,53 @@ namespace LIC_KIHD_MW
             department = theDepartment;
             agentType = theAgentType;
         }
-        /*public List<Policy> search(string policyNum, string clientName)
+        public string[,] search(string policyNum, string clientName, string agentID)
         {
-            List<Policy> list = new List<Policy>();
-            string[][] policyInfo = new string[][];
+            string thePolicyNum = policyNum;
+            string firstName = "";
+            string lastName = "";
+            int index = 0;
+            for( int i = index; i < clientName.Length; i ++)
+            {
+                index = i;
+                if (clientName[i] == ' ') break;
+                char letter = clientName[i];
+                firstName += letter;
+            }
+            index++;
+            for(int i = index; i < clientName.Length; i ++)
+            {
+                char letter = clientName[i];
+                lastName += letter;
+            }
+            string theAgentID = agentID;
             String connectionString = LIC_KIHD_GUI.Properties.Settings.Default.SQL_connection;
             SqlConnection conn = new SqlConnection(connectionString);
-            String query = "execute Search ''";
+            String query = "execute search '" + thePolicyNum + "'" + firstName + "'" + lastName + "'" + theAgentID + "'";
             SqlCommand command = new SqlCommand(query);
             command.Connection = conn;
             conn.Open();
             SqlDataReader reader = command.ExecuteReader();
-            if (reader.Read())
+            int row = 0;
+            while (reader.Read())
             {
-                int columnNum = reader.GetOrdinal("PolicyHolder");
-                string policyholder = reader.GetString(columnNum);
+                row++;
+            }
+            string[,] policyInfo = new string[row,6];
+            row = 0;
+            while (reader.Read())
+            {
+                policyInfo[row,0] = reader.GetString(reader.GetOrdinal("policy_number"));
+                policyInfo[row, 1] = reader.GetString(reader.GetOrdinal("first_name")) + " " + reader.GetString(reader.GetOrdinal("last_name"));
+                policyInfo[row, 2] = reader.GetString(reader.GetOrdinal("dob"));
+                policyInfo[row, 3] = reader.GetString(reader.GetOrdinal("policy_start"));
+                policyInfo[row, 4] = reader.GetString(reader.GetOrdinal("payoff_amount"));
+                policyInfo[row, 5] = reader.GetString(reader.GetOrdinal("monthly_premium"));
+                row++;
             }
             conn.Close();
-            return list;
-        }*/
+            return policyInfo;
+        }
 
         public static string login(string userName, string passWord)
         {

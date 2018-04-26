@@ -24,7 +24,7 @@ namespace LIC_KIHD_MW
             string psw = passWord;
             String connectionString = LIC_KIHD_GUI.Properties.Settings.Default.SQL_connection;
             SqlConnection conn = new SqlConnection(connectionString);
-            String query = "execute userRegistrater '" + agentID + "', '" + firstName + "', '" + lastName + "', '" + department + "', '" + agentType + "', '" + id + "', '" + psw + "'";
+            String query = "execute register_user '" + agentID + "', '" + firstName + "', '" + lastName + "', '" + agentType+ "', '" + department + "', '" + id + "','" + psw + "'";
             SqlCommand command = new SqlCommand(query);
             command.Connection = conn;
             conn.Open();
