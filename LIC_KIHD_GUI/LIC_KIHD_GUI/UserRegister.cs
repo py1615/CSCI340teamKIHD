@@ -73,7 +73,7 @@ namespace LIC_KIHD_GUI
             }
             else if(IDBOX.Text.Length < 20)
             {
-                MessageBox.Show(String.Format("ID have to be 20 numbers long."));
+                MessageBox.Show(String.Format("ID have to be 20 digits long."));
             }
             else
             {

@@ -56,7 +56,7 @@ namespace LIC_KIHD_GUI
         {
             DataTable table = new DataTable();
             
-            //List<LIC_KIHD_MW.Policy> policy = LIC_KIHD_MW.Agent.search(policyNumBox.Text, false);
+           // List<LIC_KIHD_MW.Policy> policy = LIC_KIHD_MW.Agent.search(policyNumBox.Text, false);
             //string[][] searchResult;
             /*if(policy != null)
             {
@@ -100,6 +100,15 @@ namespace LIC_KIHD_GUI
         private void clientNameBox_TextChanged(object sender, EventArgs e)
         {
 
+        }
+        private DataTable convertToDataTable(string[,] search)
+        {
+            DataTable dt = new DataTable();
+            for(int i = 0; i < search.GetLength(1); i ++)
+            {
+
+            }
+            return dt;
         }
     }
 }
