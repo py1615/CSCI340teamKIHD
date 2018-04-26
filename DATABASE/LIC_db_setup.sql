@@ -58,5 +58,5 @@ CREATE TABLE beneficiary (
 policy_number NUMERIC(30) NOT NULL,
 first_name VARCHAR(100),
 last_name VARCHAR(100),
-PRIMARY KEY (policy_number),
+CONSTRAINT PK_beneficiary PRIMARY KEY (policy_number, first_name, last_name),
 FOREIGN KEY (policy_number) REFERENCES client_policy(policy_number));
