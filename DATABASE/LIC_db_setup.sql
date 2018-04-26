@@ -32,6 +32,7 @@ cigs_day VARCHAR(5),
 smoking_history VARCHAR(5),
 systolic_blood_pressure VARCHAR(4),
 avg_grams_fat_day VARCHAR(5),
+--USE A 1 FOR 'Y' AND A 0 FOR 'N'
 heart_disease BIT,
 cancer BIT,
 hospitalized BIT,
