@@ -16,21 +16,21 @@ namespace LIC_KIHD_MW
             data = new double[row, column];
         }
 
-       public void setData(int row, int col, double data)
+        public void setData(int row, int col, double data)
         {
             this.data[row, col] = data;
         }
 
-        public static Matrix operator +(Matrix m, Matrix n)
+        public static Matrix operator+(Matrix m, Matrix n)
             {
-            if(m.column != n.column || m.row != n.column)
+            if(m.column != n.column || m.row != n.row)
                 {
                throw new Exception("matrices size don't match");
                 }
             Matrix sum = new Matrix(m.row,m.column);
-            for(int i = 0; i < n.column; i++)
+            for(int i = 0; i < n.row; i++)
                 {
-                for(int j = 0; j < n.row; j++)
+                for(int j = 0; j < n.column; j++)
                     {
                     sum.data[i,j] = m.data[i,j] + n.data[i,j];
                     }
@@ -38,16 +38,16 @@ namespace LIC_KIHD_MW
                 return sum;
             }
 
-        public static Matrix operator -(Matrix m, Matrix n)
+        public static Matrix operator-(Matrix m, Matrix n)
             {
-            if(m.column != n.column || m.row != n.column)
+            if(m.column != n.column || m.row != n.row)
                 {
                throw new Exception("matrices size don't match");
                 }
             Matrix difference = new Matrix(m.row, m.column);
-            for(int i = 0; i < n.column; i++)
+            for(int i = 0; i < n.row; i++)
                 {
-                for(int j = 0; j < n.row; j++)
+                for(int j = 0; j < n.column; j++)
                     {
                     difference.data[i,j] = m.data[i,j] - n.data[i,j];
                     }
@@ -93,9 +93,9 @@ namespace LIC_KIHD_MW
         public Matrix transpose()
         {
             Matrix xTranspose = new Matrix(column, row);
-            for(int i = 0; i < row; i ++)
+            for(int i = 0; i < column; i ++)
             {
-                for(int j = 0; j < column; j++)
+                for(int j = 0; j < row; j++)
                 {
                     xTranspose.data[i, j] = data[j, i];
                 }
@@ -114,7 +114,7 @@ namespace LIC_KIHD_MW
                     }
                 for(int j = column; j < 2*column; j++ )
                     {
-                    if(j-i == i)
+                    if(j-column == i)
                         {
                         augmentedMatrix.data[i, j] = 1;
                         }
@@ -135,20 +135,31 @@ namespace LIC_KIHD_MW
             
             for(int i = 0; i < augmented.row; i++)
                 {
-                for(int j = 0; j < augmented.column; j++)
+                for(int k = 0; k < column; k++)
                     {
-                    augmented.data[i+j,j] = augmented.data[i,i] * augmented.data[i+j,j]
-                                            -augmented.data[i+j,i]* augmented.data[i,j];
+                    for(int j = 0; j < augmented.column; j++)
+                        {
+                        if(i != i+k)
+                            {
+                            augmented.data[i+k,j] = augmented.data[i,i] * augmented.data[i+k,j]
+                                                   -augmented.data[i+k,i]* augmented.data[i,j];
+                            }
+                        }
                     }
                 }
-            
-            for(int i = augmented.row - 1; i > 0 ; i--)
+            for(int i = augmented.row - 1; i >= 0 ; i--)
                 {
-                for(int j = augmented.column - 1; j > 0; j--)
+                for(int k = 0; k < column; k++)
                     {
-                    augmented.data[i+j,j] = augmented.data[i,i] * augmented.data[i+j,j]
-                                        -augmented.data[i+j,i]* augmented.data[i,j];
-                    augmented.data[i+j,j] /= augmented.data[i,i];
+                    for(int j = augmented.column - 1; j >= 0; j--)
+                        {
+                        if(i != i+k)
+                            {
+                            augmented.data[i-k,j] = augmented.data[i,i] * augmented.data[i-k,j]
+                                                    -augmented.data[i-k,i]* augmented.data[i,j];
+                            augmented.data[i-k,j] /= augmented.data[i,i];
+                            }
+                        }
                     }
                 }
 
@@ -160,12 +171,6 @@ namespace LIC_KIHD_MW
                     }
                 }
             return inverse;    
-
-            
-            
-                
        }
-
-      
     }
 }
