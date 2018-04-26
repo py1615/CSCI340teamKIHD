@@ -103,6 +103,32 @@ namespace LIC_KIHD_MW
             return xTranspose;
         }
 
+        
+       public Matrix invert()
+       {
+             if(row != column)
+             {
+               throw new Exception("matrice is not square");
+             }
+            Matrix inverse = new Matrix (row , column);
+            Matrix augmented = augment();
+            
+            augmented.rowOperation();
+            augmented = augmented.rearrange();
+            augmented.rowOperation();
+            augmented.simplify();
+
+            for (int i = 0; i < inverse.row; i++)
+            {
+                for (int j = 0; j < inverse.column; j++)
+                {
+                    inverse.data[i, j] = augmented.data[augmented.row - 1 - i, inverse.column + j];
+                }
+            }
+
+            return inverse;    
+       }
+
         private Matrix augment()
             {
             Matrix augmentedMatrix = new Matrix(row, 2*column);
@@ -124,53 +150,58 @@ namespace LIC_KIHD_MW
             return augmentedMatrix;
             }
 
-       public Matrix invert()
-       {
-             if(row != column)
-             {
-               throw new Exception("matrice is not square");
-             }
-            Matrix inverse = new Matrix (row , column);
-            Matrix augmented = augment();
-            
-            for(int i = 0; i < augmented.row; i++)
+        public void rowOperation()
+        {
+            for (int i = 0; i < row; i++)
+            {
+                for (int k = 0; k < row - i; k++)
                 {
-                for(int k = 0; k < column; k++)
+                    if (i != i + k)
                     {
-                    for(int j = 0; j < augmented.column; j++)
+                        double multiplier = data[i + k, i];
+                        for (int j = 0; j < column; j++)
                         {
-                        if(i != i+k)
-                            {
-                            augmented.data[i+k,j] = augmented.data[i,i] * augmented.data[i+k,j]
-                                                   -augmented.data[i+k,i]* augmented.data[i,j];
-                            }
+                            data[i + k, j] = data[i, i] * data[i + k, j]
+                                                   - multiplier * data[i, j];
                         }
                     }
                 }
-            for(int i = augmented.row - 1; i >= 0 ; i--)
-                {
-                for(int k = 0; k < column; k++)
-                    {
-                    for(int j = augmented.column - 1; j >= 0; j--)
-                        {
-                        if(i != i+k)
-                            {
-                            augmented.data[i-k,j] = augmented.data[i,i] * augmented.data[i-k,j]
-                                                    -augmented.data[i-k,i]* augmented.data[i,j];
-                            augmented.data[i-k,j] /= augmented.data[i,i];
-                            }
-                        }
-                    }
-                }
+            }
+        }
+        
 
-            for(int i = 0; i < inverse.row; i++)
+        public Matrix rearrange()
+        {
+            Matrix newMatrix = new Matrix(row, column);
+            for (int i = 0; i < newMatrix.row; i++)
+            {
+                for (int j = 0; j < newMatrix.column / 2; j++)
                 {
-                for(int j = 0; j < inverse.column; j++)
-                    {
-                    inverse.data[i,j] = augmented.data[i, inverse.column+j];
-                    }
+                    newMatrix.data[i, j] = data[row - 1 - i, (column - 1)/2 - j];
                 }
-            return inverse;    
-       }
+            }
+
+            for(int i = 0; i < newMatrix.row; i++)
+            {
+                for (int j = newMatrix.column / 2; j < newMatrix.column; j++)
+                {
+                    newMatrix.data[i, j] = data[row - 1 - i, j];
+                }
+            }
+            return newMatrix;
+        }
+
+        public void simplify()
+        {
+            for(int i = 0; i<row; i++)
+            {
+                double divisor = data[i, i];
+                for(int j = 0; j < column; j++)
+                {
+                    data[i, j] /= divisor;
+                }
+            }
+        }
+
     }
 }
