@@ -145,3 +145,21 @@ GETDATE(),
 SELECT SCOPE_IDENTITY() AS policy_number
 END
 GO
+
+CREATE PROCEDURE add_beneficiary (
+@policy_number,
+@first_name,
+@last_name)
+AS
+BEGIN
+SET NOCOUNT ON;
+INSERT INTO beneficiary (
+policy_number,
+first_name,
+last_name)
+VALUES (
+@policy_number,
+@first_name,
+@last_name)
+END
+GO
