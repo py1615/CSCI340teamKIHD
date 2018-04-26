@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.logOutButton = new System.Windows.Forms.Button();
-            this.searchButton = new System.Windows.Forms.Button();
             this.registrationButton = new System.Windows.Forms.Button();
             this.agentSearchButton = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -57,24 +56,11 @@
             this.logOutButton.UseVisualStyleBackColor = true;
             this.logOutButton.Click += new System.EventHandler(this.logOutButton_Click);
             // 
-            // searchButton
-            // 
-            this.searchButton.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.searchButton.Location = new System.Drawing.Point(982, 16);
-            this.searchButton.Margin = new System.Windows.Forms.Padding(4);
-            this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(103, 43);
-            this.searchButton.TabIndex = 4;
-            this.searchButton.Text = "Search";
-            this.searchButton.UseVisualStyleBackColor = true;
-            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
-            // 
             // registrationButton
             // 
             this.registrationButton.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.registrationButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.registrationButton.Location = new System.Drawing.Point(791, 16);
+            this.registrationButton.Location = new System.Drawing.Point(902, 16);
             this.registrationButton.Margin = new System.Windows.Forms.Padding(4);
             this.registrationButton.Name = "registrationButton";
             this.registrationButton.Size = new System.Drawing.Size(183, 43);
@@ -102,7 +88,7 @@
             this.textBox2.Location = new System.Drawing.Point(553, 278);
             this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(240, 30);
+            this.textBox2.Size = new System.Drawing.Size(240, 26);
             this.textBox2.TabIndex = 9;
             // 
             // textBox1
@@ -111,7 +97,7 @@
             this.textBox1.Location = new System.Drawing.Point(553, 208);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(240, 30);
+            this.textBox1.Size = new System.Drawing.Size(240, 26);
             this.textBox1.TabIndex = 10;
             // 
             // ClientName
@@ -122,7 +108,7 @@
             this.ClientName.Location = new System.Drawing.Point(359, 348);
             this.ClientName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ClientName.Name = "ClientName";
-            this.ClientName.Size = new System.Drawing.Size(115, 22);
+            this.ClientName.Size = new System.Drawing.Size(88, 19);
             this.ClientName.TabIndex = 7;
             this.ClientName.Text = "Client Name:";
             // 
@@ -134,7 +120,7 @@
             this.policyNumber.Location = new System.Drawing.Point(359, 208);
             this.policyNumber.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.policyNumber.Name = "policyNumber";
-            this.policyNumber.Size = new System.Drawing.Size(135, 22);
+            this.policyNumber.Size = new System.Drawing.Size(103, 19);
             this.policyNumber.TabIndex = 8;
             this.policyNumber.Text = "Policy Number:";
             // 
@@ -149,7 +135,7 @@
             this.managerSearchTitle.Location = new System.Drawing.Point(447, 110);
             this.managerSearchTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.managerSearchTitle.Name = "managerSearchTitle";
-            this.managerSearchTitle.Size = new System.Drawing.Size(238, 37);
+            this.managerSearchTitle.Size = new System.Drawing.Size(196, 31);
             this.managerSearchTitle.TabIndex = 12;
             this.managerSearchTitle.Text = "Manager Search:";
             // 
@@ -160,7 +146,7 @@
             this.agentName.Location = new System.Drawing.Point(359, 278);
             this.agentName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.agentName.Name = "agentName";
-            this.agentName.Size = new System.Drawing.Size(113, 22);
+            this.agentName.Size = new System.Drawing.Size(89, 19);
             this.agentName.TabIndex = 13;
             this.agentName.Text = "Agent Name:";
             // 
@@ -170,7 +156,7 @@
             this.textBox3.Location = new System.Drawing.Point(553, 348);
             this.textBox3.Margin = new System.Windows.Forms.Padding(4);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(240, 30);
+            this.textBox3.Size = new System.Drawing.Size(240, 26);
             this.textBox3.TabIndex = 14;
             // 
             // dataGridView1
@@ -186,7 +172,7 @@
             // 
             // UserRegistrationButton
             // 
-            this.UserRegistrationButton.Location = new System.Drawing.Point(623, 16);
+            this.UserRegistrationButton.Location = new System.Drawing.Point(734, 16);
             this.UserRegistrationButton.Name = "UserRegistrationButton";
             this.UserRegistrationButton.Size = new System.Drawing.Size(161, 43);
             this.UserRegistrationButton.TabIndex = 16;
@@ -196,7 +182,7 @@
             // 
             // managerSearch
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1213, 974);
@@ -211,7 +197,6 @@
             this.Controls.Add(this.ClientName);
             this.Controls.Add(this.policyNumber);
             this.Controls.Add(this.logOutButton);
-            this.Controls.Add(this.searchButton);
             this.Controls.Add(this.registrationButton);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -226,7 +211,6 @@
         #endregion
 
         private System.Windows.Forms.Button logOutButton;
-        private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.Button registrationButton;
         private System.Windows.Forms.Button agentSearchButton;
         private System.Windows.Forms.TextBox textBox2;

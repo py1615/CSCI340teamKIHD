@@ -75,8 +75,7 @@
             this.textBox17 = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
+            this.returnButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,7 +83,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(450, 49);
+            this.label1.Location = new System.Drawing.Point(445, 76);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(237, 34);
             this.label1.TabIndex = 0;
@@ -93,7 +92,7 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(268, 1033);
+            this.label24.Location = new System.Drawing.Point(269, 993);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(151, 19);
             this.label24.TabIndex = 28;
@@ -102,7 +101,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(269, 1073);
+            this.label23.Location = new System.Drawing.Point(269, 1033);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(150, 19);
             this.label23.TabIndex = 26;
@@ -474,7 +473,7 @@
             // 
             // textBox16
             // 
-            this.textBox16.Location = new System.Drawing.Point(632, 1025);
+            this.textBox16.Location = new System.Drawing.Point(632, 985);
             this.textBox16.MaxLength = 100;
             this.textBox16.Name = "textBox16";
             this.textBox16.Size = new System.Drawing.Size(100, 26);
@@ -483,7 +482,7 @@
             // 
             // textBox17
             // 
-            this.textBox17.Location = new System.Drawing.Point(632, 1065);
+            this.textBox17.Location = new System.Drawing.Point(632, 1025);
             this.textBox17.MaxLength = 100;
             this.textBox17.Name = "textBox17";
             this.textBox17.Size = new System.Drawing.Size(100, 26);
@@ -494,31 +493,75 @@
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
-            "CA"});
+            "Alabama",
+            "Alaska",
+            "Arizona",
+            "Arkansas",
+            "California",
+            "Colorado",
+            "Connecticut",
+            "Delaware",
+            "Florida",
+            "Georgia",
+            "Hawaii",
+            "Idaho",
+            "Illinois",
+            "Indiana",
+            "Iowa",
+            "Kansas",
+            "Kentucky",
+            "Louisiana",
+            "Maine",
+            "Maryland",
+            "Massachusetts",
+            "Michigan",
+            "Minnesota",
+            "Mississippi",
+            "Missouri",
+            "Montana",
+            "Nebraska",
+            "Nevada",
+            "New Hampshire",
+            "New Jersey",
+            "New Mexico",
+            "New York",
+            "North Carolina",
+            "North Dakota",
+            "Ohio",
+            "Oklahoma",
+            "Oregon",
+            "Pennsylvania",
+            "Rhode Island",
+            "South Carolina",
+            "South Dakota",
+            "Tennessee",
+            "Texas",
+            "Utah",
+            "Vermont",
+            "Virginia",
+            "Washington",
+            "West Virginia",
+            "Wisconsin",
+            "Wyoming"});
             this.comboBox1.Location = new System.Drawing.Point(632, 343);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 27);
             this.comboBox1.TabIndex = 54;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
             // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // textBox1
+            // returnButton
             // 
-            this.textBox1.Location = new System.Drawing.Point(632, 985);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 26);
-            this.textBox1.TabIndex = 55;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(268, 992);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(107, 19);
-            this.label18.TabIndex = 56;
-            this.label18.Text = "Policy End Date";
+            this.returnButton.Location = new System.Drawing.Point(711, 1113);
+            this.returnButton.Name = "returnButton";
+            this.returnButton.Size = new System.Drawing.Size(133, 33);
+            this.returnButton.TabIndex = 57;
+            this.returnButton.Text = "Return";
+            this.returnButton.UseVisualStyleBackColor = true;
+            this.returnButton.Click += new System.EventHandler(this.returnButton_Click);
             // 
             // PolicyRegistration
             // 
@@ -527,8 +570,7 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1213, 974);
-            this.Controls.Add(this.label18);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.returnButton);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.textBox17);
             this.Controls.Add(this.textBox16);
@@ -633,7 +675,6 @@
         private System.Windows.Forms.TextBox textBox17;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button returnButton;
     }
 }

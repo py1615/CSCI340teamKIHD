@@ -13,9 +13,10 @@ namespace LIC_KIHD_GUI
 {
     public partial class AgentSearch : Form
     {
-        public AgentSearch()
+        public AgentSearch(string ID)
         {
             InitializeComponent();
+            string agentId = ID;
         }
 
         private void AgentSearch_Load(object sender, EventArgs e)
@@ -48,7 +49,7 @@ namespace LIC_KIHD_GUI
            
             PolicyRegistration policyRegiser = new PolicyRegistration();
             
-            policyRegiser.Show();
+            policyRegiser.ShowDialog();
         }
 
         private void agentSearchButton_Click(object sender, EventArgs e)
@@ -56,9 +57,19 @@ namespace LIC_KIHD_GUI
             DataTable table = new DataTable();
             
             //List<LIC_KIHD_MW.Policy> policy = LIC_KIHD_MW.Agent.search(policyNumBox.Text, false);
-            //table = ToDataTable(policy);
+            //string[][] searchResult;
+            /*if(policy != null)
+            {
+               table = ToDataTable(policy);
 
-            dataGridView1.DataSource = table;
+                dataGridView1.DataSource = table;
+            }
+            else
+            {
+                MessageBox.Show("The information you entered is wrong!");
+                policyNumBox.Clear();
+                clientNameBox.Clear();
+            }*/
         }
         public static DataTable ToDataTable<T>(List<T> items)
         {
@@ -84,6 +95,11 @@ namespace LIC_KIHD_GUI
             }
             //put a breakpoint here and check datatable
             return dataTable;
+        }
+
+        private void clientNameBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
