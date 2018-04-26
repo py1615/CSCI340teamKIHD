@@ -70,6 +70,7 @@ namespace LIC_KIHD_GUI
         private void confirmButton_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Policy had been registered successfully!");
+
             this.Close();
         }
 

@@ -31,37 +31,37 @@ namespace LIC_KIHD_GUI
         private void HDYes_CheckedChanged(object sender, EventArgs e)
         {
             HDNo.Checked = !HDYes.Checked;
-            HeartDisease = "Y";
+            HeartDisease = "1";
         }
 
         private void HDNo_CheckedChanged(object sender, EventArgs e)
         {
             HDYes.Checked = !HDNo.Checked;
-            HeartDisease = "N";
+            HeartDisease = "0";
         }
 
         private void CancerYes_CheckedChanged(object sender, EventArgs e)
         {
             CancerNo.Checked = !CancerYes.Checked;
-            cancer = "Y";
+            cancer = "1";
         }
 
         private void CancerNo_CheckedChanged(object sender, EventArgs e)
         {
             CancerYes.Checked = !CancerNo.Checked;
-            cancer = "N";
+            cancer = "0";
         }
 
         private void HosYes_CheckedChanged(object sender, EventArgs e)
         {
             HosNo.Checked = !HosYes.Checked;
-            hospital = "Y";
+            hospital = "1";
         }
 
         private void HosNo_CheckedChanged(object sender, EventArgs e)
         {
             HosYes.Checked = !HosNo.Checked;
-            hospital = "N";
+            hospital = "0";
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

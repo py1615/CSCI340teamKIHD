@@ -13,11 +13,14 @@ namespace LIC_KIHD_GUI
 {
     public partial class AgentSearch : Form
     {
+        private string agentId;
         public AgentSearch(string ID)
         {
             InitializeComponent();
-            string agentId = ID;
+            agentId = ID;
         }
+       
+        
 
         private void AgentSearch_Load(object sender, EventArgs e)
         {
@@ -55,12 +58,12 @@ namespace LIC_KIHD_GUI
         private void agentSearchButton_Click(object sender, EventArgs e)
         {
             DataTable table = new DataTable();
+
+            string[,] searchResult = LIC_KIHD_MW.Agent.search(policyNumBox.Text, clientNameBox.Text, agentId);
             
-            //List<LIC_KIHD_MW.Policy> policy = LIC_KIHD_MW.Agent.search(policyNumBox.Text, false);
-            //string[][] searchResult;
-            /*if(policy != null)
+            if(searchResult != null)
             {
-               table = ToDataTable(policy);
+               table = convertToDataTable(searchResult);
 
                 dataGridView1.DataSource = table;
             }
@@ -69,7 +72,7 @@ namespace LIC_KIHD_GUI
                 MessageBox.Show("The information you entered is wrong!");
                 policyNumBox.Clear();
                 clientNameBox.Clear();
-            }*/
+            }
         }
         public static DataTable ToDataTable<T>(List<T> items)
         {
@@ -100,6 +103,23 @@ namespace LIC_KIHD_GUI
         private void clientNameBox_TextChanged(object sender, EventArgs e)
         {
 
+        }
+        private DataTable convertToDataTable(string[,] search)
+        {
+            DataTable dt = new DataTable();
+            for(int i = 0; i < search.GetLength(1); i ++)
+            {
+                DataRow newRow = dt.NewRow();
+                for (int j = 0; j < search.GetLength(0); j++)
+                {
+
+
+                    newRow[j] = search[i, j];
+
+
+                }
+            }
+            return dt;
         }
     }
 }

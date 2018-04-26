@@ -67,9 +67,11 @@ namespace LIC_KIHD_GUI
 
         }
 
+        
+
         private void loginPage_Load(object sender, EventArgs e)
         {
-            this.Closed += (s, arges) => Application.Exit();
+
         }
     }
 }

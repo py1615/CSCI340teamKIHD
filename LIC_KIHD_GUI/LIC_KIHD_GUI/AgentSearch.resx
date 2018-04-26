@@ -345,12 +345,6 @@
   <data name="&gt;&gt;agentSearchButton.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <metadata name="View.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="View.HeaderText" xml:space="preserve">
-    <value>View</value>
-  </data>
   <data name="dataGridView1.Location" type="System.Drawing.Point, System.Drawing">
     <value>-2, 345</value>
   </data>
@@ -416,12 +410,6 @@
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>LIC</value>
-  </data>
-  <data name="&gt;&gt;View.Name" xml:space="preserve">
-    <value>View</value>
-  </data>
-  <data name="&gt;&gt;View.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewButtonColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>AgentSearch</value>
