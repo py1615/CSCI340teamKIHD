@@ -12,24 +12,30 @@ namespace LIC_KIHD_MW
         private string lastName;
         private string department;
         private string agentType;*/
-        public Manager(string theAgentID, string theFirstName, string theLastName, string theDepartment, 
-            string theAgentType, string userName, string passWord) : base(theAgentID, theFirstName, theLastName, theDepartment, theAgentType)
+        public Manager(string firstName, string lastName, string department, string agentType,
+            string userName, string passWord) : base(firstName, lastName, department, agentType)
         {
-            string agentID = theAgentID;
-            string firstName = theFirstName;
-            string lastName = theLastName;
-            string department = theDepartment;
-            string agentType = theAgentType;
-            string id = userName;
-            string psw = passWord;
+
+        }
+
+        public string userRegister(string userName, string firstName, string lastName, string passWord,
+            string agentType, string department)
+        {
             String connectionString = LIC_KIHD_GUI.Properties.Settings.Default.SQL_connection;
             SqlConnection conn = new SqlConnection(connectionString);
-            String query = "execute register_user '" + agentID + "', '" + firstName + "', '" + lastName + "', '" + agentType+ "', '" + department + "', '" + id + "','" + psw + "'";
+            String query = "execute register_user '" + userName + "', '" + firstName + "', '" + lastName 
+                + "', '" + passWord + "', '" + agentType + "','" + department + "'";
             SqlCommand command = new SqlCommand(query);
             command.Connection = conn;
             conn.Open();
-            command.ExecuteNonQuery();
+            SqlDataReader reader = command.ExecuteReader();
+            string id = "";
+            while (reader.Read())
+            {
+                id = reader.GetString(reader.GetOrdinal("id"));
+            }
             conn.Close();
+            return id;
         }
         /*public List<Policy> search(string policyNum, ,string agentNum, string clientName)
         {
