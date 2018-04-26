@@ -33,9 +33,9 @@ namespace LIC_KIHD_GUI
 
         private void registrationButton_Click(object sender, EventArgs e)
         {
-            Hide();
+            
             PolicyRegistration policyRegiser = new PolicyRegistration();
-            policyRegiser.Closed += (s, arges) => this.Close();
+            
             policyRegiser.ShowDialog();
         }
 

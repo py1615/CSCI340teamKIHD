@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AgentSearch));
             this.registrationButton = new System.Windows.Forms.Button();
-            this.searchButton = new System.Windows.Forms.Button();
             this.logOutButton = new System.Windows.Forms.Button();
             this.searchTitle = new System.Windows.Forms.Label();
             this.policyNumber = new System.Windows.Forms.Label();
@@ -40,6 +39,7 @@
             this.agentSearchButton = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.View = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.warning = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,13 +49,6 @@
             this.registrationButton.Name = "registrationButton";
             this.registrationButton.UseVisualStyleBackColor = true;
             this.registrationButton.Click += new System.EventHandler(this.registrationButton_Click);
-            // 
-            // searchButton
-            // 
-            resources.ApplyResources(this.searchButton, "searchButton");
-            this.searchButton.Name = "searchButton";
-            this.searchButton.UseVisualStyleBackColor = true;
-            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // logOutButton
             // 
@@ -88,6 +81,7 @@
             // 
             resources.ApplyResources(this.clientNameBox, "clientNameBox");
             this.clientNameBox.Name = "clientNameBox";
+            this.clientNameBox.TextChanged += new System.EventHandler(this.clientNameBox_TextChanged);
             // 
             // agentSearchButton
             // 
@@ -112,11 +106,17 @@
             this.View.Name = "View";
             this.View.Text = "View";
             // 
+            // warning
+            // 
+            resources.ApplyResources(this.warning, "warning");
+            this.warning.Name = "warning";
+            // 
             // AgentSearch
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Controls.Add(this.warning);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.agentSearchButton);
             this.Controls.Add(this.clientNameBox);
@@ -125,7 +125,6 @@
             this.Controls.Add(this.policyNumber);
             this.Controls.Add(this.searchTitle);
             this.Controls.Add(this.logOutButton);
-            this.Controls.Add(this.searchButton);
             this.Controls.Add(this.registrationButton);
             this.Name = "AgentSearch";
             this.Load += new System.EventHandler(this.AgentSearch_Load);
@@ -138,7 +137,6 @@
         #endregion
 
         private System.Windows.Forms.Button registrationButton;
-        private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.Button logOutButton;
         private System.Windows.Forms.Label searchTitle;
         private System.Windows.Forms.Label policyNumber;
@@ -148,5 +146,6 @@
         private System.Windows.Forms.Button agentSearchButton;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewButtonColumn View;
+        private System.Windows.Forms.Label warning;
     }
 }

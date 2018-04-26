@@ -33,7 +33,6 @@
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -73,7 +72,6 @@
             this.Hospitalized = new System.Windows.Forms.Label();
             this.DangerousActivities = new System.Windows.Forms.Label();
             this.PolicyStart = new System.Windows.Forms.Label();
-            this.PolicyEnd = new System.Windows.Forms.Label();
             this.PayoffAmount = new System.Windows.Forms.Label();
             this.MonthlyPremium = new System.Windows.Forms.Label();
             this.Status = new System.Windows.Forms.Label();
@@ -85,7 +83,7 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(259, 847);
+            this.label24.Location = new System.Drawing.Point(259, 817);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(151, 19);
             this.label24.TabIndex = 29;
@@ -94,7 +92,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(259, 877);
+            this.label23.Location = new System.Drawing.Point(259, 847);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(150, 19);
             this.label23.TabIndex = 27;
@@ -103,7 +101,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(259, 817);
+            this.label21.Location = new System.Drawing.Point(259, 787);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(49, 19);
             this.label21.TabIndex = 26;
@@ -112,7 +110,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(259, 787);
+            this.label22.Location = new System.Drawing.Point(259, 757);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(119, 19);
             this.label22.TabIndex = 25;
@@ -121,20 +119,11 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(259, 757);
+            this.label20.Location = new System.Drawing.Point(259, 727);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(102, 19);
             this.label20.TabIndex = 24;
             this.label20.Text = "Payoff Amount:";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(259, 727);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(110, 19);
-            this.label19.TabIndex = 23;
-            this.label19.Text = "Policy End Date:";
             // 
             // label18
             // 
@@ -320,7 +309,7 @@
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(950, 923);
+            this.cancelButton.Location = new System.Drawing.Point(660, 923);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(86, 33);
             this.cancelButton.TabIndex = 32;
@@ -492,19 +481,10 @@
             this.PolicyStart.Text = "label40";
             this.PolicyStart.Click += new System.EventHandler(this.PolicyStart_Click);
             // 
-            // PolicyEnd
-            // 
-            this.PolicyEnd.AutoSize = true;
-            this.PolicyEnd.Location = new System.Drawing.Point(577, 727);
-            this.PolicyEnd.Name = "PolicyEnd";
-            this.PolicyEnd.Size = new System.Drawing.Size(53, 19);
-            this.PolicyEnd.TabIndex = 51;
-            this.PolicyEnd.Text = "label41";
-            // 
             // PayoffAmount
             // 
             this.PayoffAmount.AutoSize = true;
-            this.PayoffAmount.Location = new System.Drawing.Point(577, 757);
+            this.PayoffAmount.Location = new System.Drawing.Point(577, 727);
             this.PayoffAmount.Name = "PayoffAmount";
             this.PayoffAmount.Size = new System.Drawing.Size(53, 19);
             this.PayoffAmount.TabIndex = 52;
@@ -513,7 +493,7 @@
             // MonthlyPremium
             // 
             this.MonthlyPremium.AutoSize = true;
-            this.MonthlyPremium.Location = new System.Drawing.Point(577, 787);
+            this.MonthlyPremium.Location = new System.Drawing.Point(577, 757);
             this.MonthlyPremium.Name = "MonthlyPremium";
             this.MonthlyPremium.Size = new System.Drawing.Size(41, 19);
             this.MonthlyPremium.TabIndex = 53;
@@ -523,7 +503,7 @@
             // Status
             // 
             this.Status.AutoSize = true;
-            this.Status.Location = new System.Drawing.Point(577, 817);
+            this.Status.Location = new System.Drawing.Point(577, 787);
             this.Status.Name = "Status";
             this.Status.Size = new System.Drawing.Size(53, 19);
             this.Status.TabIndex = 54;
@@ -533,7 +513,7 @@
             // BeneficiaryFirstName
             // 
             this.BeneficiaryFirstName.AutoSize = true;
-            this.BeneficiaryFirstName.Location = new System.Drawing.Point(577, 847);
+            this.BeneficiaryFirstName.Location = new System.Drawing.Point(577, 817);
             this.BeneficiaryFirstName.Name = "BeneficiaryFirstName";
             this.BeneficiaryFirstName.Size = new System.Drawing.Size(53, 19);
             this.BeneficiaryFirstName.TabIndex = 55;
@@ -542,7 +522,7 @@
             // BeneficiaryLastName
             // 
             this.BeneficiaryLastName.AutoSize = true;
-            this.BeneficiaryLastName.Location = new System.Drawing.Point(577, 877);
+            this.BeneficiaryLastName.Location = new System.Drawing.Point(577, 847);
             this.BeneficiaryLastName.Name = "BeneficiaryLastName";
             this.BeneficiaryLastName.Size = new System.Drawing.Size(53, 19);
             this.BeneficiaryLastName.TabIndex = 56;
@@ -571,7 +551,6 @@
             this.Controls.Add(this.Status);
             this.Controls.Add(this.MonthlyPremium);
             this.Controls.Add(this.PayoffAmount);
-            this.Controls.Add(this.PolicyEnd);
             this.Controls.Add(this.PolicyStart);
             this.Controls.Add(this.DangerousActivities);
             this.Controls.Add(this.Hospitalized);
@@ -598,7 +577,6 @@
             this.Controls.Add(this.label21);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.label20);
-            this.Controls.Add(this.label19);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label6);
@@ -635,7 +613,6 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label6;
@@ -675,7 +652,6 @@
         private System.Windows.Forms.Label Hospitalized;
         private System.Windows.Forms.Label DangerousActivities;
         private System.Windows.Forms.Label PolicyStart;
-        private System.Windows.Forms.Label PolicyEnd;
         private System.Windows.Forms.Label PayoffAmount;
         private System.Windows.Forms.Label MonthlyPremium;
         private System.Windows.Forms.Label Status;

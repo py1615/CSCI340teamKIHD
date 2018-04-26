@@ -122,7 +122,7 @@
     <value>Times New Roman, 12pt</value>
   </data>
   <data name="registrationButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>646, 16</value>
+    <value>737, 16</value>
   </data>
   <data name="registrationButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>151, 41</value>
@@ -145,33 +145,6 @@
   </data>
   <data name="&gt;&gt;registrationButton.ZOrder" xml:space="preserve">
     <value>9</value>
-  </data>
-  <data name="searchButton.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Times New Roman, 12pt</value>
-  </data>
-  <data name="searchButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>803, 16</value>
-  </data>
-  <data name="searchButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>84, 41</value>
-  </data>
-  <data name="searchButton.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="searchButton.Text" xml:space="preserve">
-    <value>Search</value>
-  </data>
-  <data name="&gt;&gt;searchButton.Name" xml:space="preserve">
-    <value>searchButton</value>
-  </data>
-  <data name="&gt;&gt;searchButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;searchButton.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;searchButton.ZOrder" xml:space="preserve">
-    <value>8</value>
   </data>
   <data name="logOutButton.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 12pt</value>
@@ -198,7 +171,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;logOutButton.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="searchTitle.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
@@ -232,7 +205,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;searchTitle.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="policyNumber.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -262,7 +235,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;policyNumber.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="ClientName.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -295,7 +268,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;ClientName.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="policyNumBox.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 12pt</value>
@@ -319,7 +292,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;policyNumBox.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="clientNameBox.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 12pt</value>
@@ -343,7 +316,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;clientNameBox.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="agentSearchButton.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 12pt</value>
@@ -370,7 +343,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;agentSearchButton.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <metadata name="View.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -397,6 +370,36 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;dataGridView1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="warning.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="warning.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 9.75pt</value>
+  </data>
+  <data name="warning.Location" type="System.Drawing.Point, System.Drawing">
+    <value>655, 246</value>
+  </data>
+  <data name="warning.Size" type="System.Drawing.Size, System.Drawing">
+    <value>113, 15</value>
+  </data>
+  <data name="warning.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="warning.Text" xml:space="preserve">
+    <value>(Example: John Eric)</value>
+  </data>
+  <data name="&gt;&gt;warning.Name" xml:space="preserve">
+    <value>warning</value>
+  </data>
+  <data name="&gt;&gt;warning.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;warning.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;warning.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

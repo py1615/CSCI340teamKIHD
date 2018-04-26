@@ -63,13 +63,17 @@ namespace LIC_KIHD_GUI
                 }
             }
 
-            if (fieldFilled && comboBox1.SelectedIndex > -1)
+            if (fieldFilled && comboBox1.SelectedIndex > -1 && IDBOX.Text.Length <20)
             {
                 
                // LIC_KIHD_MW.Manager agentRegister = new LIC_KIHD_MW.Manager(IDBOX.Text, FNameBox.Text, LNameBox.Text, userType, comboBox1.Text, UserNameBox.Text, PasswordBox.Text);
 
                 this.Close();
                 
+            }
+            else if(IDBOX.Text.Length < 20)
+            {
+                MessageBox.Show(String.Format("ID have to be 20 numbers long."));
             }
             else
             {
@@ -157,7 +161,7 @@ namespace LIC_KIHD_GUI
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         
