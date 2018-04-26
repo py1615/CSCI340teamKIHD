@@ -72,5 +72,10 @@ namespace LIC_KIHD_GUI
             MessageBox.Show("Policy had been registered successfully!");
             this.Close();
         }
+
+        private void MonthlyPremium_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

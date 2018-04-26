@@ -66,10 +66,9 @@ namespace LIC_KIHD_GUI
             if (fieldFilled && comboBox1.SelectedIndex > -1)
             {
                 
-                LIC_KIHD_MW.Manager agentRegister = new LIC_KIHD_MW.Manager(IDBOX.Text, FNameBox.Text, LNameBox.Text, userType, comboBox1.Text, UserNameBox.Text, PasswordBox.Text);
-                
-                managerSearch manaSearch = new managerSearch();
-                manaSearch.Closed += (s, arges) => this.Close();
+               // LIC_KIHD_MW.Manager agentRegister = new LIC_KIHD_MW.Manager(IDBOX.Text, FNameBox.Text, LNameBox.Text, userType, comboBox1.Text, UserNameBox.Text, PasswordBox.Text);
+
+                this.Close();
                 
             }
             else
@@ -144,7 +143,7 @@ namespace LIC_KIHD_GUI
             if (tString.Trim() == "") return;
             for (int i = 0; i < tString.Length; i++)
             {
-                if (char.IsLetter(tString[i]))
+                if (!char.IsLetter(tString[i]))
                 {
                     errorProvider1.SetError(UserNameBox, "Please enter a valid information");//MessageBox.Show("Please enter a valid information");     
                     
@@ -161,14 +160,7 @@ namespace LIC_KIHD_GUI
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            String connectionString = "Data Source=DATABASE" + "\\" + "CSCI3400011030;Initial Catalog=LIC_KIHD;"
-       + "Integrated Security=false;user='LIC_KIHD_MW';pwd='KIHD';";
-            SqlConnection conn = new SqlConnection(connectionString);
-            string ID = "";
-            IDBOX.Text = ID;
-        }
+        
 
         private void UserRegister_Load(object sender, EventArgs e)
         {

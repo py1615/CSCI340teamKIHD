@@ -46,7 +46,7 @@ namespace LIC_KIHD_GUI
                 Hide();
             }//manager access the search page
             else
-            {
+            { 
                 MessageBox.Show(String.Format("Username or Password is Incorrect")); //wrong id or pw
 
             }

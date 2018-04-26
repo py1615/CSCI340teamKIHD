@@ -226,6 +226,7 @@
             this.PasswordBox.Name = "PasswordBox";
             this.PasswordBox.Size = new System.Drawing.Size(136, 26);
             this.PasswordBox.TabIndex = 15;
+            this.PasswordBox.UseSystemPasswordChar = true;
             // 
             // comboBox1
             // 

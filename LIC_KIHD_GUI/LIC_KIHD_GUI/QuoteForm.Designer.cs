@@ -518,6 +518,7 @@
             this.MonthlyPremium.Size = new System.Drawing.Size(41, 19);
             this.MonthlyPremium.TabIndex = 53;
             this.MonthlyPremium.Text = "$120";
+            this.MonthlyPremium.Click += new System.EventHandler(this.MonthlyPremium_Click);
             // 
             // Status
             // 
