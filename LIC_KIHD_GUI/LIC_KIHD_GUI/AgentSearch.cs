@@ -59,7 +59,7 @@ namespace LIC_KIHD_GUI
         {
             DataTable table = new DataTable();
 
-            /*string[,] searchResult = LIC_KIHD_MW.Agent.search(policyNumBox.Text, clientNameBox.Text, agentId);
+            string[,] searchResult = LIC_KIHD_MW.Agent.search(policyNumBox.Text, clientNameBox.Text, agentId);
             
             if(searchResult != null)
             {
@@ -72,7 +72,7 @@ namespace LIC_KIHD_GUI
                 MessageBox.Show("The information you entered is wrong!");
                 policyNumBox.Clear();
                 clientNameBox.Clear();
-            }*/
+            }
         }
         public static DataTable ToDataTable<T>(List<T> items)
         {

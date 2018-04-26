@@ -66,5 +66,12 @@ namespace LIC_KIHD_GUI
         {
 
         }
+
+        
+
+        private void loginPage_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
