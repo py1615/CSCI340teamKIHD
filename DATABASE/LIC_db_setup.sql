@@ -14,7 +14,7 @@ user_type VARCHAR(1),
 department VARCHAR(50));
 
 CREATE TABLE policy_holder (
-policy_holder_id NUMERIC(30) NOT NULL IDENTITY PRIMARY KEY,
+policy_holder_id NUMERIC(20) NOT NULL IDENTITY PRIMARY KEY,
 first_name VARCHAR(100),
 last_name VARCHAR(100),
 street_address VARCHAR(30),

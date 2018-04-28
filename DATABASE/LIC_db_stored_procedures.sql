@@ -163,3 +163,13 @@ VALUES (
 @last_name)
 END
 GO
+
+CREATE PROCEDURE calculation_data
+AS
+BEGIN
+SET NOCOUNT ON;
+SELECT dob, fathers_age_of_death, mothers_age_of_death, cigs_day, smoking_history, systolic_blood_pressure, avg_grams_fat_day, heart_disease, cancer, hospitalized, dangerous_activities, policy_end
+FROM client_policy FULL OUTER JOIN policy_holder ON client_policy.policy_holder_id = policy_holder.policy_holder_id FULL OUT JOIN payments ON client_policy.policy_number = payments.policy_number
+WHERE payment_type = 'C'
+END
+GO
