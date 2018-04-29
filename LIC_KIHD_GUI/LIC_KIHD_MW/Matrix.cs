@@ -16,50 +16,21 @@ namespace LIC_KIHD_MW
             data = new double[row, column];
         }
 
-        /*public Matrix(double[,] entry)
-        {
-            row = entry.Rank;
-            column = entry.GetLength(0);
-            data = new double[row , column];
-            for(int i = 0; i<row; i++)
-            {
-                for(int j = 0; j < column; j++)
-                {
-                    data[i,j] = entry[i, j];
-                }
-            }
-
-        }
-        public Matrix addData(Matrix m)
-        {
-            Matrix sum = new Matrix(row, column);
-            for (int i = 0; i < row; i++)
-            {
-                for (int j = 0; j < column; j++)
-                {
-                    sum.data[i, j] = data[i, j] + m.data[i,j];
-                }
-            }
-            return sum;
-        }
-        */
-
-
         public void setData(int row, int col, double data)
         {
             this.data[row, col] = data;
         }
 
-        public static Matrix operator +(Matrix m, Matrix n)
+        public static Matrix operator+(Matrix m, Matrix n)
             {
-            if(m.column != n.column || m.row != n.column)
+            if(m.column != n.column || m.row != n.row)
                 {
                throw new Exception("matrices size don't match");
                 }
             Matrix sum = new Matrix(m.row,m.column);
-            for(int i = 0; i < n.column; i++)
+            for(int i = 0; i < n.row; i++)
                 {
-                for(int j = 0; j < n.row; j++)
+                for(int j = 0; j < n.column; j++)
                     {
                     sum.data[i,j] = m.data[i,j] + n.data[i,j];
                     }
@@ -67,16 +38,16 @@ namespace LIC_KIHD_MW
                 return sum;
             }
 
-        public static Matrix operator -(Matrix m, Matrix n)
+        public static Matrix operator-(Matrix m, Matrix n)
             {
-            if(m.column != n.column || m.row != n.column)
+            if(m.column != n.column || m.row != n.row)
                 {
                throw new Exception("matrices size don't match");
                 }
             Matrix difference = new Matrix(m.row, m.column);
-            for(int i = 0; i < n.column; i++)
+            for(int i = 0; i < n.row; i++)
                 {
-                for(int j = 0; j < n.row; j++)
+                for(int j = 0; j < n.column; j++)
                     {
                     difference.data[i,j] = m.data[i,j] - n.data[i,j];
                     }
@@ -122,15 +93,41 @@ namespace LIC_KIHD_MW
         public Matrix transpose()
         {
             Matrix xTranspose = new Matrix(column, row);
-            for(int i = 0; i < row; i ++)
+            for(int i = 0; i < column; i ++)
             {
-                for(int j = 0; j < column; j++)
+                for(int j = 0; j < row; j++)
                 {
                     xTranspose.data[i, j] = data[j, i];
                 }
             }
             return xTranspose;
         }
+
+        
+       public Matrix invert()
+       {
+             if(row != column)
+             {
+               throw new Exception("matrice is not square");
+             }
+            Matrix inverse = new Matrix (row , column);
+            Matrix augmented = augment();
+            
+            augmented.rowOperation();
+            augmented = augmented.rearrange();
+            augmented.rowOperation();
+            augmented.simplify();
+
+            for (int i = 0; i < inverse.row; i++)
+            {
+                for (int j = 0; j < inverse.column; j++)
+                {
+                    inverse.data[i, j] = augmented.data[augmented.row - 1 - i, inverse.column + j];
+                }
+            }
+
+            return inverse;    
+       }
 
         private Matrix augment()
             {
@@ -143,7 +140,7 @@ namespace LIC_KIHD_MW
                     }
                 for(int j = column; j < 2*column; j++ )
                     {
-                    if(j-i == i)
+                    if(j-column == i)
                         {
                         augmentedMatrix.data[i, j] = 1;
                         }
@@ -153,66 +150,58 @@ namespace LIC_KIHD_MW
             return augmentedMatrix;
             }
 
-       public Matrix invert()
-       {
-             if(row != column)
-             {
-               throw new Exception("matrice is not square");
-             }
-            Matrix inverse = new Matrix (row , column);
-            Matrix augmented = augment();
-            double subtract;
-            double subtractor;
-            for(int i = 0; i < augmented.row; i++)
+        public void rowOperation()
+        {
+            for (int i = 0; i < row; i++)
+            {
+                for (int k = 0; k < row - i; k++)
                 {
-                for(int j = 0; j < augmented.column; j++)
+                    if (i != i + k)
                     {
-                    if(augmented.data[i,i]!=augmented.data[i+j,i])
+                        double multiplier = data[i + k, i];
+                        for (int j = 0; j < column; j++)
                         {
-                        subtract = augmented.data[i,i] * augmented.data[i+j,j];
-                        subtractor = augmented.data[i+j,i]* augmented.data[i,j];
+                            data[i + k, j] = data[i, i] * data[i + k, j]
+                                                   - multiplier * data[i, j];
                         }
-                    else
-                        {
-                        subtract = augmented.data[i+j,j];
-                        subtractor = augmented.data[i,j];
-                        }
-                    augmented.data[i+j,j] = subtract - subtractor;
                     }
                 }
-            
-            for(int i = augmented.row - 1; i > 0 ; i--)
+            }
+        }
+        
+
+        public Matrix rearrange()
+        {
+            Matrix newMatrix = new Matrix(row, column);
+            for (int i = 0; i < newMatrix.row; i++)
+            {
+                for (int j = 0; j < newMatrix.column / 2; j++)
                 {
-                for(int j = augmented.column - 1; j > 0; j--)
-                    {
-                    if(augmented.data[i,i]!=augmented.data[i-j,i])
-                        {
-                        subtract = augmented.data[i,i] * augmented.data[i-j,j];
-                        subtractor = augmented.data[i-j,i]* augmented.data[i,j];
-                        }
-                    else
-                        {
-                        subtract = augmented.data[i-j,j];
-                        subtractor = augmented.data[i,j];
-                        }
-                    augmented.data[i-j,j] = subtract - subtractor;
-                    }
+                    newMatrix.data[i, j] = data[row - 1 - i, (column - 1)/2 - j];
                 }
+            }
 
-            for(int i = 0; i < inverse.row; i++)
+            for(int i = 0; i < newMatrix.row; i++)
+            {
+                for (int j = newMatrix.column / 2; j < newMatrix.column; j++)
                 {
-                for(int j = 0; j < inverse.column; j++)
-                    {
-                    inverse.data[i,j] = augmented.data[i, inverse.column+j];
-                    }
+                    newMatrix.data[i, j] = data[row - 1 - i, j];
                 }
-            return inverse;    
+            }
+            return newMatrix;
+        }
 
-            
-            
-                
-       }
+        public void simplify()
+        {
+            for(int i = 0; i<row; i++)
+            {
+                double divisor = data[i, i];
+                for(int j = 0; j < column; j++)
+                {
+                    data[i, j] /= divisor;
+                }
+            }
+        }
 
-      
     }
 }

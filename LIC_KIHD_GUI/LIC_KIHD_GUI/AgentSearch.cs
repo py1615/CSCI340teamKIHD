@@ -13,10 +13,14 @@ namespace LIC_KIHD_GUI
 {
     public partial class AgentSearch : Form
     {
-        public AgentSearch()
+        private string agentId;
+        public AgentSearch(string ID)
         {
             InitializeComponent();
+            agentId = ID;
         }
+       
+        
 
         private void AgentSearch_Load(object sender, EventArgs e)
         {
@@ -48,42 +52,40 @@ namespace LIC_KIHD_GUI
            
             PolicyRegistration policyRegiser = new PolicyRegistration();
             
-            policyRegiser.Show();
+            policyRegiser.ShowDialog();
         }
 
         private void agentSearchButton_Click(object sender, EventArgs e)
         {
             DataTable table = new DataTable();
+
+            string[,] searchResult = LIC_KIHD_MW.Agent.search(policyNumBox.Text, clientNameBox.Text, agentId);
             
-            //List<LIC_KIHD_MW.Policy> policy = LIC_KIHD_MW.Agent.search(policyNumBox.Text, false);
-            //table = ToDataTable(policy);
-
-            dataGridView1.DataSource = table;
-        }
-        public static DataTable ToDataTable<T>(List<T> items)
-        {
-            DataTable dataTable = new DataTable(typeof(T).Name);
-
-            PropertyInfo[] Props = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);
-            foreach (PropertyInfo prop in Props)
+            if(searchResult != null)
             {
-                //Defining type of data column gives proper data table 
-                var type = (prop.PropertyType.IsGenericType && prop.PropertyType.GetGenericTypeDefinition() == typeof(Nullable<>) ? Nullable.GetUnderlyingType(prop.PropertyType) : prop.PropertyType);
-                //Setting column names as Property names
-                dataTable.Columns.Add(prop.Name, type);
-            }
-            foreach (T item in items)
-            {
-                var values = new object[Props.Length];
-                for (int i = 0; i < Props.Length; i++)
+                for (int i = 0; i < searchResult.GetLength(0); i++)
                 {
-                    //inserting property values to datatable rows
-                    values[i] = Props[i].GetValue(item, null);
+                    string[] row = new string[searchResult.GetLength(1)];
+                    for (int j = 0; j < searchResult.GetLength(1); j++)
+                    {
+                        row[j] = searchResult[i, j];
+                    }
+                    dataGridView1.Rows.Add(row);
                 }
-                dataTable.Rows.Add(values);
             }
-            //put a breakpoint here and check datatable
-            return dataTable;
+            else
+            {
+                MessageBox.Show("The information you entered is wrong!");
+                policyNumBox.Clear();
+                clientNameBox.Clear();
+            }
         }
+        
+
+        private void clientNameBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        
     }
 }

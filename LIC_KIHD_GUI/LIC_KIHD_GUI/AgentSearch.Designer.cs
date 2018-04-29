@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AgentSearch));
             this.registrationButton = new System.Windows.Forms.Button();
-            this.searchButton = new System.Windows.Forms.Button();
             this.logOutButton = new System.Windows.Forms.Button();
             this.searchTitle = new System.Windows.Forms.Label();
             this.policyNumber = new System.Windows.Forms.Label();
@@ -39,6 +38,13 @@
             this.clientNameBox = new System.Windows.Forms.TextBox();
             this.agentSearchButton = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.warning = new System.Windows.Forms.Label();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.View = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -49,13 +55,6 @@
             this.registrationButton.Name = "registrationButton";
             this.registrationButton.UseVisualStyleBackColor = true;
             this.registrationButton.Click += new System.EventHandler(this.registrationButton_Click);
-            // 
-            // searchButton
-            // 
-            resources.ApplyResources(this.searchButton, "searchButton");
-            this.searchButton.Name = "searchButton";
-            this.searchButton.UseVisualStyleBackColor = true;
-            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // logOutButton
             // 
@@ -88,6 +87,7 @@
             // 
             resources.ApplyResources(this.clientNameBox, "clientNameBox");
             this.clientNameBox.Name = "clientNameBox";
+            this.clientNameBox.TextChanged += new System.EventHandler(this.clientNameBox_TextChanged);
             // 
             // agentSearchButton
             // 
@@ -100,11 +100,52 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5,
+            this.Column6,
             this.View});
             resources.ApplyResources(this.dataGridView1, "dataGridView1");
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 27;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // warning
+            // 
+            resources.ApplyResources(this.warning, "warning");
+            this.warning.Name = "warning";
+            // 
+            // Column1
+            // 
+            resources.ApplyResources(this.Column1, "Column1");
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            resources.ApplyResources(this.Column2, "Column2");
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            resources.ApplyResources(this.Column3, "Column3");
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            resources.ApplyResources(this.Column4, "Column4");
+            this.Column4.Name = "Column4";
+            // 
+            // Column5
+            // 
+            resources.ApplyResources(this.Column5, "Column5");
+            this.Column5.Name = "Column5";
+            // 
+            // Column6
+            // 
+            resources.ApplyResources(this.Column6, "Column6");
+            this.Column6.Name = "Column6";
             // 
             // View
             // 
@@ -117,6 +158,7 @@
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Controls.Add(this.warning);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.agentSearchButton);
             this.Controls.Add(this.clientNameBox);
@@ -125,7 +167,6 @@
             this.Controls.Add(this.policyNumber);
             this.Controls.Add(this.searchTitle);
             this.Controls.Add(this.logOutButton);
-            this.Controls.Add(this.searchButton);
             this.Controls.Add(this.registrationButton);
             this.Name = "AgentSearch";
             this.Load += new System.EventHandler(this.AgentSearch_Load);
@@ -138,7 +179,6 @@
         #endregion
 
         private System.Windows.Forms.Button registrationButton;
-        private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.Button logOutButton;
         private System.Windows.Forms.Label searchTitle;
         private System.Windows.Forms.Label policyNumber;
@@ -147,6 +187,13 @@
         private System.Windows.Forms.TextBox clientNameBox;
         private System.Windows.Forms.Button agentSearchButton;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label warning;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewButtonColumn View;
     }
 }
