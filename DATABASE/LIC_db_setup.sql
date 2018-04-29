@@ -1,3 +1,4 @@
+--drop table inflation
 --drop table beneficiary
 --drop table payments
 --drop table client_policy
@@ -60,3 +61,7 @@ first_name VARCHAR(100),
 last_name VARCHAR(100),
 CONSTRAINT PK_beneficiary PRIMARY KEY (policy_number, first_name, last_name),
 FOREIGN KEY (policy_number) REFERENCES client_policy(policy_number));
+
+CREATE TABLE inflation (
+date_recorded DATE NOT NULL PRIMARY KEY,
+inflation NUMERIC(8,4));

@@ -147,9 +147,9 @@ END
 GO
 
 CREATE PROCEDURE add_beneficiary (
-@policy_number,
-@first_name,
-@last_name)
+@policy_number NUMERIC(30),
+@first_name VARCHAR(100),
+@last_name VARCHAR(100))
 AS
 BEGIN
 SET NOCOUNT ON;
