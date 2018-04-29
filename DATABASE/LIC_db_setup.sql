@@ -25,7 +25,7 @@ zip_address VARCHAR(9));
 
 CREATE TABLE client_policy (
 policy_number NUMERIC(30) NOT NULL IDENTITY PRIMARY KEY,
-policy_holder_id NUMERIC(30),
+policy_holder_id NUMERIC(20),
 dob DATE,
 fathers_age_of_death VARCHAR(5),
 mothers_age_of_death VARCHAR(5),
