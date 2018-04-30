@@ -1,3 +1,12 @@
+--drop procedure get_login
+--drop procedure cancel
+--drop procedure register_user
+--drop procedure search
+--drop procedure search_on_click
+--drop procedure register_policy
+--drop procedure add_beneficiary
+--drop procedure calculation_data
+
 CREATE PROCEDURE get_login (
 @id NUMERIC(20),
 @password VARCHAR(255))
@@ -147,9 +156,9 @@ END
 GO
 
 CREATE PROCEDURE add_beneficiary (
-@policy_number,
-@first_name,
-@last_name)
+@policy_number NUMERIC(30),
+@first_name VARCHAR(100),
+@last_name VARCHAR(100))
 AS
 BEGIN
 SET NOCOUNT ON;
@@ -161,5 +170,15 @@ VALUES (
 @policy_number,
 @first_name,
 @last_name)
+END
+GO
+
+CREATE PROCEDURE calculation_data
+AS
+BEGIN
+SET NOCOUNT ON;
+SELECT dob, fathers_age_of_death, mothers_age_of_death, cigs_day, smoking_history, systolic_blood_pressure, avg_grams_fat_day, heart_disease, cancer, hospitalized, dangerous_activities, policy_end
+FROM client_policy FULL OUTER JOIN policy_holder ON client_policy.policy_holder_id = policy_holder.policy_holder_id FULL OUT JOIN payments ON client_policy.policy_number = payments.policy_number
+WHERE payment_type = 'C'
 END
 GO

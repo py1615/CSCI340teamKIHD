@@ -235,12 +235,20 @@ namespace SQLImporter
             String[] users = System.IO.File.ReadAllLines(filepath);
             foreach (String line in users)
             {
-                String SQLStatement = "INSERT INTO";
+                String SQLStatement = "INSERT INTO ";
 
                 if (line.ElementAt<char>(475) == 'A' || line.ElementAt<char>(475) == 'D')
                 {
-                    SQLStatement += " employee (username, first_name, last_name, password, user_type, id, department) VALUES (";
+                    SQLStatement += "employee (id, username, first_name, last_name, employee_password, user_type, department) VALUES (";
 
+                    for (int i = 476; i < 496; ++i)
+                    {
+                        if (line.ElementAt<char>(i) != ' ')
+                        {
+                            SQLStatement += line.ElementAt<char>(i);
+                        }
+                    }
+                    SQLStatement += ", ";
                     for (int i = 0; i < 20; ++i)
                     {
                         if (line.ElementAt<char>(i) != ' ')
@@ -273,22 +281,14 @@ namespace SQLImporter
                         }
                     }
                     SQLStatement += ", ";
-                    if (line.ElementAt<char>(475) == 'A')
-                    {
-                        SQLStatement += "A, ";
-                    }
-                    else
+                    if (line.ElementAt<char>(475) == 'D')
                     {
                         SQLStatement += "M, ";
                     }
-                    for (int i = 476; i < 496; ++i)
+                    else
                     {
-                        if (line.ElementAt<char>(i) != ' ')
-                        {
-                            SQLStatement += line.ElementAt<char>(i);
-                        }
+                        SQLStatement += "A, ";
                     }
-                    SQLStatement += ", ";
                     for (int i = 557; i < line.Length; ++i)
                     {
                         if (line.ElementAt<char>(i) != ' ')

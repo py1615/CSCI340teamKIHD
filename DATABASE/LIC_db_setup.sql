@@ -1,3 +1,4 @@
+--drop table inflation
 --drop table beneficiary
 --drop table payments
 --drop table client_policy
@@ -14,7 +15,7 @@ user_type VARCHAR(1),
 department VARCHAR(50));
 
 CREATE TABLE policy_holder (
-policy_holder_id NUMERIC(30) NOT NULL IDENTITY PRIMARY KEY,
+policy_holder_id NUMERIC(20) NOT NULL IDENTITY PRIMARY KEY,
 first_name VARCHAR(100),
 last_name VARCHAR(100),
 street_address VARCHAR(30),
@@ -24,7 +25,7 @@ zip_address VARCHAR(9));
 
 CREATE TABLE client_policy (
 policy_number NUMERIC(30) NOT NULL IDENTITY PRIMARY KEY,
-policy_holder_id NUMERIC(30),
+policy_holder_id NUMERIC(20),
 dob DATE,
 fathers_age_of_death VARCHAR(5),
 mothers_age_of_death VARCHAR(5),
@@ -60,3 +61,7 @@ first_name VARCHAR(100),
 last_name VARCHAR(100),
 CONSTRAINT PK_beneficiary PRIMARY KEY (policy_number, first_name, last_name),
 FOREIGN KEY (policy_number) REFERENCES client_policy(policy_number));
+
+CREATE TABLE inflation (
+date_recorded DATE NOT NULL PRIMARY KEY,
+inflation NUMERIC(8,4));
