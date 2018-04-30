@@ -336,41 +336,9 @@ namespace LIC_KIHD_GUI
             }
         }
 
-        private void textBox16_TextChanged(object sender, EventArgs e)
-        {
-            string tString = textBox16.Text;
-            if (tString.Trim() == "") return;
-            for (int i = 0; i < tString.Length; i++)
-            {
-                if (!char.IsLetter(tString[i]))
-                {
-                    errorProvider1.SetError(textBox16, "Please enter a valid information");//MessageBox.Show("Please enter a valid information");     
-                    return;
-                }
-                else
-                {
-                    errorProvider1.SetError(textBox16, "");
-                }
-            }
-        }
+        
 
-        private void textBox17_TextChanged(object sender, EventArgs e)
-        {
-            string tString = textBox17.Text;
-            if (tString.Trim() == "") return;
-            for (int i = 0; i < tString.Length; i++)
-            {
-                if (!char.IsLetter(tString[i]))
-                {
-                    errorProvider1.SetError(textBox17, "Please enter a valid information");//MessageBox.Show("Please enter a valid information");     
-                    return;
-                }
-                else
-                {
-                    errorProvider1.SetError(textBox17, "");
-                }
-            }
-        }
+        
 
         private void PolicyRegistration_Load(object sender, EventArgs e)
         {
