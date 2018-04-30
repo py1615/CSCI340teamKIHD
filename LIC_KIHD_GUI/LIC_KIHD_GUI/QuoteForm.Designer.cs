@@ -74,6 +74,7 @@
             this.MonthlyPremium = new System.Windows.Forms.Label();
             this.Status = new System.Windows.Forms.Label();
             this.PolicyNumber = new System.Windows.Forms.Label();
+            this.comfirm = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label21
@@ -277,19 +278,19 @@
             // 
             // confirmButton
             // 
-            this.confirmButton.Location = new System.Drawing.Point(259, 923);
+            this.confirmButton.Location = new System.Drawing.Point(469, 857);
             this.confirmButton.Name = "confirmButton";
-            this.confirmButton.Size = new System.Drawing.Size(100, 33);
+            this.confirmButton.Size = new System.Drawing.Size(178, 33);
             this.confirmButton.TabIndex = 31;
-            this.confirmButton.Text = "confirm";
+            this.confirmButton.Text = "Add Beneficiary";
             this.confirmButton.UseVisualStyleBackColor = true;
             this.confirmButton.Click += new System.EventHandler(this.confirmButton_Click);
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(660, 923);
+            this.cancelButton.Location = new System.Drawing.Point(679, 857);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(86, 33);
+            this.cancelButton.Size = new System.Drawing.Size(119, 33);
             this.cancelButton.TabIndex = 32;
             this.cancelButton.Text = "cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
@@ -498,6 +499,16 @@
             this.PolicyNumber.TabIndex = 57;
             this.PolicyNumber.Text = "label25";
             // 
+            // comfirm
+            // 
+            this.comfirm.Location = new System.Drawing.Point(263, 857);
+            this.comfirm.Name = "comfirm";
+            this.comfirm.Size = new System.Drawing.Size(113, 33);
+            this.comfirm.TabIndex = 58;
+            this.comfirm.Text = "comfirm";
+            this.comfirm.UseVisualStyleBackColor = true;
+            this.comfirm.Click += new System.EventHandler(this.comfirm_Click);
+            // 
             // QuoteForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
@@ -505,6 +516,7 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1213, 811);
+            this.Controls.Add(this.comfirm);
             this.Controls.Add(this.PolicyNumber);
             this.Controls.Add(this.Status);
             this.Controls.Add(this.MonthlyPremium);
@@ -609,5 +621,6 @@
         private System.Windows.Forms.Label MonthlyPremium;
         private System.Windows.Forms.Label Status;
         private System.Windows.Forms.Label PolicyNumber;
+        private System.Windows.Forms.Button comfirm;
     }
 }

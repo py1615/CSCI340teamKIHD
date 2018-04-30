@@ -108,9 +108,10 @@ namespace LIC_KIHD_GUI
                 state = comboBox1.SelectedItem.ToString();
                 
                 QuoteForm quote = new QuoteForm(FirstNameBox.Text, LastNameBox.Text, BirthBox.Text, AddressBox.Text, CityBox.Text, state, ZipBox.Text, FatherBox.Text, motherBox.Text,
-                                    cigBox.Text, smokeBox.Text, bloodBox.Text, aveGramsBox.Text, HeartDisease, cancer, hospital, textBox14.Text, textBox15.Text, textBox16.Text, textBox17.Text
+                                    cigBox.Text, smokeBox.Text, bloodBox.Text, aveGramsBox.Text, HeartDisease, cancer, hospital, textBox14.Text, textBox15.Text
                                     );
-                quote.Show();
+                quote.Closed += (s, arges) => this.Close();
+                quote.ShowDialog();
             }
             else if(!fieldFilled)
             {
