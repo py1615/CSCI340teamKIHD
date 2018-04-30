@@ -12,6 +12,13 @@ namespace LIC_KIHD_GUI
 {
     public partial class loginPage : Form
     {
+        private string Id;
+        public string UserId
+        {
+            get { return Id; }
+            set { Id = value; }
+        }
+        
         public loginPage()
         {
             InitializeComponent();
@@ -32,6 +39,7 @@ namespace LIC_KIHD_GUI
             string userAccess = LIC_KIHD_MW.Agent.login(barForID.Text, barForPassword.Text);
             if (userAccess  == "A") // Agent access the search page// made up id and pw
             {
+                UserId = barForID.Text;
                 Hide();
                 AgentSearch agent = new AgentSearch(barForID.Text);
                 agent.Closed += (s, arges) => this.Close();
@@ -40,6 +48,7 @@ namespace LIC_KIHD_GUI
             }
             else if (userAccess == "M")
             {
+                UserId = barForID.Text;
                 managerSearch agent = new managerSearch();
                 agent.Closed += (s, arges) => this.Close();
                 agent.Show();
