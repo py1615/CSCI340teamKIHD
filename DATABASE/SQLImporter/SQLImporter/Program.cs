@@ -54,17 +54,17 @@ namespace SQLImporter
                     {
                         SQLStatement += ":";
                     }
-                    if (line.ElementAt<char>(i) != ' ')
+                    if (line.ToCharArray()[i] != ' ')
                     {
-                        SQLStatement += line.ElementAt<char>(i);
+                        SQLStatement += line.ToCharArray()[i];
                     }
                 }
                 SQLStatement += "', ";
                 for (int i = 22; i < 52; ++i) //policy_number
                 {
-                    if (line.ElementAt<char>(i) != ' ')
+                    if (line.ToCharArray()[i] != ' ')
                     {
-                        SQLStatement += line.ElementAt<char>(i);
+                        SQLStatement += line.ToCharArray()[i];
                     }
                 }
                 SQLStatement += ", ";
@@ -74,13 +74,13 @@ namespace SQLImporter
                     {
                         SQLStatement += ".";
                     }
-                    if (line.ElementAt<char>(i) != ' ')
+                    if (line.ToCharArray()[i] != ' ')
                     {
-                        SQLStatement += line.ElementAt<char>(i);
+                        SQLStatement += line.ToCharArray()[i];
                     }
                 }
                 SQLStatement += ", ";
-                if (line.ElementAt<char>(52) == 'P') //payment_type
+                if (line.ToCharArray()[52] == 'P') //payment_type
                 {
                     SQLStatement += "'P'";
                 }
@@ -105,25 +105,25 @@ namespace SQLImporter
 
                 for (int i = 0; i < 30; ++i)
                 {
-                    if (line.ElementAt<char>(i) != ' ') //policy_number
+                    if (line.ToCharArray()[i] != ' ') //policy_number
                     {
-                        SQLStatement += line.ElementAt<char>(i);
+                        SQLStatement += line.ToCharArray()[i];
                     }
                 }
                 SQLStatement += ", '";
                 for (int i = 30; i < 130; ++i) //first_name
                 {
-                    if (line.ElementAt<char>(i) != ' ')
+                    if (line.ToCharArray()[i] != ' ')
                     {
-                        SQLStatement += line.ElementAt<char>(i);
+                        SQLStatement += line.ToCharArray()[i];
                     }
                 }
                 SQLStatement += "', '";
                 for (int i = 130; i < line.Length; ++i) //last_name
                 {
-                    if (line.ElementAt<char>(i) != ' ')
+                    if (line.ToCharArray()[i] != ' ')
                     {
-                        SQLStatement += line.ElementAt<char>(i);
+                        SQLStatement += line.ToCharArray()[i];
                     }
                 }
                 SQLStatement += "')";
@@ -143,17 +143,17 @@ namespace SQLImporter
 
                 for (int i = 0; i < 30; ++i) //policy_number
                 {
-                    if (line.ElementAt<char>(i) != ' ')
+                    if (line.ToCharArray()[i] != ' ')
                     {
-                        SQLStatement += line.ElementAt<char>(i);
+                        SQLStatement += line.ToCharArray()[i];
                     }
                 }
                 SQLStatement += ", ";
                 for (int i = 30; i < 50; ++i) //policy_holder_id
                 {
-                    if (line.ElementAt<char>(i) != ' ')
+                    if (line.ToCharArray()[i] != ' ')
                     {
-                        SQLStatement += line.ElementAt<char>(i);
+                        SQLStatement += line.ToCharArray()[i];
                     }
                 }
                 SQLStatement += ", '";
@@ -163,61 +163,61 @@ namespace SQLImporter
                     {
                         SQLStatement += "/";
                     }
-                    if (line.ElementAt<char>(i) != ' ')
+                    if (line.ToCharArray()[i] != ' ')
                     {
-                        SQLStatement += line.ElementAt<char>(i);
+                        SQLStatement += line.ToCharArray()[i];
                     }
                 }
                 SQLStatement += "', '";
                 for (int i = 58; i < 63; ++i) //fathers_age_of_death
                 {
-                    if (line.ElementAt<char>(i) != ' ')
+                    if (line.ToCharArray()[i] != ' ')
                     {
-                        SQLStatement += line.ElementAt<char>(i);
+                        SQLStatement += line.ToCharArray()[i];
                     }
                 }
                 SQLStatement += "', '";
                 for (int i = 63; i < 68; ++i) //mothers_age_of_death
                 {
-                    if (line.ElementAt<char>(i) != ' ')
+                    if (line.ToCharArray()[i] != ' ')
                     {
-                        SQLStatement += line.ElementAt<char>(i);
+                        SQLStatement += line.ToCharArray()[i];
                     }
                 }
                 SQLStatement += "', ";
                 for (int i = 68; i < 73; ++i) //cigs_day
                 {
-                    if (line.ElementAt<char>(i) != ' ')
+                    if (line.ToCharArray()[i] != ' ')
                     {
-                        SQLStatement += line.ElementAt<char>(i);
+                        SQLStatement += line.ToCharArray()[i];
                     }
                 }
                 SQLStatement += ", '";
                 for (int i = 73; i < 78; ++i) //smoking_history
                 {
-                    if (line.ElementAt<char>(i) != ' ')
+                    if (line.ToCharArray()[i] != ' ')
                     {
-                        SQLStatement += line.ElementAt<char>(i);
+                        SQLStatement += line.ToCharArray()[i];
                     }
                 }
                 SQLStatement += "', ";
                 for (int i = 78; i < 82; ++i) //systolic_blood_pressure
                 {
-                    if (line.ElementAt<char>(i) != ' ')
+                    if (line.ToCharArray()[i] != ' ')
                     {
-                        SQLStatement += line.ElementAt<char>(i);
+                        SQLStatement += line.ToCharArray()[i];
                     }
                 }
                 SQLStatement += ", ";
                 for (int i = 82; i < 87; ++i) //avg_grams_fat_day
                 {
-                    if (line.ElementAt<char>(i) != ' ')
+                    if (line.ToCharArray()[i] != ' ')
                     {
-                        SQLStatement += line.ElementAt<char>(i);
+                        SQLStatement += line.ToCharArray()[i];
                     }
                 }
                 SQLStatement += ", ";
-                if (line.ElementAt<char>(87) == 'Y') //heart_disease
+                if (line.ToCharArray()[87] == 'Y') //heart_disease
                 {
                     SQLStatement += "1, ";
                 }
@@ -225,7 +225,7 @@ namespace SQLImporter
                 {
                     SQLStatement += "0, ";
                 }
-                if (line.ElementAt<char>(88) == 'Y') //cancer
+                if (line.ToCharArray()[88] == 'Y') //cancer
                 {
                     SQLStatement += "1, ";
                 }
@@ -233,7 +233,7 @@ namespace SQLImporter
                 {
                     SQLStatement += "0, ";
                 }
-                if (line.ElementAt<char>(89) == 'Y') //hospitalized
+                if (line.ToCharArray()[89] == 'Y') //hospitalized
                 {
                     SQLStatement += "1, ";
                 }
@@ -244,9 +244,9 @@ namespace SQLImporter
                 SQLStatement += "'";
                 for (int i = 90; i < 345; ++i) //dangerous_activities
                 {
-                    if (line.ElementAt<char>(i) != ' ')
+                    if (line.ToCharArray()[i] != ' ')
                     {
-                        SQLStatement += line.ElementAt<char>(i);
+                        SQLStatement += line.ToCharArray()[i];
                     }
                 }
                 SQLStatement += "', '";
@@ -256,29 +256,29 @@ namespace SQLImporter
                     {
                         SQLStatement += "/";
                     }
-                    if (line.ElementAt<char>(i) != ' ')
+                    if (line.ToCharArray()[i] != ' ')
                     {
-                        SQLStatement += line.ElementAt<char>(i);
+                        SQLStatement += line.ToCharArray()[i];
                     }
                 }
                 SQLStatement += "', '";
                 for (int i = 353; i < 361; ++i) //policy_end
                 {
-                    if ((i == 357 || i == 359) && line.ElementAt<char>(353) != ' ')
+                    if ((i == 357 || i == 359) && line.ToCharArray()[353] != ' ')
                     {
                         SQLStatement += "/";
                     }
-                    if (line.ElementAt<char>(i) != ' ')
+                    if (line.ToCharArray()[i] != ' ')
                     {
-                        SQLStatement += line.ElementAt<char>(i);
+                        SQLStatement += line.ToCharArray()[i];
                     }
                 }
                 SQLStatement += "', ";
                 for (int i = 361; i < 381; ++i) //agent_id
                 {
-                    if (line.ElementAt<char>(i) != ' ')
+                    if (line.ToCharArray()[i] != ' ')
                     {
-                        SQLStatement += line.ElementAt<char>(i);
+                        SQLStatement += line.ToCharArray()[i];
                     }
                 }
                 SQLStatement += ", ";
@@ -288,9 +288,9 @@ namespace SQLImporter
                     {
                         SQLStatement += ".";
                     }
-                    if (line.ElementAt<char>(i) != ' ')
+                    if (line.ToCharArray()[i] != ' ')
                     {
-                        SQLStatement += line.ElementAt<char>(i);
+                        SQLStatement += line.ToCharArray()[i];
                     }
                 }
                 SQLStatement += ", ";
@@ -300,9 +300,9 @@ namespace SQLImporter
                     {
                         SQLStatement += ".";
                     }
-                    if (line.ElementAt<char>(i) != ' ')
+                    if (line.ToCharArray()[i] != ' ')
                     {
-                        SQLStatement += line.ElementAt<char>(i);
+                        SQLStatement += line.ToCharArray()[i];
                     }
                 }
                 SQLStatement += ", 'A') SET IDENTITY_INSERT client_policy OFF"; //policy_status
@@ -320,51 +320,51 @@ namespace SQLImporter
             {
                 String SQLStatement = "SET IDENTITY_INSERT employee ON INSERT INTO ";
 
-                if (line.ElementAt<char>(475) == 'A' || line.ElementAt<char>(475) == 'D')
+                if (line.ToCharArray()[475] == 'A' || line.ToCharArray()[475] == 'D')
                 {
                     SQLStatement += "employee (id, username, first_name, last_name, employee_password, user_type, department) VALUES (";
 
                     for (int i = 476; i < 496; ++i) //id
                     {
-                        if (line.ElementAt<char>(i) != ' ')
+                        if (line.ToCharArray()[i] != ' ')
                         {
-                            SQLStatement += line.ElementAt<char>(i);
+                            SQLStatement += line.ToCharArray()[i];
                         }
                     }
                     SQLStatement += ", '";
                     for (int i = 0; i < 20; ++i) //username
                     {
-                        if (line.ElementAt<char>(i) != ' ')
+                        if (line.ToCharArray()[i] != ' ')
                         {
-                            SQLStatement += line.ElementAt<char>(i);
+                            SQLStatement += line.ToCharArray()[i];
                         }
                     }
                     SQLStatement += "', '";
                     for (int i = 20; i < 120; ++i) //first_name
                     {
-                        if (line.ElementAt<char>(i) != ' ')
+                        if (line.ToCharArray()[i] != ' ')
                         {
-                            SQLStatement += line.ElementAt<char>(i);
+                            SQLStatement += line.ToCharArray()[i];
                         }
                     }
                     SQLStatement += "', '";
                     for (int i = 120; i < 220; ++i) //last_name
                     {
-                        if (line.ElementAt<char>(i) != ' ')
+                        if (line.ToCharArray()[i] != ' ')
                         {
-                            SQLStatement += line.ElementAt<char>(i);
+                            SQLStatement += line.ToCharArray()[i];
                         }
                     }
                     SQLStatement += "', '";
                     for (int i = 220; i < 475; ++i) //employee_password
                     {
-                        if (line.ElementAt<char>(i) != ' ')
+                        if (line.ToCharArray()[i] != ' ')
                         {
-                            SQLStatement += line.ElementAt<char>(i);
+                            SQLStatement += line.ToCharArray()[i];
                         }
                     }
                     SQLStatement += "', ";
-                    if (line.ElementAt<char>(475) == 'D') //user_type
+                    if (line.ToCharArray()[475] == 'D') //user_type
                     {
                         SQLStatement += "'M', ";
                     }
@@ -374,9 +374,9 @@ namespace SQLImporter
                     }
                     for (int i = 557; i < line.Length; ++i) //department
                     {
-                        if (line.ElementAt<char>(i) != ' ')
+                        if (line.ToCharArray()[i] != ' ')
                         {
-                            SQLStatement += line.ElementAt<char>(i);
+                            SQLStatement += line.ToCharArray()[i];
                         }
                     }
                     SQLStatement += "'";
@@ -387,57 +387,57 @@ namespace SQLImporter
 
                     for (int i = 476; i < 496; ++i) //policy_holder_id
                     {
-                        if (line.ElementAt<char>(i) != ' ')
+                        if (line.ToCharArray()[i] != ' ')
                         {
-                            SQLStatement += line.ElementAt<char>(i);
+                            SQLStatement += line.ToCharArray()[i];
                         }
                     }
                     SQLStatement += ", '";
                     for (int i = 20; i < 120; ++i) //first_name
                     {
-                        if (line.ElementAt<char>(i) != ' ')
+                        if (line.ToCharArray()[i] != ' ')
                         {
-                            SQLStatement += line.ElementAt<char>(i);
+                            SQLStatement += line.ToCharArray()[i];
                         }
                     }
                     SQLStatement += "', '";
                     for (int i = 120; i < 220; ++i) //last_name
                     {
-                        if (line.ElementAt<char>(i) != ' ')
+                        if (line.ToCharArray()[i] != ' ')
                         {
-                            SQLStatement += line.ElementAt<char>(i);
+                            SQLStatement += line.ToCharArray()[i];
                         }
                     }
                     SQLStatement += "', '";
                     for (int i = 496; i < 526; ++i) //street_address
                     {
-                        if (line.ElementAt<char>(i) != ' ')
+                        if (line.ToCharArray()[i] != ' ')
                         {
-                            SQLStatement += line.ElementAt<char>(i);
+                            SQLStatement += line.ToCharArray()[i];
                         }
                     }
                     SQLStatement += "', '";
                     for (int i = 526; i < 546; ++i) //city_address
                     {
-                        if (line.ElementAt<char>(i) != ' ')
+                        if (line.ToCharArray()[i] != ' ')
                         {
-                            SQLStatement += line.ElementAt<char>(i);
+                            SQLStatement += line.ToCharArray()[i];
                         }
                     }
                     SQLStatement += "', '";
                     for (int i = 546; i < 548; ++i) //sate_address
                     {
-                        if (line.ElementAt<char>(i) != ' ')
+                        if (line.ToCharArray()[i] != ' ')
                         {
-                            SQLStatement += line.ElementAt<char>(i);
+                            SQLStatement += line.ToCharArray()[i];
                         }
                     }
                     SQLStatement += "', '";
                     for (int i = 548; i < 557; ++i) //zip_address
                     {
-                        if (line.ElementAt<char>(i) != ' ')
+                        if (line.ToCharArray()[i] != ' ')
                         {
-                            SQLStatement += line.ElementAt<char>(i);
+                            SQLStatement += line.ToCharArray()[i];
                         }
                     }
                     SQLStatement += "'";
@@ -461,7 +461,7 @@ namespace SQLImporter
              * Initial Catalog = name of database
              * Data Source = name of server machine, which can be a networked machine or URL
             */
-            String connectionString = Properties.Settings.Default.SQLConnectionRosen;//"Initial Catalog=Restaurant;Data Source=SROSEN-LT-5000;" + "Integrated Security=False;user='middleware';pwd='password'";
+            String connectionString = Properties.Settings.Default.SQLConnection;//"Initial Catalog=Restaurant;Data Source=SROSEN-LT-5000;" + "Integrated Security=False;user='middleware';pwd='password'";
             SqlConnection conn = new SqlConnection(connectionString);
 
             SqlCommand cmd = new SqlCommand(query);
