@@ -1,3 +1,12 @@
+--drop procedure get_login
+--drop procedure cancel
+--drop procedure register_user
+--drop procedure search
+--drop procedure search_on_click
+--drop procedure register_policy
+--drop procedure add_beneficiary
+--drop procedure calculation_data
+
 CREATE PROCEDURE get_login (
 @id NUMERIC(20),
 @password VARCHAR(255))

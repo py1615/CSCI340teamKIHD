@@ -108,9 +108,10 @@ namespace LIC_KIHD_GUI
                 state = comboBox1.SelectedItem.ToString();
                 
                 QuoteForm quote = new QuoteForm(FirstNameBox.Text, LastNameBox.Text, BirthBox.Text, AddressBox.Text, CityBox.Text, state, ZipBox.Text, FatherBox.Text, motherBox.Text,
-                                    cigBox.Text, smokeBox.Text, bloodBox.Text, aveGramsBox.Text, HeartDisease, cancer, hospital, textBox14.Text, textBox15.Text, textBox16.Text, textBox17.Text
+                                    cigBox.Text, smokeBox.Text, bloodBox.Text, aveGramsBox.Text, HeartDisease, cancer, hospital, textBox14.Text, textBox15.Text
                                     );
-                quote.Show();
+                quote.Closed += (s, arges) => this.Close();
+                quote.ShowDialog();
             }
             else if(!fieldFilled)
             {
@@ -336,41 +337,9 @@ namespace LIC_KIHD_GUI
             }
         }
 
-        private void textBox16_TextChanged(object sender, EventArgs e)
-        {
-            string tString = textBox16.Text;
-            if (tString.Trim() == "") return;
-            for (int i = 0; i < tString.Length; i++)
-            {
-                if (!char.IsLetter(tString[i]))
-                {
-                    errorProvider1.SetError(textBox16, "Please enter a valid information");//MessageBox.Show("Please enter a valid information");     
-                    return;
-                }
-                else
-                {
-                    errorProvider1.SetError(textBox16, "");
-                }
-            }
-        }
+        
 
-        private void textBox17_TextChanged(object sender, EventArgs e)
-        {
-            string tString = textBox17.Text;
-            if (tString.Trim() == "") return;
-            for (int i = 0; i < tString.Length; i++)
-            {
-                if (!char.IsLetter(tString[i]))
-                {
-                    errorProvider1.SetError(textBox17, "Please enter a valid information");//MessageBox.Show("Please enter a valid information");     
-                    return;
-                }
-                else
-                {
-                    errorProvider1.SetError(textBox17, "");
-                }
-            }
-        }
+        
 
         private void PolicyRegistration_Load(object sender, EventArgs e)
         {
