@@ -318,7 +318,7 @@ namespace SQLImporter
             String[] input = System.IO.File.ReadAllLines(filepath);
             foreach (String line in input)
             {
-                String SQLStatement = "SET IDENTITY_INSERT employee ON INSERT INTO ";
+                String SQLStatement = "SET IDENTITY_INSERT employee ON SET IDENTITY_INSERT policy_holder ON INSERT INTO ";
 
                 if (line.ToCharArray()[475] == 'A' || line.ToCharArray()[475] == 'D')
                 {
@@ -442,7 +442,7 @@ namespace SQLImporter
                     }
                     SQLStatement += "'";
                 }
-                SQLStatement += ") SET IDENTITY_INSERT employee OFF";
+                SQLStatement += ") SET IDENTITY_INSERT employee OFF SET IDENTITY_INSERT policy_holder OFF";
                 Connect(SQLStatement);
                 Console.WriteLine(SQLStatement);
             }
