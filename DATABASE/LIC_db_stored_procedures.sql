@@ -85,15 +85,17 @@ CREATE PROCEDURE register_policy (
 @dob DATE,
 @fathers_age_of_death VARCHAR(5),
 @mothers_age_of_death VARCHAR(5),
-@cigs_day VARCHAR(5),
+@cigs_day NUMERIC(5),
 @smoking_history VARCHAR(5),
-@systolic_blood_pressure VARCHAR(4),
-@avg_grams_fat_day VARCHAR(5),
+@systolic_blood_pressure NUMERIC(4),
+@avg_grams_fat_day NUMERIC(5),
 @heart_disease BIT,
 @cancer BIT,
 @hospitalized BIT,
 @dangerous_activities VARCHAR(255),
-@agent_id NUMERIC(20))
+@agent_id NUMERIC(20),
+@payoff_amount NUMERIC(10,2),
+@monthly_premium NUMERIC(10,2))
 AS
 BEGIN
 SET NOCOUNT ON;
@@ -126,6 +128,8 @@ hospitalized,
 dangerous_activities,
 policy_start,
 agent_id,
+payoff_amount,
+monthly_premium,
 policy_status)
 VALUES (
 SCOPE_IDENTITY(),
@@ -141,7 +145,10 @@ SCOPE_IDENTITY(),
 @hospitalized,
 @dangerous_activities,
 GETDATE(),
-@agent_id);
+@agent_id,
+@payoff_amount,
+@monthly_premium,
+'A');
 SELECT SCOPE_IDENTITY() AS policy_number
 END
 GO

@@ -25,14 +25,14 @@ zip_address VARCHAR(9));
 
 CREATE TABLE client_policy (
 policy_number NUMERIC(30) NOT NULL IDENTITY PRIMARY KEY,
-policy_holder_id NUMERIC(30),
+policy_holder_id NUMERIC(20),
 dob DATE,
 fathers_age_of_death VARCHAR(5),
 mothers_age_of_death VARCHAR(5),
-cigs_day VARCHAR(5),
+cigs_day NUMERIC(5),
 smoking_history VARCHAR(5),
-systolic_blood_pressure VARCHAR(4),
-avg_grams_fat_day VARCHAR(5),
+systolic_blood_pressure NUMERIC(4),
+avg_grams_fat_day NUMERIC(5),
 --USE A 1 FOR 'Y' AND A 0 FOR 'N'
 heart_disease BIT,
 cancer BIT,
