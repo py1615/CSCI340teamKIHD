@@ -33,16 +33,13 @@ namespace SQLImporter.Properties {
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DATABASE\\CSCI3400011030;Initial Catalog=LIC_KIHD;Integrated Security=" +
             "false;user=\'LIC_KIHD_MW\';pwd=\'KIHD\';")]
         public string SQLConnection {
             get {
                 return ((string)(this["SQLConnection"]));
-            }
-            set {
-                this["SQLConnection"] = value;
             }
         }
     }

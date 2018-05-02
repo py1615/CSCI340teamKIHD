@@ -5,7 +5,7 @@
     <Setting Name="SQLConnectionRosen" Type="System.String" Scope="Application">
       <Value Profile="(Default)">Initial Catalog=Restaurant;Data Source=SROSEN-LT-5000;" + "Integrated Security=False;user='middleware';pwd='password'</Value>
     </Setting>
-    <Setting Name="SQLConnection" Type="System.String" Scope="User">
+    <Setting Name="SQLConnection" Type="System.String" Scope="Application">
       <Value Profile="(Default)">Data Source=DATABASE\CSCI3400011030;Initial Catalog=LIC_KIHD;Integrated Security=false;user='LIC_KIHD_MW';pwd='KIHD';</Value>
     </Setting>
   </Settings>
