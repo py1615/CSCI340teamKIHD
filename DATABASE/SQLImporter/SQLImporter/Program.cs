@@ -318,11 +318,11 @@ namespace SQLImporter
             String[] input = System.IO.File.ReadAllLines(filepath);
             foreach (String line in input)
             {
-                String SQLStatement = "SET IDENTITY_INSERT employee ON SET IDENTITY_INSERT policy_holder ON INSERT INTO ";
+                String SQLStatement = "";
 
                 if (line.ToCharArray()[475] == 'A' || line.ToCharArray()[475] == 'D')
                 {
-                    SQLStatement += "employee (id, username, first_name, last_name, employee_password, user_type, department) VALUES (";
+                    SQLStatement += "SET IDENTITY_INSERT employee ON INSERT INTO employee (id, username, first_name, last_name, employee_password, user_type, department) VALUES (";
 
                     for (int i = 476; i < 496; ++i) //id
                     {
@@ -379,11 +379,11 @@ namespace SQLImporter
                             SQLStatement += line.ToCharArray()[i];
                         }
                     }
-                    SQLStatement += "'";
+                    SQLStatement += "') SET IDENTITY_INSERT employee OFF";
                 }
                 else
                 {
-                    SQLStatement += "policy_holder (policy_holder_id, first_name, last_name, street_address, city_address, state_address, zip_address) VALUES (";
+                    SQLStatement += "SET IDENTITY_INSERT policy_holder ON INSERT INTO policy_holder (policy_holder_id, first_name, last_name, street_address, city_address, state_address, zip_address) VALUES (";
 
                     for (int i = 476; i < 496; ++i) //policy_holder_id
                     {
@@ -440,9 +440,8 @@ namespace SQLImporter
                             SQLStatement += line.ToCharArray()[i];
                         }
                     }
-                    SQLStatement += "'";
+                    SQLStatement += "') SET IDENTITY_INSERT policy_holder OFF";
                 }
-                SQLStatement += ") SET IDENTITY_INSERT employee OFF SET IDENTITY_INSERT policy_holder OFF";
                 Connect(SQLStatement);
                 Console.WriteLine(SQLStatement);
             }
