@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E657E3F4-257F-47FF-8E08-7DE99051A1E9}</ProjectGuid>
+    <ProjectGuid>{CD7693E0-477E-4318-9A5D-FEB2018F5A58}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>SQLImporter</RootNamespace>
     <AssemblyName>SQLImporter</AssemblyName>
