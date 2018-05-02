@@ -14,6 +14,7 @@ namespace LIC_KIHD_GUI
     public partial class AgentSearch : Form
     {
         private string agentId;
+
         public AgentSearch(string ID)
         {
             InitializeComponent();
@@ -43,7 +44,20 @@ namespace LIC_KIHD_GUI
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+            string policyN = "12312312312321";
+            DateTime time = DateTime.Now;
+            LIC_KIHD_MW.Address address = new LIC_KIHD_MW.Address("A","b","c","d");
+            LIC_KIHD_MW.PolicyHolder holder = new LIC_KIHD_MW.PolicyHolder("a", "b", time,address);
+
+            View.Text = "View";
+            View.UseColumnTextForButtonValue = true;
+            if(e.ColumnIndex == dataGridView1.Columns["View"].Index )
+            {
+ 
+                 policyN = dataGridView1.SelectedRows[dataGridView1.Columns["View"].Index].Cells[0].ToString();
+                Policyinfo infoPage = new Policyinfo(policyN);
+                infoPage.ShowDialog();
+            }
 
         }
 
@@ -57,7 +71,7 @@ namespace LIC_KIHD_GUI
 
         private void agentSearchButton_Click(object sender, EventArgs e)
         {
-            DataTable table = new DataTable();
+            //DataTable table = new DataTable();
 
             string[,] searchResult = LIC_KIHD_MW.Agent.search(policyNumBox.Text, clientNameBox.Text, agentId);
             

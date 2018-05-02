@@ -14,6 +14,7 @@ namespace LIC_KIHD_GUI
     {
         private string fn;
         private string ln;
+
         public string FN
         {
             get { return fn; }
@@ -43,6 +44,11 @@ namespace LIC_KIHD_GUI
         private void addBeneficiary_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

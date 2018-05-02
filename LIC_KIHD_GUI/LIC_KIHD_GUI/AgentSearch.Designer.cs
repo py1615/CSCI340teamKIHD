@@ -38,7 +38,6 @@
             this.clientNameBox = new System.Windows.Forms.TextBox();
             this.agentSearchButton = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.warning = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,6 +45,7 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.View = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.warning = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -112,11 +112,6 @@
             this.dataGridView1.RowTemplate.Height = 27;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // warning
-            // 
-            resources.ApplyResources(this.warning, "warning");
-            this.warning.Name = "warning";
-            // 
             // Column1
             // 
             resources.ApplyResources(this.Column1, "Column1");
@@ -152,6 +147,11 @@
             resources.ApplyResources(this.View, "View");
             this.View.Name = "View";
             this.View.Text = "View";
+            // 
+            // warning
+            // 
+            resources.ApplyResources(this.warning, "warning");
+            this.warning.Name = "warning";
             // 
             // AgentSearch
             // 
