@@ -135,10 +135,9 @@ namespace SQLImporter
         static public void ImportPolicies(String filepath)
         {
             String[] input = System.IO.File.ReadAllLines(filepath);
-            Connect("SET IDENTITY_INSERT client_policy ON");
             foreach (String line in input)
             {
-                String SQLStatement = "INSERT INTO ";
+                String SQLStatement = "SET IDENTITY_INSERT client_policy ON INSERT INTO ";
 
                 SQLStatement += "client_policy (policy_number, policy_holder_id, dob, fathers_age_of_death, mothers_age_of_death, cigs_day, smoking_history, systolic_blood_pressure, avg_grams_fat_day, heart_disease, cancer, hospitalized, dangerous_activities, policy_start, policy_end, agent_id, payoff_amount, monthly_premium, policy_status) VALUES (";
 
@@ -306,11 +305,10 @@ namespace SQLImporter
                         SQLStatement += line.ToCharArray()[i];
                     }
                 }
-                SQLStatement += ", 'A')"; //policy_status
+                SQLStatement += ", 'A') SET IDENTITY_INSERT client_policy OFF"; //policy_status
                 Connect(SQLStatement);
                 Console.WriteLine(SQLStatement);
             }
-            Connect("SET IDENTITY_INSERT client_policy OFF");
             Console.WriteLine("Press any key to exit.");
             System.Console.ReadKey();
         }
@@ -318,11 +316,9 @@ namespace SQLImporter
         static public void ImportUsers(String filepath)
         {
             String[] input = System.IO.File.ReadAllLines(filepath);
-            Connect("SET IDENTITY_INSERT employee ON");
-            Connect("SET IDENTITY_INSERT policy_holder ON");
             foreach (String line in input)
             {
-                String SQLStatement = "INSERT INTO ";
+                String SQLStatement = "SET IDENTITY_INSERT employee ON SET IDENTITY_INSERT policy_holder ON INSERT INTO ";
 
                 if (line.ToCharArray()[475] == 'A' || line.ToCharArray()[475] == 'D')
                 {
@@ -446,12 +442,10 @@ namespace SQLImporter
                     }
                     SQLStatement += "'";
                 }
-                SQLStatement += ")";
+                SQLStatement += ") SET IDENTITY_INSERT employee OFF SET IDENTITY_INSERT policy_holder OFF";
                 Connect(SQLStatement);
                 Console.WriteLine(SQLStatement);
             }
-            Connect("SET IDENTITY_INSERT employee OFF");
-            Connect("SET IDENTITY_INSERT policy_holder OFF");
             Console.WriteLine("Press any key to exit.");
             System.Console.ReadKey();
         }
@@ -468,7 +462,7 @@ namespace SQLImporter
              * Data Source = name of server machine, which can be a networked machine or URL
             */
             //String connectionString = Properties.Settings.Default.SQLConnection;//"Initial Catalog=Restaurant;Data Source=SROSEN-LT-5000;" + "Integrated Security=False;user='middleware';pwd='password'";
-            String connectionString = "Data Source=DATABASE\\CSCI3400011030;Initial Catalog=LIC_KIHD;Integrated Security=false;user='LIC_KIHD_MW';pwd='KIHD';";
+            String connectionString = Properties.Settings.Default.SQLConnection;
             SqlConnection conn = new SqlConnection(connectionString);
 
             SqlCommand cmd = new SqlCommand(query);
