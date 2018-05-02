@@ -6,22 +6,29 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-//using System.Windows.Forms;
+using System.Windows.Forms;
 using System.Data.SqlClient;
 
 namespace SQLImporter
 {
-    class Program
+    static class Program
     {
-        static void Main(string[] args)
+        /// <summary>
+        /// The main entry point for the application.
+        /// </summary>
+        [STAThread]
+        static void Main()
         {
             ImportUsers(@"C:\Users\Noi3s\source\repos\CSCI340teamKIHD\DATABASE\SQLImporter\User.txt");
             ImportPolicies(@"C:\Users\Noi3s\source\repos\CSCI340teamKIHD\DATABASE\SQLImporter\LifePolicy.txt");
-            ImportBeneficiaries(@"C:\Users\Noi3s\source\repos\CSCI340teamKIHD\DATABASE\SQLImporter\Beneficiaries.txt");
             for (int i = 0; i < 7; ++i)
             {
                 ImportPayments(@"C:\Users\Noi3s\source\repos\CSCI340teamKIHD\DATABASE\SQLImporter\PaymentHistory" + i + ".txt");
             }
+            ImportBeneficiaries(@"C:\Users\Noi3s\source\repos\CSCI340teamKIHD\DATABASE\SQLImporter\Beneficiaries.txt");
+            //Application.EnableVisualStyles();
+            //Application.SetCompatibleTextRenderingDefault(false);
+            //Application.Run(new Form1());
         }
 
         static public void ImportPayments(String filepath)
@@ -35,11 +42,16 @@ namespace SQLImporter
 
                 for (int i = 10; i < 22; ++i) //date_paid
                 {
-                    if (i == 14 || i == 16) {
+                    if (i == 14 || i == 16)
+                    {
                         SQLStatement += "/";
-                    } else if (i == 18) {
+                    }
+                    else if (i == 18)
+                    {
                         SQLStatement += " ";
-                    } else if (i == 20) {
+                    }
+                    else if (i == 20)
+                    {
                         SQLStatement += ":";
                     }
                     if (line.ElementAt<char>(i) != ' ')
@@ -58,7 +70,8 @@ namespace SQLImporter
                 SQLStatement += ", ";
                 for (int i = 0; i < 10; ++i) //amount
                 {
-                    if (i == 8) {
+                    if (i == 8)
+                    {
                         SQLStatement += ".";
                     }
                     if (line.ElementAt<char>(i) != ' ')
@@ -67,7 +80,7 @@ namespace SQLImporter
                     }
                 }
                 SQLStatement += ", ";
-                 if (line.ElementAt<char>(52) == 'P') //payment_type
+                if (line.ElementAt<char>(52) == 'P') //payment_type
                 {
                     SQLStatement += "'P'";
                 }
@@ -76,7 +89,7 @@ namespace SQLImporter
                     SQLStatement += "'C'";
                 }
                 SQLStatement += ")";
-                //Connect(SQLStatement);
+                Connect(SQLStatement);
                 Console.WriteLine(SQLStatement);
             }
         }
@@ -90,7 +103,7 @@ namespace SQLImporter
 
                 SQLStatement += "beneficiaries (policy_number, first_name, last_name) VALUES (";
 
-                for (int i = 0; i <30; ++i)
+                for (int i = 0; i < 30; ++i)
                 {
                     if (line.ElementAt<char>(i) != ' ') //policy_number
                     {
@@ -114,7 +127,7 @@ namespace SQLImporter
                     }
                 }
                 SQLStatement += "')";
-                //Connect(SQLStatement);
+                Connect(SQLStatement);
                 Console.WriteLine(SQLStatement);
             }
         }
@@ -146,7 +159,8 @@ namespace SQLImporter
                 SQLStatement += ", '";
                 for (int i = 50; i < 58; ++i) //dob
                 {
-                    if (i == 54 || i == 56) {
+                    if (i == 54 || i == 56)
+                    {
                         SQLStatement += "/";
                     }
                     if (line.ElementAt<char>(i) != ' ')
@@ -238,7 +252,8 @@ namespace SQLImporter
                 SQLStatement += "', '";
                 for (int i = 345; i < 353; ++i) //policy_start
                 {
-                    if (i == 349 || i == 351) {
+                    if (i == 349 || i == 351)
+                    {
                         SQLStatement += "/";
                     }
                     if (line.ElementAt<char>(i) != ' ')
@@ -249,7 +264,8 @@ namespace SQLImporter
                 SQLStatement += "', '";
                 for (int i = 353; i < 361; ++i) //policy_end
                 {
-                    if ((i == 357 || i == 359) && line.ElementAt<char>(353) != ' ') {
+                    if ((i == 357 || i == 359) && line.ElementAt<char>(353) != ' ')
+                    {
                         SQLStatement += "/";
                     }
                     if (line.ElementAt<char>(i) != ' ')
@@ -268,7 +284,8 @@ namespace SQLImporter
                 SQLStatement += ", ";
                 for (int i = 381; i < 391; ++i) //payoff_amount
                 {
-                    if (i == 389) {
+                    if (i == 389)
+                    {
                         SQLStatement += ".";
                     }
                     if (line.ElementAt<char>(i) != ' ')
@@ -279,7 +296,8 @@ namespace SQLImporter
                 SQLStatement += ", ";
                 for (int i = 391; i < line.Length; ++i) //monthly_premium
                 {
-                    if (i == 399) {
+                    if (i == 399)
+                    {
                         SQLStatement += ".";
                     }
                     if (line.ElementAt<char>(i) != ' ')
@@ -288,7 +306,7 @@ namespace SQLImporter
                     }
                 }
                 SQLStatement += ", 'A') SET IDENTITY_INSERT client_policy OFF"; //policy_status
-                //Connect(SQLStatement);
+                Connect(SQLStatement);
                 Console.WriteLine(SQLStatement);
             }
             Console.WriteLine("Press any key to exit.");
@@ -425,14 +443,14 @@ namespace SQLImporter
                     SQLStatement += "'";
                 }
                 SQLStatement += ") SET IDENTITY_INSERT employee OFF";
-                //Connect(SQLStatement);
+                Connect(SQLStatement);
                 Console.WriteLine(SQLStatement);
             }
             Console.WriteLine("Press any key to exit.");
             System.Console.ReadKey();
         }
 
-        static public void Connect(String SQLStatement)
+        static public void Connect(String query)
         {
             /*
              * there are 2 ways to connect with SQL Server:
@@ -443,35 +461,14 @@ namespace SQLImporter
              * Initial Catalog = name of database
              * Data Source = name of server machine, which can be a networked machine or URL
             */
-            //            String connectionString = "";//"Initial Catalog=Restaurant;Data Source=SROSEN-LT-5000;" + "Integrated Security=False;user='middleware';pwd='password'";
-            //            SqlConnection conn = new SqlConnection(connectionString);
-            //            String query = "INSERT INTO Diner(Credit_Card_No) VALUES('" +
-            //                textBox1.Text + "')";
-            /*
-             * This query is vulnerable to SQL injection attack!
-             * Solution is to check that textBox1.Text matches the desired format: in this case,
-             * alphanumeric characters only; and that the text is not too long.
-             * We can also restrict the privileges of the Middleware user on SQL Server to only
-             * SELECT and execute stored procedures.
-            */
-            //            SqlCommand cmd = new SqlCommand(query);
-            //            cmd.Connection = conn;
-            //            conn.Open();
-            //            cmd.ExecuteNonQuery();
-            //            conn.Close();
+            String connectionString = Properties.Settings.Default.SQLConnectionRosen;//"Initial Catalog=Restaurant;Data Source=SROSEN-LT-5000;" + "Integrated Security=False;user='middleware';pwd='password'";
+            SqlConnection conn = new SqlConnection(connectionString);
 
-            //            query = "execute get_orders 'burger'";//"SELECT Credit_Card_No FROM Diner";
-            //            SqlCommand command = new SqlCommand(query);
-            //            command.Connection = conn;
-            //            conn.Open();
-            //            SqlDataReader reader = command.ExecuteReader();
-            //            while (reader.Read())//loop through one row at a time of returned data
-            //            {
-            //                int columnNum = reader.GetOrdinal("Credit_Card_No");//get column # of credit_card_no column
-            //                String creditCardNum = reader.GetString(columnNum);
-            //                textBox1.Text += " " + creditCardNum;
-            //            }
-            //            conn.Close();
+            SqlCommand cmd = new SqlCommand(query);
+            cmd.Connection = conn;
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            conn.Close();
         }
     }
 }
