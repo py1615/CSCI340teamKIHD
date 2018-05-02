@@ -103,7 +103,7 @@ namespace LIC_KIHD_GUI
          
         
 
-            if (fieldFilled && comboBox1.SelectedIndex < -1 && noError)
+            if (fieldFilled && comboBox1.SelectedIndex < -1 && noError || string.IsNullOrWhiteSpace(textBox14.Text))
             {
                 state = comboBox1.SelectedItem.ToString();
                 
@@ -177,12 +177,12 @@ namespace LIC_KIHD_GUI
             {
                 if (!char.IsNumber(tString[i]))
                 {
-                    errorProvider1.SetError(CityBox, "Please enter the number");//MessageBox.Show("Please enter a valid information");     
+                    errorProvider1.SetError(BirthBox, "Please enter the number");//MessageBox.Show("Please enter a valid information");     
                     return;
                 }
                 else
                 {
-                    errorProvider1.SetError(CityBox, "");
+                    errorProvider1.SetError(BirthBox, "");
                 }
             }
         }
@@ -214,12 +214,12 @@ namespace LIC_KIHD_GUI
             {
                 if (!char.IsNumber(tString[i]))
                 {
-                    errorProvider1.SetError(CityBox, "Please enter the number");//MessageBox.Show("Please enter a valid information");     
+                    errorProvider1.SetError(ZipBox, "Please enter the number");//MessageBox.Show("Please enter a valid information");     
                     return;
                 }
                 else
                 {
-                    errorProvider1.SetError(CityBox, "");
+                    errorProvider1.SetError(ZipBox, "");
                 }
             }
         }
@@ -232,12 +232,12 @@ namespace LIC_KIHD_GUI
             {
                 if (!char.IsNumber(tString[i]))
                 {
-                    errorProvider1.SetError(CityBox, "Please enter the number");//MessageBox.Show("Please enter a valid information");     
+                    errorProvider1.SetError(FatherBox, "Please enter the number");//MessageBox.Show("Please enter a valid information");     
                     return;
                 }
                 else
                 {
-                    errorProvider1.SetError(CityBox, "");
+                    errorProvider1.SetError(FatherBox, "");
                 }
             }
         }
@@ -250,12 +250,12 @@ namespace LIC_KIHD_GUI
             {
                 if (!char.IsNumber(tString[i]))
                 {
-                    errorProvider1.SetError(CityBox, "Please enter the number");//MessageBox.Show("Please enter a valid information");     
+                    errorProvider1.SetError(motherBox, "Please enter the number");//MessageBox.Show("Please enter a valid information");     
                     return;
                 }
                 else
                 {
-                    errorProvider1.SetError(CityBox, "");
+                    errorProvider1.SetError(motherBox, "");
                 }
             }
         }
@@ -268,12 +268,12 @@ namespace LIC_KIHD_GUI
             {
                 if (!char.IsNumber(tString[i]))
                 {
-                    errorProvider1.SetError(CityBox, "Please enter the number");//MessageBox.Show("Please enter a valid information");     
+                    errorProvider1.SetError(cigBox, "Please enter the number");//MessageBox.Show("Please enter a valid information");     
                     return;
                 }
                 else
                 {
-                    errorProvider1.SetError(CityBox, "");
+                    errorProvider1.SetError(cigBox, "");
                 }
             }
         }
@@ -286,12 +286,12 @@ namespace LIC_KIHD_GUI
             {
                 if (!char.IsNumber(tString[i]))
                 {
-                    errorProvider1.SetError(CityBox, "Please enter the number");//MessageBox.Show("Please enter a valid information");     
+                    errorProvider1.SetError(smokeBox, "Please enter the number");//MessageBox.Show("Please enter a valid information");     
                     return;
                 }
                 else
                 {
-                    errorProvider1.SetError(CityBox, "");
+                    errorProvider1.SetError(smokeBox, "");
                 }
             }
         }
@@ -304,12 +304,12 @@ namespace LIC_KIHD_GUI
             {
                 if (!char.IsNumber(tString[i]))
                 {
-                    errorProvider1.SetError(CityBox, "Please enter the number");//MessageBox.Show("Please enter a valid information");     
+                    errorProvider1.SetError(bloodBox, "Please enter the number");//MessageBox.Show("Please enter a valid information");     
                     return;
                 }
                 else
                 {
-                    errorProvider1.SetError(CityBox, "");
+                    errorProvider1.SetError(bloodBox, "");
                 }
             }
         }
@@ -327,12 +327,12 @@ namespace LIC_KIHD_GUI
             {
                 if (!char.IsNumber(tString[i]))
                 {
-                    errorProvider1.SetError(CityBox, "Please enter the number");//MessageBox.Show("Please enter a valid information");     
+                    errorProvider1.SetError(textBox15, "Please enter the number");//MessageBox.Show("Please enter a valid information");     
                     return;
                 }
                 else
                 {
-                    errorProvider1.SetError(CityBox, "");
+                    errorProvider1.SetError(textBox15, "");
                 }
             }
         }

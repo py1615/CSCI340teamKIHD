@@ -57,13 +57,14 @@
             this.PaymentHistory = new System.Windows.Forms.Button();
             this.buttonClaim = new System.Windows.Forms.Button();
             this.CancelPolicyButton = new System.Windows.Forms.Button();
+            this.label25 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // PolicyNumTitle
             // 
             this.PolicyNumTitle.AutoSize = true;
             this.PolicyNumTitle.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PolicyNumTitle.Location = new System.Drawing.Point(490, 50);
+            this.PolicyNumTitle.Location = new System.Drawing.Point(394, 56);
             this.PolicyNumTitle.Name = "PolicyNumTitle";
             this.PolicyNumTitle.Size = new System.Drawing.Size(163, 27);
             this.PolicyNumTitle.TabIndex = 0;
@@ -267,6 +268,7 @@
             this.ReturnButton.TabIndex = 6;
             this.ReturnButton.Text = "Return";
             this.ReturnButton.UseVisualStyleBackColor = true;
+            this.ReturnButton.Click += new System.EventHandler(this.ReturnButton_Click);
             // 
             // label21
             // 
@@ -323,6 +325,16 @@
             this.CancelPolicyButton.UseVisualStyleBackColor = true;
             this.CancelPolicyButton.Click += new System.EventHandler(this.CancelPolicyButton_Click);
             // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(572, 56);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(82, 27);
+            this.label25.TabIndex = 10;
+            this.label25.Text = "label25";
+            // 
             // Policyinfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -330,6 +342,7 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1213, 811);
+            this.Controls.Add(this.label25);
             this.Controls.Add(this.CancelPolicyButton);
             this.Controls.Add(this.buttonClaim);
             this.Controls.Add(this.PaymentHistory);
@@ -400,5 +413,6 @@
         private System.Windows.Forms.Button PaymentHistory;
         private System.Windows.Forms.Button buttonClaim;
         private System.Windows.Forms.Button CancelPolicyButton;
+        private System.Windows.Forms.Label label25;
     }
 }

@@ -12,11 +12,11 @@ namespace LIC_KIHD_GUI
 {
     public partial class Policyinfo : Form
     {
-        public Policyinfo()
+        public Policyinfo(string policyNumber)
         {
 
             InitializeComponent();
-            
+            label25.Text = policyNumber;
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -27,12 +27,13 @@ namespace LIC_KIHD_GUI
         private void CancelPolicyButton_Click(object sender, EventArgs e)
         {
             var confirmResult = MessageBox.Show("Are you sure to cancel this policy ??",
-                                     "Confirm Delete!!",
+                                     "Cancellation",
                                      MessageBoxButtons.YesNo);
             if (confirmResult == DialogResult.Yes)
             {
                 //LIC_KIHD_MW.Policy.Cancel();
                 MessageBox.Show("Policy has been cancelled successfully");// If 'Yes', do something here.
+                this.Close();
             }
             else
             {
@@ -43,6 +44,11 @@ namespace LIC_KIHD_GUI
         private void Policyinfo_Load(object sender, EventArgs e)
         {
             
+        }
+
+        private void ReturnButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
