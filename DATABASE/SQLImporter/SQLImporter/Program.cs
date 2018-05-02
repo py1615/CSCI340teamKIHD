@@ -19,13 +19,13 @@ namespace SQLImporter
         [STAThread]
         static void Main()
         {
-            ImportUsers(@"..\User.txt");
-            ImportPolicies(@"..\LifePolicy.txt");
+            ImportUsers(@"..\..\..\User.txt");
+            ImportPolicies(@"..\..\..\LifePolicy.txt");
             for (int i = 0; i < 7; ++i)
             {
-                ImportPayments(@"..\PaymentHistory" + i + ".txt");
+                ImportPayments(@"..\..\..\PaymentHistory" + i + ".txt");
             }
-            ImportBeneficiaries(@"..\Beneficiaries.txt");
+            ImportBeneficiaries(@"..\..\..\Beneficiaries.txt");
             //Application.EnableVisualStyles();
             //Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Form1());
