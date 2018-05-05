@@ -12,6 +12,7 @@ namespace LIC_KIHD_GUI
 {
     public partial class managerSearch : Form
     {
+        private string policyN;
         public managerSearch()
         {
             InitializeComponent();
@@ -60,8 +61,16 @@ namespace LIC_KIHD_GUI
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
+        { 
+            this.ViewButton.UseColumnTextForButtonValue = true;
+            this.ViewButton.Text = "View";
+            if (e.ColumnIndex == dataGridView1.Columns["View"].Index)
+            {
 
+                policyN = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+                Policyinfo infoPage = new Policyinfo(policyN);
+                infoPage.ShowDialog();
+            }
         }
     }
 }

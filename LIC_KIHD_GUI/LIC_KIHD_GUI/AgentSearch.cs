@@ -54,7 +54,7 @@ namespace LIC_KIHD_GUI
             if(e.ColumnIndex == dataGridView1.Columns["View"].Index )
             {
  
-                 policyN = dataGridView1.SelectedRows[dataGridView1.Columns["View"].Index].Cells[0].ToString();
+                policyN = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
                 Policyinfo infoPage = new Policyinfo(policyN);
                 infoPage.ShowDialog();
             }
