@@ -18,7 +18,7 @@ namespace LIC_KIHD_MW
 
         }
 
-        public string userRegister(string userName, string firstName, string lastName, string passWord,
+        public static string userRegister(string userName, string firstName, string lastName, string passWord,
             string agentType, string department)
         {
             String connectionString = LIC_KIHD_GUI.Properties.Settings.Default.SQL_connection;
