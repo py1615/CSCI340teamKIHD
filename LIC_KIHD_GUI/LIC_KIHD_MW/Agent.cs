@@ -22,9 +22,9 @@ namespace LIC_KIHD_MW
         public static string[,] search(string policyNum, string clientName, string agentID)
         {
             string thePolicyNum = policyNum;
-            string firstName = null;
-            string lastName = null;
-            if(clientName != null)
+            string firstName = "";
+            string lastName = "";
+            if(clientName != "null")
             {
             int index = 0;
             for( int i = index; i < clientName.Length; i ++)
@@ -40,6 +40,10 @@ namespace LIC_KIHD_MW
                 char letter = clientName[i];
                 lastName += letter;
             }
+            }else
+            {
+                firstName = "null";
+                lastName = "null";
             }
             string theAgentID = agentID;
             String connectionString = LIC_KIHD_GUI.Properties.Settings.Default.SQL_connection;
