@@ -1,9 +1,12 @@
 --drop table inflation
 --drop table beneficiary
 --drop table payments
+--drop table delinquent
 --drop table client_policy
 --drop table policy_holder
 --drop table employee
+
+--INSERT DUMMY EMPLOYEES ARE AT THE BOTTOM OF THIS PAGE!
 
 CREATE TABLE employee (
 id NUMERIC(20) NOT NULL IDENTITY PRIMARY KEY,
@@ -47,6 +50,9 @@ policy_status VARCHAR(1),
 FOREIGN KEY (policy_holder_id) REFERENCES policy_holder(policy_holder_id),
 FOREIGN KEY (agent_id) REFERENCES employee(id));
 
+CREATE TABLE delinquent (
+policy_number NUMERIC(30) NOT NULL IDENTITY PRIMARY KEY);
+
 CREATE TABLE payments (
 date_paid DATETIME NOT NULL,
 policy_number NUMERIC(30) NOT NULL,
@@ -65,3 +71,9 @@ FOREIGN KEY (policy_number) REFERENCES client_policy(policy_number));
 CREATE TABLE inflation (
 date_recorded DATE NOT NULL PRIMARY KEY,
 inflation NUMERIC(8,4));
+
+--AGENT LEVEL USER!
+--set identity_insert employee on; insert into employee (id, employee_password, user_type) values (0, '0', 'A'); set identity_insert employee off;
+
+--MANAGER LEVEL USER!
+--set identity_insert employee on; insert into employee (id, employee_password, user_type) values (1, '1', 'M'); set identity_insert employee off;

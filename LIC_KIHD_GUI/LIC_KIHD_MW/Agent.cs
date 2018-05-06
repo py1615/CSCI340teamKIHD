@@ -7,6 +7,7 @@ namespace LIC_KIHD_MW
 {
     class Agent
     {
+        private readonly int RETURN_INFO = 6;
         private string firstName;
         private string lastName;
         private string department;
@@ -18,7 +19,7 @@ namespace LIC_KIHD_MW
             department = theDepartment;
             agentType = theAgentType;
         }
-        public string[,] search(string policyNum, string clientName, string agentID)
+        public static string[,] search(string policyNum, string clientName, string agentID)
         {
             string thePolicyNum = policyNum;
             string firstName = "";
@@ -40,7 +41,7 @@ namespace LIC_KIHD_MW
             string theAgentID = agentID;
             String connectionString = LIC_KIHD_GUI.Properties.Settings.Default.SQL_connection;
             SqlConnection conn = new SqlConnection(connectionString);
-            String query = "execute search '" + thePolicyNum + "'" + firstName + "'" + lastName + "'" + theAgentID + "'";
+            String query = "execute search '" + thePolicyNum + "', '" + firstName + "', '" + lastName + "', '" + theAgentID + "'";
             SqlCommand command = new SqlCommand(query);
             command.Connection = conn;
             conn.Open();
@@ -50,16 +51,22 @@ namespace LIC_KIHD_MW
             {
                 row++;
             }
-            string[,] policyInfo = new string[row,6];
+            conn.Close();
+            conn.Open();
+            string[,] policyInfo = new string[row,RETURN_INFO];
             row = 0;
+            string[] colName = {"policy_number", "first_name", "dob", "policy_start", "payoff_amount", 
+                "monthly_premium"};
             while (reader.Read())
             {
-                policyInfo[row,0] = reader.GetString(reader.GetOrdinal("policy_number"));
-                policyInfo[row, 1] = reader.GetString(reader.GetOrdinal("first_name")) + " " + reader.GetString(reader.GetOrdinal("last_name"));
-                policyInfo[row, 2] = reader.GetString(reader.GetOrdinal("dob"));
-                policyInfo[row, 3] = reader.GetString(reader.GetOrdinal("policy_start"));
-                policyInfo[row, 4] = reader.GetString(reader.GetOrdinal("payoff_amount"));
-                policyInfo[row, 5] = reader.GetString(reader.GetOrdinal("monthly_premium"));
+                for(int i = 0; i < RETURN_INFO; i ++)
+                {
+                    policyInfo[row, i] = reader.GetString(reader.GetOrdinal(colName[i]));
+                    if(i == 1)
+                    {
+                        policyInfo[row, i] += " " + reader.GetString(reader.GetOrdinal("last_name"));
+                    }
+                }
                 row++;
             }
             conn.Close();
@@ -68,7 +75,19 @@ namespace LIC_KIHD_MW
 
         /*public Policy searchOnClick(string policyNum)
         {
-
+            String connectionString = LIC_KIHD_GUI.Properties.Settings.Default.SQL_connection;
+            SqlConnection conn = new SqlConnection(connectionString);
+            String query = "execute search_on_click '" + policyNum + "'";
+            SqlCommand command = new SqlCommand(query);
+            command.Connection = conn;
+            conn.Open();
+            SqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                
+            }
+            conn.Close();
+            return policyInfo;
         }*/
 
         public static string login(string userName, string passWord)
