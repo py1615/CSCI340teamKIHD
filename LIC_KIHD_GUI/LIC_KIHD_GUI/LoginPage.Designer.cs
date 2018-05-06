@@ -44,7 +44,7 @@
             this.label1.Location = new System.Drawing.Point(550, 148);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 34);
+            this.label1.Size = new System.Drawing.Size(107, 43);
             this.label1.TabIndex = 0;
             this.label1.Text = "Login";
             // 
@@ -79,7 +79,7 @@
             this.labelForID.Location = new System.Drawing.Point(557, 236);
             this.labelForID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelForID.Name = "labelForID";
-            this.labelForID.Size = new System.Drawing.Size(63, 19);
+            this.labelForID.Size = new System.Drawing.Size(80, 22);
             this.labelForID.TabIndex = 3;
             this.labelForID.Text = "Login ID";
             this.labelForID.Click += new System.EventHandler(this.label2_Click);
@@ -91,7 +91,7 @@
             this.labelForPassword.Location = new System.Drawing.Point(558, 329);
             this.labelForPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelForPassword.Name = "labelForPassword";
-            this.labelForPassword.Size = new System.Drawing.Size(69, 19);
+            this.labelForPassword.Size = new System.Drawing.Size(88, 22);
             this.labelForPassword.TabIndex = 4;
             this.labelForPassword.Text = "Password";
             // 
@@ -101,7 +101,7 @@
             this.barForID.Location = new System.Drawing.Point(561, 274);
             this.barForID.Margin = new System.Windows.Forms.Padding(4);
             this.barForID.Name = "barForID";
-            this.barForID.Size = new System.Drawing.Size(174, 26);
+            this.barForID.Size = new System.Drawing.Size(174, 30);
             this.barForID.TabIndex = 5;
             this.barForID.TextChanged += new System.EventHandler(this.barForID_TextChanged);
             // 
@@ -110,15 +110,16 @@
             this.barForPassword.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.barForPassword.Location = new System.Drawing.Point(558, 367);
             this.barForPassword.Margin = new System.Windows.Forms.Padding(4);
+            this.barForPassword.MaxLength = 255;
             this.barForPassword.Name = "barForPassword";
-            this.barForPassword.Size = new System.Drawing.Size(174, 26);
+            this.barForPassword.Size = new System.Drawing.Size(174, 30);
             this.barForPassword.TabIndex = 6;
             this.barForPassword.UseSystemPasswordChar = true;
             this.barForPassword.TextChanged += new System.EventHandler(this.barForPassword_TextChanged);
             // 
             // loginPage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1213, 974);

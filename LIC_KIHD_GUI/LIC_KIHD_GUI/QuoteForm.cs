@@ -85,16 +85,13 @@ namespace LIC_KIHD_GUI
         {
             addBeneficiary addB = new addBeneficiary();
             // List<LIC_KIHD_MW.Beneficiary> beneficiary = new List<LIC_KIHD_MW.Beneficiary>();
+            addB.Closed += (s, arges) => this.Close();
 
 
-            if (addB.ShowDialog() == DialogResult.OK)
-            {
-                firstN.Add(addB.FN);
-                lastNa.Add(addB.LN);
-            }
             // complete register and return back
             MessageBox.Show("The policy had been created successfully, and your policy number is");
-            this.Close();
+            addB.ShowDialog();
+            
         }
     }
 }

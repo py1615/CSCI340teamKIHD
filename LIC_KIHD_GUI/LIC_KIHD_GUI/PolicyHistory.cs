@@ -12,12 +12,29 @@ namespace LIC_KIHD_GUI
 {
     public partial class PolicyHistory : Form
     {
-        public PolicyHistory()
+        private string[,] history;
+        public PolicyHistory(string[,] his)
         {
             InitializeComponent();
+            history = his;
+            for (int i = 0; i < history.GetLength
+                 (0); i++)
+            {
+                string[] row = new string[history.GetLength(1)];
+                for (int j = 0; j < history.GetLength(1); j++)
+                {
+                    row[j] = history[i, j];
+                }
+                dataGridView1.Rows.Add(row);
+            }
         }
 
         private void ReturnButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PolicyHistory_Load(object sender, EventArgs e)
         {
 
         }

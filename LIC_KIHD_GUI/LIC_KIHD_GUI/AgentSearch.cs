@@ -72,26 +72,32 @@ namespace LIC_KIHD_GUI
         private void agentSearchButton_Click(object sender, EventArgs e)
         {
             //DataTable table = new DataTable();
-
-            string[,] searchResult = LIC_KIHD_MW.Agent.search(policyNumBox.Text, clientNameBox.Text, agentId);
-            
-            if(searchResult != null)
+            if (string.IsNullOrEmpty(policyNumBox.Text) && string.IsNullOrEmpty(clientNameBox.Text))
             {
-                for (int i = 0; i < searchResult.GetLength(0); i++)
-                {
-                    string[] row = new string[searchResult.GetLength(1)];
-                    for (int j = 0; j < searchResult.GetLength(1); j++)
-                    {
-                        row[j] = searchResult[i, j];
-                    }
-                    dataGridView1.Rows.Add(row);
-                }
+                MessageBox.Show("Please enter policy number and client's name!");
             }
             else
             {
-                MessageBox.Show("The information you entered is wrong!");
-                policyNumBox.Clear();
-                clientNameBox.Clear();
+                string[,] searchResult = LIC_KIHD_MW.Agent.search(policyNumBox.Text, clientNameBox.Text, agentId);
+
+                if (searchResult != null)
+                {
+                    for (int i = 0; i < searchResult.GetLength(0); i++)
+                    {
+                        string[] row = new string[searchResult.GetLength(1)];
+                        for (int j = 0; j < searchResult.GetLength(1); j++)
+                        {
+                            row[j] = searchResult[i, j];
+                        }
+                        dataGridView1.Rows.Add(row);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("The information you entered is wrong!");
+                    policyNumBox.Clear();
+                    clientNameBox.Clear();
+                }
             }
         }
         
