@@ -202,11 +202,11 @@ SET NOCOUNT ON;
 SELECT inflation
 FROM inflation
 WHERE date_recorded = @date_recorded
-OR date_recorded = @date_recorded - '0000/01/00'
-OR date_recorded = @date_recorded - '0000/02/00'
-OR date_recorded = @date_recorded - '0000/03/00'
-OR date_recorded = @date_recorded - '0000/04/00'
-OR date_recorded = @date_recorded - '0000/05/00'
+OR date_recorded = DATEADD(MONTH, -1, @date_recorded)
+OR date_recorded = DATEADD(MONTH, -1, @date_recorded)
+OR date_recorded = DATEADD(MONTH, -1, @date_recorded)
+OR date_recorded = DATEADD(MONTH, -1, @date_recorded)
+OR date_recorded = DATEADD(MONTH, -1, @date_recorded)
 ORDER BY date_recorded ASC
 END
 GO
