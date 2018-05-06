@@ -57,8 +57,33 @@ namespace LIC_KIHD_GUI
 
         private void agentSearchButton_Click(object sender, EventArgs e)
         {
-            DataTable table = new DataTable();
-            dataGridView1.DataSource = table;
+            if (string.IsNullOrEmpty(textBox1.Text) && string.IsNullOrEmpty(textBox2.Text))
+            {
+                MessageBox.Show("Please enter policy number and client's name!");
+            }
+            else
+            {
+                string[,] searchResult = LIC_KIHD_MW.Agent.search(textBox1.Text, textBox3.Text, textBox2.Text);
+
+                if (searchResult != null)
+                {
+                    for (int i = 0; i < searchResult.GetLength(0); i++)
+                    {
+                        string[] row = new string[searchResult.GetLength(1)];
+                        for (int j = 0; j < searchResult.GetLength(1); j++)
+                        {
+                            row[j] = searchResult[i, j];
+                        }
+                        dataGridView1.Rows.Add(row);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("The information you entered is wrong!");
+                    textBox1.Clear();
+                    textBox3.Clear();
+                }
+            }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

@@ -51,6 +51,8 @@ namespace LIC_KIHD_MW
             {
                 row++;
             }
+            conn.Close();
+            conn.Open();
             string[,] policyInfo = new string[row,RETURN_INFO];
             row = 0;
             string[] colName = {"policy_number", "first_name", "dob", "policy_start", "payoff_amount", 
