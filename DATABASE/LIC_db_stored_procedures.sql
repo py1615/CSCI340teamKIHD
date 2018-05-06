@@ -6,6 +6,10 @@
 --drop procedure register_policy
 --drop procedure add_beneficiary
 --drop procedure calculation_data
+--drop procedure get_inflation_rate
+--drop procedure claim
+--drop procedure get_payments
+--drop procedure set_delinquent
 
 CREATE PROCEDURE get_login (
 @id NUMERIC(20),
@@ -187,5 +191,67 @@ SET NOCOUNT ON;
 SELECT dob, fathers_age_of_death, mothers_age_of_death, cigs_day, smoking_history, systolic_blood_pressure, avg_grams_fat_day, heart_disease, cancer, hospitalized, dangerous_activities, policy_end
 FROM client_policy FULL OUTER JOIN policy_holder ON client_policy.policy_holder_id = policy_holder.policy_holder_id FULL OUTER JOIN payments ON client_policy.policy_number = payments.policy_number
 WHERE payment_type = 'C'
+END
+GO
+
+CREATE PROCEDURE get_inflation_rate (
+@date_recorded DATE)
+AS
+BEGIN
+SET NOCOUNT ON;
+SELECT inflation
+FROM inflation
+WHERE date_recorded = @date_recorded
+END
+GO
+
+CREATE PROCEDURE claim (
+@policy_number NUMERIC(30))
+AS
+BEGIN
+SET NOCOUNT ON;
+UPDATE client_policy
+SET policy_status = 'I'
+WHERE policy_number = @policy_number
+END
+GO
+
+CREATE PROCEDURE get_payments (
+@policy_number NUMERIC(30))
+AS
+BEGIN
+SET NOCOUNT ON;
+SELECT date_paid, amount
+FROM payments
+WHERE policy_number = @policy_number AND payment_type = 'P'
+END
+GO
+
+CREATE PROCEDURE set_delinquent (
+@policy_number NUMERIC(30))
+AS
+BEGIN
+SET NOCOUNT ON;
+INSERT INTO delinquent (
+policy_holder_id,
+dob,
+fathers_age_of_death,
+mothers_age_of_death,
+cigs_day,
+smoking_history,
+systolic_blood_pressure,
+avg_grams_fat_day,
+heart_disease,
+cancer,
+hospitalized,
+dangerous_activities,
+policy_start,
+agent_id,
+payoff_amount,
+monthly_premium,
+policy_status)
+SELECT *
+FROM client_policy
+WHERE policy_number = @policy_number
 END
 GO
