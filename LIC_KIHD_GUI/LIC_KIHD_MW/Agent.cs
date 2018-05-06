@@ -7,7 +7,7 @@ namespace LIC_KIHD_MW
 {
     class Agent
     {
-        private readonly int RETURN_INFO = 6;
+        private readonly static int RETURN_INFO = 6;
         private string firstName;
         private string lastName;
         private string department;
