@@ -8,14 +8,21 @@ namespace LIC_KIHD_MW
     {
         private string firstName;
         private string lastName;
-        private DateTime birthdate;
+        private string birthdate;
         private Address address;
-        public PolicyHolder(string theFirstName, string theLastName, DateTime theBirthdate, Address theAddress)
+
+        public string FirstName { get => firstName; set => firstName = value; }
+        public string LastName { get => lastName; set => lastName = value; }
+        public string Birthdate { get => birthdate; set => birthdate = value; }
+        internal Address Address { get => address; set => address = value; }
+
+        public PolicyHolder(string theFirstName, string theLastName, string theBirthdate, Address theAddress)
         {
-            firstName = theFirstName;
-            lastName = theLastName;
-            birthdate = theBirthdate;
-            address = theAddress;
+            FirstName = theFirstName;
+            LastName = theLastName;
+            Birthdate = theBirthdate;
+            Address = theAddress;
         }
+
     }
 }

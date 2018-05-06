@@ -202,6 +202,12 @@ SET NOCOUNT ON;
 SELECT inflation
 FROM inflation
 WHERE date_recorded = @date_recorded
+OR date_recorded = @date_recorded - '0000/01/00'
+OR date_recorded = @date_recorded - '0000/02/00'
+OR date_recorded = @date_recorded - '0000/03/00'
+OR date_recorded = @date_recorded - '0000/04/00'
+OR date_recorded = @date_recorded - '0000/05/00'
+ORDER BY date_recorded ASC
 END
 GO
 
@@ -233,24 +239,8 @@ AS
 BEGIN
 SET NOCOUNT ON;
 INSERT INTO delinquent (
-policy_holder_id,
-dob,
-fathers_age_of_death,
-mothers_age_of_death,
-cigs_day,
-smoking_history,
-systolic_blood_pressure,
-avg_grams_fat_day,
-heart_disease,
-cancer,
-hospitalized,
-dangerous_activities,
-policy_start,
-agent_id,
-payoff_amount,
-monthly_premium,
-policy_status)
-SELECT *
+policy_number)
+SELECT policy_number
 FROM client_policy
 WHERE policy_number = @policy_number
 END
