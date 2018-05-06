@@ -57,13 +57,28 @@ namespace LIC_KIHD_GUI
 
         private void agentSearchButton_Click(object sender, EventArgs e)
         {
+            string policyNumber = null;
+            string clientName = null;
+            string agentID = null;
             if (string.IsNullOrEmpty(textBox1.Text) && string.IsNullOrEmpty(textBox2.Text))
             {
                 MessageBox.Show("Please enter policy number and client's name!");
             }
-            else
+            else 
             {
-                string[,] searchResult = LIC_KIHD_MW.Agent.search(textBox1.Text, textBox3.Text, textBox2.Text);
+                if(!string.IsNullOrEmpty(textBox1.Text))
+                {
+                    policyNumber = textBox1.Text;
+                }
+                if (!string.IsNullOrEmpty(textBox3.Text))
+                {
+                    clientName = textBox3.Text;
+                }
+                if (!string.IsNullOrEmpty(textBox2.Text))
+                {
+                    agentID = textBox2.Text;
+                }
+               string [,] searchResult = LIC_KIHD_MW.Agent.search(policyNumber, clientName, agentID);
 
                 if (searchResult != null)
                 {
