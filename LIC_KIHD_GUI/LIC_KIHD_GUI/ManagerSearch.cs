@@ -57,9 +57,9 @@ namespace LIC_KIHD_GUI
 
         private void agentSearchButton_Click(object sender, EventArgs e)
         {
-            string policyNumber = null;
-            string clientName = null;
-            string agentID = null;
+            string policyNumber = "null";
+            string clientName = "null";
+            string agentID = "null";
             if (string.IsNullOrEmpty(textBox1.Text) && string.IsNullOrEmpty(textBox2.Text))
             {
                 MessageBox.Show("Please enter policy number and client's name!");
