@@ -157,6 +157,7 @@ namespace LIC_KIHD_MW
             double ageOfDeath = PredictAgeAtDeath(D, y, client);
             string today = DateTime.Now.ToString("yyyy - MM - dd");
             int restOfMonth = monthCount(dob, today, ageOfDeath);
+            double averageRate = averageInflationRate();
             double premium = 0;
             for(int i = 0; i < restOfMonth; i ++)
             {
@@ -164,6 +165,38 @@ namespace LIC_KIHD_MW
             }
             double result = 0;
             return result;
+        }
+
+        private double averageInflationRate()
+        {
+            String connectionString = LIC_KIHD_GUI.Properties.Settings.Default.SQL_connection;
+            SqlConnection conn = new SqlConnection(connectionString);
+            string inflate = DateTime.Now.ToString("yyyy/MM/01");
+            String query = "execute get_inflation_rate '" + inflation + "'";
+            SqlCommand command = new SqlCommand(query);
+            command.Connection = conn;
+            conn.Open();
+            int row = 0;
+            while (reader.Read())
+            {
+                row++;
+            }
+            double[] inflation = new double[row];
+            row = 0;
+            while (reader.Read())
+            {
+                inflation[row] = Convert.ToDouble(reader.GetString(reader.GetOrdinal("inflation")));
+                row ++;
+            }
+            conn.Close();
+            row --;
+            double averageRate = 0;
+            for(int i = 1; i < inflation.Length; i ++)
+            {
+                averageRate += inflation[i] - inflation[i - 1];
+            }
+            averageRate /= row;
+            return averageRate;
         }
 
         private int monthCount(string dob, string startDate, double ageOfDeath)
