@@ -36,28 +36,36 @@ namespace LIC_KIHD_GUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string userAccess = LIC_KIHD_MW.Agent.login(barForID.Text, barForPassword.Text);
-            if (userAccess  == "A") // Agent access the search page// made up id and pw
+            if(string.IsNullOrEmpty(barForID.Text) || string.IsNullOrEmpty(barForPassword.Text))
             {
-                UserId = barForID.Text;
-                Hide();
-                AgentSearch agent = new AgentSearch(barForID.Text);
-                agent.Closed += (s, arges) => this.Close();
-                agent.ShowDialog();
-                
+                MessageBox.Show(String.Format("Please enter your Log in ID and Password!"));
             }
-            else if (userAccess == "M")
-            {
-                UserId = barForID.Text;
-                managerSearch agent = new managerSearch();
-                agent.Closed += (s, arges) => this.Close();
-                agent.Show();
-                Hide();
-            }//manager access the search page
             else
-            { 
-                MessageBox.Show(String.Format("Username or Password is Incorrect")); //wrong id or pw
+            {
+                string userAccess = LIC_KIHD_MW.Agent.login(barForID.Text, barForPassword.Text);
+                if (userAccess == "A") // Agent access the search page// made up id and pw
+                {
+                    UserId = barForID.Text;
+                    Hide();
+                    AgentSearch agent = new AgentSearch(barForID.Text);
+                    agent.Closed += (s, arges) => this.Close();
+                    agent.ShowDialog();
 
+                }
+                else if (userAccess == "M")
+                {
+                    UserId = barForID.Text;
+                    managerSearch agent = new managerSearch(barForID.Text);
+                    agent.Closed += (s, arges) => this.Close();
+                    agent.Show();
+                    Hide();
+                }//manager access the search page
+
+                else
+                {
+                    MessageBox.Show(String.Format("Username or Password is Incorrect")); //wrong id or pw
+
+                }
             }
         }
 

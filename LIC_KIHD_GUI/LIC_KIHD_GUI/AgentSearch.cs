@@ -44,17 +44,14 @@ namespace LIC_KIHD_GUI
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            string policyN = "12312312312321";
-            DateTime time = DateTime.Now;
-            LIC_KIHD_MW.Address address = new LIC_KIHD_MW.Address("A","b","c","d");
-            LIC_KIHD_MW.PolicyHolder holder = new LIC_KIHD_MW.PolicyHolder("a", "b", time,address);
-
+            //LIC_KIHD_MW.Policy result = new LIC_KIHD_MW.Policy();//need MW
+            string policyN = "";  //need MW
             View.Text = "View";
             View.UseColumnTextForButtonValue = true;
             if(e.ColumnIndex == dataGridView1.Columns["View"].Index )
             {
  
-                 policyN = dataGridView1.SelectedRows[dataGridView1.Columns["View"].Index].Cells[0].ToString();
+                policyN = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
                 Policyinfo infoPage = new Policyinfo(policyN);
                 infoPage.ShowDialog();
             }
@@ -72,26 +69,32 @@ namespace LIC_KIHD_GUI
         private void agentSearchButton_Click(object sender, EventArgs e)
         {
             //DataTable table = new DataTable();
-
-            string[,] searchResult = LIC_KIHD_MW.Agent.search(policyNumBox.Text, clientNameBox.Text, agentId);
-            
-            if(searchResult != null)
+            if (string.IsNullOrEmpty(policyNumBox.Text) && string.IsNullOrEmpty(clientNameBox.Text))
             {
-                for (int i = 0; i < searchResult.GetLength(0); i++)
-                {
-                    string[] row = new string[searchResult.GetLength(1)];
-                    for (int j = 0; j < searchResult.GetLength(1); j++)
-                    {
-                        row[j] = searchResult[i, j];
-                    }
-                    dataGridView1.Rows.Add(row);
-                }
+                MessageBox.Show("Please enter policy number and client's name!");
             }
             else
             {
-                MessageBox.Show("The information you entered is wrong!");
-                policyNumBox.Clear();
-                clientNameBox.Clear();
+                string[,] searchResult = LIC_KIHD_MW.Agent.search(policyNumBox.Text, clientNameBox.Text, agentId);
+
+                if (searchResult != null)
+                {
+                    for (int i = 0; i < searchResult.GetLength(0); i++)
+                    {
+                        string[] row = new string[searchResult.GetLength(1)];
+                        for (int j = 0; j < searchResult.GetLength(1); j++)
+                        {
+                            row[j] = searchResult[i, j];
+                        }
+                        dataGridView1.Rows.Add(row);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("The information you entered is wrong!");
+                    policyNumBox.Clear();
+                    clientNameBox.Clear();
+                }
             }
         }
         

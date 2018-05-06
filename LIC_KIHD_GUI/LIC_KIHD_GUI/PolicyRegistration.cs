@@ -21,6 +21,9 @@ namespace LIC_KIHD_GUI
         private string cancer;
         private string hospital;
         private string state;
+        private string HDPassToQuote;
+        private string cancerToQ;
+        private string hospitalToQ;
         
         public PolicyRegistration()
         {
@@ -32,36 +35,42 @@ namespace LIC_KIHD_GUI
         {
             HDNo.Checked = !HDYes.Checked;
             HeartDisease = "1";
+            HDPassToQuote = "Yes";
         }
 
         private void HDNo_CheckedChanged(object sender, EventArgs e)
         {
             HDYes.Checked = !HDNo.Checked;
             HeartDisease = "0";
+            HDPassToQuote = "No";
         }
 
         private void CancerYes_CheckedChanged(object sender, EventArgs e)
         {
             CancerNo.Checked = !CancerYes.Checked;
             cancer = "1";
+            cancerToQ = "Yes";
         }
 
         private void CancerNo_CheckedChanged(object sender, EventArgs e)
         {
             CancerYes.Checked = !CancerNo.Checked;
             cancer = "0";
+            cancerToQ = "No";
         }
 
         private void HosYes_CheckedChanged(object sender, EventArgs e)
         {
             HosNo.Checked = !HosYes.Checked;
             hospital = "1";
+            hospitalToQ = "Yes";
         }
 
         private void HosNo_CheckedChanged(object sender, EventArgs e)
         {
             HosYes.Checked = !HosNo.Checked;
             hospital = "0";
+            hospitalToQ = "No";
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -108,7 +117,7 @@ namespace LIC_KIHD_GUI
                 state = comboBox1.SelectedItem.ToString();
                 
                 QuoteForm quote = new QuoteForm(FirstNameBox.Text, LastNameBox.Text, BirthBox.Text, AddressBox.Text, CityBox.Text, state, ZipBox.Text, FatherBox.Text, motherBox.Text,
-                                    cigBox.Text, smokeBox.Text, bloodBox.Text, aveGramsBox.Text, HeartDisease, cancer, hospital, textBox14.Text, textBox15.Text
+                                    cigBox.Text, smokeBox.Text, bloodBox.Text, aveGramsBox.Text, HDPassToQuote, cancerToQ, hospitalToQ, textBox14.Text, textBox15.Text
                                     );
                 quote.Closed += (s, arges) => this.Close();
                 quote.ShowDialog();
