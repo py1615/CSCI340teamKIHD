@@ -67,7 +67,8 @@ namespace LIC_KIHD_GUI
             {
 
                 // LIC_KIHD_MW.Manager agentRegister = new LIC_KIHD_MW.Manager(IDBOX.Text, FNameBox.Text, LNameBox.Text, userType, comboBox1.Text, UserNameBox.Text, PasswordBox.Text);
-                //this.ID = LIC_KIHD_MW.Manager.userRegister(UserNameBox.Text, FNameBox.Text, LNameBox.Text, PasswordBox.Text, userType, comboBox1.Text);
+                ID = LIC_KIHD_MW.Manager.userRegister(UserNameBox.Text, FNameBox.Text, LNameBox.Text, PasswordBox.Text, userType, comboBox1.Text);
+                MessageBox.Show("You have successfully registered the agent and ID is "+ ID);
                 this.Close();
                 
             }
