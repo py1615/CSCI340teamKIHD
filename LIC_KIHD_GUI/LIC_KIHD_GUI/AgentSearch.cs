@@ -44,11 +44,8 @@ namespace LIC_KIHD_GUI
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            string policyN = "12312312312321";
-            DateTime time = DateTime.Now;
-            LIC_KIHD_MW.Address address = new LIC_KIHD_MW.Address("A","b","c","d");
-            LIC_KIHD_MW.PolicyHolder holder = new LIC_KIHD_MW.PolicyHolder("a", "b", time,address);
-
+            //LIC_KIHD_MW.Policy result = new LIC_KIHD_MW.Policy();//need MW
+            string policyN = "";  //need MW
             View.Text = "View";
             View.UseColumnTextForButtonValue = true;
             if(e.ColumnIndex == dataGridView1.Columns["View"].Index )

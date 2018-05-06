@@ -55,7 +55,7 @@ namespace LIC_KIHD_GUI
                 else if (userAccess == "M")
                 {
                     UserId = barForID.Text;
-                    managerSearch agent = new managerSearch();
+                    managerSearch agent = new managerSearch(barForID.Text);
                     agent.Closed += (s, arges) => this.Close();
                     agent.Show();
                     Hide();
