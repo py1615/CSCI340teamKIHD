@@ -32,5 +32,14 @@ namespace SQLImporter.Properties {
                 return ((string)(this["SQLConnection"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Initial Catalog=master;Data Source=LAPTOP-GITK5LL2;Integrated Security=True;")]
+        public string InternalConnection {
+            get {
+                return ((string)(this["InternalConnection"]));
+            }
+        }
     }
 }

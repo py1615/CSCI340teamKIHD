@@ -1,6 +1,7 @@
 --drop table inflation
 --drop table beneficiary
 --drop table payments
+--drop table delinquent
 --drop table client_policy
 --drop table policy_holder
 --drop table employee
@@ -34,6 +35,29 @@ smoking_history VARCHAR(5),
 systolic_blood_pressure NUMERIC(4),
 avg_grams_fat_day NUMERIC(5),
 --USE A 1 FOR 'Y' AND A 0 FOR 'N'
+heart_disease BIT,
+cancer BIT,
+hospitalized BIT,
+dangerous_activities VARCHAR(255),
+policy_start DATE,
+policy_end DATE,
+agent_id NUMERIC(20),
+payoff_amount NUMERIC(10,2),
+monthly_premium NUMERIC(10,2),
+policy_status VARCHAR(1),
+FOREIGN KEY (policy_holder_id) REFERENCES policy_holder(policy_holder_id),
+FOREIGN KEY (agent_id) REFERENCES employee(id));
+
+CREATE TABLE delinquent (
+policy_number NUMERIC(30) NOT NULL IDENTITY PRIMARY KEY,
+policy_holder_id NUMERIC(20),
+dob DATE,
+fathers_age_of_death VARCHAR(5),
+mothers_age_of_death VARCHAR(5),
+cigs_day NUMERIC(5),
+smoking_history VARCHAR(5),
+systolic_blood_pressure NUMERIC(4),
+avg_grams_fat_day NUMERIC(5),
 heart_disease BIT,
 cancer BIT,
 hospitalized BIT,
