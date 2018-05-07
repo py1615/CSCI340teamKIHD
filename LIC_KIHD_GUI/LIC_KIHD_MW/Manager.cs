@@ -37,6 +37,83 @@ namespace LIC_KIHD_MW
             conn.Close();
             return id;
         }
+
+        public override string[,] search(string policyNum, string clientName, string agentID)
+        {
+            string thePolicyNum = policyNum;
+            string firstName = "";
+            string lastName = "";
+            if(clientName != "null")
+            {
+            int index = 0;
+            for( int i = index; i < clientName.Length; i ++)
+            {
+                index = i;
+                if (clientName[i] == ' ') break;
+                char letter = clientName[i];
+                firstName += letter;
+            }
+            index++;
+            for(int i = index; i < clientName.Length; i ++)
+            {
+                char letter = clientName[i];
+                lastName += letter;
+            }
+            }else
+            {
+                firstName = "null";
+                lastName = "null";
+            }
+            string theAgentID = agentID;
+            String connectionString = LIC_KIHD_GUI.Properties.Settings.Default.SQL_connection;
+            SqlConnection conn = new SqlConnection(connectionString);
+            String query = "execute search " + thePolicyNum + ", '" + firstName + "', '" + lastName + "', " + theAgentID + "";
+            SqlCommand command = new SqlCommand(query);
+            command.Connection = conn;
+            conn.Open();
+            SqlDataReader reader = command.ExecuteReader();
+            int row = 0;
+            while (reader.Read())
+            {
+                row++;
+            }
+            conn.Close();
+            conn.Open();
+            reader = command.ExecuteReader();
+            string[,] policyInfo = new string[row,RETURN_INFO];
+            row = 0;
+            string[] colName = {"policy_number", "first_name", "dob", "policy_start", "payoff_amount", 
+                "monthly_premium"};
+            while (reader.Read())
+            {
+                for(int i = 0; i < RETURN_INFO; i ++)
+                {
+                    if (typeof(decimal) == (reader.GetFieldType(reader.GetOrdinal(colName[i]))))
+                    {
+                        decimal d = reader.GetDecimal(reader.GetOrdinal(colName[i]));
+                        policyInfo[row, i] = "" + d;
+                    }
+                    else if(typeof(DateTime) == (reader.GetFieldType(reader.GetOrdinal(colName[i]))))
+                    {
+                        DateTime day = reader.GetDateTime(reader.GetOrdinal(colName[i]));
+                        policyInfo[row, i] = "" + day;
+                    }
+                    else
+                    {
+                        policyInfo[row, i] = reader.GetString(reader.GetOrdinal(colName[i]));
+                        if (i == 1)
+                        {
+                            policyInfo[row, i] += " " + reader.GetString(reader.GetOrdinal("last_name"));
+                        }
+                    }
+                }
+                row++;
+            }
+            conn.Close();
+            return policyInfo;
+        }
+
+
         /*public List<Policy> search(string policyNum, ,string agentNum, string clientName)
         {
             List<Policy> list = new List<Policy>();

@@ -7,7 +7,7 @@ namespace LIC_KIHD_MW
 {
     class Agent
     {
-        private readonly static int RETURN_INFO = 6;
+        public readonly static int RETURN_INFO = 6;
         private string firstName;
         private string lastName;
         private string department;
@@ -19,7 +19,7 @@ namespace LIC_KIHD_MW
             department = theDepartment;
             agentType = theAgentType;
         }
-        public static string[,] search(string policyNum, string clientName, string agentID)
+        public virtual string[,] search(string policyNum, string clientName, string agentID)
         {
             string thePolicyNum = policyNum;
             string firstName = "";
@@ -59,9 +59,6 @@ namespace LIC_KIHD_MW
                 row++;
             }
             conn.Close();
-            conn = new SqlConnection(connectionString);
-            command = new SqlCommand(query);
-            command.Connection = conn;
             conn.Open();
             reader = command.ExecuteReader();
             string[,] policyInfo = new string[row,RETURN_INFO];
@@ -80,7 +77,7 @@ namespace LIC_KIHD_MW
                     else if(typeof(DateTime) == (reader.GetFieldType(reader.GetOrdinal(colName[i]))))
                     {
                         DateTime day = reader.GetDateTime(reader.GetOrdinal(colName[i]));
-                        policyInfo[row, i] = "" + day;
+                        policyInfo[row, i] = day.ToString("yyyy/MM/dd");
                     }
                     else
                     {
