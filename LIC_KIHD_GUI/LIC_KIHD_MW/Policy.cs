@@ -154,14 +154,13 @@ namespace LIC_KIHD_MW
                 D.setData(row, 9, convertBoolean(reader.GetBoolean(reader.GetOrdinal(colName[8]))));
                 D.setData(row, 10, dangerousCount(reader.GetString(reader.GetOrdinal(colName[9]))));
                 y.setData(row, 0, convertDate(reader.GetDateTime(reader.GetOrdinal(colName[10])), 
-                    reader.GetString(reader.GetDateTime(colName[11]))));
+                    reader.GetDateTime(reader.GetOrdinal(colName[11]))));
                 row++;
             }
             conn.Close();
             double ageOfDeath = PredictAgeAtDeath(D, y, client);
-            string startDate = dob.ToString("yyyy - MM - dd");
-            string today = DateTime.Now.ToString("yyyy - MM - dd");
-            int restOfMonth = monthCount(startDate, today, ageOfDeath);
+            DateTime today = DateTime.Now;
+            int restOfMonth = monthCount(dob, today, ageOfDeath);
             double rate = averageInflationRate() + 1;
             double premium = 0;
             double payOff = Convert.ToDouble(payoffAmount);
@@ -217,7 +216,7 @@ namespace LIC_KIHD_MW
             return averageRate;
         }
 
-        private int monthCount(string dob, string startDate, double ageOfDeath)
+        private int monthCount(DateTime dob, DateTime startDate, double ageOfDeath)
         {
             double yearBeforePolicy = convertDate(dob, startDate);
             double restOfYear = ageOfDeath - yearBeforePolicy;

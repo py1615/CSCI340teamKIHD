@@ -98,7 +98,7 @@ namespace LIC_KIHD_MW
             return policyInfo;
         }
 
-        public Policy searchOnClick(string policyNum)
+        /*public Policy searchOnClick(string policyNum)
         {
             String connectionString = LIC_KIHD_GUI.Properties.Settings.Default.SQL_connection;
             SqlConnection conn = new SqlConnection(connectionString);
@@ -113,7 +113,7 @@ namespace LIC_KIHD_MW
             }
             conn.Close();
             return policyInfo;
-        }
+        }*/
 
         public static string login(string userName, string passWord)
         {
