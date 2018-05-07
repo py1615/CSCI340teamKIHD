@@ -50,7 +50,6 @@
             this.ViewButton = new System.Windows.Forms.DataGridViewButtonColumn();
             this.UserRegistrationButton = new System.Windows.Forms.Button();
             this.warning = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -99,7 +98,7 @@
             this.textBox2.Location = new System.Drawing.Point(553, 278);
             this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(240, 30);
+            this.textBox2.Size = new System.Drawing.Size(240, 26);
             this.textBox2.TabIndex = 9;
             // 
             // textBox1
@@ -108,7 +107,7 @@
             this.textBox1.Location = new System.Drawing.Point(553, 208);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(240, 30);
+            this.textBox1.Size = new System.Drawing.Size(240, 26);
             this.textBox1.TabIndex = 10;
             // 
             // ClientName
@@ -119,7 +118,7 @@
             this.ClientName.Location = new System.Drawing.Point(359, 348);
             this.ClientName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ClientName.Name = "ClientName";
-            this.ClientName.Size = new System.Drawing.Size(115, 22);
+            this.ClientName.Size = new System.Drawing.Size(88, 19);
             this.ClientName.TabIndex = 7;
             this.ClientName.Text = "Client Name:";
             // 
@@ -131,7 +130,7 @@
             this.policyNumber.Location = new System.Drawing.Point(359, 208);
             this.policyNumber.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.policyNumber.Name = "policyNumber";
-            this.policyNumber.Size = new System.Drawing.Size(135, 22);
+            this.policyNumber.Size = new System.Drawing.Size(103, 19);
             this.policyNumber.TabIndex = 8;
             this.policyNumber.Text = "Policy Number:";
             // 
@@ -146,7 +145,7 @@
             this.managerSearchTitle.Location = new System.Drawing.Point(447, 110);
             this.managerSearchTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.managerSearchTitle.Name = "managerSearchTitle";
-            this.managerSearchTitle.Size = new System.Drawing.Size(238, 37);
+            this.managerSearchTitle.Size = new System.Drawing.Size(196, 31);
             this.managerSearchTitle.TabIndex = 12;
             this.managerSearchTitle.Text = "Manager Search:";
             // 
@@ -157,9 +156,9 @@
             this.agentName.Location = new System.Drawing.Point(359, 278);
             this.agentName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.agentName.Name = "agentName";
-            this.agentName.Size = new System.Drawing.Size(113, 22);
+            this.agentName.Size = new System.Drawing.Size(65, 19);
             this.agentName.TabIndex = 13;
-            this.agentName.Text = "Agent Name:";
+            this.agentName.Text = "Agent ID";
             // 
             // textBox3
             // 
@@ -167,7 +166,7 @@
             this.textBox3.Location = new System.Drawing.Point(553, 348);
             this.textBox3.Margin = new System.Windows.Forms.Padding(4);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(240, 30);
+            this.textBox3.Size = new System.Drawing.Size(240, 26);
             this.textBox3.TabIndex = 14;
             // 
             // dataGridView1
@@ -261,29 +260,16 @@
             this.warning.Location = new System.Drawing.Point(801, 353);
             this.warning.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.warning.Name = "warning";
-            this.warning.Size = new System.Drawing.Size(154, 19);
+            this.warning.Size = new System.Drawing.Size(113, 15);
             this.warning.TabIndex = 17;
             this.warning.Text = "(Example: John Eric)";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label1.Location = new System.Drawing.Point(801, 283);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(154, 19);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "(Example: John Eric)";
-            // 
             // managerSearch
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1454, 974);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.warning);
             this.Controls.Add(this.UserRegistrationButton);
             this.Controls.Add(this.dataGridView1);
@@ -332,6 +318,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewButtonColumn ViewButton;
         private System.Windows.Forms.Label warning;
-        private System.Windows.Forms.Label label1;
     }
 }

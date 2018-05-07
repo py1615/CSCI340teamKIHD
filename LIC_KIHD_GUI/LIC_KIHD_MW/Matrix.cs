@@ -10,14 +10,21 @@ namespace LIC_KIHD_MW
         private int row;
         private double[,] data;
 
-        public int Column { get => column; set => column = value; }
-        public int Row { get => row; set => row = value; }
-
         public Matrix(int theRow, int theCol)
         {
             row = theRow;
             column = theCol;
             data = new double[row, column];
+        }
+
+        public int getRow()
+        {
+            return row;
+        }
+
+        public int getCol()
+        {
+            return column;
         }
 
         public void setData(int row, int col, double data)
