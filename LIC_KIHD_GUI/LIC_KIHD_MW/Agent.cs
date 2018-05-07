@@ -7,7 +7,7 @@ namespace LIC_KIHD_MW
 {
     class Agent
     {
-        private readonly int RETURN_INFO = 6;
+        public readonly static int RETURN_INFO = 6;
         private string firstName;
         private string lastName;
         private string department;
@@ -24,6 +24,8 @@ namespace LIC_KIHD_MW
             string thePolicyNum = policyNum;
             string firstName = "";
             string lastName = "";
+            if(clientName != "null")
+            {
             int index = 0;
             for( int i = index; i < clientName.Length; i ++)
             {
@@ -38,10 +40,15 @@ namespace LIC_KIHD_MW
                 char letter = clientName[i];
                 lastName += letter;
             }
+            }else
+            {
+                firstName = "null";
+                lastName = "null";
+            }
             string theAgentID = agentID;
             String connectionString = LIC_KIHD_GUI.Properties.Settings.Default.SQL_connection;
             SqlConnection conn = new SqlConnection(connectionString);
-            String query = "execute search '" + thePolicyNum + "', '" + firstName + "', '" + lastName + "', '" + theAgentID + "'";
+            String query = "execute search " + thePolicyNum + ", '" + firstName + "', '" + lastName + "', " + theAgentID + "";
             SqlCommand command = new SqlCommand(query);
             command.Connection = conn;
             conn.Open();
@@ -53,6 +60,7 @@ namespace LIC_KIHD_MW
             }
             conn.Close();
             conn.Open();
+            reader = command.ExecuteReader();
             string[,] policyInfo = new string[row,RETURN_INFO];
             row = 0;
             string[] colName = {"policy_number", "first_name", "dob", "policy_start", "payoff_amount", 
@@ -61,10 +69,23 @@ namespace LIC_KIHD_MW
             {
                 for(int i = 0; i < RETURN_INFO; i ++)
                 {
-                    policyInfo[row, i] = reader.GetString(reader.GetOrdinal(colName[i]));
-                    if(i == 1)
+                    if (typeof(decimal) == (reader.GetFieldType(reader.GetOrdinal(colName[i]))))
                     {
-                        policyInfo[row, i] += " " + reader.GetString(reader.GetOrdinal("last_name"));
+                        decimal d = reader.GetDecimal(reader.GetOrdinal(colName[i]));
+                        policyInfo[row, i] = "" + d;
+                    }
+                    else if(typeof(DateTime) == (reader.GetFieldType(reader.GetOrdinal(colName[i]))))
+                    {
+                        DateTime day = reader.GetDateTime(reader.GetOrdinal(colName[i]));
+                        policyInfo[row, i] = day.ToString("yyyy/MM/dd");
+                    }
+                    else
+                    {
+                        policyInfo[row, i] = reader.GetString(reader.GetOrdinal(colName[i]));
+                        if (i == 1)
+                        {
+                            policyInfo[row, i] += " " + reader.GetString(reader.GetOrdinal("last_name"));
+                        }
                     }
                 }
                 row++;
