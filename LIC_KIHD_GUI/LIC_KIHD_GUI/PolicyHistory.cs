@@ -38,5 +38,10 @@ namespace LIC_KIHD_GUI
         {
 
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

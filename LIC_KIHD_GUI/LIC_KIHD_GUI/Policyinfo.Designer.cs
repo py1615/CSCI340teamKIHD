@@ -308,6 +308,7 @@
             this.PaymentHistory.TabIndex = 7;
             this.PaymentHistory.Text = "Payment History";
             this.PaymentHistory.UseVisualStyleBackColor = true;
+            this.PaymentHistory.Click += new System.EventHandler(this.PaymentHistory_Click);
             // 
             // buttonClaim
             // 

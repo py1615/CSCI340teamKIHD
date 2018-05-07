@@ -129,17 +129,19 @@ namespace LIC_KIHD_MW
             Matrix inverse = new Matrix (row , column);
             Matrix augmented = augment();
             
-            augmented.normalize();
+            
             augmented.rowOperation();
             augmented = augmented.rearrange();
             augmented.rowOperation();
             augmented.normalize();
+            augmented = augmented.rearrange();
 
             for (int i = 0; i < inverse.row; i++)
             {
                 for (int j = 0; j < inverse.column; j++)
                 {
-                    inverse.data[i, j] = augmented.data[augmented.row - 1 - i, inverse.column + j];
+                    //inverse.data[i, j] = augmented.data[augmented.row - 1 - i, inverse.column + j];
+                    inverse.data[i, j] = augmented.data[i, inverse.column + j];
                 }
             }
 
@@ -175,11 +177,13 @@ namespace LIC_KIHD_MW
                 {
                     if (i != i + k)
                     {
+                        double divisor = firstNonZero(this, i + k);
                         double multiplier = data[i + k, i];
                         for (int j = 0; j < column; j++)
                         {
                             data[i + k, j] = data[i, i] * data[i + k, j]
                                                    - multiplier * data[i, j];
+                            data[i + k, j] /= divisor;
                         }
                     }
                 }
@@ -216,7 +220,7 @@ namespace LIC_KIHD_MW
                     {
                     throw new Exception("inverse matrix doesn't exist");
                     }
-                double divisor = firstNonZero(this,i);
+                double divisor = data[i,i];
                 for(int j = 0; j < column; j++)
                 {
                     data[i, j] /= divisor;
