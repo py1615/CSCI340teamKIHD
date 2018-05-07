@@ -9,7 +9,6 @@
 --drop procedure get_inflation_rate
 --drop procedure claim
 --drop procedure get_payments
---drop procedure set_delinquent
 
 CREATE PROCEDURE get_login (
 @id NUMERIC(20),
