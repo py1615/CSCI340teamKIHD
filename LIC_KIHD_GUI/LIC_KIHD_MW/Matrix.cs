@@ -319,13 +319,32 @@ namespace LIC_KIHD_MW
         {
             for(int i = 0; i<row; i++)
             {
-                double divisor = data[i, i];
+                if(data[i,i] == 0)
+                    {
+                    throw new Exception("inverse matrix doesn't exist");
+                    }
+                double divisor = firstNonZero(this,i);
                 for(int j = 0; j < column; j++)
                 {
                     data[i, j] /= divisor;
                 }
             }
         }
+
+        public double firstNonZero(Matrix m, int row)
+            {
+            double divisor = 0;
+            for(int i = 0; i< m.column; i++)
+                {
+                if(m.data[row,i]!=0) 
+                    {
+                    divisor = m.data[row,i];
+                    return divisor;
+                    }
+                }
+            return divisor;
+            }
+
 
     }
 }
