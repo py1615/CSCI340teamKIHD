@@ -63,7 +63,7 @@ namespace LIC_KIHD_GUI
         private void registrationButton_Click(object sender, EventArgs e)
         {
            
-            PolicyRegistration policyRegiser = new PolicyRegistration();
+            PolicyRegistration policyRegiser = new PolicyRegistration(agentId);
             
             policyRegiser.ShowDialog();
         }
@@ -72,7 +72,7 @@ namespace LIC_KIHD_GUI
         {
             dataGridView1.Rows.Clear();
             string policyNumber = "null";
-            string clientName = "null";
+            string clientName = "";
             LIC_KIHD_MW.Agent agent = new LIC_KIHD_MW.Agent("", "", "", "");
             if (string.IsNullOrEmpty(policyNumBox.Text) && string.IsNullOrEmpty(clientNameBox.Text))
             {

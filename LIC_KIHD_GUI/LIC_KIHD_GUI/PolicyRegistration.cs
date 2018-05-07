@@ -24,11 +24,12 @@ namespace LIC_KIHD_GUI
         private string HDPassToQuote;
         private string cancerToQ;
         private string hospitalToQ;
-        
-        public PolicyRegistration()
+        private string agent;
+        public PolicyRegistration(string agentid)
         {
             InitializeComponent();
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            agent = agentid;
         }
 
         private void HDYes_CheckedChanged(object sender, EventArgs e)
@@ -126,7 +127,8 @@ namespace LIC_KIHD_GUI
 
 
                 QuoteForm quote = new QuoteForm(FirstNameBox.Text, LastNameBox.Text, BirthBox.Text, AddressBox.Text, CityBox.Text, state, ZipBox.Text, FatherBox.Text, motherBox.Text,
-                                    cigBox.Text, smokeBox.Text, bloodBox.Text, aveGramsBox.Text, HDPassToQuote, cancerToQ, hospitalToQ, textBox14.Text, textBox15.Text, premium.ToString()
+                                    cigBox.Text, smokeBox.Text, bloodBox.Text, aveGramsBox.Text, HDPassToQuote, cancerToQ, hospitalToQ, textBox14.Text, textBox15.Text, premium.ToString(),agent,
+                                    HeartDisease, cancer, hospital
                                     );
                 quote.Closed += (s, arges) => this.Close();
                 quote.ShowDialog();

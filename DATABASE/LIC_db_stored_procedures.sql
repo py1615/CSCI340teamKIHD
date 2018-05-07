@@ -31,6 +31,9 @@ SET NOCOUNT ON;
 UPDATE client_policy
 SET policy_status = 'C'
 WHERE policy_number = @policy_number
+UPDATE client_policy
+SET policy_end = GETDATE()
+WHERE policy_number = @policy_number
 END
 GO
 
@@ -260,8 +263,13 @@ SET NOCOUNT ON;
 UPDATE client_policy
 SET policy_status = 'I'
 WHERE policy_number = @policy_number
-DECLARE @total NUMERIC(10,2) = (SELECT SUM(amount) FROM payments WHERE policy_number = @policy_number)
-DECLARE @payoff_amount NUMERIC(10,2) = (SELECT SUM(payoff_amount) FROM client_policy WHERE policy_number = @policy_number)
+UPDATE client_policy
+SET policy_end = GETDATE()
+WHERE policy_number = @policy_number
+DECLARE @total NUMERIC = (SELECT SUM(amount / inflation) FROM payments FULL OUTER JOIN inflation ON date_paid > date_recorded AND date_paid <= DATEADD(MONTH, 1, date_recorded) WHERE policy_number = @policy_number)
+DECLARE @payoff_amount NUMERIC = (SELECT SUM(payoff_amount) FROM client_policy WHERE policy_number = @policy_number)
+DECLARE @current_inflation NUMERIC = (SELECT SUM(inflation) FROM inflation WHERE GETDATE() >= date_recorded AND GETDATE() < DATEADD(MONTH, 1, date_recorded))
+DECLARE @total_with_inflation NUMERIC = @total * @current_inflation
 INSERT INTO payments (
 date_paid,
 policy_number,
@@ -272,7 +280,10 @@ GETDATE(),
 @policy_number,
 @payoff_amount,
 'C'
-WHERE @total < 0.05 * @payoff_amount + @payoff_amount
+WHERE @payoff_amount < 0.05 * @total + @total
+SELECT @total_with_inflation, @payoff_amount
+FROM payments
+WHERE policy_number = @policy_number AND payment_type = 'C'
 END
 GO
 
@@ -284,9 +295,9 @@ SET NOCOUNT ON;
 SELECT date_paid, amount
 FROM payments
 WHERE policy_number = @policy_number AND payment_type = 'P'
-DECLARE @total NUMERIC(10,2) = (SELECT SUM(amount) FROM payments)
-DECLARE @monthly_premium NUMERIC(10,2) = (SELECT SUM(monthly_premium) FROM client_policy WHERE policy_number = @policy_number)
-DECLARE @number_of_months NUMERIC(8) = (SELECT DATEDIFF(MONTH, policy_start, GETDATE()) FROM client_policy WHERE policy_number = @policy_number)
+DECLARE @total NUMERIC = (SELECT SUM(amount) FROM payments)
+DECLARE @monthly_premium NUMERIC = (SELECT SUM(monthly_premium) FROM client_policy WHERE policy_number = @policy_number)
+DECLARE @number_of_months NUMERIC = (SELECT DATEDIFF(MONTH, policy_start, GETDATE()) FROM client_policy WHERE policy_number = @policy_number)
 INSERT INTO delinquent (
 policy_number,
 delinquency_date)

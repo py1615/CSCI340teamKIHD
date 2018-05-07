@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -71,19 +70,9 @@
             this.PolicyStart = new System.Windows.Forms.Label();
             this.PayoffAmount = new System.Windows.Forms.Label();
             this.MonthlyPremium = new System.Windows.Forms.Label();
-            this.Status = new System.Windows.Forms.Label();
             this.PolicyNumber = new System.Windows.Forms.Label();
             this.comfirm = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(259, 787);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(49, 19);
-            this.label21.TabIndex = 26;
-            this.label21.Text = "Status:";
             // 
             // label22
             // 
@@ -468,16 +457,6 @@
             this.MonthlyPremium.Text = "$120";
             this.MonthlyPremium.Click += new System.EventHandler(this.MonthlyPremium_Click);
             // 
-            // Status
-            // 
-            this.Status.AutoSize = true;
-            this.Status.Location = new System.Drawing.Point(577, 787);
-            this.Status.Name = "Status";
-            this.Status.Size = new System.Drawing.Size(53, 19);
-            this.Status.TabIndex = 54;
-            this.Status.Text = "label44";
-            this.Status.Click += new System.EventHandler(this.Status_Click);
-            // 
             // PolicyNumber
             // 
             this.PolicyNumber.AutoSize = true;
@@ -487,6 +466,7 @@
             this.PolicyNumber.Size = new System.Drawing.Size(82, 27);
             this.PolicyNumber.TabIndex = 57;
             this.PolicyNumber.Text = "label25";
+            this.PolicyNumber.Click += new System.EventHandler(this.PolicyNumber_Click);
             // 
             // comfirm
             // 
@@ -507,7 +487,6 @@
             this.ClientSize = new System.Drawing.Size(1230, 811);
             this.Controls.Add(this.comfirm);
             this.Controls.Add(this.PolicyNumber);
-            this.Controls.Add(this.Status);
             this.Controls.Add(this.MonthlyPremium);
             this.Controls.Add(this.PayoffAmount);
             this.Controls.Add(this.PolicyStart);
@@ -530,7 +509,6 @@
             this.Controls.Add(this.firstName);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.PolicyNumTitle);
-            this.Controls.Add(this.label21);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.label18);
@@ -563,7 +541,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label18;
@@ -606,7 +583,6 @@
         private System.Windows.Forms.Label PolicyStart;
         private System.Windows.Forms.Label PayoffAmount;
         private System.Windows.Forms.Label MonthlyPremium;
-        private System.Windows.Forms.Label Status;
         private System.Windows.Forms.Label PolicyNumber;
         private System.Windows.Forms.Button comfirm;
     }

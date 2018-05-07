@@ -51,8 +51,9 @@ FOREIGN KEY (policy_holder_id) REFERENCES policy_holder(policy_holder_id),
 FOREIGN KEY (agent_id) REFERENCES employee(id));
 
 CREATE TABLE delinquent (
-policy_number NUMERIC(30) NOT NULL IDENTITY PRIMARY KEY,
-delinquency_date DATE);
+policy_number NUMERIC(30) NOT NULL PRIMARY KEY,
+delinquency_date DATE
+FOREIGN KEY (policy_number) REFERENCES client_policy(policy_number));
 
 CREATE TABLE payments (
 date_paid DATETIME NOT NULL,
