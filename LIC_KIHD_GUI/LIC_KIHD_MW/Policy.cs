@@ -153,8 +153,8 @@ namespace LIC_KIHD_MW
                 D.setData(row, 8, convertBoolean(reader.GetBoolean(reader.GetOrdinal(colName[7]))));
                 D.setData(row, 9, convertBoolean(reader.GetBoolean(reader.GetOrdinal(colName[8]))));
                 D.setData(row, 10, dangerousCount(reader.GetString(reader.GetOrdinal(colName[9]))));
-                y.setData(row, 0, convertDate(reader.GetString(reader.GetOrdinal(colName[10])), 
-                    reader.GetString(reader.GetOrdinal(colName[11]))));
+                y.setData(row, 0, convertDate(reader.GetDateTime(reader.GetOrdinal(colName[10])), 
+                    reader.GetString(reader.GetDateTime(colName[11]))));
                 row++;
             }
             conn.Close();
@@ -237,17 +237,12 @@ namespace LIC_KIHD_MW
             return dangerAct;
         }
 
-        private double convertDate(string dob, string eod)
+        private double convertDate(DateTime dob, DateTime eod)
         {
-            string dobConvert = "";
-            string eodConvert = "";
-;            for(int i = 0; i < dob.Length; i ++)
-            {
-                if(dob[i] != ' ') dobConvert += dob[i];
-                if(eod[i] != ' ') eodConvert += dob[i];
-            }
-            string[] start = dob.Split('-');
-            string[] end = eod.Split('-');
+            string dob1 = dob.ToString("yyyy-MM-dd");
+            string eod1 = eod.ToString("yyyy-MM-dd");
+            string[] start = dob1.Split('-');
+            string[] end = eod1.Split('-');
             int length = start.Length;
             double[] startNum = new double[length];
             double[] endNum = new double[length];
