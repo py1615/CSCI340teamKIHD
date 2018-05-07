@@ -7,7 +7,7 @@ namespace LIC_KIHD_MW
 {
     class Agent
     {
-        public readonly static int RETURN_INFO = 6;
+        private readonly static int RETURN_INFO = 6;
         private string firstName;
         private string lastName;
         private string department;
@@ -19,7 +19,7 @@ namespace LIC_KIHD_MW
             department = theDepartment;
             agentType = theAgentType;
         }
-        public static string[,] search(string policyNum, string clientName, string agentID)
+        public string[,] search(string policyNum, string clientName, string agentID)
         {
             string thePolicyNum = policyNum;
             string firstName = "";
@@ -63,7 +63,7 @@ namespace LIC_KIHD_MW
             reader = command.ExecuteReader();
             string[,] policyInfo = new string[row,RETURN_INFO];
             row = 0;
-            string[] colName = {"policy_number", "first_name", "dob", "policy_start", "payoff_amount", 
+            string[] colName = {"policy_number", "policy_holder_first_name", "dob", "policy_start", "payoff_amount", 
                 "monthly_premium"};
             while (reader.Read())
             {
@@ -84,7 +84,7 @@ namespace LIC_KIHD_MW
                         policyInfo[row, i] = reader.GetString(reader.GetOrdinal(colName[i]));
                         if (i == 1)
                         {
-                            policyInfo[row, i] += " " + reader.GetString(reader.GetOrdinal("last_name"));
+                            policyInfo[row, i] += " " + reader.GetString(reader.GetOrdinal("policy_holder_last_name"));
                         }
                     }
                 }

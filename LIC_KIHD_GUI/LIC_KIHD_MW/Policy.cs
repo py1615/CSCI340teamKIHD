@@ -149,9 +149,9 @@ namespace LIC_KIHD_MW
                 D.setData(row, 4, convertMonth(reader.GetString(reader.GetOrdinal(colName[3]))));
                 D.setData(row, 5, (double)(reader.GetDecimal(reader.GetOrdinal(colName[4]))));
                 D.setData(row, 6, (double)(reader.GetDecimal(reader.GetOrdinal(colName[5]))));
-                D.setData(row, 7, (double)(reader.GetDecimal(reader.GetOrdinal(colName[6]))));
-                D.setData(row, 8, (double)(reader.GetDecimal(reader.GetOrdinal(colName[7]))));
-                D.setData(row, 9, (double)(reader.GetDecimal(reader.GetOrdinal(colName[8]))));
+                D.setData(row, 7, convertBoolean(reader.GetBoolean(reader.GetOrdinal(colName[6]))));
+                D.setData(row, 8, convertBoolean(reader.GetBoolean(reader.GetOrdinal(colName[7]))));
+                D.setData(row, 9, convertBoolean(reader.GetBoolean(reader.GetOrdinal(colName[8]))));
                 D.setData(row, 10, dangerousCount(reader.GetString(reader.GetOrdinal(colName[9]))));
                 y.setData(row, 0, convertDate(reader.GetString(reader.GetOrdinal(colName[10])), 
                     reader.GetString(reader.GetOrdinal(colName[11]))));
@@ -173,6 +173,12 @@ namespace LIC_KIHD_MW
             }
             premium = payOff / accumRate;
             return premium;
+        }
+
+        private double convertBoolean(Boolean b)
+        {
+            double result = b? 1 : 0;
+            return result;
         }
 
         private double averageInflationRate()
