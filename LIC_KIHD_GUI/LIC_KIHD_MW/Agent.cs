@@ -205,7 +205,8 @@ namespace LIC_KIHD_MW
                         payment[row, i] = day.ToString();
                     }else
                     {
-                        payment[row, i] = reader.GetString(reader.GetOrdinal(paymentInfo[i]));
+                        decimal x = reader.GetDecimal(reader.GetOrdinal(paymentInfo[i]));
+                        payment[row, i] = "" + x;
                     }
                 }
                 row ++;
