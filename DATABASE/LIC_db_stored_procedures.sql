@@ -80,7 +80,38 @@ CREATE PROCEDURE search_on_click (
 AS
 BEGIN
 SET NOCOUNT ON;
-SELECT *
+SELECT
+policy_holder.policy_holder_id,
+policy_holder.first_name,
+policy_holder.last_name,
+street_address,
+city_address,
+state_address,
+zip_address,
+policy_number,
+dob,
+fathers_age_of_death,
+mothers_age_of_death,
+cigs_day,
+smoking_history,
+systolic_blood_pressure,
+avg_grams_fat_day,
+heart_disease,
+cancer ,
+hospitalized,
+dangerous_activities,
+policy_start,
+policy_end,
+agent_id,
+payoff_amount,
+monthly_premium,
+policy_status,
+username,
+employee.first_name AS agent_first_name,
+employee.last_name AS agent_last_name,
+employee_password,
+user_type,
+department
 FROM client_policy FULL OUTER JOIN policy_holder ON client_policy.policy_holder_id = policy_holder.policy_holder_id FULL OUTER JOIN employee ON agent_id = id
 WHERE policy_number = @policy_number
 END
@@ -252,5 +283,8 @@ SELECT
 @policy_number,
 GETDATE()
 WHERE @total < @monthly_premium * @number_of_months
+UPDATE client_policy
+SET policy_status = 'D'
+WHERE policy_number = @policy_number
 END
 GO
