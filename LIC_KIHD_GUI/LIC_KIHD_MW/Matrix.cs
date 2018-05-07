@@ -119,62 +119,6 @@ namespace LIC_KIHD_MW
             return xTranspose;
         }
 
-        public Matrix scaleRow(int rowNum, double scalar)
-        {
-            if (scalar == 0)
-            {
-                throw new Exception("scalar can't be zero");
-            }
-            Matrix m = new Matrix(row, column);
-            for (int i = 0; i < row; ++i)
-            {
-                for (int j = 0; j < column; ++j)
-                {
-                    m.setData(i, j, getData(i, j));
-                }
-            }
-            for (int i = 0; i < column; ++i)
-            {
-                m.setData(rowNum, i, m.getData(rowNum, i) * scalar);
-            }
-            return m;
-        }
-
-        public Matrix switchRows(int row1, int row2)
-        {
-            Matrix m = new Matrix(row, column);
-            for (int i = 0; i < row; ++i)
-            {
-                for (int j = 0; j < column; ++j)
-                {
-                    m.setData(i, j, getData(i, j));
-                }
-            }
-            for (int i = 0; i < column; ++i)
-            {
-                double temp = m.getData(row1, i);
-                m.setData(row1, i, m.getData(row2, i));
-                m.setData(row2, i, temp);
-            }
-            return m;
-        }
-
-        public Matrix subtractRows(int row1, int row2)
-        {
-            Matrix m = new Matrix(row, column);
-            for (int i = 0; i < row; ++i)
-            {
-                for (int j = 0; j < column; ++j)
-                {
-                    m.setData(i, j, getData(i, j));
-                }
-            }
-            for (int i = 0; i < column; ++i)
-            {
-                m.setData(row1, i, m.getData(row1, i) - m.getData(row2, i));
-            }
-            return m;
-        }
         
        public Matrix invert()
        {
@@ -184,69 +128,18 @@ namespace LIC_KIHD_MW
              }
             Matrix inverse = new Matrix (row , column);
             Matrix augmented = augment();
-
-
-
-            for (int j = 0; j < column - 1; ++j)
-            {
-                int rowNum = -1;
-                for (int i = j; j < row; ++i)
-                {
-                    if (augmented.getData(i, j) != 0)
-                    {
-                        rowNum = i;
-                        break;
-                    }
-                }
-                if (rowNum != -1)
-                {
-                    augmented = augmented.switchRows(j, rowNum);
-                } else
-                {
-                    continue;
-                }
-                for (int i = j + 1; i < row; ++i)
-                {
-                    if (augmented.getData(i, j) != 0)
-                    {
-                        augmented = scaleRow(i, augmented.getData(j, j) / augmented.getData(i, j));
-                        augmented = subtractRows(i, j);
-                    }
-                }
-            }
-            for (int i = 0; i < row; ++i)
-            {
-                for (int j = i; j < column; ++j)
-                {
-                    if (augmented.getData(i, j) != 0)
-                    {
-                        augmented = scaleRow(i, 1.0 / augmented.getData(i, j));
-                        break;
-                    }
-                }
-            }
-
-
-
             
-            //augmented.rowOperation();
-            //augmented = augmented.rearrange();
-            //augmented.rowOperation();
-            //augmented.simplify();
+            augmented.normalize();
+            augmented.rowOperation();
+            augmented = augmented.rearrange();
+            augmented.rowOperation();
+            augmented.normalize();
 
-            //for (int i = 0; i < inverse.row; i++)
-            //{
-                //for (int j = 0; j < inverse.column; j++)
-                //{
-                    //inverse.data[i, j] = augmented.data[augmented.row - 1 - i, inverse.column + j];
-                //}
-            //}
-
-            for (int i = 0; i < row; ++i)
+            for (int i = 0; i < inverse.row; i++)
             {
-                for (int j = 0; j < column; ++j)
+                for (int j = 0; j < inverse.column; j++)
                 {
-                    inverse.setData(i, j, augmented.getData(i, column + j));
+                    inverse.data[i, j] = augmented.data[augmented.row - 1 - i, inverse.column + j];
                 }
             }
 
@@ -315,7 +208,7 @@ namespace LIC_KIHD_MW
             return newMatrix;
         }
 
-        public void simplify()
+        public void normalize()
         {
             for(int i = 0; i<row; i++)
             {
@@ -348,3 +241,4 @@ namespace LIC_KIHD_MW
 
     }
 }
+
