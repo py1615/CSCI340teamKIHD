@@ -86,7 +86,7 @@ namespace LIC_KIHD_GUI
                 {
                     clientName = clientNameBox.Text;
                 }
-                string[,] searchResult = LIC_KIHD_MW.Agent.search(policyNumBox.Text, clientNameBox.Text, agentId);
+                 string[,] searchResult = LIC_KIHD_MW.Agent.search(policyNumber, clientName, agentId);
 
                 if (searchResult != null)
                 {
