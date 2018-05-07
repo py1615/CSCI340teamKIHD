@@ -57,6 +57,12 @@
     <Compile Include="AgentSearch.Designer.cs">
       <DependentUpon>AgentSearch.cs</DependentUpon>
     </Compile>
+    <Compile Include="BeneficiaryPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BeneficiaryPage.Designer.cs">
+      <DependentUpon>BeneficiaryPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="DelinquentPolicyInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +118,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AgentSearch.resx">
       <DependentUpon>AgentSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BeneficiaryPage.resx">
+      <DependentUpon>BeneficiaryPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DelinquentPolicyInfo.resx">
       <DependentUpon>DelinquentPolicyInfo.cs</DependentUpon>
