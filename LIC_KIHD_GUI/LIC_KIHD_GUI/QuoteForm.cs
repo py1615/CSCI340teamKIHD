@@ -45,8 +45,8 @@ namespace LIC_KIHD_GUI
             payoffA = payoff;
             PolicyStart.Text = DateTime.Now.ToString();
             MonthlyPremium.Text = "$" + premium;
-            //monthPremium = premium;
-            monthPremium = "100";
+            monthPremium = premium;
+     
             agentID = agent;
             hd = hdpass;
             ca = cancerpass;

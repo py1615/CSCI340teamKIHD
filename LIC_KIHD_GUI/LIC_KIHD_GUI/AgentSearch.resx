@@ -122,7 +122,7 @@
     <value>Times New Roman, 12pt</value>
   </data>
   <data name="registrationButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>764, 16</value>
+    <value>793, 16</value>
   </data>
   <data name="registrationButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>151, 41</value>
@@ -150,7 +150,7 @@
     <value>Times New Roman, 12pt</value>
   </data>
   <data name="logOutButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>921, 16</value>
+    <value>950, 16</value>
   </data>
   <data name="logOutButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>84, 41</value>
@@ -403,7 +403,7 @@
     <value>-2, 345</value>
   </data>
   <data name="dataGridView1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1022, 517</value>
+    <value>1046, 517</value>
   </data>
   <data name="dataGridView1.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -457,7 +457,7 @@
     <value>9, 19</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1017, 841</value>
+    <value>1046, 841</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 12pt</value>
