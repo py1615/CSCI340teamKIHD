@@ -12,6 +12,7 @@ namespace LIC_KIHD_GUI
 {
     public partial class DelinquentPolicyInfo : Form
     {
+        private string policynumber;
         public DelinquentPolicyInfo(string[] policy ,string policyN)
         {
             InitializeComponent();
@@ -38,21 +39,26 @@ namespace LIC_KIHD_GUI
             label45.Text = policy[19];
             label46.Text = policy[20];
             label47.Text = policy[21];
+            policynumber = policyN;
         }
 
         private void ReturnButton_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void CancelPolicyButton_Click(object sender, EventArgs e)
         {
+            LIC_KIHD_MW.Address addre = new LIC_KIHD_MW.Address("", "", "", "");
+            LIC_KIHD_MW.PolicyHolder holder = new LIC_KIHD_MW.PolicyHolder("", "", "", addre);
+            LIC_KIHD_MW.Beneficiary BENE = new LIC_KIHD_MW.Beneficiary("", "");
+            LIC_KIHD_MW.Policy po = new LIC_KIHD_MW.Policy(holder, "", 1, 1, 1, 1, 1, 1, 1, "", "", "", "", BENE, "");
             var confirmResult = MessageBox.Show("Are you sure to cancel this policy ??",
                                      "Confirm Delete!!",
                                      MessageBoxButtons.YesNo);
             if (confirmResult == DialogResult.Yes)
             {
-                //LIC_KIHD_MW.Policy.Cancel();
+                po.Cancel(policynumber);
                 MessageBox.Show("Policy has been cancelled successfully");// If 'Yes', do something here.
             }
             else
@@ -81,6 +87,11 @@ namespace LIC_KIHD_GUI
             string[,] get = agent.getPayments(label25.Text);
             PolicyHistory policyHis = new PolicyHistory(get);
             policyHis.ShowDialog();
+        }
+
+        private void ReportButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

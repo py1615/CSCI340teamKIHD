@@ -31,7 +31,7 @@ namespace LIC_KIHD_GUI
 
         private void ReturnButton_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void PolicyHistory_Load(object sender, EventArgs e)

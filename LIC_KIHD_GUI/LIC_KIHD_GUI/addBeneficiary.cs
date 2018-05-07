@@ -14,7 +14,7 @@ namespace LIC_KIHD_GUI
     {
         private string fn;
         private string ln;
-
+        private string policyN;
         public string FN
         {
             get { return fn; }
@@ -27,18 +27,26 @@ namespace LIC_KIHD_GUI
             set { ln = value; }
 
         }
-        public addBeneficiary()
+        public addBeneficiary(string policyNumber)
         {
             InitializeComponent();
-            
+            policyN = policyNumber;
         }
         
        
 
         private void add_Click(object sender, EventArgs e)
         {
-            FN = firstName.Text;
-            LN = lastName.Text;
+     
+            LIC_KIHD_MW.Address addre = new LIC_KIHD_MW.Address("", "", "", "");
+            LIC_KIHD_MW.PolicyHolder holder = new LIC_KIHD_MW.PolicyHolder("", "", "", addre);
+            LIC_KIHD_MW.Beneficiary BENE = new LIC_KIHD_MW.Beneficiary("", "");
+            LIC_KIHD_MW.Policy po = new LIC_KIHD_MW.Policy(holder, "", 1, 1, 1, 1, 1, 1, 1, "", "", "", "", BENE, "");
+
+            po.addBeneficiary(policyN, firstName.Text, lastName.Text);
+            addBeneficiary addMore = new addBeneficiary(policyN);
+            Hide();
+            addMore.ShowDialog();
         }
 
         private void addBeneficiary_Load(object sender, EventArgs e)

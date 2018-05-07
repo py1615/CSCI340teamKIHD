@@ -359,6 +359,7 @@
             this.ReportButton.TabIndex = 35;
             this.ReportButton.Text = "Report";
             this.ReportButton.UseVisualStyleBackColor = true;
+            this.ReportButton.Click += new System.EventHandler(this.ReportButton_Click);
             // 
             // label49
             // 

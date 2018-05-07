@@ -25,6 +25,14 @@ namespace LIC_KIHD_MW
             string thePolicyNum = policyNum;
             string firstName = "";
             string lastName = "";
+            string theAgentID = "";
+            if(thePolicyNum.Equals("null")) 
+            {
+                theAgentID = agentID;
+            }else
+            {
+                theAgentID = "null";
+            }
             int index = 0;
             for( int i = index; i < clientName.Length; i ++)
             {
@@ -39,7 +47,8 @@ namespace LIC_KIHD_MW
                 char letter = clientName[i];
                 lastName += letter;
             }
-            string theAgentID = agentID;
+            
+            
             String connectionString = LIC_KIHD_GUI.Properties.Settings.Default.SQL_connection;
             SqlConnection conn = new SqlConnection(connectionString);
             String query = "execute search " + thePolicyNum + ", '" + firstName + "', '" + lastName + "', " + theAgentID + "";
