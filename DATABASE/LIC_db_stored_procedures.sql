@@ -219,7 +219,7 @@ SET NOCOUNT ON;
 UPDATE client_policy
 SET policy_status = 'I'
 WHERE policy_number = @policy_number
-DECLARE @total NUMERIC(10,2) = (SELECT SUM(amount) FROM payments)
+DECLARE @total NUMERIC(10,2) = (SELECT SUM(amount) FROM payments WHERE policy_number = @policy_number)
 DECLARE @payoff_amount NUMERIC(10,2) = (SELECT SUM(payoff_amount) FROM client_policy WHERE policy_number = @policy_number)
 INSERT INTO payments (
 date_paid,
