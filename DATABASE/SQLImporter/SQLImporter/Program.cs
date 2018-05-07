@@ -453,8 +453,8 @@ namespace SQLImporter
              * Initial Catalog = name of database
              * Data Source = name of server machine, which can be a networked machine or URL
             */
-            //String connectionString = Properties.Settings.Default.SQLConnection;//"Initial Catalog=Restaurant;Data Source=SROSEN-LT-5000;" + "Integrated Security=False;user='middleware';pwd='password'";
-            String connectionString = @"Data Source=DATABASE\CSCI3400011030;Initial Catalog=LIC_KIHD;Integrated Security=false;user='LIC_KIHD_MW';pwd='KIHD';";
+            String connectionString = Properties.Settings.Default.SQLConnection;//"Initial Catalog=Restaurant;Data Source=SROSEN-LT-5000;" + "Integrated Security=False;user='middleware';pwd='password'";
+            //String connectionString = @"Data Source=DATABASE\CSCI3400011030;Initial Catalog=LIC_KIHD;Integrated Security=false;user='LIC_KIHD_MW';pwd='KIHD';";
             SqlConnection conn = new SqlConnection(connectionString);
 
             SqlCommand cmd = new SqlCommand(query);
