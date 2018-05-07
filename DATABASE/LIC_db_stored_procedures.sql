@@ -71,7 +71,7 @@ BEGIN
 SET NOCOUNT ON;
 SELECT policy_number, policy_holder.first_name AS policy_holder_first_name, policy_holder.last_name AS policy_holder_last_name, agent_id, dob, policy_start, payoff_amount, monthly_premium, policy_status, employee.first_name AS agent_first_name, employee.last_name AS agent_last_name
 FROM client_policy FULL OUTER JOIN policy_holder ON client_policy.policy_holder_id = policy_holder.policy_holder_id FULL OUTER JOIN employee ON agent_id = id
-WHERE policy_number = @policy_number OR policy_holder.first_name = @first_name OR policy_holder.last_name = @last_name OR agent_id = @agent_id
+WHERE policy_number = @policy_number OR (policy_holder.first_name = @first_name AND policy_holder.last_name = @last_name) OR agent_id = @agent_id
 END
 GO
 
