@@ -128,11 +128,12 @@ namespace LIC_KIHD_MW
              }
             Matrix inverse = new Matrix (row , column);
             Matrix augmented = augment();
-            
+           
+            augmented.normalize();
             augmented.rowOperation();
             augmented = augmented.rearrange();
             augmented.rowOperation();
-            augmented.simplify();
+            
 
             for (int i = 0; i < inverse.row; i++)
             {
@@ -207,7 +208,7 @@ namespace LIC_KIHD_MW
             return newMatrix;
         }
 
-        public void simplify()
+        public void normalize()
         {
             for(int i = 0; i<row; i++)
             {
