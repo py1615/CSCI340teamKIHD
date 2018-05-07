@@ -133,11 +133,46 @@ namespace LIC_KIHD_MW
                         {
                             policy[i] = "No";
                         }
+                    }else
+                    {
+                        policy[i] = reader.GetString(reader.GetOrdinal(policyInfo[i]));
                     }
                 }
             }
             conn.Close();
             return policy;
+        }
+
+        public string[,] beneficiaryName(string policyNum)
+        {
+            String connectionString = LIC_KIHD_GUI.Properties.Settings.Default.SQL_connection;
+            SqlConnection conn = new SqlConnection(connectionString);
+            String query = "execute get_beneficiary " + policyNum + "";
+            SqlCommand command = new SqlCommand(query);
+            command.Connection = conn;
+            conn.Open();
+            SqlDataReader reader = command.ExecuteReader();
+            int row = 0;
+            while (reader.Read())
+            {
+                row ++;
+            }
+            conn.Close();
+            string[,] beneficiary = new string[row, 2];
+            row = 0;
+            conn.Open();
+            string[] beneficiaryName = {"first_name", "last_name"};
+            reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                for(int i = 0; i < beneficiaryName.Length; i ++)
+                {
+                    beneficiary[row, i] = reader.GetString(reader.GetOrdinal(beneficiaryName[i]));
+                }
+                row ++;
+            }
+            conn.Close();
+            return beneficiary;
         }
 
         public static string login(string userName, string passWord)
