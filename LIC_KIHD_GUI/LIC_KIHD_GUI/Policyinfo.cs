@@ -94,7 +94,12 @@ namespace LIC_KIHD_GUI
 
         private void buttonClaim_Click(object sender, EventArgs e)
         {
+            LIC_KIHD_MW.Address addre = new LIC_KIHD_MW.Address("", "", "", "");
+            LIC_KIHD_MW.PolicyHolder holder = new LIC_KIHD_MW.PolicyHolder("", "", "", addre);
+            LIC_KIHD_MW.Beneficiary BENE = new LIC_KIHD_MW.Beneficiary("", "");
+            LIC_KIHD_MW.Policy po = new LIC_KIHD_MW.Policy(holder, "", 1, 1, 1, 1, 1, 1, 1, "", "", "", "", BENE, "");
 
+            po.MakeClaim(label25.Text);
         }
     }
 }
