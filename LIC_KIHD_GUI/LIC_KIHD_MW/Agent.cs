@@ -24,8 +24,6 @@ namespace LIC_KIHD_MW
             string thePolicyNum = policyNum;
             string firstName = "";
             string lastName = "";
-            if(clientName != "null")
-            {
             int index = 0;
             for( int i = index; i < clientName.Length; i ++)
             {
@@ -39,11 +37,6 @@ namespace LIC_KIHD_MW
             {
                 char letter = clientName[i];
                 lastName += letter;
-            }
-            }else
-            {
-                firstName = "null";
-                lastName = "null";
             }
             string theAgentID = agentID;
             String connectionString = LIC_KIHD_GUI.Properties.Settings.Default.SQL_connection;
@@ -109,7 +102,19 @@ namespace LIC_KIHD_MW
             SqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
+                string firstName;
+                string lastName;
+                DateTime birthdate;
+                string street;
+                string city;
+                string state;
+                string zip;
+                string bFirstName;
+                string bLastName;
+                Address home = new Address(street, city, state, zip);
+                PolicyHolder insured = new PolicyHolder(firstName, lastName, birthdate, home);
                 
+
             }
             conn.Close();
             return policyInfo;
