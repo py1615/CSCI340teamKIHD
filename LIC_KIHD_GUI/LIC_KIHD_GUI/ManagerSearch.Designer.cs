@@ -219,49 +219,58 @@
             // 
             this.P.HeaderText = "Policy Number";
             this.P.Name = "P";
+            this.P.ReadOnly = true;
             this.P.Width = 200;
             // 
             // Column1
             // 
             this.Column1.HeaderText = "Client Name";
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             this.Column1.Width = 150;
             // 
             // Column8
             // 
             this.Column8.HeaderText = "Birth of Date";
             this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
             // 
             // Column4
             // 
             this.Column4.HeaderText = "Policy Start Date";
             this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             // 
             // Column6
             // 
             this.Column6.HeaderText = "Payoff Amount";
             this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
             // 
             // Column7
             // 
             this.Column7.HeaderText = "Monthly Premium";
             this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
             // 
             // Column5
             // 
             this.Column5.HeaderText = "Status";
             this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
             // 
             // Column2
             // 
             this.Column2.HeaderText = "Agent ID";
             this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             this.Column2.Width = 200;
             // 
             // Column3
             // 
             this.Column3.HeaderText = "Agent Name";
             this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             this.Column3.Width = 150;
             // 
             // ViewButton

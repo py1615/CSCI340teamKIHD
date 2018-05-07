@@ -108,6 +108,7 @@ namespace LIC_KIHD_GUI
             string policyN;
             this.ViewButton.UseColumnTextForButtonValue = true;
             this.ViewButton.Text = "View";
+          
             try
             {
                 if (e.ColumnIndex == dataGridView1.Columns["View"].Index)
