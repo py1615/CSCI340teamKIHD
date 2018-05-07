@@ -14,6 +14,7 @@ namespace LIC_KIHD_GUI
     public partial class AgentSearch : Form
     {
         private string agentId;
+
         public AgentSearch(string ID)
         {
             InitializeComponent();
@@ -43,7 +44,17 @@ namespace LIC_KIHD_GUI
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+            //LIC_KIHD_MW.Policy result = new LIC_KIHD_MW.Policy();//need MW
+            string policyN = "";  //need MW
+            View.Text = "View";
+            View.UseColumnTextForButtonValue = true;
+            if(e.ColumnIndex == dataGridView1.Columns["View"].Index )
+            {
+ 
+                policyN = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+                Policyinfo infoPage = new Policyinfo(policyN);
+                infoPage.ShowDialog();
+            }
 
         }
 
@@ -57,69 +68,52 @@ namespace LIC_KIHD_GUI
 
         private void agentSearchButton_Click(object sender, EventArgs e)
         {
-            DataTable table = new DataTable();
-
-            string[,] searchResult = LIC_KIHD_MW.Agent.search(policyNumBox.Text, clientNameBox.Text, agentId);
-            
-            if(searchResult != null)
+            dataGridView1.Rows.Clear();
+            string policyNumber = "null";
+            string clientName = "null";
+            LIC_KIHD_MW.Agent agent = new LIC_KIHD_MW.Agent("", "", "", "");
+            if (string.IsNullOrEmpty(policyNumBox.Text) && string.IsNullOrEmpty(clientNameBox.Text))
             {
-               table = convertToDataTable(searchResult);
-
-                dataGridView1.DataSource = table;
+                MessageBox.Show("Please enter policy number and client's name!");
             }
             else
             {
-                MessageBox.Show("The information you entered is wrong!");
-                policyNumBox.Clear();
-                clientNameBox.Clear();
-            }
-        }
-        public static DataTable ToDataTable<T>(List<T> items)
-        {
-            DataTable dataTable = new DataTable(typeof(T).Name);
-
-            PropertyInfo[] Props = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);
-            foreach (PropertyInfo prop in Props)
-            {
-                //Defining type of data column gives proper data table 
-                var type = (prop.PropertyType.IsGenericType && prop.PropertyType.GetGenericTypeDefinition() == typeof(Nullable<>) ? Nullable.GetUnderlyingType(prop.PropertyType) : prop.PropertyType);
-                //Setting column names as Property names
-                dataTable.Columns.Add(prop.Name, type);
-            }
-            foreach (T item in items)
-            {
-                var values = new object[Props.Length];
-                for (int i = 0; i < Props.Length; i++)
+                if(!string.IsNullOrEmpty(policyNumBox.Text))
                 {
-                    //inserting property values to datatable rows
-                    values[i] = Props[i].GetValue(item, null);
+                    policyNumber = policyNumBox.Text;
                 }
-                dataTable.Rows.Add(values);
+                if (!string.IsNullOrEmpty(clientNameBox.Text))
+                {
+                    clientName = clientNameBox.Text;
+                }
+                string[,] searchResult = agent.search(policyNumber, clientName, agentId);
+
+                if (searchResult != null)
+                {
+                    for (int i = 0; i < searchResult.GetLength(0); i++)
+                    {
+                        string[] row = new string[searchResult.GetLength(1)];
+                        for (int j = 0; j < searchResult.GetLength(1); j++)
+                        {
+                            row[j] = searchResult[i, j];
+                        }
+                        dataGridView1.Rows.Add(row);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("The information you entered is wrong!");
+                    policyNumBox.Clear();
+                    clientNameBox.Clear();
+                }
             }
-            //put a breakpoint here and check datatable
-            return dataTable;
         }
+        
 
         private void clientNameBox_TextChanged(object sender, EventArgs e)
         {
 
         }
-        private DataTable convertToDataTable(string[,] search)
-        {
-            DataTable dt = new DataTable();
-            for(int i = 0; i < search.GetLength(1); i ++)
-            {
-                DataRow newRow = dt.NewRow();
-                for (int j = 0; j < search.GetLength(0); j++)
-                {
-
-
-                    newRow[j] = search[i, j];
-
-
-                }
-            }
-            return dt;
-        }
+        
     }
 }

@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label24 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
@@ -52,7 +50,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.PolicyNumTitle = new System.Windows.Forms.Label();
-            this.confirmButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.firstName = new System.Windows.Forms.Label();
             this.LastName = new System.Windows.Forms.Label();
@@ -75,28 +72,9 @@
             this.PayoffAmount = new System.Windows.Forms.Label();
             this.MonthlyPremium = new System.Windows.Forms.Label();
             this.Status = new System.Windows.Forms.Label();
-            this.BeneficiaryFirstName = new System.Windows.Forms.Label();
-            this.BeneficiaryLastName = new System.Windows.Forms.Label();
             this.PolicyNumber = new System.Windows.Forms.Label();
+            this.comfirm = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(259, 817);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(151, 19);
-            this.label24.TabIndex = 29;
-            this.label24.Text = "Beneficiary First Name:";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(259, 847);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(150, 19);
-            this.label23.TabIndex = 27;
-            this.label23.Text = "Beneficiary Last Name:";
             // 
             // label21
             // 
@@ -297,21 +275,11 @@
             this.PolicyNumTitle.TabIndex = 30;
             this.PolicyNumTitle.Text = "Policy Number:";
             // 
-            // confirmButton
-            // 
-            this.confirmButton.Location = new System.Drawing.Point(259, 923);
-            this.confirmButton.Name = "confirmButton";
-            this.confirmButton.Size = new System.Drawing.Size(100, 33);
-            this.confirmButton.TabIndex = 31;
-            this.confirmButton.Text = "confirm";
-            this.confirmButton.UseVisualStyleBackColor = true;
-            this.confirmButton.Click += new System.EventHandler(this.confirmButton_Click);
-            // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(660, 923);
+            this.cancelButton.Location = new System.Drawing.Point(679, 857);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(86, 33);
+            this.cancelButton.Size = new System.Drawing.Size(119, 33);
             this.cancelButton.TabIndex = 32;
             this.cancelButton.Text = "cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
@@ -510,33 +478,25 @@
             this.Status.Text = "label44";
             this.Status.Click += new System.EventHandler(this.Status_Click);
             // 
-            // BeneficiaryFirstName
-            // 
-            this.BeneficiaryFirstName.AutoSize = true;
-            this.BeneficiaryFirstName.Location = new System.Drawing.Point(577, 817);
-            this.BeneficiaryFirstName.Name = "BeneficiaryFirstName";
-            this.BeneficiaryFirstName.Size = new System.Drawing.Size(53, 19);
-            this.BeneficiaryFirstName.TabIndex = 55;
-            this.BeneficiaryFirstName.Text = "label45";
-            // 
-            // BeneficiaryLastName
-            // 
-            this.BeneficiaryLastName.AutoSize = true;
-            this.BeneficiaryLastName.Location = new System.Drawing.Point(577, 847);
-            this.BeneficiaryLastName.Name = "BeneficiaryLastName";
-            this.BeneficiaryLastName.Size = new System.Drawing.Size(53, 19);
-            this.BeneficiaryLastName.TabIndex = 56;
-            this.BeneficiaryLastName.Text = "label46";
-            // 
             // PolicyNumber
             // 
             this.PolicyNumber.AutoSize = true;
             this.PolicyNumber.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PolicyNumber.Location = new System.Drawing.Point(586, 73);
+            this.PolicyNumber.Location = new System.Drawing.Point(635, 73);
             this.PolicyNumber.Name = "PolicyNumber";
             this.PolicyNumber.Size = new System.Drawing.Size(82, 27);
             this.PolicyNumber.TabIndex = 57;
             this.PolicyNumber.Text = "label25";
+            // 
+            // comfirm
+            // 
+            this.comfirm.Location = new System.Drawing.Point(263, 857);
+            this.comfirm.Name = "comfirm";
+            this.comfirm.Size = new System.Drawing.Size(113, 33);
+            this.comfirm.TabIndex = 58;
+            this.comfirm.Text = "Register";
+            this.comfirm.UseVisualStyleBackColor = true;
+            this.comfirm.Click += new System.EventHandler(this.comfirm_Click);
             // 
             // QuoteForm
             // 
@@ -544,10 +504,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(1213, 811);
+            this.ClientSize = new System.Drawing.Size(1230, 811);
+            this.Controls.Add(this.comfirm);
             this.Controls.Add(this.PolicyNumber);
-            this.Controls.Add(this.BeneficiaryLastName);
-            this.Controls.Add(this.BeneficiaryFirstName);
             this.Controls.Add(this.Status);
             this.Controls.Add(this.MonthlyPremium);
             this.Controls.Add(this.PayoffAmount);
@@ -570,10 +529,7 @@
             this.Controls.Add(this.LastName);
             this.Controls.Add(this.firstName);
             this.Controls.Add(this.cancelButton);
-            this.Controls.Add(this.confirmButton);
             this.Controls.Add(this.PolicyNumTitle);
-            this.Controls.Add(this.label24);
-            this.Controls.Add(this.label23);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.label20);
@@ -607,9 +563,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label20;
@@ -632,7 +585,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label PolicyNumTitle;
-        private System.Windows.Forms.Button confirmButton;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Label firstName;
         private System.Windows.Forms.Label LastName;
@@ -655,8 +607,7 @@
         private System.Windows.Forms.Label PayoffAmount;
         private System.Windows.Forms.Label MonthlyPremium;
         private System.Windows.Forms.Label Status;
-        private System.Windows.Forms.Label BeneficiaryFirstName;
-        private System.Windows.Forms.Label BeneficiaryLastName;
         private System.Windows.Forms.Label PolicyNumber;
+        private System.Windows.Forms.Button comfirm;
     }
 }

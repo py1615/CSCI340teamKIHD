@@ -12,9 +12,11 @@ namespace LIC_KIHD_GUI
 {
     public partial class managerSearch : Form
     {
-        public managerSearch()
+        private string agentID;
+        public managerSearch(string id)
         {
             InitializeComponent();
+            agentID = id;
         }
 
         private void logOutButton_Click(object sender, EventArgs e)
@@ -55,11 +57,76 @@ namespace LIC_KIHD_GUI
 
         private void agentSearchButton_Click(object sender, EventArgs e)
         {
-            DataTable table = new DataTable();
-            dataGridView1.DataSource = table;
+            dataGridView1.Rows.Clear();
+            string policyNumber = "null";
+            string clientName = "null";
+            string agentID = "null";
+            if (string.IsNullOrEmpty(textBox1.Text) && string.IsNullOrEmpty(textBox2.Text) && string.IsNullOrEmpty(textBox3.Text))
+            {
+                MessageBox.Show("Please enter policy number and client's name!");
+            }
+            else 
+            {
+                if(!string.IsNullOrEmpty(textBox1.Text))
+                {
+                    policyNumber = textBox1.Text;
+                }
+                if (!string.IsNullOrEmpty(textBox3.Text))
+                {
+                    clientName = textBox3.Text;
+                }
+                if (!string.IsNullOrEmpty(textBox2.Text))
+                {
+                    agentID = textBox2.Text;
+                }
+                LIC_KIHD_MW.Manager agent = new LIC_KIHD_MW.Manager("", "", "", "","","");
+                string [,] searchResult = agent.managerSearch(policyNumber, clientName, agentID);
+
+                if (searchResult != null)
+                {
+                    for (int i = 0; i < searchResult.GetLength(0); i++)
+                    {
+                        string[] row = new string[searchResult.GetLength(1)];
+                        for (int j = 0; j < searchResult.GetLength(1); j++)
+                        {
+
+                            row[j] = searchResult[i, j];
+                        }
+                        dataGridView1.Rows.Add(row);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("The information you entered is wrong!");
+                    textBox1.Clear();
+                    textBox3.Clear();
+                }
+            }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string policyN;
+            this.ViewButton.UseColumnTextForButtonValue = true;
+            this.ViewButton.Text = "View";
+          
+            try
+            {
+                if (e.ColumnIndex == dataGridView1.Columns["View"].Index)
+                {
+
+                    policyN = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+                    Policyinfo infoPage = new Policyinfo(policyN);
+                    infoPage.ShowDialog();
+                }
+            }
+            catch(Exception ) 
+            {
+
+            }
+        }
+
+        private void managerSearch_Load(object sender, EventArgs e)
         {
 
         }

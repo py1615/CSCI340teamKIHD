@@ -9,6 +9,7 @@ namespace LIC_KIHD_MW
         private int column;
         private int row;
         private double[,] data;
+
         public Matrix(int theRow, int theCol)
         {
             row = theRow;
@@ -16,9 +17,24 @@ namespace LIC_KIHD_MW
             data = new double[row, column];
         }
 
+        public int getRow()
+        {
+            return row;
+        }
+
+        public int getCol()
+        {
+            return column;
+        }
+
         public void setData(int row, int col, double data)
         {
             this.data[row, col] = data;
+        }
+
+        public double getData(int row, int col)
+        {
+            return this.data[row, col];
         }
 
         public static Matrix operator+(Matrix m, Matrix n)

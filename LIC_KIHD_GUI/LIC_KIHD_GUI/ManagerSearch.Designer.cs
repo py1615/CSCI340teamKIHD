@@ -40,6 +40,17 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.UserRegistrationButton = new System.Windows.Forms.Button();
+            this.warning = new System.Windows.Forms.Label();
+            this.P = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ViewButton = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,7 +58,7 @@
             // 
             this.logOutButton.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.logOutButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.logOutButton.Location = new System.Drawing.Point(1093, 16);
+            this.logOutButton.Location = new System.Drawing.Point(1338, 13);
             this.logOutButton.Margin = new System.Windows.Forms.Padding(4);
             this.logOutButton.Name = "logOutButton";
             this.logOutButton.Size = new System.Drawing.Size(103, 43);
@@ -60,7 +71,7 @@
             // 
             this.registrationButton.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.registrationButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.registrationButton.Location = new System.Drawing.Point(902, 16);
+            this.registrationButton.Location = new System.Drawing.Point(1147, 13);
             this.registrationButton.Margin = new System.Windows.Forms.Padding(4);
             this.registrationButton.Name = "registrationButton";
             this.registrationButton.Size = new System.Drawing.Size(183, 43);
@@ -146,9 +157,9 @@
             this.agentName.Location = new System.Drawing.Point(359, 278);
             this.agentName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.agentName.Name = "agentName";
-            this.agentName.Size = new System.Drawing.Size(89, 19);
+            this.agentName.Size = new System.Drawing.Size(65, 19);
             this.agentName.TabIndex = 13;
-            this.agentName.Text = "Agent Name:";
+            this.agentName.Text = "Agent ID";
             // 
             // textBox3
             // 
@@ -161,18 +172,30 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(69, 451);
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.P,
+            this.Column1,
+            this.Column8,
+            this.Column4,
+            this.Column6,
+            this.Column7,
+            this.Column5,
+            this.Column2,
+            this.Column3,
+            this.ViewButton});
+            this.dataGridView1.Location = new System.Drawing.Point(-6, 451);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 27;
-            this.dataGridView1.Size = new System.Drawing.Size(1145, 528);
+            this.dataGridView1.Size = new System.Drawing.Size(1455, 528);
             this.dataGridView1.TabIndex = 15;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // UserRegistrationButton
             // 
-            this.UserRegistrationButton.Location = new System.Drawing.Point(734, 16);
+            this.UserRegistrationButton.Location = new System.Drawing.Point(979, 13);
             this.UserRegistrationButton.Name = "UserRegistrationButton";
             this.UserRegistrationButton.Size = new System.Drawing.Size(161, 43);
             this.UserRegistrationButton.TabIndex = 16;
@@ -180,12 +203,90 @@
             this.UserRegistrationButton.UseVisualStyleBackColor = true;
             this.UserRegistrationButton.Click += new System.EventHandler(this.UserRegistrationButton_Click);
             // 
+            // warning
+            // 
+            this.warning.AutoSize = true;
+            this.warning.Font = new System.Drawing.Font("Times New Roman", 9.75F);
+            this.warning.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.warning.Location = new System.Drawing.Point(801, 353);
+            this.warning.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.warning.Name = "warning";
+            this.warning.Size = new System.Drawing.Size(113, 15);
+            this.warning.TabIndex = 17;
+            this.warning.Text = "(Example: John Eric)";
+            // 
+            // P
+            // 
+            this.P.HeaderText = "Policy Number";
+            this.P.Name = "P";
+            this.P.ReadOnly = true;
+            this.P.Width = 200;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Client Name";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 150;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Birth of Date";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Policy Start Date";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Payoff Amount";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Monthly Premium";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Status";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Agent ID";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 200;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Agent Name";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 150;
+            // 
+            // ViewButton
+            // 
+            this.ViewButton.HeaderText = "View";
+            this.ViewButton.Name = "ViewButton";
+            this.ViewButton.Text = "View";
+            this.ViewButton.UseColumnTextForButtonValue = true;
+            // 
             // managerSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(1213, 974);
+            this.ClientSize = new System.Drawing.Size(1454, 974);
+            this.Controls.Add(this.warning);
             this.Controls.Add(this.UserRegistrationButton);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.textBox3);
@@ -202,6 +303,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "managerSearch";
             this.Text = "LIC";
+            this.Load += new System.EventHandler(this.managerSearch_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -222,5 +324,16 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button UserRegistrationButton;
+        private System.Windows.Forms.Label warning;
+        private System.Windows.Forms.DataGridViewTextBoxColumn P;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewButtonColumn ViewButton;
     }
 }

@@ -65,9 +65,10 @@ namespace LIC_KIHD_GUI
 
             if (fieldFilled && comboBox1.SelectedIndex > -1 )
             {
-
+                LIC_KIHD_MW.Manager manager = new LIC_KIHD_MW.Manager("","","","","","");
                 // LIC_KIHD_MW.Manager agentRegister = new LIC_KIHD_MW.Manager(IDBOX.Text, FNameBox.Text, LNameBox.Text, userType, comboBox1.Text, UserNameBox.Text, PasswordBox.Text);
-                //this.ID = LIC_KIHD_MW.Manager.userRegister(UserNameBox.Text, FNameBox.Text, LNameBox.Text, PasswordBox.Text, userType, comboBox1.Text);
+                ID = manager.userRegister(UserNameBox.Text, FNameBox.Text, LNameBox.Text, PasswordBox.Text, userType, comboBox1.Text);
+                MessageBox.Show("You have successfully registered the agent and ID is "+ ID);
                 this.Close();
                 
             }

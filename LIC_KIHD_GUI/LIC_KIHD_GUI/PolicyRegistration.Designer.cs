@@ -30,8 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -71,11 +69,14 @@
             this.HosNo = new System.Windows.Forms.CheckBox();
             this.textBox14 = new System.Windows.Forms.TextBox();
             this.textBox15 = new System.Windows.Forms.TextBox();
-            this.textBox16 = new System.Windows.Forms.TextBox();
-            this.textBox17 = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.returnButton = new System.Windows.Forms.Button();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -88,24 +89,6 @@
             this.label1.Size = new System.Drawing.Size(237, 34);
             this.label1.TabIndex = 0;
             this.label1.Text = "Policy Registration";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(269, 993);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(151, 19);
-            this.label24.TabIndex = 28;
-            this.label24.Text = "Beneficiary First Name:";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(269, 1033);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(150, 19);
-            this.label23.TabIndex = 26;
-            this.label23.Text = "Beneficiary Last Name:";
             // 
             // label20
             // 
@@ -290,7 +273,7 @@
             // BirthBox
             // 
             this.BirthBox.Location = new System.Drawing.Point(632, 220);
-            this.BirthBox.MaxLength = 8;
+            this.BirthBox.MaxLength = 10;
             this.BirthBox.Name = "BirthBox";
             this.BirthBox.Size = new System.Drawing.Size(142, 26);
             this.BirthBox.TabIndex = 32;
@@ -298,11 +281,11 @@
             // 
             // addBeneficiary
             // 
-            this.addBeneficiary.Location = new System.Drawing.Point(272, 1113);
+            this.addBeneficiary.Location = new System.Drawing.Point(272, 1062);
             this.addBeneficiary.Name = "addBeneficiary";
             this.addBeneficiary.Size = new System.Drawing.Size(162, 33);
             this.addBeneficiary.TabIndex = 33;
-            this.addBeneficiary.Text = "Add Beneficiary";
+            this.addBeneficiary.Text = "Calculate Premium";
             this.addBeneficiary.UseVisualStyleBackColor = true;
             this.addBeneficiary.Click += new System.EventHandler(this.addBeneficiary_Click);
             // 
@@ -320,7 +303,7 @@
             this.CityBox.Location = new System.Drawing.Point(632, 302);
             this.CityBox.MaxLength = 20;
             this.CityBox.Name = "CityBox";
-            this.CityBox.Size = new System.Drawing.Size(100, 26);
+            this.CityBox.Size = new System.Drawing.Size(142, 26);
             this.CityBox.TabIndex = 35;
             this.CityBox.TextChanged += new System.EventHandler(this.CityBox_TextChanged);
             // 
@@ -329,7 +312,7 @@
             this.ZipBox.Location = new System.Drawing.Point(632, 382);
             this.ZipBox.MaxLength = 5;
             this.ZipBox.Name = "ZipBox";
-            this.ZipBox.Size = new System.Drawing.Size(100, 26);
+            this.ZipBox.Size = new System.Drawing.Size(142, 26);
             this.ZipBox.TabIndex = 37;
             this.ZipBox.TextChanged += new System.EventHandler(this.ZipBox_TextChanged);
             // 
@@ -338,7 +321,7 @@
             this.FatherBox.Location = new System.Drawing.Point(632, 422);
             this.FatherBox.MaxLength = 5;
             this.FatherBox.Name = "FatherBox";
-            this.FatherBox.Size = new System.Drawing.Size(100, 26);
+            this.FatherBox.Size = new System.Drawing.Size(142, 26);
             this.FatherBox.TabIndex = 38;
             this.FatherBox.TextChanged += new System.EventHandler(this.FatherBox_TextChanged);
             // 
@@ -347,7 +330,7 @@
             this.motherBox.Location = new System.Drawing.Point(632, 462);
             this.motherBox.MaxLength = 5;
             this.motherBox.Name = "motherBox";
-            this.motherBox.Size = new System.Drawing.Size(100, 26);
+            this.motherBox.Size = new System.Drawing.Size(142, 26);
             this.motherBox.TabIndex = 39;
             this.motherBox.TextChanged += new System.EventHandler(this.motherBox_TextChanged);
             // 
@@ -356,7 +339,7 @@
             this.cigBox.Location = new System.Drawing.Point(632, 502);
             this.cigBox.MaxLength = 5;
             this.cigBox.Name = "cigBox";
-            this.cigBox.Size = new System.Drawing.Size(100, 26);
+            this.cigBox.Size = new System.Drawing.Size(142, 26);
             this.cigBox.TabIndex = 40;
             this.cigBox.TextChanged += new System.EventHandler(this.cigBox_TextChanged);
             // 
@@ -365,7 +348,7 @@
             this.smokeBox.Location = new System.Drawing.Point(632, 542);
             this.smokeBox.MaxLength = 5;
             this.smokeBox.Name = "smokeBox";
-            this.smokeBox.Size = new System.Drawing.Size(100, 26);
+            this.smokeBox.Size = new System.Drawing.Size(142, 26);
             this.smokeBox.TabIndex = 41;
             this.smokeBox.TextChanged += new System.EventHandler(this.smokeBox_TextChanged);
             // 
@@ -374,7 +357,7 @@
             this.bloodBox.Location = new System.Drawing.Point(632, 582);
             this.bloodBox.MaxLength = 4;
             this.bloodBox.Name = "bloodBox";
-            this.bloodBox.Size = new System.Drawing.Size(100, 26);
+            this.bloodBox.Size = new System.Drawing.Size(142, 26);
             this.bloodBox.TabIndex = 42;
             this.bloodBox.TextChanged += new System.EventHandler(this.bloodBox_TextChanged);
             // 
@@ -383,7 +366,7 @@
             this.aveGramsBox.Location = new System.Drawing.Point(632, 622);
             this.aveGramsBox.MaxLength = 5;
             this.aveGramsBox.Name = "aveGramsBox";
-            this.aveGramsBox.Size = new System.Drawing.Size(100, 26);
+            this.aveGramsBox.Size = new System.Drawing.Size(142, 26);
             this.aveGramsBox.TabIndex = 43;
             this.aveGramsBox.TextChanged += new System.EventHandler(this.aveGramsBox_TextChanged);
             // 
@@ -467,27 +450,9 @@
             this.textBox15.Location = new System.Drawing.Point(632, 945);
             this.textBox15.MaxLength = 10;
             this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(100, 26);
+            this.textBox15.Size = new System.Drawing.Size(142, 26);
             this.textBox15.TabIndex = 51;
             this.textBox15.TextChanged += new System.EventHandler(this.textBox15_TextChanged);
-            // 
-            // textBox16
-            // 
-            this.textBox16.Location = new System.Drawing.Point(632, 985);
-            this.textBox16.MaxLength = 100;
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(100, 26);
-            this.textBox16.TabIndex = 51;
-            this.textBox16.TextChanged += new System.EventHandler(this.textBox16_TextChanged);
-            // 
-            // textBox17
-            // 
-            this.textBox17.Location = new System.Drawing.Point(632, 1025);
-            this.textBox17.MaxLength = 100;
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(100, 26);
-            this.textBox17.TabIndex = 51;
-            this.textBox17.TextChanged += new System.EventHandler(this.textBox17_TextChanged);
             // 
             // comboBox1
             // 
@@ -555,13 +520,64 @@
             // 
             // returnButton
             // 
-            this.returnButton.Location = new System.Drawing.Point(711, 1113);
+            this.returnButton.Location = new System.Drawing.Point(719, 1061);
             this.returnButton.Name = "returnButton";
             this.returnButton.Size = new System.Drawing.Size(133, 33);
             this.returnButton.TabIndex = 57;
             this.returnButton.Text = "Return";
             this.returnButton.UseVisualStyleBackColor = true;
             this.returnButton.Click += new System.EventHandler(this.returnButton_Click);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(798, 546);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(230, 15);
+            this.label18.TabIndex = 58;
+            this.label18.Text = "yyymm, Example: 00101(1 year and 1 month)";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(628, 905);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(187, 15);
+            this.label19.TabIndex = 59;
+            this.label19.Text = "(Separate all the activities by comma)";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(797, 223);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(73, 15);
+            this.label21.TabIndex = 60;
+            this.label21.Text = "yyyy-mm-dd";
+            this.label21.Click += new System.EventHandler(this.label21_Click);
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(798, 469);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(230, 15);
+            this.label22.TabIndex = 61;
+            this.label22.Text = "yyymm, Example: 00101(1 year and 1 month)";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(798, 428);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(230, 15);
+            this.label23.TabIndex = 62;
+            this.label23.Text = "yyymm, Example: 00101(1 year and 1 month)";
             // 
             // PolicyRegistration
             // 
@@ -570,10 +586,13 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1213, 974);
+            this.Controls.Add(this.label23);
+            this.Controls.Add(this.label22);
+            this.Controls.Add(this.label21);
+            this.Controls.Add(this.label19);
+            this.Controls.Add(this.label18);
             this.Controls.Add(this.returnButton);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox17);
-            this.Controls.Add(this.textBox16);
             this.Controls.Add(this.textBox15);
             this.Controls.Add(this.textBox14);
             this.Controls.Add(this.HosNo);
@@ -596,8 +615,6 @@
             this.Controls.Add(this.LastNameBox);
             this.Controls.Add(this.FirstNameBox);
             this.Controls.Add(this.label25);
-            this.Controls.Add(this.label24);
-            this.Controls.Add(this.label23);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label6);
@@ -630,8 +647,6 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label6;
@@ -671,10 +686,13 @@
         private System.Windows.Forms.CheckBox HosNo;
         private System.Windows.Forms.TextBox textBox14;
         private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.TextBox textBox16;
-        private System.Windows.Forms.TextBox textBox17;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Button returnButton;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label22;
     }
 }
