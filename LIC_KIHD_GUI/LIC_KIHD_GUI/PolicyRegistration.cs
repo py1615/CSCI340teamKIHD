@@ -112,12 +112,16 @@ namespace LIC_KIHD_GUI
          
         
 
-            if (fieldFilled && comboBox1.SelectedIndex < -1 && noError || string.IsNullOrWhiteSpace(textBox14.Text))
+            if (fieldFilled /*&& comboBox1.SelectedIndex < -1*/ && noError || string.IsNullOrWhiteSpace(textBox14.Text))
             {
                 state = comboBox1.SelectedItem.ToString();
-                
+                DateTime txtMyDate = DateTime.Parse(BirthBox.Text);
+                double premium = LIC_KIHD_MW.Policy.CalculatePremium(textBox15.Text, txtMyDate, FatherBox.Text, motherBox.Text, cigBox.Text, smokeBox.Text, bloodBox.Text,
+                        aveGramsBox.Text, HeartDisease, cancer, hospital, textBox14.Text);
+
+
                 QuoteForm quote = new QuoteForm(FirstNameBox.Text, LastNameBox.Text, BirthBox.Text, AddressBox.Text, CityBox.Text, state, ZipBox.Text, FatherBox.Text, motherBox.Text,
-                                    cigBox.Text, smokeBox.Text, bloodBox.Text, aveGramsBox.Text, HDPassToQuote, cancerToQ, hospitalToQ, textBox14.Text, textBox15.Text
+                                    cigBox.Text, smokeBox.Text, bloodBox.Text, aveGramsBox.Text, HDPassToQuote, cancerToQ, hospitalToQ, textBox14.Text, textBox15.Text, premium.ToString()
                                     );
                 quote.Closed += (s, arges) => this.Close();
                 quote.ShowDialog();
@@ -217,7 +221,7 @@ namespace LIC_KIHD_GUI
 
         private void ZipBox_TextChanged(object sender, EventArgs e)
         {
-            string tString = CityBox.Text;
+            string tString = ZipBox.Text;
             if (tString.Trim() == "") return;
             for (int i = 0; i < tString.Length; i++)
             {
@@ -235,7 +239,7 @@ namespace LIC_KIHD_GUI
 
         private void FatherBox_TextChanged(object sender, EventArgs e)
         {
-            string tString = CityBox.Text;
+            string tString = FatherBox.Text;
             if (tString.Trim() == "") return;
             for (int i = 0; i < tString.Length; i++)
             {
@@ -253,7 +257,7 @@ namespace LIC_KIHD_GUI
 
         private void motherBox_TextChanged(object sender, EventArgs e)
         {
-            string tString = CityBox.Text;
+            string tString = motherBox.Text;
             if (tString.Trim() == "") return;
             for (int i = 0; i < tString.Length; i++)
             {
@@ -271,7 +275,7 @@ namespace LIC_KIHD_GUI
 
         private void cigBox_TextChanged(object sender, EventArgs e)
         {
-            string tString = CityBox.Text;
+            string tString = cigBox.Text;
             if (tString.Trim() == "") return;
             for (int i = 0; i < tString.Length; i++)
             {
@@ -289,7 +293,7 @@ namespace LIC_KIHD_GUI
 
         private void smokeBox_TextChanged(object sender, EventArgs e)
         {
-            string tString = CityBox.Text;
+            string tString = smokeBox.Text;
             if (tString.Trim() == "") return;
             for (int i = 0; i < tString.Length; i++)
             {
@@ -307,7 +311,7 @@ namespace LIC_KIHD_GUI
 
         private void bloodBox_TextChanged(object sender, EventArgs e)
         {
-            string tString = CityBox.Text;
+            string tString = bloodBox.Text;
             if (tString.Trim() == "") return;
             for (int i = 0; i < tString.Length; i++)
             {
@@ -330,7 +334,7 @@ namespace LIC_KIHD_GUI
 
         private void textBox15_TextChanged(object sender, EventArgs e)
         {
-            string tString = CityBox.Text;
+            string tString = textBox15.Text;
             if (tString.Trim() == "") return;
             for (int i = 0; i < tString.Length; i++)
             {
@@ -364,6 +368,10 @@ namespace LIC_KIHD_GUI
         {
             
         }
-        
+
+        private void label21_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

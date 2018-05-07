@@ -70,8 +70,7 @@ namespace LIC_KIHD_GUI
         {
             string policyNumber = "null";
             string clientName = "null";
-
-            //DataTable table = new DataTable();
+            LIC_KIHD_MW.Agent agent = new LIC_KIHD_MW.Agent("", "", "", "");
             if (string.IsNullOrEmpty(policyNumBox.Text) && string.IsNullOrEmpty(clientNameBox.Text))
             {
                 MessageBox.Show("Please enter policy number and client's name!");
@@ -86,7 +85,7 @@ namespace LIC_KIHD_GUI
                 {
                     clientName = clientNameBox.Text;
                 }
-                string[,] searchResult = LIC_KIHD_MW.Agent.search(policyNumBox.Text, clientNameBox.Text, agentId);
+                string[,] searchResult = agent.search(policyNumber, clientName, agentId);
 
                 if (searchResult != null)
                 {

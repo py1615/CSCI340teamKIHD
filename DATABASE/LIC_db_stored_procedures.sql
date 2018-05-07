@@ -9,7 +9,6 @@
 --drop procedure get_inflation_rate
 --drop procedure claim
 --drop procedure get_payments
---drop procedure set_delinquent
 
 CREATE PROCEDURE get_login (
 @id NUMERIC(20),
@@ -70,9 +69,9 @@ CREATE PROCEDURE search (
 AS
 BEGIN
 SET NOCOUNT ON;
-SELECT policy_number, first_name, last_name, agent_id, dob, policy_start, payoff_amount, monthly_premium
-FROM client_policy FULL OUTER JOIN policy_holder ON client_policy.policy_holder_id = policy_holder.policy_holder_id
-WHERE policy_number = @policy_number OR first_name = @first_name OR last_name = @last_name OR agent_id = @agent_id
+SELECT policy_number, policy_holder.first_name AS policy_holder_first_name, policy_holder.last_name AS policy_holder_last_name, agent_id, dob, policy_start, payoff_amount, monthly_premium, policy_status, employee.first_name AS agent_first_name, employee.last_name AS agent_last_name
+FROM client_policy FULL OUTER JOIN policy_holder ON client_policy.policy_holder_id = policy_holder.policy_holder_id FULL OUTER JOIN employee ON agent_id = id
+WHERE policy_number = @policy_number OR policy_holder.first_name = @first_name OR policy_holder.last_name = @last_name OR agent_id = @agent_id
 END
 GO
 
@@ -82,7 +81,7 @@ AS
 BEGIN
 SET NOCOUNT ON;
 SELECT *
-FROM client_policy FULL OUTER JOIN policy_holder ON client_policy.policy_holder_id = policy_holder.policy_holder_id
+FROM client_policy FULL OUTER JOIN policy_holder ON client_policy.policy_holder_id = policy_holder.policy_holder_id FULL OUTER JOIN employee ON agent_id = id
 WHERE policy_number = @policy_number
 END
 GO
@@ -219,6 +218,19 @@ SET NOCOUNT ON;
 UPDATE client_policy
 SET policy_status = 'I'
 WHERE policy_number = @policy_number
+DECLARE @total NUMERIC(10,2) = (SELECT SUM(amount) FROM payments WHERE policy_number = @policy_number)
+DECLARE @payoff_amount NUMERIC(10,2) = (SELECT SUM(payoff_amount) FROM client_policy WHERE policy_number = @policy_number)
+INSERT INTO payments (
+date_paid,
+policy_number,
+amount,
+payment_type)
+SELECT
+GETDATE(),
+@policy_number,
+@payoff_amount,
+'C'
+WHERE @total < 0.05 * @payoff_amount + @payoff_amount
 END
 GO
 
@@ -230,18 +242,15 @@ SET NOCOUNT ON;
 SELECT date_paid, amount
 FROM payments
 WHERE policy_number = @policy_number AND payment_type = 'P'
-END
-GO
-
-CREATE PROCEDURE set_delinquent (
-@policy_number NUMERIC(30))
-AS
-BEGIN
-SET NOCOUNT ON;
+DECLARE @total NUMERIC(10,2) = (SELECT SUM(amount) FROM payments)
+DECLARE @monthly_premium NUMERIC(10,2) = (SELECT SUM(monthly_premium) FROM client_policy WHERE policy_number = @policy_number)
+DECLARE @number_of_months NUMERIC(8) = (SELECT DATEDIFF(MONTH, policy_start, GETDATE()) FROM client_policy WHERE policy_number = @policy_number)
 INSERT INTO delinquent (
-policy_number)
-SELECT policy_number
-FROM client_policy
-WHERE policy_number = @policy_number
+policy_number,
+delinquency_date)
+SELECT
+@policy_number,
+GETDATE()
+WHERE @total < @monthly_premium * @number_of_months
 END
 GO
