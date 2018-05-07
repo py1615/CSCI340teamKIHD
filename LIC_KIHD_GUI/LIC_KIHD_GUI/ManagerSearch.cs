@@ -60,7 +60,7 @@ namespace LIC_KIHD_GUI
             string policyNumber = "null";
             string clientName = "null";
             string agentID = "null";
-            if (string.IsNullOrEmpty(textBox1.Text) && string.IsNullOrEmpty(textBox2.Text))
+            if (string.IsNullOrEmpty(textBox1.Text) && string.IsNullOrEmpty(textBox2.Text) && string.IsNullOrEmpty(textBox3.Text))
             {
                 MessageBox.Show("Please enter policy number and client's name!");
             }
