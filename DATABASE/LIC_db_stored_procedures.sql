@@ -3,6 +3,7 @@
 --drop procedure register_user
 --drop procedure search
 --drop procedure search_on_click
+--drop procedure get_beneficiary
 --drop procedure register_policy
 --drop procedure add_beneficiary
 --drop procedure calculation_data
@@ -71,7 +72,7 @@ BEGIN
 SET NOCOUNT ON;
 SELECT policy_number, policy_holder.first_name AS policy_holder_first_name, policy_holder.last_name AS policy_holder_last_name, agent_id, dob, policy_start, payoff_amount, monthly_premium, policy_status, employee.first_name AS agent_first_name, employee.last_name AS agent_last_name
 FROM client_policy FULL OUTER JOIN policy_holder ON client_policy.policy_holder_id = policy_holder.policy_holder_id FULL OUTER JOIN employee ON agent_id = id
-WHERE policy_number = @policy_number OR (policy_holder.first_name = @first_name AND policy_holder.last_name = @last_name) OR agent_id = @agent_id
+WHERE policy_number = @policy_number OR (policy_holder.first_name = @first_name AND policy_holder.last_name = @last_name) OR agent_id = @agent_id OR (policy_holder.first_name = @first_name AND @last_name = '') OR (@first_name = '' AND policy_holder.last_name = @last_name)
 END
 GO
 
@@ -109,10 +110,20 @@ policy_status,
 username,
 employee.first_name AS agent_first_name,
 employee.last_name AS agent_last_name,
-employee_password,
 user_type,
 department
 FROM client_policy FULL OUTER JOIN policy_holder ON client_policy.policy_holder_id = policy_holder.policy_holder_id FULL OUTER JOIN employee ON agent_id = id
+WHERE policy_number = @policy_number
+END
+GO
+
+CREATE PROCEDURE get_beneficiary (
+@policy_number VARCHAR(30))
+AS
+BEGIN
+SET NOCOUNT ON;
+SELECT *
+FROM beneficiary
 WHERE policy_number = @policy_number
 END
 GO
