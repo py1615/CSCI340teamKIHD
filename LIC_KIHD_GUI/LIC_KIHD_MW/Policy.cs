@@ -30,56 +30,75 @@ namespace LIC_KIHD_MW
         private string hospitalized;
         private string dangerousAct;
 
-        internal PolicyHolder Insured { get => insured; set => insured = value; }
-        public string PolicyNum { get => policyNum; set => policyNum = value; }
-        public double PayoffAmount { get => payoffAmount; set => payoffAmount = value; }
-        internal Beneficiary Beneficiary { get => beneficiary; set => beneficiary = value; }
-        public double FatherDeathAge { get => fatherDeathAge; set => fatherDeathAge = value; }
-        public double MotherDeathAge { get => motherDeathAge; set => motherDeathAge = value; }
-        public double CigsPerDay { get => cigsPerDay; set => cigsPerDay = value; }
-        public double SmokingHistory { get => smokingHistory; set => smokingHistory = value; }
-        public double BloodPressure { get => bloodPressure; set => bloodPressure = value; }
-        public double GramsFatPerDay { get => gramsFatPerDay; set => gramsFatPerDay = value; }
-        public string HeartDisease { get => heartDisease; set => heartDisease = value; }
-        public string Cancer { get => cancer; set => cancer = value; }
-        public string Hospitalized { get => hospitalized; set => hospitalized = value; }
-        public string DangerousAct { get => dangerousAct; set => dangerousAct = value; }
-        public string AgentID { get => agentID; set => agentID = value; }
-
         public Policy(PolicyHolder theInsured, string thePolicyNum, double thePayOffAmount, double theFatherDeathAge, double theMotherDeathAge,
             double theCigsPerDay, double theSmokingHistory, double theBloodPressure, double theGramsFatPerDay, string theHeartDisease,
             string theCancer, string theHospitalized, string theDangerousAct, Beneficiary theHeir, string theAgent)
         {
-            Insured = theInsured;
-            PayoffAmount = thePayOffAmount;
-            AgentID = theAgent;
-            Beneficiary = theHeir;
-            FatherDeathAge = theFatherDeathAge;
-            MotherDeathAge = theMotherDeathAge;
-            CigsPerDay = theCigsPerDay;
-            SmokingHistory = theSmokingHistory;
-            BloodPressure = theBloodPressure;
-            GramsFatPerDay = theGramsFatPerDay;
-            HeartDisease = theHeartDisease;
-            Cancer = theCancer;
-            Hospitalized = theHospitalized;
-            DangerousAct = theDangerousAct;
-            PolicyNum = thePolicyNum;
+            insured = theInsured;
+            payoffAmount = thePayOffAmount;
+            agentID = theAgent;
+            beneficiary = theHeir;
+            fatherDeathAge = theFatherDeathAge;
+            motherDeathAge = theMotherDeathAge;
+            cigsPerDay = theCigsPerDay;
+            smokingHistory = theSmokingHistory;
+            bloodPressure = theBloodPressure;
+            gramsFatPerDay = theGramsFatPerDay;
+            heartDisease = theHeartDisease;
+            cancer = theCancer;
+            hospitalized = theHospitalized;
+            dangerousAct = theDangerousAct;
+            policyNum = thePolicyNum;
         }
 
-        public String PolicyNumReg(string firstName, string lastName, string dob, string streetAddress,
+        public String PolicyNumReg(string firstName, string lastName, DateTime dob, string streetAddress,
             string city, string state, string zip, string fatherDeathAge, string motherDeathAge, string cigPerDay,
             string smokingHistory, string bloodPressure, string avegGrams, string heartDisease, string cancer,
             string hospitalized, string dangerousAct, string payoffAmount, string premium,  string agentID)
         {
-            return "";
+            decimal cigsPerDay = Convert.ToDecimal(cigPerDay); 
+            decimal bloodsPressure = Convert.ToDecimal(bloodPressure);
+            decimal avegsFat = Convert.ToDecimal(avegGrams);
+            decimal agentsID = Convert.ToDecimal(agentID);
+            decimal payoffAmounts = Convert.ToDecimal(payoffAmount);
+            decimal premiums = Convert.ToDecimal(premium);
+            String connectionString = LIC_KIHD_GUI.Properties.Settings.Default.SQL_connection;
+            SqlConnection conn = new SqlConnection(connectionString);
+            String query = "execute register_policy '" + firstName + "', '" + lastName + "', '" + streetAddress + 
+                "', '" + city + "', '" + state + "', '" + zip + "', '" + streetAddress + "', '" + dob + "', '"
+                + fatherDeathAge + "', '" + motherDeathAge + "', " + cigsPerDay + ", '" + smokingHistory + "', "
+                + bloodsPressure + ", " + avegsFat + ", " + heartDisease + ", " + cancer + ", " + hospitalized + ", '"
+                + dangerousAct + "', " + agentsID + ", " + payoffAmounts + ", " + premiums + "";
+            SqlCommand command = new SqlCommand(query);
+            command.Connection = conn;
+            conn.Open();
+            SqlDataReader reader = command.ExecuteReader();
+            string policyNumber = "";
+            while(reader.Read())
+            {
+                policyNumber += (reader.GetDecimal(reader.GetOrdinal("policy_number")));
+            }
+            conn.Close();
+            return policyNumber;
+        }
+
+        public void addBeneficiary(string policyNum, string firstName, string lastName)
+        {
+            String connectionString = LIC_KIHD_GUI.Properties.Settings.Default.SQL_connection;
+            SqlConnection conn = new SqlConnection(connectionString);
+            String query = "execute add_beneficiary " + policyNum + ", '" + firstName + "', '" + lastName + "'";
+            SqlCommand command = new SqlCommand(query);
+            command.Connection = conn;
+            conn.Open();
+            command.ExecuteNonQuery();
+            conn.Close();
         }
 
         public void Cancel(string policyNum)
         {
             String connectionString = LIC_KIHD_GUI.Properties.Settings.Default.SQL_connection;
             SqlConnection conn = new SqlConnection(connectionString);
-            String query = "execute cancel '" + policyNum + "'";
+            String query = "execute cancel " + policyNum + "";
             SqlCommand command = new SqlCommand(query);
             command.Connection = conn;
             conn.Open();

@@ -9,13 +9,11 @@ namespace LIC_KIHD_MW
         private string firstName;
         private string lastName;
 
-        public string FirstName { get => firstName; set => firstName = value; }
-        public string LastName { get => lastName; set => lastName = value; }
 
         public Beneficiary(string theFirstName, string theLastName)
         {
-            FirstName = theFirstName;
-            LastName = theLastName;
+            firstName = theFirstName;
+            lastName = theLastName;
         }
 
         
