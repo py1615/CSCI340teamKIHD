@@ -75,6 +75,8 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -279,7 +281,7 @@
             // 
             // addBeneficiary
             // 
-            this.addBeneficiary.Location = new System.Drawing.Point(272, 1061);
+            this.addBeneficiary.Location = new System.Drawing.Point(272, 1062);
             this.addBeneficiary.Name = "addBeneficiary";
             this.addBeneficiary.Size = new System.Drawing.Size(162, 33);
             this.addBeneficiary.TabIndex = 33;
@@ -557,6 +559,26 @@
             this.label21.Text = "yyyy-mm-dd";
             this.label21.Click += new System.EventHandler(this.label21_Click);
             // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(798, 469);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(230, 15);
+            this.label22.TabIndex = 61;
+            this.label22.Text = "yyymm, Example: 00101(1 year and 1 month)";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(798, 428);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(230, 15);
+            this.label23.TabIndex = 62;
+            this.label23.Text = "yyymm, Example: 00101(1 year and 1 month)";
+            // 
             // PolicyRegistration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -564,6 +586,8 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1213, 974);
+            this.Controls.Add(this.label23);
+            this.Controls.Add(this.label22);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.label18);
@@ -668,5 +692,7 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label22;
     }
 }
