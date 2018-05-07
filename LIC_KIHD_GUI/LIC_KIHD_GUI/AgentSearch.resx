@@ -122,14 +122,10 @@
     <value>Times New Roman, 12pt</value>
   </data>
   <data name="registrationButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>934, 19</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="registrationButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
+    <value>764, 16</value>
   </data>
   <data name="registrationButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>185, 47</value>
+    <value>151, 41</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="registrationButton.TabIndex" type="System.Int32, mscorlib">
@@ -154,13 +150,10 @@
     <value>Times New Roman, 12pt</value>
   </data>
   <data name="logOutButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1126, 19</value>
-  </data>
-  <data name="logOutButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
+    <value>921, 16</value>
   </data>
   <data name="logOutButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 47</value>
+    <value>84, 41</value>
   </data>
   <data name="logOutButton.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -180,6 +173,7 @@
   <data name="&gt;&gt;logOutButton.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="searchTitle.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
@@ -190,13 +184,10 @@
     <value>Times New Roman, 19.8000011pt</value>
   </data>
   <data name="searchTitle.Location" type="System.Drawing.Point, System.Drawing">
-    <value>482, 110</value>
-  </data>
-  <data name="searchTitle.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>394, 95</value>
   </data>
   <data name="searchTitle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>207, 39</value>
+    <value>166, 31</value>
   </data>
   <data name="searchTitle.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -223,13 +214,10 @@
     <value>Times New Roman, 12pt</value>
   </data>
   <data name="policyNumber.Location" type="System.Drawing.Point, System.Drawing">
-    <value>359, 208</value>
-  </data>
-  <data name="policyNumber.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>294, 180</value>
   </data>
   <data name="policyNumber.Size" type="System.Drawing.Size, System.Drawing">
-    <value>135, 22</value>
+    <value>103, 19</value>
   </data>
   <data name="policyNumber.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -259,13 +247,10 @@
     <value>NoControl</value>
   </data>
   <data name="ClientName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>359, 278</value>
-  </data>
-  <data name="ClientName.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>294, 240</value>
   </data>
   <data name="ClientName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>115, 22</value>
+    <value>88, 19</value>
   </data>
   <data name="ClientName.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -289,13 +274,10 @@
     <value>Times New Roman, 12pt</value>
   </data>
   <data name="policyNumBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>552, 208</value>
-  </data>
-  <data name="policyNumBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
+    <value>452, 180</value>
   </data>
   <data name="policyNumBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>240, 30</value>
+    <value>197, 26</value>
   </data>
   <data name="policyNumBox.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -316,13 +298,10 @@
     <value>Times New Roman, 12pt</value>
   </data>
   <data name="clientNameBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>552, 278</value>
-  </data>
-  <data name="clientNameBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
+    <value>452, 240</value>
   </data>
   <data name="clientNameBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>240, 30</value>
+    <value>197, 26</value>
   </data>
   <data name="clientNameBox.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -343,13 +322,10 @@
     <value>Times New Roman, 12pt</value>
   </data>
   <data name="agentSearchButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>359, 349</value>
-  </data>
-  <data name="agentSearchButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
+    <value>294, 301</value>
   </data>
   <data name="agentSearchButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 43</value>
+    <value>84, 37</value>
   </data>
   <data name="agentSearchButton.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -424,13 +400,10 @@
     <value>View</value>
   </data>
   <data name="dataGridView1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-2, 399</value>
-  </data>
-  <data name="dataGridView1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
+    <value>-2, 345</value>
   </data>
   <data name="dataGridView1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1249, 599</value>
+    <value>1022, 517</value>
   </data>
   <data name="dataGridView1.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -454,13 +427,10 @@
     <value>Times New Roman, 9.75pt</value>
   </data>
   <data name="warning.Location" type="System.Drawing.Point, System.Drawing">
-    <value>801, 285</value>
-  </data>
-  <data name="warning.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>655, 246</value>
   </data>
   <data name="warning.Size" type="System.Drawing.Size, System.Drawing">
-    <value>154, 19</value>
+    <value>113, 15</value>
   </data>
   <data name="warning.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -484,16 +454,13 @@
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>11, 22</value>
+    <value>9, 19</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1243, 974</value>
+    <value>1017, 841</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 12pt</value>
-  </data>
-  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>LIC</value>

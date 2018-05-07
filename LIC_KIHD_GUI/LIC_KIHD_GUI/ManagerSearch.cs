@@ -57,6 +57,7 @@ namespace LIC_KIHD_GUI
 
         private void agentSearchButton_Click(object sender, EventArgs e)
         {
+            dataGridView1.Rows.Clear();
             string policyNumber = "null";
             string clientName = "null";
             string agentID = "null";
@@ -78,7 +79,8 @@ namespace LIC_KIHD_GUI
                 {
                     agentID = textBox2.Text;
                 }
-               string [,] searchResult = LIC_KIHD_MW.Agent.search(policyNumber, clientName, agentID);
+                LIC_KIHD_MW.Manager agent = new LIC_KIHD_MW.Manager("", "", "", "","","");
+                string [,] searchResult = agent.managerSearch(policyNumber, clientName, agentID);
 
                 if (searchResult != null)
                 {
@@ -87,6 +89,7 @@ namespace LIC_KIHD_GUI
                         string[] row = new string[searchResult.GetLength(1)];
                         for (int j = 0; j < searchResult.GetLength(1); j++)
                         {
+
                             row[j] = searchResult[i, j];
                         }
                         dataGridView1.Rows.Add(row);
@@ -106,12 +109,20 @@ namespace LIC_KIHD_GUI
             string policyN;
             this.ViewButton.UseColumnTextForButtonValue = true;
             this.ViewButton.Text = "View";
-            if (e.ColumnIndex == dataGridView1.Columns["View"].Index)
+          
+            try
+            {
+                if (e.ColumnIndex == dataGridView1.Columns["View"].Index)
+                {
+
+                    policyN = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+                    Policyinfo infoPage = new Policyinfo(policyN);
+                    infoPage.ShowDialog();
+                }
+            }
+            catch(Exception ) 
             {
 
-                policyN = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
-                Policyinfo infoPage = new Policyinfo(policyN);
-                infoPage.ShowDialog();
             }
         }
 

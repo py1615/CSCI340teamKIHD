@@ -15,7 +15,7 @@ namespace LIC_KIHD_GUI
         public  List<string> firstN;
         public List<string> lastNa;
         public QuoteForm(string FN, string LN, string birth, string address, string city, string state, string zip, string father, string mother, string cigarette, string smoke, 
-                        string blood, string grams, string heartDisease, string cancer, string hospital, string dangerous, string payoff
+                        string blood, string grams, string heartDisease, string cancer, string hospital, string dangerous, string payoff, string premium
                         )
         {
             InitializeComponent();
@@ -40,7 +40,7 @@ namespace LIC_KIHD_GUI
   
             PolicyStart.Text = DateTime.Now.ToString();
             Status.Text = "Active";
-            
+            MonthlyPremium.Text = premium;
         }
 
         private void QuoteForm_Load(object sender, EventArgs e)

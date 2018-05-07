@@ -7,6 +7,7 @@ namespace LIC_KIHD_MW
 {
     class Manager : Agent
     {
+        private readonly static int RETURN_INFOM = 9;
         /*private string agentID;
         private string firstName;
         private string lastName;
@@ -18,7 +19,7 @@ namespace LIC_KIHD_MW
 
         }
 
-        public static string userRegister(string userName, string firstName, string lastName, string passWord,
+        public string userRegister(string userName, string firstName, string lastName, string passWord,
             string agentType, string department)
         {
             String connectionString = LIC_KIHD_GUI.Properties.Settings.Default.SQL_connection;
@@ -38,7 +39,7 @@ namespace LIC_KIHD_MW
             return id;
         }
 
-        public static string[,] managerSearch(string policyNum, string clientName, string agentID)
+        public string[,] managerSearch(string policyNum, string clientName, string agentID)
         {
             string thePolicyNum = policyNum;
             string firstName = "";
@@ -80,15 +81,19 @@ namespace LIC_KIHD_MW
             conn.Close();
             conn.Open();
             reader = command.ExecuteReader();
-            string[,] policyInfo = new string[row,RETURN_INFO];
+            string[,] policyInfo = new string[row,RETURN_INFOM];
             row = 0;
-            string[] colName = {"policy_number", "first_name", "dob", "policy_start", "payoff_amount", 
-                "monthly_premium"};
+            string[] colName = {"policy_number", "policy_holder_first_name", "dob", "policy_start", "payoff_amount", 
+                "monthly_premium", "policy_status", "agent_id", "agent_first_name"};
             while (reader.Read())
             {
-                for(int i = 0; i < RETURN_INFO; i ++)
+                for(int i = 0; i < RETURN_INFOM; i ++)
                 {
-                    if (typeof(decimal) == (reader.GetFieldType(reader.GetOrdinal(colName[i]))))
+                    if(reader.IsDBNull(reader.GetOrdinal(colName[i])))
+                    {
+                        policyInfo[row, i] = "null";
+                    }
+                    else if (typeof(decimal) == (reader.GetFieldType(reader.GetOrdinal(colName[i]))))
                     {
                         decimal d = reader.GetDecimal(reader.GetOrdinal(colName[i]));
                         policyInfo[row, i] = "" + d;
@@ -96,14 +101,14 @@ namespace LIC_KIHD_MW
                     else if(typeof(DateTime) == (reader.GetFieldType(reader.GetOrdinal(colName[i]))))
                     {
                         DateTime day = reader.GetDateTime(reader.GetOrdinal(colName[i]));
-                        policyInfo[row, i] = "" + day;
+                        policyInfo[row, i] = day.ToString("yyyy/MM/dd");
                     }
                     else
                     {
                         policyInfo[row, i] = reader.GetString(reader.GetOrdinal(colName[i]));
                         if (i == 1)
                         {
-                            policyInfo[row, i] += " " + reader.GetString(reader.GetOrdinal("last_name"));
+                            policyInfo[row, i] += " " + reader.GetString(reader.GetOrdinal("policy_holder_last_name"));
                         }
                     }
                 }
