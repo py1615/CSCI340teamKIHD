@@ -45,6 +45,7 @@ namespace LIC_KIHD_GUI
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             //LIC_KIHD_MW.Policy result = new LIC_KIHD_MW.Policy();//need MW
+            LIC_KIHD_MW.Agent agent = new LIC_KIHD_MW.Agent("", "", "", "");
             string policyN = "";  //need MW
             View.Text = "View";
             View.UseColumnTextForButtonValue = true;
@@ -52,7 +53,8 @@ namespace LIC_KIHD_GUI
             {
  
                 policyN = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
-                Policyinfo infoPage = new Policyinfo(policyN);
+                string[] searchInfo = agent.searchOnClick(policyN);
+                Policyinfo infoPage = new Policyinfo(searchInfo, policyN);
                 infoPage.ShowDialog();
             }
 

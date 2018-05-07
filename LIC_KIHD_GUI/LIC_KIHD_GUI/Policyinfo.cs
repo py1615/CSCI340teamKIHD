@@ -12,11 +12,11 @@ namespace LIC_KIHD_GUI
 {
     public partial class Policyinfo : Form
     {
-        public Policyinfo(string policyNumber)
+        public Policyinfo(string[] policy,string policyN)
         {
 
             InitializeComponent();
-            label25.Text = policyNumber;
+            label25.Text = policyN;
         }
 
         private void label5_Click(object sender, EventArgs e)
