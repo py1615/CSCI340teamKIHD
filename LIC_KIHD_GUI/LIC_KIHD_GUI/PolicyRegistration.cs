@@ -114,9 +114,14 @@ namespace LIC_KIHD_GUI
 
             if (fieldFilled /*&& comboBox1.SelectedIndex < -1*/ && noError || string.IsNullOrWhiteSpace(textBox14.Text))
             {
+                LIC_KIHD_MW.Address addre = new LIC_KIHD_MW.Address("","","","");
+                LIC_KIHD_MW.PolicyHolder holder = new LIC_KIHD_MW.PolicyHolder("","","",addre);
+                LIC_KIHD_MW.Beneficiary BENE = new LIC_KIHD_MW.Beneficiary("", "");
+                LIC_KIHD_MW.Policy po = new LIC_KIHD_MW.Policy(holder, "",1,1,1,1,1,1,1,"","","","", BENE,"");
+               
                 state = comboBox1.SelectedItem.ToString();
                 DateTime txtMyDate = DateTime.Parse(BirthBox.Text);
-                double premium = LIC_KIHD_MW.Policy.CalculatePremium(textBox15.Text, txtMyDate, FatherBox.Text, motherBox.Text, cigBox.Text, smokeBox.Text, bloodBox.Text,
+                double premium = po.CalculatePremium(textBox15.Text, txtMyDate, FatherBox.Text, motherBox.Text, cigBox.Text, smokeBox.Text, bloodBox.Text,
                         aveGramsBox.Text, HeartDisease, cancer, hospital, textBox14.Text);
 
 

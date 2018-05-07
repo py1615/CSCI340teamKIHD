@@ -79,7 +79,7 @@ namespace LIC_KIHD_GUI
                     agentID = textBox2.Text;
                 }
                 LIC_KIHD_MW.Manager agent = new LIC_KIHD_MW.Manager("", "", "", "","","");
-                string [,] searchResult = LIC_KIHD_MW.Manager.managerSearch(policyNumber, clientName, agentID);
+                string [,] searchResult = agent.managerSearch(policyNumber, clientName, agentID);
 
                 if (searchResult != null)
                 {
@@ -88,6 +88,7 @@ namespace LIC_KIHD_GUI
                         string[] row = new string[searchResult.GetLength(1)];
                         for (int j = 0; j < searchResult.GetLength(1); j++)
                         {
+
                             row[j] = searchResult[i, j];
                         }
                         dataGridView1.Rows.Add(row);
