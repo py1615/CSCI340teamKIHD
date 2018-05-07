@@ -65,10 +65,10 @@ namespace LIC_KIHD_MW
             String connectionString = LIC_KIHD_GUI.Properties.Settings.Default.SQL_connection;
             SqlConnection conn = new SqlConnection(connectionString);
             String query = "execute register_policy '" + firstName + "', '" + lastName + "', '" + streetAddress + 
-                "', '" + city + "', '" + state + "', '" + zip + "', '" + streetAddress + "', '" + dob + "', '"
-                + fatherDeathAge + "', '" + motherDeathAge + "', " + cigsPerDay + ", '" + smokingHistory + "', "
-                + bloodsPressure + ", " + avegsFat + ", " + heartDisease + ", " + cancer + ", " + hospitalized + ", '"
-                + dangerousAct + "', " + agentsID + ", " + payoffAmounts + ", " + premiums + "";
+                "', '" + city + "', '" + state + "', '" + zip + "', '" + dob + "', '" + fatherDeathAge + "', '" 
+                + motherDeathAge + "', " + cigsPerDay + ", '" + smokingHistory + "', " + bloodsPressure + ", " 
+                + avegsFat + ", " + heartDisease + ", " + cancer + ", " + hospitalized + ", '" + dangerousAct + "', " 
+                + agentsID + ", " + payoffAmounts + ", " + premiums + "";
             SqlCommand command = new SqlCommand(query);
             command.Connection = conn;
             conn.Open();
@@ -105,9 +105,17 @@ namespace LIC_KIHD_MW
             command.ExecuteNonQuery();
             conn.Close();
         }
-        public void MakeClaim(Policy policy)
+        public void MakeClaim(string policyNum)
         {
+            String connectionString = LIC_KIHD_GUI.Properties.Settings.Default.SQL_connection;
+            SqlConnection conn = new SqlConnection(connectionString);
+            String query = "execute claim " + policyNum + "";
+            SqlCommand command = new SqlCommand(query);
+            command.Connection = conn;
+            conn.Open();
+            SqlDataReader reader = command.ExecuteReader();
 
+            conn.Close();
         }
         private Report SendReport(List<Policy> policy)
         {

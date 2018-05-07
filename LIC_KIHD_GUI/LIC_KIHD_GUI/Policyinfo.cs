@@ -78,8 +78,18 @@ namespace LIC_KIHD_GUI
 
         private void ViewBeneficiary_Click(object sender, EventArgs e)
         {
-            BeneficiaryPage beneficiary = new BeneficiaryPage();
+            LIC_KIHD_MW.Agent agent = new LIC_KIHD_MW.Agent("", "", "", "");
+            string[,] get = agent.beneficiaryName(label25.Text);
+            BeneficiaryPage beneficiary = new BeneficiaryPage(get);
             beneficiary.ShowDialog();
+        }
+
+        private void PaymentHistory_Click(object sender, EventArgs e)
+        {
+            LIC_KIHD_MW.Agent agent = new LIC_KIHD_MW.Agent("", "", "", "");
+            string[,] get = agent.getPayments(label25.Text);
+            PolicyHistory policyHis = new PolicyHistory(get);
+            policyHis.ShowDialog();
         }
     }
 }

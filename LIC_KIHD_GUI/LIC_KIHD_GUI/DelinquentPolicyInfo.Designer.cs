@@ -349,6 +349,7 @@
             this.PaymentHistory.TabIndex = 32;
             this.PaymentHistory.Text = "Payment History";
             this.PaymentHistory.UseVisualStyleBackColor = true;
+            this.PaymentHistory.Click += new System.EventHandler(this.PaymentHistory_Click);
             // 
             // ReportButton
             // 
