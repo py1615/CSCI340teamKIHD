@@ -188,8 +188,8 @@ namespace LIC_KIHD_MW
             String query = "execute get_inflation_rate '" + inflate + "'";
             SqlCommand command = new SqlCommand(query);
             command.Connection = conn;
-            SqlDataReader reader = command.ExecuteReader();
             conn.Open();
+            SqlDataReader reader = command.ExecuteReader();
             int row = 0;
             while (reader.Read())
             {
