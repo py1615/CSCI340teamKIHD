@@ -66,7 +66,7 @@ namespace LIC_KIHD_MW
                 {
                 for(int j = 0; j < multiplication.column; j++)
                     {
-                    for(int k = 0; k < n.column; k++)
+                    for(int k = 0; k < m.column; k++)
                         {
                         multiplication.data[i,j] += m.data[i,k]*n.data[k,j]; 
                         }
