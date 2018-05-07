@@ -57,6 +57,7 @@ namespace LIC_KIHD_GUI
 
         private void agentSearchButton_Click(object sender, EventArgs e)
         {
+            dataGridView1.Rows.Clear();
             string policyNumber = "null";
             string clientName = "null";
             string agentID = "null";
