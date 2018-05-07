@@ -231,7 +231,7 @@ GETDATE(),
 @policy_number,
 @payoff_amount,
 'C'
-WHERE @total < @payoff_amount
+WHERE @total < 0.05 * @payoff_amount + @payoff_amount
 END
 GO
 
