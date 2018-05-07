@@ -72,7 +72,7 @@ namespace LIC_KIHD_MW
             string smokingHistory, string bloodPressure, string avegGrams, string heartDisease, string cancer,
             string hospitalized, string dangerousAct, string payoffAmount, string premium,  string agentID)
         {
-            
+            return "";
         }
 
         public void Cancel(string policyNum)

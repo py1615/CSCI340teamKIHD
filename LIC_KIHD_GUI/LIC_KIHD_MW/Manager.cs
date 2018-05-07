@@ -97,7 +97,7 @@ namespace LIC_KIHD_MW
                     else if(typeof(DateTime) == (reader.GetFieldType(reader.GetOrdinal(colName[i]))))
                     {
                         DateTime day = reader.GetDateTime(reader.GetOrdinal(colName[i]));
-                        policyInfo[row, i] = day.ToString("yyyy/MM/dd);
+                        policyInfo[row, i] = day.ToString("yyyy/MM/dd");
                     }
                     else
                     {
