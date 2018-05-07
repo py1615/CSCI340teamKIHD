@@ -110,31 +110,26 @@ namespace LIC_KIHD_GUI
             this.ViewButton.UseColumnTextForButtonValue = true;
             this.ViewButton.Text = "View";
             LIC_KIHD_MW.Agent agent = new LIC_KIHD_MW.Agent("", "", "", "");
-            try
+            if (e.ColumnIndex == dataGridView1.Columns["ViewButton"].Index)
             {
-                if (e.ColumnIndex == dataGridView1.Columns["ViewButton"].Index)
+
+                policyN = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+                string[] searchInfo = agent.searchOnClick(policyN);
+                if (searchInfo[21] == "A")
                 {
-
-                    policyN = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
-                    string[] searchInfo = agent.searchOnClick(policyN);
-                    if(searchInfo[21] == "A")
-                    {
-                        Policyinfo infoPage = new Policyinfo(searchInfo, policyN);
-                        infoPage.ShowDialog();
-                    }
-                    else if(searchInfo[21] == "D")
-                    {
-                        DelinquentPolicyInfo delinquent = new DelinquentPolicyInfo(searchInfo, policyN);
-                        delinquent.ShowDialog();
-                    }
-                   
+                    Policyinfo infoPage = new Policyinfo(searchInfo, policyN);
+                    infoPage.ShowDialog();
                 }
-            }
-            catch(Exception ) 
-            {
+                else if (searchInfo[21] == "D")
+                {
+                    DelinquentPolicyInfo delinquent = new DelinquentPolicyInfo(searchInfo, policyN);
+                    delinquent.ShowDialog();
+                }
 
             }
-           
+
+
+
         }
 
         private void managerSearch_Load(object sender, EventArgs e)
