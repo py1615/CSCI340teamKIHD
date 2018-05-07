@@ -19,7 +19,7 @@ namespace LIC_KIHD_MW
             department = theDepartment;
             agentType = theAgentType;
         }
-        public virtual string[,] search(string policyNum, string clientName, string agentID)
+        public static string[,] search(string policyNum, string clientName, string agentID)
         {
             string thePolicyNum = policyNum;
             string firstName = "";
