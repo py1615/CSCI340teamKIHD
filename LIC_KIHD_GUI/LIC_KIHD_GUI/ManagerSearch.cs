@@ -59,7 +59,7 @@ namespace LIC_KIHD_GUI
         {
             dataGridView1.Rows.Clear();
             string policyNumber = "null";
-            string clientName = "null";
+            string clientName = "";
             string agentID = "null";
             if (string.IsNullOrEmpty(textBox1.Text) && string.IsNullOrEmpty(textBox2.Text) && string.IsNullOrEmpty(textBox3.Text))
             {
@@ -109,20 +109,43 @@ namespace LIC_KIHD_GUI
             string policyN;
             this.ViewButton.UseColumnTextForButtonValue = true;
             this.ViewButton.Text = "View";
-          
-            try
+            LIC_KIHD_MW.Agent agent = new LIC_KIHD_MW.Agent("", "", "", "");
+            /*try
             {
                 if (e.ColumnIndex == dataGridView1.Columns["View"].Index)
                 {
 
                     policyN = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
-                    Policyinfo infoPage = new Policyinfo(policyN);
-                    infoPage.ShowDialog();
+                    string[] searchInfo = agent.searchOnClick(policyN);
+                    if(searchInfo[21] == "A")
+                    {
+                        Policyinfo infoPage = new Policyinfo(searchInfo, policyN);
+                        infoPage.ShowDialog();
+                    }
+                    else if(searchInfo[21] == "D")
+                    {
+                        DelinquentPolicyInfo delinquent = new DelinquentPolicyInfo(searchInfo);
+                        delinquent.ShowDialog();
+                    }
+                   
                 }
             }
             catch(Exception ) 
             {
 
+            }*/
+           
+            policyN = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+            string[] searchInfo = agent.searchOnClick(policyN);
+            if (searchInfo[21] == "A")
+            {
+                Policyinfo infoPage = new Policyinfo(searchInfo, policyN);
+                infoPage.ShowDialog();
+            }
+            else if (searchInfo[21] == "D")
+            {
+                DelinquentPolicyInfo delinquent = new DelinquentPolicyInfo(searchInfo);
+                delinquent.ShowDialog();
             }
         }
 

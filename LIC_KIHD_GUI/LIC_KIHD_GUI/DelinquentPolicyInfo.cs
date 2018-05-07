@@ -12,7 +12,7 @@ namespace LIC_KIHD_GUI
 {
     public partial class DelinquentPolicyInfo : Form
     {
-        public DelinquentPolicyInfo()
+        public DelinquentPolicyInfo(string[] delin)
         {
             InitializeComponent();
         }
