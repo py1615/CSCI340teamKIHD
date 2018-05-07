@@ -105,7 +105,7 @@ namespace LIC_KIHD_MW
             double history = convertMonth(smokingHistory);
             double bloodP = Convert.ToDouble(bloodPressure);
             double avgFat = Convert.ToDouble(avgFatPerDay);
-            double heartD = Convert.ToDouble(HeartDisease);
+            double heartD = Convert.ToDouble(heartDisease);
             double cancer = Convert.ToDouble(theCancer);
             double hospital = Convert.ToDouble(hospitalized);
             double dangerAct = dangerousCount(dangerousAct);
