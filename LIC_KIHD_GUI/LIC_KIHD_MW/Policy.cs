@@ -67,13 +67,13 @@ namespace LIC_KIHD_MW
             PolicyNum = thePolicyNum;
         }
 
-        /*public String PolicyNumReg(string firstName, string lastName, string dob, string streetAddress,
+        public String PolicyNumReg(string firstName, string lastName, string dob, string streetAddress,
             string city, string state, string zip, string fatherDeathAge, string motherDeathAge, string cigPerDay,
             string smokingHistory, string bloodPressure, string avegGrams, string heartDisease, string cancer,
             string hospitalized, string dangerousAct, string payoffAmount, string premium,  string agentID)
         {
             
-        }*/
+        }
 
         public void Cancel(string policyNum)
         {
