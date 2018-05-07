@@ -89,38 +89,23 @@ namespace LIC_KIHD_MW
             {
                 for(int i = 0; i < RETURN_INFOM; i ++)
                 {
+                    if(reader.GetValue(reader.GetOrdinal(colName[i])) == null) policyInfo[row, i] = "null";
                     if (typeof(decimal) == (reader.GetFieldType(reader.GetOrdinal(colName[i]))))
                     {
-                        if(reader.GetDecimal(reader.GetOrdinal(colName[i])) == null)
-                        {
-                            policyInfo[row, i] = "null";
-                        }
                         decimal d = reader.GetDecimal(reader.GetOrdinal(colName[i]));
                         policyInfo[row, i] = "" + d;
                     }
                     else if(typeof(DateTime) == (reader.GetFieldType(reader.GetOrdinal(colName[i]))))
                     {
-                        if(reader.GetDateTime(reader.GetOrdinal(colName[i])) == null)
-                        {
-                            policyInfo[row, i] = "null";
-                        }
                         DateTime day = reader.GetDateTime(reader.GetOrdinal(colName[i]));
                         policyInfo[row, i] = day.ToString("yyyy/MM/dd");
                     }
                     else
                     {
-                        if(reader.GetString(reader.GetOrdinal(colName[i])) == null)
-                        {
-                            policyInfo[row, i] = "null";
-                        }
                         policyInfo[row, i] = reader.GetString(reader.GetOrdinal(colName[i]));
                         if (i == 1)
                         {
                             policyInfo[row, i] += " " + reader.GetString(reader.GetOrdinal("policy_holder_last_name"));
-                        }
-                        if(i == RETURN_INFOM - 1)
-                        {
-                            policyInfo[row, i] += " " + reader.GetString(reader.GetOrdinal("agent_last_name"));
                         }
                     }
                 }
