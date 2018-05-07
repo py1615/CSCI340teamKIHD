@@ -12,6 +12,7 @@ namespace LIC_KIHD_MW
         private readonly static int DATE = 30;
         private readonly static int MONTH = 12;
         private readonly static int HEALTH_RELATE = 10;
+        private readonly static double PROFIT_RATE = 1.1;
         private PolicyHolder insured;
         private string policyNum;
         private double payoffAmount;
@@ -94,7 +95,7 @@ namespace LIC_KIHD_MW
             Report rept = new Report();
             return rept;
         }
-        public double CalculatePremium(string payoffAmount, string dob, string fathersDeathAge, string mothersDeathAge, 
+        public double CalculatePremium(string payoffAmount, DateTime dob, string fathersDeathAge, string mothersDeathAge, 
             string cigPerDay, string smokingHistory, string bloodPressure, string avgFatPerDay, 
             string heartDisease, string theCancer, string hospitalized, string dangerousAct)
         {
@@ -127,6 +128,9 @@ namespace LIC_KIHD_MW
             {
                 row++;
             }
+            conn.Close();
+            conn.Open();
+            reader = command.ExecuteReader();
             Matrix D = new Matrix(row, HEALTH_RELATE + 1);
             Matrix y = new Matrix(row, 1);
             for(int i = 0; i < row; i ++)
@@ -141,13 +145,13 @@ namespace LIC_KIHD_MW
             {
                 D.setData(row, 1, convertMonth(reader.GetString(reader.GetOrdinal(colName[0]))));
                 D.setData(row, 2, convertMonth(reader.GetString(reader.GetOrdinal(colName[1]))));
-                D.setData(row, 3, Convert.ToDouble(reader.GetString(reader.GetOrdinal(colName[2]))));
+                D.setData(row, 3, (double)(reader.GetDecimal(reader.GetOrdinal(colName[2]))));
                 D.setData(row, 4, convertMonth(reader.GetString(reader.GetOrdinal(colName[3]))));
-                D.setData(row, 5, Convert.ToDouble(reader.GetString(reader.GetOrdinal(colName[4]))));
-                D.setData(row, 6, Convert.ToDouble(reader.GetString(reader.GetOrdinal(colName[5]))));
-                D.setData(row, 7, Convert.ToDouble(reader.GetString(reader.GetOrdinal(colName[6]))));
-                D.setData(row, 8, Convert.ToDouble(reader.GetString(reader.GetOrdinal(colName[7]))));
-                D.setData(row, 9, Convert.ToDouble(reader.GetString(reader.GetOrdinal(colName[8]))));
+                D.setData(row, 5, (double)(reader.GetDecimal(reader.GetOrdinal(colName[4]))));
+                D.setData(row, 6, (double)(reader.GetDecimal(reader.GetOrdinal(colName[5]))));
+                D.setData(row, 7, (double)(reader.GetDecimal(reader.GetOrdinal(colName[6]))));
+                D.setData(row, 8, (double)(reader.GetDecimal(reader.GetOrdinal(colName[7]))));
+                D.setData(row, 9, (double)(reader.GetDecimal(reader.GetOrdinal(colName[8]))));
                 D.setData(row, 10, dangerousCount(reader.GetString(reader.GetOrdinal(colName[9]))));
                 y.setData(row, 0, convertDate(reader.GetString(reader.GetOrdinal(colName[10])), 
                     reader.GetString(reader.GetOrdinal(colName[11]))));
@@ -155,16 +159,20 @@ namespace LIC_KIHD_MW
             }
             conn.Close();
             double ageOfDeath = PredictAgeAtDeath(D, y, client);
+            string startDate = dob.ToString("yyyy - MM - dd");
             string today = DateTime.Now.ToString("yyyy - MM - dd");
-            int restOfMonth = monthCount(dob, today, ageOfDeath);
-            double averageRate = averageInflationRate();
+            int restOfMonth = monthCount(startDate, today, ageOfDeath);
+            double rate = averageInflationRate() + 1;
             double premium = 0;
+            double payOff = Convert.ToDouble(payoffAmount);
+            payOff = payOff * PROFIT_RATE /(Math.Pow(rate, restOfMonth - 1));
+            double accumRate = 0;
             for(int i = 0; i < restOfMonth; i ++)
             {
-
+                accumRate += 1 / (Math.Pow(rate, i));
             }
-            double result = 0;
-            return result;
+            premium = payOff / accumRate;
+            return premium;
         }
 
         private double averageInflationRate()
@@ -182,6 +190,9 @@ namespace LIC_KIHD_MW
             {
                 row++;
             }
+            conn.Close();
+            conn.Open();
+            reader = command.ExecuteReader();
             double[] inflation = new double[row];
             row = 0;
             while (reader.Read())
@@ -223,7 +234,7 @@ namespace LIC_KIHD_MW
         private double convertDate(string dob, string eod)
         {
             string dobConvert = "";
-            string eodConvert = ""
+            string eodConvert = "";
 ;            for(int i = 0; i < dob.Length; i ++)
             {
                 if(dob[i] != ' ') dobConvert += dob[i];
