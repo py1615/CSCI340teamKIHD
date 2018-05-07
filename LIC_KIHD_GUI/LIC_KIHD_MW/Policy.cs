@@ -258,6 +258,7 @@ namespace LIC_KIHD_MW
 
         private double convertMonth(string c)
         {
+            if(c == "N/A") return 0;
             double convert = Convert.ToDouble(c);
             int data = (int)(convert);
             int year = data / MONTH_CONVERT;
