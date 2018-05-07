@@ -190,7 +190,7 @@ namespace LIC_KIHD_MW
             for (int j = 0; j < column - 1; ++j)
             {
                 int rowNum = -1;
-                for (int i = j; j < row; ++i)
+                for (int i = j; i < row; ++i)
                 {
                     if (augmented.getData(i, j) != 0)
                     {
