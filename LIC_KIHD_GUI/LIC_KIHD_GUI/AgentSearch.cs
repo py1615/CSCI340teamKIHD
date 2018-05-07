@@ -68,6 +68,9 @@ namespace LIC_KIHD_GUI
 
         private void agentSearchButton_Click(object sender, EventArgs e)
         {
+            string policyNumber = "null";
+            string clientName = "null";
+
             //DataTable table = new DataTable();
             if (string.IsNullOrEmpty(policyNumBox.Text) && string.IsNullOrEmpty(clientNameBox.Text))
             {
@@ -75,6 +78,14 @@ namespace LIC_KIHD_GUI
             }
             else
             {
+                if(!string.IsNullOrEmpty(policyNumBox.Text))
+                {
+                    policyNumber = policyNumBox.Text;
+                }
+                if (!string.IsNullOrEmpty(clientNameBox.Text))
+                {
+                    clientName = clientNameBox.Text;
+                }
                 string[,] searchResult = LIC_KIHD_MW.Agent.search(policyNumBox.Text, clientNameBox.Text, agentId);
 
                 if (searchResult != null)
