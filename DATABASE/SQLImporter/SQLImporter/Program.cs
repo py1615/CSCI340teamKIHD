@@ -136,6 +136,18 @@ namespace SQLImporter
                 else
                 {
                     SQLStatement += "'C'";
+                    String newSQLStatement = "UPDATE client_policy SET policy_status = 'I' WHERE policy_number = ";
+                    for (int i = 22; i < 52; ++i)
+                    {
+                        newSQLStatement += lineChars[i] + ";";
+                    }
+                    Connect(newSQLStatement);
+                    newSQLStatement = "UPDATE client_policy SET policy_end = GETDATE() WHERE policy_number = ";
+                    for (int i = 22; i < 52; ++i)
+                    {
+                        newSQLStatement += lineChars[i];
+                    }
+                    Connect(newSQLStatement + ";");
                 }
                 SQLStatement += ");";
                 Connect(SQLStatement);
