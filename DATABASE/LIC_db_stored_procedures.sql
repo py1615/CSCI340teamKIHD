@@ -69,7 +69,7 @@ CREATE PROCEDURE search (
 AS
 BEGIN
 SET NOCOUNT ON;
-SELECT policy_number, policy_holder.first_name, policy_holder.last_name, agent_id, dob, policy_start, payoff_amount, monthly_premium, policy_status, employee.first_name, employee.last_name
+SELECT policy_number, policy_holder.first_name AS policy_holder_first_name, policy_holder.last_name AS policy_holder_last_name, agent_id, dob, policy_start, payoff_amount, monthly_premium, policy_status, employee.first_name AS agent_first_name, employee.last_name AS agent_last_name
 FROM client_policy FULL OUTER JOIN policy_holder ON client_policy.policy_holder_id = policy_holder.policy_holder_id FULL OUTER JOIN employee ON agent_id = id
 WHERE policy_number = @policy_number OR policy_holder.first_name = @first_name OR policy_holder.last_name = @last_name OR agent_id = @agent_id
 END
@@ -81,7 +81,7 @@ AS
 BEGIN
 SET NOCOUNT ON;
 SELECT *
-FROM client_policy FULL OUTER JOIN policy_holder ON client_policy.policy_holder_id = policy_holder.policy_holder_id
+FROM client_policy FULL OUTER JOIN policy_holder ON client_policy.policy_holder_id = policy_holder.policy_holder_id FULL OUTER JOIN employee ON agent_id = id
 WHERE policy_number = @policy_number
 END
 GO
@@ -243,7 +243,7 @@ SELECT date_paid, amount
 FROM payments
 WHERE policy_number = @policy_number AND payment_type = 'P'
 DECLARE @total NUMERIC(10,2) = (SELECT SUM(amount) FROM payments)
-DECLARE @monthly_premium NUMERIC(10,2) = (SELECT SUM(Monthly_premium) FROM client_policy WHERE policy_number = @policy_number)
+DECLARE @monthly_premium NUMERIC(10,2) = (SELECT SUM(monthly_premium) FROM client_policy WHERE policy_number = @policy_number)
 DECLARE @number_of_months NUMERIC(8) = (SELECT DATEDIFF(MONTH, policy_start, GETDATE()) FROM client_policy WHERE policy_number = @policy_number)
 INSERT INTO delinquent (
 policy_number,
@@ -251,6 +251,6 @@ delinquency_date)
 SELECT
 @policy_number,
 GETDATE()
-WHERE @total < monthly_premium * @number_of_months
+WHERE @total < @monthly_premium * @number_of_months
 END
 GO
