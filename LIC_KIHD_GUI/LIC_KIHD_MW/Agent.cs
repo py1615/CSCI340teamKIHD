@@ -7,6 +7,7 @@ namespace LIC_KIHD_MW
 {
     class Agent
     {
+        private readonly static int POLICY_ARRAY_INDEX = 22;
         private readonly static int RETURN_INFO = 6;
         private string firstName;
         private string lastName;
@@ -24,8 +25,6 @@ namespace LIC_KIHD_MW
             string thePolicyNum = policyNum;
             string firstName = "";
             string lastName = "";
-            if(clientName != "null")
-            {
             int index = 0;
             for( int i = index; i < clientName.Length; i ++)
             {
@@ -39,11 +38,6 @@ namespace LIC_KIHD_MW
             {
                 char letter = clientName[i];
                 lastName += letter;
-            }
-            }else
-            {
-                firstName = "null";
-                lastName = "null";
             }
             string theAgentID = agentID;
             String connectionString = LIC_KIHD_GUI.Properties.Settings.Default.SQL_connection;
@@ -98,7 +92,7 @@ namespace LIC_KIHD_MW
             return policyInfo;
         }
 
-        /*public Policy searchOnClick(string policyNum)
+        public string[] searchOnClick(string policyNum)
         {
             String connectionString = LIC_KIHD_GUI.Properties.Settings.Default.SQL_connection;
             SqlConnection conn = new SqlConnection(connectionString);
@@ -107,13 +101,44 @@ namespace LIC_KIHD_MW
             command.Connection = conn;
             conn.Open();
             SqlDataReader reader = command.ExecuteReader();
+            string[] policyInfo = {"first_name", "last_name", "dob", "street_address", "city_address", "state_address", "zip_address", "fathers_age_of_death",
+                "mothers_age_of_death", "cigs_day", "smoking_history", "systolic_blood_pressure", "avg_grams_fat_day", "heart_disease", "cancer", "hospitalized",
+                "dangerous_activities", "policy_start", "policy_end", "payoff_amount", "monthly_premium", "policy_status"};
+            string[] policy = new string[policyInfo.Length];
             while (reader.Read())
             {
-                
+                for(int i = 0; i < POLICY_ARRAY_INDEX; i ++)
+                {
+                    if(reader.IsDBNull(reader.GetOrdinal(policyInfo[i])))
+                    {
+                        policy[i] = "null";
+                    }
+                    else if (typeof(decimal) == (reader.GetFieldType(reader.GetOrdinal(policyInfo[i]))))
+                    {
+                        decimal d = reader.GetDecimal(reader.GetOrdinal(policyInfo[i]));
+                        policy[i] = "" + d;
+                    }
+                    else if(typeof(DateTime) == (reader.GetFieldType(reader.GetOrdinal(policyInfo[i]))))
+                    {
+                        DateTime day = reader.GetDateTime(reader.GetOrdinal(policyInfo[i]));
+                        policy[i] = day.ToString("yyyy/MM/dd");
+                    }
+                    else if(typeof(Boolean) == (reader.GetFieldType(reader.GetOrdinal(policyInfo[i]))))
+                    {
+                        Boolean x = reader.GetBoolean(reader.GetOrdinal(policyInfo[i]));
+                        if(x)
+                        {
+                            policy[i] = "Yes";
+                        }else
+                        {
+                            policy[i] = "No";
+                        }
+                    }
+                }
             }
             conn.Close();
-            return policyInfo;
-        }*/
+            return policy;
+        }
 
         public static string login(string userName, string passWord)
         {

@@ -3,6 +3,7 @@
 --drop procedure register_user
 --drop procedure search
 --drop procedure search_on_click
+--drop procedure get_beneficiary
 --drop procedure register_policy
 --drop procedure add_beneficiary
 --drop procedure calculation_data
@@ -71,7 +72,7 @@ BEGIN
 SET NOCOUNT ON;
 SELECT policy_number, policy_holder.first_name AS policy_holder_first_name, policy_holder.last_name AS policy_holder_last_name, agent_id, dob, policy_start, payoff_amount, monthly_premium, policy_status, employee.first_name AS agent_first_name, employee.last_name AS agent_last_name
 FROM client_policy FULL OUTER JOIN policy_holder ON client_policy.policy_holder_id = policy_holder.policy_holder_id FULL OUTER JOIN employee ON agent_id = id
-WHERE policy_number = @policy_number OR policy_holder.first_name = @first_name OR policy_holder.last_name = @last_name OR agent_id = @agent_id
+WHERE policy_number = @policy_number OR (policy_holder.first_name = @first_name AND policy_holder.last_name = @last_name) OR agent_id = @agent_id OR (policy_holder.first_name = @first_name AND @last_name = '') OR (@first_name = '' AND policy_holder.last_name = @last_name)
 END
 GO
 
@@ -80,8 +81,49 @@ CREATE PROCEDURE search_on_click (
 AS
 BEGIN
 SET NOCOUNT ON;
-SELECT *
+SELECT
+policy_holder.policy_holder_id,
+policy_holder.first_name,
+policy_holder.last_name,
+street_address,
+city_address,
+state_address,
+zip_address,
+policy_number,
+dob,
+fathers_age_of_death,
+mothers_age_of_death,
+cigs_day,
+smoking_history,
+systolic_blood_pressure,
+avg_grams_fat_day,
+heart_disease,
+cancer ,
+hospitalized,
+dangerous_activities,
+policy_start,
+policy_end,
+agent_id,
+payoff_amount,
+monthly_premium,
+policy_status,
+username,
+employee.first_name AS agent_first_name,
+employee.last_name AS agent_last_name,
+user_type,
+department
 FROM client_policy FULL OUTER JOIN policy_holder ON client_policy.policy_holder_id = policy_holder.policy_holder_id FULL OUTER JOIN employee ON agent_id = id
+WHERE policy_number = @policy_number
+END
+GO
+
+CREATE PROCEDURE get_beneficiary (
+@policy_number VARCHAR(30))
+AS
+BEGIN
+SET NOCOUNT ON;
+SELECT *
+FROM beneficiary
 WHERE policy_number = @policy_number
 END
 GO
@@ -252,5 +294,8 @@ SELECT
 @policy_number,
 GETDATE()
 WHERE @total < @monthly_premium * @number_of_months
+UPDATE client_policy
+SET policy_status = 'D'
+WHERE policy_number = @policy_number
 END
 GO

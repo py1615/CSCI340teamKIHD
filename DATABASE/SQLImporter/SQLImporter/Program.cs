@@ -19,6 +19,7 @@ namespace SQLImporter
         [STAThread]
         static void Main()
         {
+            ImportInflation(@"..\..\..\InflationTable.txt");
             ImportUsers(@"..\..\..\User.txt");
             ImportPolicies(@"..\..\..\LifePolicy.txt");
             for (int i = 0; i < 7; ++i)
@@ -29,6 +30,41 @@ namespace SQLImporter
             //Application.EnableVisualStyles();
             //Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Form1());
+        }
+
+        static public void ImportInflation(String filepath)
+        {
+            String[] input = System.IO.File.ReadAllLines(filepath);
+            int year = 1913;
+            int month = 1;
+            foreach (String line in input)
+            {
+                String SQLStatement = "INSERT INTO ";
+
+                SQLStatement += "inflation (date_recorded, inflation) VALUES ('" + year + "/" + month + "/1', ";
+
+                char[] lineChars = line.ToCharArray();
+
+                for (int i = 0; i < lineChars.Length; ++i)
+                {
+                    if (lineChars[i] == ',')
+                    {
+                        SQLStatement += ")";
+                        Connect(SQLStatement);
+
+                        ++month;
+                        if (month == 13)
+                        {
+                            month = 1;
+                            ++year;
+                        }
+                        SQLStatement = "INSERT INTO inflation (date_recorded, inflation) VALUES ('" + year + "/" + month + "/1', ";
+                    } else
+                    {
+                        SQLStatement += lineChars[i];
+                    }
+                }
+            }
         }
 
         static public void ImportPayments(String filepath)
