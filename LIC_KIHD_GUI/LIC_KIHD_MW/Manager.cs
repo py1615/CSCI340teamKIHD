@@ -38,7 +38,7 @@ namespace LIC_KIHD_MW
             return id;
         }
 
-        public override string[,] search(string policyNum, string clientName, string agentID)
+        public static string[,] managerSearch(string policyNum, string clientName, string agentID)
         {
             string thePolicyNum = policyNum;
             string firstName = "";
