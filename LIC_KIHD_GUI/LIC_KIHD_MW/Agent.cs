@@ -69,7 +69,7 @@ namespace LIC_KIHD_MW
             {
                 for(int i = 0; i < RETURN_INFO; i ++)
                 {
-                    if(reader.IsDBNull(reader.GetOrdinal(colName[i])) == null) policyInfo[row, i] = "null";
+                    if(reader.IsDBNull(reader.GetOrdinal(colName[i]))) policyInfo[row, i] = "null";
                     if (typeof(decimal) == (reader.GetFieldType(reader.GetOrdinal(colName[i]))))
                     {
                         decimal d = reader.GetDecimal(reader.GetOrdinal(colName[i]));
