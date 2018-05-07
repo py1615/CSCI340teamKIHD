@@ -175,6 +175,45 @@ namespace LIC_KIHD_MW
             return beneficiary;
         }
 
+        public string[,] getPayments(string policyNum)
+        {
+            String connectionString = LIC_KIHD_GUI.Properties.Settings.Default.SQL_connection;
+            SqlConnection conn = new SqlConnection(connectionString);
+            String query = "execute get_payments " + policyNum + "";
+            SqlCommand command = new SqlCommand(query);
+            command.Connection = conn;
+            conn.Open();
+            SqlDataReader reader = command.ExecuteReader();
+            int row = 0;
+            while (reader.Read())
+            {
+                row ++;
+            }
+            conn.Close();
+            string[,] payment = new string[row, 2];
+            row = 0;
+            conn.Open();
+            string[] paymentInfo = {"date_paid", "amount"};
+            reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                for(int i = 0; i < paymentInfo.Length; i ++)
+                {
+                    if(typeof(DateTime) == (reader.GetFieldType(reader.GetOrdinal(paymentInfo[i]))))
+                    {
+                        DateTime day = reader.GetDateTime(reader.GetOrdinal(paymentInfo[i]));
+                        payment[row, i] = day.ToString();
+                    }else
+                    {
+                        payment[row, i] = reader.GetString(reader.GetOrdinal(paymentInfo[i]));
+                    }
+                }
+                row ++;
+            }
+            conn.Close();
+            return payment;
+        }
+
         public static string login(string userName, string passWord)
         {
             /*
