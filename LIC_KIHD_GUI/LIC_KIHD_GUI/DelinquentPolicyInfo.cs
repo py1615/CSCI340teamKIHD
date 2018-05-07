@@ -82,5 +82,10 @@ namespace LIC_KIHD_GUI
             PolicyHistory policyHis = new PolicyHistory(get);
             policyHis.ShowDialog();
         }
+
+        private void ReportButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

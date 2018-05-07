@@ -36,7 +36,7 @@ namespace LIC_KIHD_GUI
         private void registrationButton_Click(object sender, EventArgs e)
         {
             
-            PolicyRegistration policyRegiser = new PolicyRegistration();
+            PolicyRegistration policyRegiser = new PolicyRegistration(agentID);
             
             policyRegiser.ShowDialog();
         }
