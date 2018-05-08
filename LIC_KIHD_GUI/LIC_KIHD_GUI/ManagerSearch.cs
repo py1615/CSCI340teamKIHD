@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+
+    
 namespace LIC_KIHD_GUI
 {
     public partial class managerSearch : Form
@@ -17,6 +20,7 @@ namespace LIC_KIHD_GUI
         {
             InitializeComponent();
             agentID = id;
+            
         }
 
         private void logOutButton_Click(object sender, EventArgs e)

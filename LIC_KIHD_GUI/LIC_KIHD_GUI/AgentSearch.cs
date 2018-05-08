@@ -36,10 +36,11 @@ namespace LIC_KIHD_GUI
         private void logOutButton_Click(object sender, EventArgs e)
         {
             MessageBox.Show(String.Format("You are successfully logged out"));
-            Hide();
+            
             loginPage login = new loginPage();
-            login.Closed += (s, arges) => this.Close();
-            login.Show();
+
+            login.ShowDialog();
+            this.Close();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -131,6 +132,10 @@ namespace LIC_KIHD_GUI
         {
 
         }
-        
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
