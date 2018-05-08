@@ -33,7 +33,7 @@ namespace LIC_KIHD_MW
             string id = "";
             while (reader.Read())
             {
-                id = "" + reader.GetDecimal(reader.GetOrdinal("agent_id"));
+                id = "" + reader.GetString(reader.GetOrdinal("agent_id"));
             }
             conn.Close();
             return id;
