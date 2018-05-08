@@ -60,6 +60,7 @@ namespace LIC_KIHD_GUI
             {
                 po.Cancel(policynumber);
                 MessageBox.Show("Policy has been cancelled successfully");// If 'Yes', do something here.
+                label47.Text = "C";
             }
             else
             {
@@ -90,6 +91,11 @@ namespace LIC_KIHD_GUI
         }
 
         private void ReportButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label47_Click(object sender, EventArgs e)
         {
 
         }

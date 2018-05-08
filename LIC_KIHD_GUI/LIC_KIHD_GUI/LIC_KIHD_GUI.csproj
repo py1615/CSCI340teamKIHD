@@ -69,6 +69,12 @@
     <Compile Include="DelinquentPolicyInfo.Designer.cs">
       <DependentUpon>DelinquentPolicyInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="InactivePolicy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InactivePolicy.Designer.cs">
+      <DependentUpon>InactivePolicy.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +130,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DelinquentPolicyInfo.resx">
       <DependentUpon>DelinquentPolicyInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InactivePolicy.resx">
+      <DependentUpon>InactivePolicy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginPage.resx">
       <DependentUpon>LoginPage.cs</DependentUpon>

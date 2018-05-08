@@ -45,8 +45,8 @@ namespace LIC_KIHD_GUI
             payoffA = payoff;
             PolicyStart.Text = DateTime.Now.ToString();
             MonthlyPremium.Text = "$" + premium;
-            monthPremium = premium;
-     
+            //monthPremium = premium;
+            monthPremium = "100";
             agentID = agent;
             hd = hdpass;
             ca = cancerpass;
@@ -60,8 +60,14 @@ namespace LIC_KIHD_GUI
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
-            
-            this.Close();
+            var confirmResult = MessageBox.Show("Are you sure you want to quit this page?",
+                                        "Caution",
+                                        MessageBoxButtons.YesNo);
+            if (confirmResult == DialogResult.Yes)
+            {
+                this.Close();
+
+            }
         }
 
         private void label30_Click(object sender, EventArgs e)

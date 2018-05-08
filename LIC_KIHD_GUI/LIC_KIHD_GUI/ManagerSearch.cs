@@ -125,6 +125,11 @@ namespace LIC_KIHD_GUI
                     DelinquentPolicyInfo delinquent = new DelinquentPolicyInfo(searchInfo, policyN);
                     delinquent.ShowDialog();
                 }
+                else if (searchInfo[21] == "C")
+                {
+                    InactivePolicy inactive = new InactivePolicy(searchInfo, policyN);
+                    inactive.ShowDialog();
+                }
 
             }
 
