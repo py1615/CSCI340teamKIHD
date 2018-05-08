@@ -368,7 +368,15 @@ namespace LIC_KIHD_GUI
 
         private void returnButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            var confirmResult = MessageBox.Show("Are you sure you want to quit this page?",
+                                        "Caution",
+                                        MessageBoxButtons.YesNo);
+            if (confirmResult == DialogResult.Yes)
+            {
+                this.Close();
+              
+            }
+     
         }
 
         private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)

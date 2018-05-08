@@ -38,7 +38,7 @@ namespace LIC_KIHD_GUI
             label44.Text = policy[18];
             label45.Text = policy[19];
             label46.Text = policy[20];
-            label47.Text = policy[21];
+            label47.Text = policy[22];
   
            
 
@@ -94,7 +94,12 @@ namespace LIC_KIHD_GUI
 
         private void buttonClaim_Click(object sender, EventArgs e)
         {
+            LIC_KIHD_MW.Address addre = new LIC_KIHD_MW.Address("", "", "", "");
+            LIC_KIHD_MW.PolicyHolder holder = new LIC_KIHD_MW.PolicyHolder("", "", "", addre);
+            LIC_KIHD_MW.Beneficiary BENE = new LIC_KIHD_MW.Beneficiary("", "");
+            LIC_KIHD_MW.Policy po = new LIC_KIHD_MW.Policy(holder, "", 1, 1, 1, 1, 1, 1, 1, "", "", "", "", BENE, "");
 
+            po.MakeClaim(label25.Text);
         }
     }
 }

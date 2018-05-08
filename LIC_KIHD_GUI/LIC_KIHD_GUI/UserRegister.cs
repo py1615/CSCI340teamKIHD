@@ -120,20 +120,7 @@ namespace LIC_KIHD_GUI
 
         private void UserNameBox_TextChanged(object sender, EventArgs e)
         {
-            string tString = UserNameBox.Text;
-            if (tString.Trim() == "") return;
-            for (int i = 0; i < tString.Length; i++)
-            {
-                if (!char.IsLetter(tString[i]))
-                {
-                    errorProvider1.SetError(UserNameBox, "Please enter a valid information");//MessageBox.Show("Please enter a valid information");     
-                    
-                }
-                else if (string.IsNullOrEmpty(tString))
-                {
-                    errorProvider1.SetError(UserNameBox, "");
-                }
-            }
+          
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

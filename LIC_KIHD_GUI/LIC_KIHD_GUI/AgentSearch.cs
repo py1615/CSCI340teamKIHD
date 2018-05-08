@@ -49,13 +49,28 @@ namespace LIC_KIHD_GUI
             string policyN = "";  //need MW
             View.Text = "View";
             View.UseColumnTextForButtonValue = true;
-            if(e.ColumnIndex == dataGridView1.Columns["View"].Index )
+
+            if (e.ColumnIndex == dataGridView1.Columns["View"].Index)
             {
- 
+
                 policyN = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
                 string[] searchInfo = agent.searchOnClick(policyN);
-                Policyinfo infoPage = new Policyinfo(searchInfo, policyN);
-                infoPage.ShowDialog();
+                if (searchInfo[21] == "A")
+                {
+                    Policyinfo infoPage = new Policyinfo(searchInfo, policyN);
+                    infoPage.ShowDialog();
+                }
+                else if (searchInfo[21] == "D")
+                {
+                    DelinquentPolicyInfo delinquent = new DelinquentPolicyInfo(searchInfo, policyN);
+                    delinquent.ShowDialog();
+                }
+                else if (searchInfo[21] == "C")
+                {
+                    InactivePolicy inactive = new InactivePolicy(searchInfo, policyN);
+                    inactive.ShowDialog();
+                }
+
             }
 
         }
