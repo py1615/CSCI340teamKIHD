@@ -45,8 +45,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.PolicyNumTitle = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
@@ -58,8 +56,6 @@
             this.buttonClaim = new System.Windows.Forms.Button();
             this.PaymentHistory = new System.Windows.Forms.Button();
             this.ReportButton = new System.Windows.Forms.Button();
-            this.label49 = new System.Windows.Forms.Label();
-            this.label48 = new System.Windows.Forms.Label();
             this.label47 = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
             this.label45 = new System.Windows.Forms.Label();
@@ -240,24 +236,6 @@
             this.PolicyNumTitle.TabIndex = 6;
             this.PolicyNumTitle.Text = "Policy Number:";
             // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(225, 840);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(151, 19);
-            this.label24.TabIndex = 23;
-            this.label24.Text = "Beneficiary First Name:";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(225, 870);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(150, 19);
-            this.label23.TabIndex = 24;
-            this.label23.Text = "Beneficiary Last Name:";
-            // 
             // label21
             // 
             this.label21.AutoSize = true;
@@ -361,24 +339,6 @@
             this.ReportButton.UseVisualStyleBackColor = true;
             this.ReportButton.Click += new System.EventHandler(this.ReportButton_Click);
             // 
-            // label49
-            // 
-            this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(645, 862);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(53, 19);
-            this.label49.TabIndex = 59;
-            this.label49.Text = "label49";
-            // 
-            // label48
-            // 
-            this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(645, 832);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(53, 19);
-            this.label48.TabIndex = 58;
-            this.label48.Text = "label48";
-            // 
             // label47
             // 
             this.label47.AutoSize = true;
@@ -388,6 +348,7 @@
             this.label47.Size = new System.Drawing.Size(53, 19);
             this.label47.TabIndex = 57;
             this.label47.Text = "label47";
+            this.label47.Click += new System.EventHandler(this.label47_Click);
             // 
             // label46
             // 
@@ -607,8 +568,6 @@
             this.ClientSize = new System.Drawing.Size(1213, 853);
             this.Controls.Add(this.viewBeneficiary);
             this.Controls.Add(this.label25);
-            this.Controls.Add(this.label49);
-            this.Controls.Add(this.label48);
             this.Controls.Add(this.label47);
             this.Controls.Add(this.label46);
             this.Controls.Add(this.label45);
@@ -636,8 +595,6 @@
             this.Controls.Add(this.buttonClaim);
             this.Controls.Add(this.PaymentHistory);
             this.Controls.Add(this.ReturnButton);
-            this.Controls.Add(this.label24);
-            this.Controls.Add(this.label23);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.label20);
@@ -690,8 +647,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label PolicyNumTitle;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label20;
@@ -703,8 +658,6 @@
         private System.Windows.Forms.Button buttonClaim;
         private System.Windows.Forms.Button PaymentHistory;
         private System.Windows.Forms.Button ReportButton;
-        private System.Windows.Forms.Label label49;
-        private System.Windows.Forms.Label label48;
         private System.Windows.Forms.Label label47;
         private System.Windows.Forms.Label label46;
         private System.Windows.Forms.Label label45;

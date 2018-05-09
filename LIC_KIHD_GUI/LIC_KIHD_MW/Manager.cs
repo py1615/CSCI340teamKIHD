@@ -33,31 +33,19 @@ namespace LIC_KIHD_MW
             string id = "";
             while (reader.Read())
             {
-                id = "" + reader.GetDecimal(reader.GetOrdinal("agent_id"));
+                id = "" + reader.GetString(reader.GetOrdinal("id"));
             }
             conn.Close();
             return id;
         }
 
-        public string[,] managerSearch(string policyNum, string clientName, string agentID)
+        public string[,] managerSearch(string policyNum, string clientFirstName, string clientLastName, string agentID)//string agentFirstName, string agentLastName)
         {
             string thePolicyNum = policyNum;
-            string firstName = "";
-            string lastName = "";
-            int index = 0;
-            for( int i = index; i < clientName.Length; i ++)
-            {
-                index = i;
-                if (clientName[i] == ' ') break;
-                char letter = clientName[i];
-                firstName += letter;
-            }
-            index++;
-            for(int i = index; i < clientName.Length; i ++)
-            {
-                char letter = clientName[i];
-                lastName += letter;
-            }
+            string theClientFirstName = clientFirstName;
+            string theClientLastName = clientLastName;
+            string agentFirstName = "";
+            string agentLastName = "";
             string theAgentID = agentID;
             String connectionString = LIC_KIHD_GUI.Properties.Settings.Default.SQL_connection;
             SqlConnection conn = new SqlConnection(connectionString);
@@ -74,13 +62,13 @@ namespace LIC_KIHD_MW
             conn.Close();
             conn.Open();
             reader = command.ExecuteReader();
-            string[,] policyInfo = new string[row,RETURN_INFOM];
+            string[,] policyInfo = new string[row,RETURN_INFO];
             row = 0;
             string[] colName = {"policy_number", "policy_holder_first_name", "dob", "policy_start", "payoff_amount", 
-                "monthly_premium", "policy_status", "agent_id", "agent_first_name"};
+                "monthly_premium"};
             while (reader.Read())
             {
-                for(int i = 0; i < RETURN_INFOM; i ++)
+                for(int i = 0; i < RETURN_INFO; i ++)
                 {
                     if(reader.IsDBNull(reader.GetOrdinal(colName[i])))
                     {

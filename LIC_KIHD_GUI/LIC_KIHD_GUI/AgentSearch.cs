@@ -36,10 +36,11 @@ namespace LIC_KIHD_GUI
         private void logOutButton_Click(object sender, EventArgs e)
         {
             MessageBox.Show(String.Format("You are successfully logged out"));
-            Hide();
+            
             loginPage login = new loginPage();
-            login.Closed += (s, arges) => this.Close();
-            login.Show();
+
+            login.ShowDialog();
+            this.Close();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -49,13 +50,28 @@ namespace LIC_KIHD_GUI
             string policyN = "";  //need MW
             View.Text = "View";
             View.UseColumnTextForButtonValue = true;
-            if(e.ColumnIndex == dataGridView1.Columns["View"].Index )
+
+            if (e.ColumnIndex == dataGridView1.Columns["View"].Index)
             {
- 
+
                 policyN = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
                 string[] searchInfo = agent.searchOnClick(policyN);
-                Policyinfo infoPage = new Policyinfo(searchInfo, policyN);
-                infoPage.ShowDialog();
+                if (searchInfo[21] == "A")
+                {
+                    Policyinfo infoPage = new Policyinfo(searchInfo, policyN);
+                    infoPage.ShowDialog();
+                }
+                else if (searchInfo[21] == "D")
+                {
+                    DelinquentPolicyInfo delinquent = new DelinquentPolicyInfo(searchInfo, policyN);
+                    delinquent.ShowDialog();
+                }
+                else if (searchInfo[21] == "C")
+                {
+                    InactivePolicy inactive = new InactivePolicy(searchInfo, policyN);
+                    inactive.ShowDialog();
+                }
+
             }
 
         }
@@ -116,6 +132,10 @@ namespace LIC_KIHD_GUI
         {
 
         }
-        
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

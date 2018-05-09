@@ -114,7 +114,15 @@ namespace LIC_KIHD_MW
             command.Connection = conn;
             conn.Open();
             SqlDataReader reader = command.ExecuteReader();
-
+            string[] claimInfo = {"total_with_inflation", "payoff_amount"};
+            decimal[] claim = new decimal[claimInfo.Length];
+            while(reader.Read())
+            {
+                for(int i = 0; i < claimInfo.Length; i ++)
+                {
+                    claim[i] = reader.GetDecimal(reader.GetOrdinal(claimInfo[2]));
+                }
+            }
             conn.Close();
         }
         private Report SendReport(List<Policy> policy)

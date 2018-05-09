@@ -70,7 +70,6 @@
             this.PolicyStart = new System.Windows.Forms.Label();
             this.PayoffAmount = new System.Windows.Forms.Label();
             this.MonthlyPremium = new System.Windows.Forms.Label();
-            this.PolicyNumber = new System.Windows.Forms.Label();
             this.comfirm = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -258,11 +257,11 @@
             // 
             this.PolicyNumTitle.AutoSize = true;
             this.PolicyNumTitle.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PolicyNumTitle.Location = new System.Drawing.Point(417, 73);
+            this.PolicyNumTitle.Location = new System.Drawing.Point(458, 66);
             this.PolicyNumTitle.Name = "PolicyNumTitle";
-            this.PolicyNumTitle.Size = new System.Drawing.Size(163, 27);
+            this.PolicyNumTitle.Size = new System.Drawing.Size(195, 27);
             this.PolicyNumTitle.TabIndex = 30;
-            this.PolicyNumTitle.Text = "Policy Number:";
+            this.PolicyNumTitle.Text = "Policy Registration";
             // 
             // cancelButton
             // 
@@ -457,17 +456,6 @@
             this.MonthlyPremium.Text = "$120";
             this.MonthlyPremium.Click += new System.EventHandler(this.MonthlyPremium_Click);
             // 
-            // PolicyNumber
-            // 
-            this.PolicyNumber.AutoSize = true;
-            this.PolicyNumber.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PolicyNumber.Location = new System.Drawing.Point(635, 73);
-            this.PolicyNumber.Name = "PolicyNumber";
-            this.PolicyNumber.Size = new System.Drawing.Size(82, 27);
-            this.PolicyNumber.TabIndex = 57;
-            this.PolicyNumber.Text = "label25";
-            this.PolicyNumber.Click += new System.EventHandler(this.PolicyNumber_Click);
-            // 
             // comfirm
             // 
             this.comfirm.Location = new System.Drawing.Point(263, 857);
@@ -486,7 +474,6 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1230, 811);
             this.Controls.Add(this.comfirm);
-            this.Controls.Add(this.PolicyNumber);
             this.Controls.Add(this.MonthlyPremium);
             this.Controls.Add(this.PayoffAmount);
             this.Controls.Add(this.PolicyStart);
@@ -583,7 +570,6 @@
         private System.Windows.Forms.Label PolicyStart;
         private System.Windows.Forms.Label PayoffAmount;
         private System.Windows.Forms.Label MonthlyPremium;
-        private System.Windows.Forms.Label PolicyNumber;
         private System.Windows.Forms.Button comfirm;
     }
 }
