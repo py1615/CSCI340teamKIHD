@@ -50,7 +50,10 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ViewButton = new System.Windows.Forms.DataGridViewButtonColumn();
             this.UserRegistrationButton = new System.Windows.Forms.Button();
-            this.warning = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.BarForAgentLastN = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.barForClientLastN = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,7 +61,7 @@
             // 
             this.logOutButton.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.logOutButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.logOutButton.Location = new System.Drawing.Point(1181, 13);
+            this.logOutButton.Location = new System.Drawing.Point(1189, 13);
             this.logOutButton.Margin = new System.Windows.Forms.Padding(4);
             this.logOutButton.Name = "logOutButton";
             this.logOutButton.Size = new System.Drawing.Size(103, 43);
@@ -71,7 +74,7 @@
             // 
             this.registrationButton.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.registrationButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.registrationButton.Location = new System.Drawing.Point(990, 13);
+            this.registrationButton.Location = new System.Drawing.Point(998, 13);
             this.registrationButton.Margin = new System.Windows.Forms.Padding(4);
             this.registrationButton.Name = "registrationButton";
             this.registrationButton.Size = new System.Drawing.Size(183, 43);
@@ -84,7 +87,7 @@
             // 
             this.agentSearchButton.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.agentSearchButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.agentSearchButton.Location = new System.Drawing.Point(363, 405);
+            this.agentSearchButton.Location = new System.Drawing.Point(367, 405);
             this.agentSearchButton.Margin = new System.Windows.Forms.Padding(4);
             this.agentSearchButton.Name = "agentSearchButton";
             this.agentSearchButton.Size = new System.Drawing.Size(103, 38);
@@ -96,16 +99,17 @@
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.textBox2.Location = new System.Drawing.Point(553, 278);
+            this.textBox2.Location = new System.Drawing.Point(553, 206);
             this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(240, 26);
             this.textBox2.TabIndex = 9;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.textBox1.Location = new System.Drawing.Point(553, 208);
+            this.textBox1.Location = new System.Drawing.Point(553, 169);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(240, 26);
@@ -116,19 +120,19 @@
             this.ClientName.AutoSize = true;
             this.ClientName.Font = new System.Drawing.Font("Times New Roman", 12F);
             this.ClientName.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.ClientName.Location = new System.Drawing.Point(359, 348);
+            this.ClientName.Location = new System.Drawing.Point(363, 289);
             this.ClientName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ClientName.Name = "ClientName";
-            this.ClientName.Size = new System.Drawing.Size(88, 19);
+            this.ClientName.Size = new System.Drawing.Size(119, 19);
             this.ClientName.TabIndex = 7;
-            this.ClientName.Text = "Client Name:";
+            this.ClientName.Text = "Client First Name:";
             // 
             // policyNumber
             // 
             this.policyNumber.AutoSize = true;
             this.policyNumber.Font = new System.Drawing.Font("Times New Roman", 12F);
             this.policyNumber.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.policyNumber.Location = new System.Drawing.Point(359, 208);
+            this.policyNumber.Location = new System.Drawing.Point(363, 169);
             this.policyNumber.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.policyNumber.Name = "policyNumber";
             this.policyNumber.Size = new System.Drawing.Size(103, 19);
@@ -143,7 +147,7 @@
             this.managerSearchTitle.AutoSize = true;
             this.managerSearchTitle.Font = new System.Drawing.Font("Times New Roman", 19.8F);
             this.managerSearchTitle.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.managerSearchTitle.Location = new System.Drawing.Point(447, 110);
+            this.managerSearchTitle.Location = new System.Drawing.Point(473, 95);
             this.managerSearchTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.managerSearchTitle.Name = "managerSearchTitle";
             this.managerSearchTitle.Size = new System.Drawing.Size(196, 31);
@@ -154,17 +158,17 @@
             // 
             this.agentName.AutoSize = true;
             this.agentName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.agentName.Location = new System.Drawing.Point(359, 278);
+            this.agentName.Location = new System.Drawing.Point(363, 209);
             this.agentName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.agentName.Name = "agentName";
-            this.agentName.Size = new System.Drawing.Size(86, 19);
+            this.agentName.Size = new System.Drawing.Size(117, 19);
             this.agentName.TabIndex = 13;
-            this.agentName.Text = "Agent Name";
+            this.agentName.Text = "Agent First Name";
             // 
             // textBox3
             // 
             this.textBox3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(553, 348);
+            this.textBox3.Location = new System.Drawing.Point(553, 284);
             this.textBox3.Margin = new System.Windows.Forms.Padding(4);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(240, 26);
@@ -185,7 +189,7 @@
             this.Column2,
             this.Column3,
             this.ViewButton});
-            this.dataGridView1.Location = new System.Drawing.Point(-6, 451);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 451);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
@@ -261,7 +265,7 @@
             // 
             // UserRegistrationButton
             // 
-            this.UserRegistrationButton.Location = new System.Drawing.Point(822, 13);
+            this.UserRegistrationButton.Location = new System.Drawing.Point(830, 13);
             this.UserRegistrationButton.Name = "UserRegistrationButton";
             this.UserRegistrationButton.Size = new System.Drawing.Size(161, 43);
             this.UserRegistrationButton.TabIndex = 16;
@@ -269,25 +273,48 @@
             this.UserRegistrationButton.UseVisualStyleBackColor = true;
             this.UserRegistrationButton.Click += new System.EventHandler(this.UserRegistrationButton_Click);
             // 
-            // warning
+            // label1
             // 
-            this.warning.AutoSize = true;
-            this.warning.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.warning.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.warning.Location = new System.Drawing.Point(801, 353);
-            this.warning.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.warning.Name = "warning";
-            this.warning.Size = new System.Drawing.Size(113, 15);
-            this.warning.TabIndex = 17;
-            this.warning.Text = "(Example: John Eric)";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(363, 249);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(116, 19);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Agent Last Name";
+            // 
+            // BarForAgentLastN
+            // 
+            this.BarForAgentLastN.Location = new System.Drawing.Point(553, 246);
+            this.BarForAgentLastN.Name = "BarForAgentLastN";
+            this.BarForAgentLastN.Size = new System.Drawing.Size(240, 26);
+            this.BarForAgentLastN.TabIndex = 19;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(363, 329);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(115, 19);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "Client Last Name";
+            // 
+            // barForClientLastN
+            // 
+            this.barForClientLastN.Location = new System.Drawing.Point(553, 326);
+            this.barForClientLastN.Name = "barForClientLastN";
+            this.barForClientLastN.Size = new System.Drawing.Size(240, 26);
+            this.barForClientLastN.TabIndex = 21;
             // 
             // managerSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(1297, 974);
-            this.Controls.Add(this.warning);
+            this.ClientSize = new System.Drawing.Size(1305, 974);
+            this.Controls.Add(this.barForClientLastN);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.BarForAgentLastN);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.UserRegistrationButton);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.textBox3);
@@ -325,7 +352,6 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button UserRegistrationButton;
-        private System.Windows.Forms.Label warning;
         private System.Windows.Forms.DataGridViewTextBoxColumn P;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
@@ -336,5 +362,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewButtonColumn ViewButton;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox BarForAgentLastN;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox barForClientLastN;
     }
 }

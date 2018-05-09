@@ -17,9 +17,11 @@ CREATE PROCEDURE get_login (
 AS
 BEGIN
 SET NOCOUNT ON;
+
 SELECT user_type
 FROM employee
-WHERE id = @id and employee_password = @password
+WHERE id = @id and employee_password = @password;
+
 END
 GO
 
@@ -28,12 +30,15 @@ CREATE PROCEDURE cancel (
 AS
 BEGIN
 SET NOCOUNT ON;
+
 UPDATE client_policy
 SET policy_status = 'C'
-WHERE policy_number = @policy_number
+WHERE policy_number = @policy_number;
+
 UPDATE client_policy
 SET policy_end = GETDATE()
-WHERE policy_number = @policy_number
+WHERE policy_number = @policy_number;
+
 END
 GO
 
@@ -47,6 +52,7 @@ CREATE PROCEDURE register_user (
 AS
 BEGIN
 SET NOCOUNT ON;
+
 INSERT INTO employee (
 username,
 first_name,
@@ -60,8 +66,10 @@ VALUES (
 @last_name,
 @password,
 @user_type,
-@department)
+@department);
+
 SELECT CONVERT(VARCHAR(20), SCOPE_IDENTITY()) AS id;
+
 END
 GO
 
@@ -73,9 +81,28 @@ CREATE PROCEDURE search (
 AS
 BEGIN
 SET NOCOUNT ON;
-SELECT policy_number, policy_holder.first_name AS policy_holder_first_name, policy_holder.last_name AS policy_holder_last_name, agent_id, dob, policy_start, payoff_amount, monthly_premium, policy_status, employee.first_name AS agent_first_name, employee.last_name AS agent_last_name
+
+SELECT
+policy_number,
+policy_holder.first_name AS policy_holder_first_name,
+policy_holder.last_name AS policy_holder_last_name,
+agent_id,
+dob,
+policy_start,
+payoff_amount,
+monthly_premium,
+policy_status,
+employee.first_name AS agent_first_name,
+employee.last_name AS agent_last_name
 FROM client_policy FULL OUTER JOIN policy_holder ON client_policy.policy_holder_id = policy_holder.policy_holder_id FULL OUTER JOIN employee ON agent_id = id
-WHERE policy_number = @policy_number OR agent_id = @agent_id OR ((policy_holder.first_name = @first_name AND policy_holder.last_name = @last_name) OR (policy_holder.first_name = @first_name AND @last_name = '') OR (@first_name = '' AND policy_holder.last_name = @last_name))
+WHERE policy_number = @policy_number
+OR (policy_number = @policy_number OR @policy_number = null)
+AND (agent_id = @agent_id OR @agent_id = null)
+AND ((policy_holder.first_name LIKE '%' + @first_name + '%' AND policy_holder.last_name LIKE '%' + @last_name + '%')
+OR (policy_holder.first_name LIKE '%' + @first_name + '%' AND @last_name = '')
+OR (@first_name = '' AND policy_holder.last_name LIKE '%' + @last_name + '%')
+OR (@first_name = '' AND @last_name = ''));
+
 END
 GO
 
@@ -84,15 +111,17 @@ CREATE PROCEDURE search_on_click (
 AS
 BEGIN
 SET NOCOUNT ON;
+
 SELECT
 policy_holder.policy_holder_id,
-policy_holder.first_name,
-policy_holder.last_name,
+policy_holder.first_name AS policy_holder_first_name,
+policy_holder.last_name AS policy_holder_first_name,
 street_address,
 city_address,
 state_address,
 zip_address,
 policy_number,
+
 dob,
 fathers_age_of_death,
 mothers_age_of_death,
@@ -116,7 +145,8 @@ employee.last_name AS agent_last_name,
 user_type,
 department
 FROM client_policy FULL OUTER JOIN policy_holder ON client_policy.policy_holder_id = policy_holder.policy_holder_id FULL OUTER JOIN employee ON agent_id = id
-WHERE policy_number = @policy_number
+WHERE policy_number = @policy_number;
+
 END
 GO
 
@@ -125,9 +155,11 @@ CREATE PROCEDURE get_beneficiary (
 AS
 BEGIN
 SET NOCOUNT ON;
+
 SELECT *
 FROM beneficiary
-WHERE policy_number = @policy_number
+WHERE policy_number = @policy_number;
+
 END
 GO
 
@@ -156,6 +188,7 @@ CREATE PROCEDURE register_policy (
 AS
 BEGIN
 SET NOCOUNT ON;
+
 INSERT INTO policy_holder (
 first_name,
 last_name,
@@ -170,6 +203,7 @@ VALUES (
 @city_address,
 @state_address,
 @zip_address);
+
 INSERT INTO client_policy (
 policy_holder_id,
 dob,
@@ -206,7 +240,9 @@ GETDATE(),
 @payoff_amount,
 @monthly_premium,
 'A');
-SELECT SCOPE_IDENTITY() AS policy_number
+
+SELECT SCOPE_IDENTITY() AS policy_number;
+
 END
 GO
 
@@ -217,6 +253,7 @@ CREATE PROCEDURE add_beneficiary (
 AS
 BEGIN
 SET NOCOUNT ON;
+
 INSERT INTO beneficiary (
 policy_number,
 first_name,
@@ -224,7 +261,8 @@ last_name)
 VALUES (
 @policy_number,
 @first_name,
-@last_name)
+@last_name);
+
 END
 GO
 
@@ -232,9 +270,22 @@ CREATE PROCEDURE calculation_data
 AS
 BEGIN
 SET NOCOUNT ON;
-SELECT dob, fathers_age_of_death, mothers_age_of_death, cigs_day, smoking_history, systolic_blood_pressure, avg_grams_fat_day, heart_disease, cancer, hospitalized, dangerous_activities, policy_end
-FROM client_policy FULL OUTER JOIN policy_holder ON client_policy.policy_holder_id = policy_holder.policy_holder_id FULL OUTER JOIN payments ON client_policy.policy_number = payments.policy_number
-WHERE payment_type = 'C'
+
+SELECT
+dob,
+fathers_age_of_death,
+mothers_age_of_death,
+cigs_day, smoking_history,
+systolic_blood_pressure,
+avg_grams_fat_day,
+heart_disease, cancer,
+hospitalized,
+dangerous_activities,
+policy_end
+FROM client_policy FULL OUTER JOIN policy_holder ON client_policy.policy_holder_id = policy_holder.policy_holder_id
+FULL OUTER JOIN payments ON client_policy.policy_number = payments.policy_number
+WHERE payment_type = 'C';
+
 END
 GO
 
@@ -243,6 +294,7 @@ CREATE PROCEDURE get_inflation_rate (
 AS
 BEGIN
 SET NOCOUNT ON;
+
 SELECT inflation
 FROM inflation
 WHERE date_recorded = @date_recorded
@@ -251,7 +303,8 @@ OR date_recorded = DATEADD(MONTH, -1, @date_recorded)
 OR date_recorded = DATEADD(MONTH, -1, @date_recorded)
 OR date_recorded = DATEADD(MONTH, -1, @date_recorded)
 OR date_recorded = DATEADD(MONTH, -1, @date_recorded)
-ORDER BY date_recorded ASC
+ORDER BY date_recorded ASC;
+
 END
 GO
 
@@ -260,12 +313,15 @@ CREATE PROCEDURE claim (
 AS
 BEGIN
 SET NOCOUNT ON;
+
 UPDATE client_policy
 SET policy_status = 'I'
-WHERE policy_number = @policy_number
+WHERE policy_number = @policy_number;
+
 UPDATE client_policy
 SET policy_end = GETDATE()
-WHERE policy_number = @policy_number
+WHERE policy_number = @policy_number;
+
 DECLARE @total NUMERIC = (SELECT SUM(amount / inflation) FROM payments FULL OUTER JOIN inflation ON date_paid > date_recorded AND date_paid <= DATEADD(MONTH, 1, date_recorded) WHERE policy_number = @policy_number)
 DECLARE @payoff_amount NUMERIC = (SELECT SUM(payoff_amount) FROM client_policy WHERE policy_number = @policy_number)
 DECLARE @current_inflation NUMERIC = (SELECT SUM(inflation) FROM inflation WHERE GETDATE() >= date_recorded AND GETDATE() < DATEADD(MONTH, 1, date_recorded))
@@ -280,10 +336,12 @@ GETDATE(),
 @policy_number,
 @payoff_amount,
 'C'
-WHERE @payoff_amount < 0.05 * @total + @total
+WHERE @payoff_amount < 0.05 * @total + @total;
+
 SELECT @total_with_inflation, @payoff_amount
 FROM payments
-WHERE policy_number = @policy_number AND payment_type = 'C'
+WHERE policy_number = @policy_number AND payment_type = 'C';
+
 END
 GO
 
@@ -292,9 +350,11 @@ CREATE PROCEDURE get_payments (
 AS
 BEGIN
 SET NOCOUNT ON;
+
 SELECT date_paid, amount
 FROM payments
-WHERE policy_number = @policy_number AND payment_type = 'P'
+WHERE policy_number = @policy_number AND payment_type = 'P';
+
 DECLARE @total NUMERIC = (SELECT SUM(amount) FROM payments)
 DECLARE @monthly_premium NUMERIC = (SELECT SUM(monthly_premium) FROM client_policy WHERE policy_number = @policy_number)
 DECLARE @number_of_months NUMERIC = (SELECT DATEDIFF(MONTH, policy_start, GETDATE()) FROM client_policy WHERE policy_number = @policy_number)
@@ -304,9 +364,11 @@ delinquency_date)
 SELECT
 @policy_number,
 GETDATE()
-WHERE @total < @monthly_premium * @number_of_months
+WHERE @total < @monthly_premium * @number_of_months;
+
 UPDATE client_policy
 SET policy_status = 'D'
-WHERE policy_number = @policy_number
+WHERE policy_number = @policy_number;
+
 END
 GO

@@ -38,7 +38,7 @@ namespace LIC_KIHD_GUI
             label44.Text = policy[18];
             label45.Text = policy[19];
             label46.Text = policy[20];
-            label47.Text = policy[22];
+            label47.Text = policy[21];
   
            
 

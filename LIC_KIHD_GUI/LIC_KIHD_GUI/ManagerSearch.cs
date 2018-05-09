@@ -28,8 +28,8 @@ namespace LIC_KIHD_GUI
             MessageBox.Show(String.Format("You are successfully logged out"));
             Hide();
             loginPage login = new loginPage();
-            login.Closed += (s, arges) => this.Close();
-            login.Show();
+
+            login.ShowDialog();
         }
 
         private void searchButton_Click(object sender, EventArgs e)
@@ -63,7 +63,8 @@ namespace LIC_KIHD_GUI
         {
             dataGridView1.Rows.Clear();
             string policyNumber = "null";
-            string clientName = "";
+            string clientFirstName = "";
+            string clientLastName = "";
             string agentID = "null";
             if (string.IsNullOrEmpty(textBox1.Text) && string.IsNullOrEmpty(textBox2.Text) && string.IsNullOrEmpty(textBox3.Text))
             {
@@ -77,19 +78,24 @@ namespace LIC_KIHD_GUI
                 }
                 if (!string.IsNullOrEmpty(textBox3.Text))
                 {
-                    clientName = textBox3.Text;
+                    clientFirstName = textBox3.Text;
                 }
                 if (!string.IsNullOrEmpty(textBox2.Text))
                 {
                     agentID = textBox2.Text;
                 }
+                if(!string.IsNullOrEmpty(barForClientLastN.Text))
+                {
+                    clientLastName = barForClientLastN.Text;
+                }
                 LIC_KIHD_MW.Manager agent = new LIC_KIHD_MW.Manager("", "", "", "","","");
-                string [,] searchResult = agent.managerSearch(policyNumber, clientName, agentID);
+                string [,] searchResult = agent.managerSearch(policyNumber, clientFirstName, clientLastName, agentID);
 
-                if (searchResult != null)
+                if (searchResult != null && searchResult.GetLength(0) > 0)
                 {
                     for (int i = 0; i < searchResult.GetLength(0); i++)
                     {
+
                         string[] row = new string[searchResult.GetLength(1)];
                         for (int j = 0; j < searchResult.GetLength(1); j++)
                         {
@@ -101,7 +107,7 @@ namespace LIC_KIHD_GUI
                 }
                 else
                 {
-                    MessageBox.Show("The information you entered is wrong!");
+                    MessageBox.Show("No result is found.");
                     textBox1.Clear();
                     textBox3.Clear();
                 }
@@ -142,6 +148,11 @@ namespace LIC_KIHD_GUI
         }
 
         private void managerSearch_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
         }
