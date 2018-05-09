@@ -101,12 +101,12 @@ WHERE policy_number = @policy_number or agent_id = @agent_id or policy_holder.fi
 or employee.first_name = @agent_first or employee.last_name = @agent_last
 
 --policy_number = CONVERT(NUMERIC(30), @policy_number)
---OR (policy_number = CONVERT(NUMERIC(30), @policy_number) OR @policy_number = '')
---AND (agent_id = CONVERT(VARCHAR(20), @agent_id) OR @agent_id = '')
+--OR (policy_number = CONVERT(NUMERIC(30), @policy_number) OR @policy_number = null)
+--AND (agent_id = CONVERT(VARCHAR(20), @agent_id) OR @agent_id = null)
 --AND ((policy_holder.first_name = @first_name AND policy_holder.last_name = @last_name)
---OR (policy_holder.first_name = @first_name AND @last_name = '')
---OR (@first_name = '' AND policy_holder.last_name = @last_name)
---OR (@first_name = '' AND @last_name = ''));
+--OR (policy_holder.first_name = @first_name AND @last_name = null)
+--OR (@first_name = null AND policy_holder.last_name = @last_name)
+--OR (@first_name = null AND @last_name = null));
 
 END
 GO
@@ -342,11 +342,11 @@ GETDATE(),
 CONVERT(NUMERIC(30), @policy_number),
 @payoff_amount,
 'C'
-WHERE @payoff_amount < 0.05 * @total + @total;
+WHERE @payoff_amount < 0.05 * @payoff_amount + @total_with_inflation;
 
 SELECT @total_with_inflation, @payoff_amount
 FROM payments
-WHERE policy_number = CONVERT(NUMERIC(30), @policy_number) AND payment_type = 'C';
+WHERE policy_number = CONVERT(NUMERIC(30), @policy_number);
 
 END
 GO

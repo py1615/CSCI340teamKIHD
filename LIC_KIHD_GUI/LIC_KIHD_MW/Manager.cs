@@ -41,15 +41,15 @@ namespace LIC_KIHD_MW
 
         public string[,] managerSearch(string policyNum, string clientFirstName, string clientLastName, string agentID)//string agentFirstName, string agentLastName)
         {
-            string thePolicyNum = policyNum;
-            string theClientFirstName = clientFirstName;
-            string theClientLastName = clientLastName;
-            string theAgentFirstName = "";
-            string theAgentLastName = "";
-            string theAgentID = agentID;
+            string thePolicyNum = "null";
+            string theClientFirstName = "Ephraim";
+            string theClientLastName = "Avila";
+            string theAgentFirstName = "null";
+            string theAgentLastName = "null";
+            string theAgentID = "null";
             String connectionString = LIC_KIHD_GUI.Properties.Settings.Default.SQL_connection;
             SqlConnection conn = new SqlConnection(connectionString);
-            String query = "execute search " + thePolicyNum + ", '" + theClientFirstName + "', '" + theClientLastName + "', " + theAgentID + "";
+            String query = "execute search " + thePolicyNum + ", " + theClientFirstName + ", " + theClientLastName + ", " + theAgentFirstName + ", " + theAgentLastName + ", " + theAgentID + "";
             SqlCommand command = new SqlCommand(query);
             command.Connection = conn;
             conn.Open();
