@@ -68,15 +68,15 @@ namespace LIC_KIHD_MW
             conn.Close();
             foreach (string[] s in policyInfo.ToArray())
             {
-                if (!(s[0].Equals("null")) && !(s[0].Equals(thePolicyNum)))
+                if (!(thePolicyNum.Equals("null")) && !(s[0].Equals(thePolicyNum)))
                 {
                     policyInfo.Remove(s);
                 }
-                if (!(s[1].Equals("")) && !(s[1].Equals(theClientFirstName)))
+                if (!(theClientFirstName.Equals("")) && !(s[1].Equals(theClientFirstName)))
                 {
                     policyInfo.Remove(s);
                 }
-                if (!(s[2].Equals("")) && !(s[2].Equals(theClientLastName)))
+                if (!(theClientLastName.Equals("")) && !(s[2].Equals(theClientLastName)))
                 {
                     policyInfo.Remove(s);
                 }
