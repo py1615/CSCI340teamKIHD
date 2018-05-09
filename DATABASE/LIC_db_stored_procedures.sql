@@ -77,6 +77,8 @@ CREATE PROCEDURE search (
 @policy_number NUMERIC(30),
 @first_name VARCHAR(100),
 @last_name VARCHAR(100),
+@agent_first VARCHAR(100),
+@agent_last VARCHAR(100),
 @agent_id NUMERIC(20))
 AS
 BEGIN
@@ -95,13 +97,16 @@ policy_status,
 employee.first_name AS agent_first_name,
 employee.last_name AS agent_last_name
 FROM client_policy FULL OUTER JOIN policy_holder ON client_policy.policy_holder_id = policy_holder.policy_holder_id FULL OUTER JOIN employee ON agent_id = id
-WHERE policy_number = @policy_number
-OR (policy_number = @policy_number OR @policy_number = null)
-AND (agent_id = @agent_id OR @agent_id = null)
-AND ((policy_holder.first_name LIKE '%' + @first_name + '%' AND policy_holder.last_name LIKE '%' + @last_name + '%')
-OR (policy_holder.first_name LIKE '%' + @first_name + '%' AND @last_name = '')
-OR (@first_name = '' AND policy_holder.last_name LIKE '%' + @last_name + '%')
-OR (@first_name = '' AND @last_name = ''));
+WHERE policy_number = @policy_number or agent_id = @agent_id or policy_holder.first_name LIKE '%' + @first_name + '%' or policy_holder.last_name LIKE '%' + @last_name + '%'
+or employee.first_name like '%' + @agent_first + '%' or employee.last_name like '%' + @agent_last + '%'
+
+--policy_number = @policy_number
+--OR (policy_number = @policy_number OR @policy_number = null)
+--AND (agent_id = @agent_id OR @agent_id = null)
+--AND ((policy_holder.first_name LIKE '%' + @first_name + '%' AND policy_holder.last_name LIKE '%' + @last_name + '%')
+--OR (policy_holder.first_name LIKE '%' + @first_name + '%' AND @last_name = '')
+--OR (@first_name = '' AND policy_holder.last_name LIKE '%' + @last_name + '%')
+--OR (@first_name = '' AND @last_name = ''));
 
 END
 GO
