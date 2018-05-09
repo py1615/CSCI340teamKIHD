@@ -110,10 +110,10 @@ namespace LIC_KIHD_GUI
                 {
                     clientLastName = ClientLastN.Text;
                 }
-                string[,] searchResult = agent.search(policyNumber, clientFirstName, clientLastName, agentId);
-                List<string[]> search = new List<string[]>();
+                
+                List<string[]> search = agent.search(policyNumber, clientFirstName, clientLastName, agentId);
                 //search = agent.search(policyNumber, clientFirstName, clientLastName, agentId);
-                if (searchResult != null && searchResult.GetLength(0) > 0)
+                if (search != null /*&& searchResult.GetLength(0) > 0*/)
                 {
                     /*for (int i = 0; i < searchResult.GetLength(0); i++)
                     {

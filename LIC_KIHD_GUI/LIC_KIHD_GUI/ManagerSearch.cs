@@ -66,7 +66,8 @@ namespace LIC_KIHD_GUI
             string policyNumber = "null";
             string clientFirstName = "";
             string clientLastName = "";
-            string agentID = "null";
+            string agentFirstName = "";
+            string agentLastName = "";
             if (string.IsNullOrEmpty(textBox1.Text) && string.IsNullOrEmpty(textBox2.Text) && string.IsNullOrEmpty(textBox3.Text) && string.IsNullOrEmpty(barForClientLastN.Text) &&
                 string.IsNullOrEmpty(BarForAgentLastN.Text))
             {
@@ -84,17 +85,21 @@ namespace LIC_KIHD_GUI
                 }
                 if (!string.IsNullOrEmpty(textBox2.Text))
                 {
-                    agentID = textBox2.Text;
+                    agentFirstName = textBox2.Text;
                 }
                 if(!string.IsNullOrEmpty(barForClientLastN.Text))
                 {
                     clientLastName = barForClientLastN.Text;
                 }
+                if(!string.IsNullOrEmpty(BarForAgentLastN.Text))
+                {
+                    agentLastName = barForClientLastN.Text;
+                }
                 LIC_KIHD_MW.Manager agent = new LIC_KIHD_MW.Manager("", "", "", "","","");
-                string [,] searchResult = agent.managerSearch(policyNumber, clientFirstName, clientLastName, agentID);
-                List<string[]> search = new List<string[]>();
+               
+                List<string[]> search = agent.managerSearch(policyNumber, clientFirstName, clientLastName, agentFirstName, agentLastName);
                 //search = agent.managerSearch(policyNumber, clientFirstName, clientLastName, agentID);
-                if (searchResult != null && searchResult.GetLength(0) > 0)
+                if (search != null && search.Count > 0)
                 {
                     /*for (int i = 0; i < searchResult.GetLength(0); i++)
                     {
@@ -113,7 +118,7 @@ namespace LIC_KIHD_GUI
                         for (int j = 0; j < search[i].Length; j++)
                         {
 
-                            row[j] = search[i, j];
+                            row[j] = search[i][ j];
                         }
                         dataGridView1.Rows.Add(row);
                     }
