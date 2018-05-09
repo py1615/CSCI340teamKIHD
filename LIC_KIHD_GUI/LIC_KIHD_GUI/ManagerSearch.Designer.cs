@@ -157,9 +157,9 @@
             this.agentName.Location = new System.Drawing.Point(359, 278);
             this.agentName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.agentName.Name = "agentName";
-            this.agentName.Size = new System.Drawing.Size(65, 19);
+            this.agentName.Size = new System.Drawing.Size(86, 19);
             this.agentName.TabIndex = 13;
-            this.agentName.Text = "Agent ID";
+            this.agentName.Text = "Agent Name";
             // 
             // textBox3
             // 
