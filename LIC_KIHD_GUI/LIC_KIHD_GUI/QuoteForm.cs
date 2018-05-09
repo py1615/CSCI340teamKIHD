@@ -60,7 +60,7 @@ namespace LIC_KIHD_GUI
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
-            var confirmResult = MessageBox.Show("Are you sure you want to quit this page?",
+            var confirmResult = MessageBox.Show("Are you sure you want to make some changes?",
                                         "Caution",
                                         MessageBoxButtons.YesNo);
             if (confirmResult == DialogResult.Yes)
