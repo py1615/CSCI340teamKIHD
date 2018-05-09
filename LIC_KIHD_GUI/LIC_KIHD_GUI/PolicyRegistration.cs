@@ -130,7 +130,7 @@ namespace LIC_KIHD_GUI
                                     cigBox.Text, smokeBox.Text, bloodBox.Text, aveGramsBox.Text, HDPassToQuote, cancerToQ, hospitalToQ, textBox14.Text, textBox15.Text, premium.ToString(),agent,
                                     HeartDisease, cancer, hospital
                                     );
-                quote.Closed += (s, arges) => this.Close();
+                
                 quote.ShowDialog();
             }
             else if(!fieldFilled)
