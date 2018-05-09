@@ -113,7 +113,7 @@ namespace LIC_KIHD_GUI
                 
                 List<string[]> search = agent.search(policyNumber, clientFirstName, clientLastName, agentId);
                 //search = agent.search(policyNumber, clientFirstName, clientLastName, agentId);
-                if (search != null /*&& searchResult.GetLength(0) > 0*/)
+                if (search != null && search.Count > 0)
                 {
                     /*for (int i = 0; i < searchResult.GetLength(0); i++)
                     {
