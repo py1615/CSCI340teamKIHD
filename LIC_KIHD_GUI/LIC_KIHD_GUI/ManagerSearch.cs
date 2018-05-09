@@ -8,9 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using System.Collections;
 
 
-    
+
 namespace LIC_KIHD_GUI
 {
     public partial class managerSearch : Form
@@ -28,7 +29,7 @@ namespace LIC_KIHD_GUI
             MessageBox.Show(String.Format("You are successfully logged out"));
             Hide();
             loginPage login = new loginPage();
-
+            login.Closed += (s, arges) => this.Close();
             login.ShowDialog();
         }
 
@@ -91,10 +92,11 @@ namespace LIC_KIHD_GUI
                 }
                 LIC_KIHD_MW.Manager agent = new LIC_KIHD_MW.Manager("", "", "", "","","");
                 string [,] searchResult = agent.managerSearch(policyNumber, clientFirstName, clientLastName, agentID);
-
+                List<string[]> search = new List<string[]>();
+                //search = agent.managerSearch(policyNumber, clientFirstName, clientLastName, agentID);
                 if (searchResult != null && searchResult.GetLength(0) > 0)
                 {
-                    for (int i = 0; i < searchResult.GetLength(0); i++)
+                    /*for (int i = 0; i < searchResult.GetLength(0); i++)
                     {
 
                         string[] row = new string[searchResult.GetLength(1)];
@@ -104,6 +106,16 @@ namespace LIC_KIHD_GUI
                             row[j] = searchResult[i, j];
                         }
                         dataGridView1.Rows.Add(row);
+                    }*/
+                    for (int i = 0; i < search.Count; i++)
+                    {
+                        string[] row = new string[search[i].Length];
+                        for (int j = 0; j < search[i].Length; j++)
+                        {
+
+                            row[j] = search[i, j];
+                        }
+                        dataGridView1.Rows.Add(row);
                     }
                 }
                 else
@@ -111,6 +123,9 @@ namespace LIC_KIHD_GUI
                     MessageBox.Show("No result is found.");
                     textBox1.Clear();
                     textBox3.Clear();
+                    barForClientLastN.Clear();
+                    textBox2.Clear();
+                    BarForAgentLastN.Clear();
                 }
             }
         }

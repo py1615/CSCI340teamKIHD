@@ -318,6 +318,7 @@
             this.buttonClaim.TabIndex = 33;
             this.buttonClaim.Text = "Claim";
             this.buttonClaim.UseVisualStyleBackColor = true;
+            this.buttonClaim.Click += new System.EventHandler(this.buttonClaim_Click);
             // 
             // PaymentHistory
             // 

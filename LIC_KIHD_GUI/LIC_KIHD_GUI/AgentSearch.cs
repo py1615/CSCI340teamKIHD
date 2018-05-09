@@ -36,9 +36,10 @@ namespace LIC_KIHD_GUI
         private void logOutButton_Click(object sender, EventArgs e)
         {
             MessageBox.Show(String.Format("You are successfully logged out"));
-            
+      
             loginPage login = new loginPage();
             this.Hide();
+            login.Closed += (s, arges) => this.Close();
             login.ShowDialog();
             
         }
@@ -110,15 +111,26 @@ namespace LIC_KIHD_GUI
                     clientLastName = ClientLastN.Text;
                 }
                 string[,] searchResult = agent.search(policyNumber, clientFirstName, clientLastName, agentId);
-
+                List<string[]> search = new List<string[]>();
+                //search = agent.search(policyNumber, clientFirstName, clientLastName, agentId);
                 if (searchResult != null && searchResult.GetLength(0) > 0)
                 {
-                    for (int i = 0; i < searchResult.GetLength(0); i++)
+                    /*for (int i = 0; i < searchResult.GetLength(0); i++)
                     {
                         string[] row = new string[searchResult.GetLength(1)];
                         for (int j = 0; j < searchResult.GetLength(1); j++)
                         {
                             row[j] = searchResult[i, j];
+                        }
+                        dataGridView1.Rows.Add(row);
+                    }*/
+                    for (int i = 0; i < search.Count; i++)
+                    {
+                        string[] row = new string[search[i].Length];
+                        for (int j = 0; j < search[i].Length; j++)
+                        {
+
+                            row[j] = search[i][j];
                         }
                         dataGridView1.Rows.Add(row);
                     }

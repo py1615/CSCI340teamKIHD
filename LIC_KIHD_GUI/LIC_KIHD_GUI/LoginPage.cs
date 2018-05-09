@@ -48,7 +48,7 @@ namespace LIC_KIHD_GUI
                     UserId = barForID.Text;
                     Hide();
                     AgentSearch agent = new AgentSearch(barForID.Text);
-                   
+                    agent.Closed += (s, arges) => this.Close();
                     agent.ShowDialog();
 
                 }
@@ -56,7 +56,7 @@ namespace LIC_KIHD_GUI
                 {
                     UserId = barForID.Text;
                     managerSearch agent = new managerSearch(barForID.Text);
-                 
+                    agent.Closed += (s, arges) => this.Close();
                     agent.Show();
                     Hide();
                 }//manager access the search page
