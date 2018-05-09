@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Data.SqlClient;
+using System.Collections;
 
 namespace LIC_KIHD_MW
 {
     class Manager : Agent
     {
-        private readonly static int RETURN_INFOM = 9;
+        private readonly static int RETURN_INFOM = 11;
         /*private string agentID;
         private string firstName;
         private string lastName;
@@ -39,65 +40,64 @@ namespace LIC_KIHD_MW
             return id;
         }
 
-        public string[,] managerSearch(string policyNum, string clientFirstName, string clientLastName, string agentID)//string agentFirstName, string agentLastName)
+        public List<string[]> managerSearch(string policyNum, string clientFirstName, string clientLastName, string agentFirstName, string agentLastName)
         {
             string thePolicyNum = policyNum;
             string theClientFirstName = clientFirstName;
             string theClientLastName = clientLastName;
-            string theAgentFirstName = "";
-            string theAgentLastName = "";
-            string theAgentID = agentID;
+            string theAgentFirstName = agentFirstName;
+            string theAgentLastName = agentLastName;
+            string theAgentID = "null";
             String connectionString = LIC_KIHD_GUI.Properties.Settings.Default.SQL_connection;
             SqlConnection conn = new SqlConnection(connectionString);
-            String query = "execute search " + thePolicyNum + ", '" + theClientFirstName + "', '" + theClientLastName + "', " + theAgentID + "";
+            String query = "execute search " + thePolicyNum + ", '" + theClientFirstName + "', '" + theClientLastName + "', '" + theAgentFirstName + "', '" 
+                + theAgentLastName + "', "+ theAgentID + "";
             SqlCommand command = new SqlCommand(query);
             command.Connection = conn;
             conn.Open();
             SqlDataReader reader = command.ExecuteReader();
-            int row = 0;
-            while (reader.Read())
-            {
-                row++;
-            }
-            conn.Close();
-            conn.Open();
-            reader = command.ExecuteReader();
-            string[,] policyInfo = new string[row,RETURN_INFOM];
-            row = 0;
-            string[] colName = {"policy_number", "policy_holder_first_name", "dob", "policy_start", "payoff_amount", 
-                "monthly_premium", "policy_status", "agent_id", "agent_first_name"};
+            List<string[]> policyInfo = new List<string[]>();
+            string[] policy = new string[RETURN_INFOM];
+            string[] colName = {"policy_number", "policy_holder_first_name", "policy_holder_last_name", "dob", "policy_start", "payoff_amount", 
+                "monthly_premium", "policy_status", "agent_id", "agent_first_name", "agent_last_name"};
             while (reader.Read())
             {
                 for(int i = 0; i < RETURN_INFOM; i ++)
                 {
                     if(reader.IsDBNull(reader.GetOrdinal(colName[i])))
                     {
-                        policyInfo[row, i] = "null";
+                        policy[i] = "null";
                     }
                     else if (typeof(decimal) == (reader.GetFieldType(reader.GetOrdinal(colName[i]))))
                     {
                         decimal d = reader.GetDecimal(reader.GetOrdinal(colName[i]));
-                        policyInfo[row, i] = "" + d;
+                        policy[i] = "" + d;
                     }
                     else if(typeof(DateTime) == (reader.GetFieldType(reader.GetOrdinal(colName[i]))))
                     {
                         DateTime day = reader.GetDateTime(reader.GetOrdinal(colName[i]));
-                        policyInfo[row, i] = day.ToString("yyyy/MM/dd");
+                        policy[i] = day.ToString("yyyy/MM/dd");
                     }
                     else
                     {
-                        policyInfo[row, i] = reader.GetString(reader.GetOrdinal(colName[i]));
-                        if (i == 1)
-                        {
-                            policyInfo[row, i] += " " + reader.GetString(reader.GetOrdinal("policy_holder_last_name"));
-                        }
+                        policy[i] = reader.GetString(reader.GetOrdinal(colName[i]));
                     }
                 }
-                row++;
+                policyInfo.Add(policy);
             }
             conn.Close();
+            foreach(string[] x in policyInfo)
+            {
+                /*if(!(thePolicyNum.Equals("null")))
+                {
+                    if(!(x[1].Equals(thePolicyNum)))    
+                }*/
+
+            }
             return policyInfo;
         }
+
+        
 
 
         /*public List<Policy> search(string policyNum, ,string agentNum, string clientName)

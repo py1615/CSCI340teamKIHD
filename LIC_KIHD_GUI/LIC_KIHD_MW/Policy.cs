@@ -105,7 +105,7 @@ namespace LIC_KIHD_MW
             command.ExecuteNonQuery();
             conn.Close();
         }
-        public void MakeClaim(string policyNum)
+        public Boolean MakeClaim(string policyNum)
         {
             String connectionString = LIC_KIHD_GUI.Properties.Settings.Default.SQL_connection;
             SqlConnection conn = new SqlConnection(connectionString);
@@ -125,6 +125,8 @@ namespace LIC_KIHD_MW
             }
             conn.Close();
         }
+
+
         private Report SendReport(List<Policy> policy)
         {
             Report rept = new Report();
