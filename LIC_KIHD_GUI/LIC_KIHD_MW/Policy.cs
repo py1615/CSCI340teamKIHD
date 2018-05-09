@@ -7,6 +7,7 @@ namespace LIC_KIHD_MW
 {
     class Policy
     {
+        private readonly static double HIGH_IMPACT_LOSS_RATE = 0.05;
         private readonly static int DATE_CONVERT = 10000;
         private readonly static int MONTH_CONVERT = 100;
         private readonly static int DATE = 30;
@@ -114,16 +115,20 @@ namespace LIC_KIHD_MW
             command.Connection = conn;
             conn.Open();
             SqlDataReader reader = command.ExecuteReader();
-            string[] claimInfo = {"total_with_inflation", "payoff_amount"};
-            decimal[] claim = new decimal[claimInfo.Length];
+            string[] claim = {"total_with_inflation", "payoff_amount"};
+            decimal[] claimInfo = new decimal[claim.Length];
             while(reader.Read())
             {
                 for(int i = 0; i < claimInfo.Length; i ++)
                 {
-                    claim[i] = reader.GetDecimal(reader.GetOrdinal(claimInfo[2]));
+                    claimInfo[i] = reader.GetDecimal(reader.GetOrdinal(claim[i]));
                 }
             }
             conn.Close();
+            double profit = (double)(claimInfo[1] - claimInfo[0]);
+            double limit = (double)(claimInfo[1]) * HIGH_IMPACT_LOSS_RATE;
+            if (profit >= limit) return true;
+            return false;
         }
 
 

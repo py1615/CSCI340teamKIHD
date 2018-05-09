@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Data.SqlClient;
-using System.Collections;
 
 namespace LIC_KIHD_MW
 {
@@ -86,13 +85,28 @@ namespace LIC_KIHD_MW
                 policyInfo.Add(policy);
             }
             conn.Close();
-            foreach(string[] x in policyInfo)
+            foreach(string[] s in policyInfo.ToArray())
             {
-                /*if(!(thePolicyNum.Equals("null")))
+                if (!(s[0].Equals("null")) && !(s[0].Equals(thePolicyNum)))
                 {
-                    if(!(x[1].Equals(thePolicyNum)))    
-                }*/
-
+                    policyInfo.Remove(s);
+                }
+                if (!(s[1].Equals("")) && !(s[1].Equals(theClientFirstName)))
+                {
+                    policyInfo.Remove(s);
+                }
+                if (!(s[2].Equals("")) && !(s[2].Equals(theClientLastName)))
+                {
+                    policyInfo.Remove(s);
+                }
+                if (!(s[9].Equals("")) && !(s[9].Equals(theAgentFirstName)))
+                {
+                    policyInfo.Remove(s);
+                }
+                if (!(s[10].Equals("")) && !(s[10].Equals(theAgentLastName)))
+                {
+                    policyInfo.Remove(s);
+                }
             }
             return policyInfo;
         }

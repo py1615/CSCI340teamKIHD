@@ -8,7 +8,7 @@ namespace LIC_KIHD_MW
     class Agent
     {
         private readonly static int POLICY_ARRAY_INDEX = 22;
-        private readonly static int RETURN_INFO = 6;
+        private readonly static int RETURN_INFO = 7;
         private string firstName;
         private string lastName;
         private string department;
@@ -20,32 +20,25 @@ namespace LIC_KIHD_MW
             department = theDepartment;
             agentType = theAgentType;
         }
-        public string[,] search(string policyNum, string clientFirstName, string clientLastName, string agentID)
+        public List<string[]> search(string policyNum, string clientFirstName, string clientLastName, string agentID)
         {
             string thePolicyNum = policyNum;
             string theClientFirstName = clientFirstName;
             string theClientLastName = clientLastName;
-            string agentFirstName = "";
-            string agentLastName = "";
+            string theAgentFirstName = "";
+            string theAgentLastName = "";
             string theAgentID = agentID;
             String connectionString = LIC_KIHD_GUI.Properties.Settings.Default.SQL_connection;
             SqlConnection conn = new SqlConnection(connectionString);
-            String query = "execute search " + thePolicyNum + ", '" + theClientFirstName + "', '" + theClientLastName + "', " + theAgentID + "";
+            String query = "execute search " + thePolicyNum + ", '" + theClientFirstName + "', '" + theClientLastName + "', '" + theAgentFirstName + "', '" 
+                + theAgentLastName + "', "+ theAgentID + "";
             SqlCommand command = new SqlCommand(query);
             command.Connection = conn;
             conn.Open();
             SqlDataReader reader = command.ExecuteReader();
-            int row = 0;
-            while (reader.Read())
-            {
-                row++;
-            }
-            conn.Close();
-            conn.Open();
-            reader = command.ExecuteReader();
-            string[,] policyInfo = new string[row,RETURN_INFO];
-            row = 0;
-            string[] colName = {"policy_number", "policy_holder_first_name", "dob", "policy_start", "payoff_amount", 
+            List<string[]> policyInfo = new List<string[]>();
+            string[] policy = new string[RETURN_INFO];
+            string[] colName = {"policy_number", "policy_holder_first_name", "policy_holder_last_name", "policy_start", "policy_status", "payoff_amount", 
                 "monthly_premium"};
             while (reader.Read())
             {
@@ -53,30 +46,41 @@ namespace LIC_KIHD_MW
                 {
                     if(reader.IsDBNull(reader.GetOrdinal(colName[i])))
                     {
-                        policyInfo[row, i] = "null";
+                        policy[i] = "null";
                     }
                     else if (typeof(decimal) == (reader.GetFieldType(reader.GetOrdinal(colName[i]))))
                     {
                         decimal d = reader.GetDecimal(reader.GetOrdinal(colName[i]));
-                        policyInfo[row, i] = "" + d;
+                        policy[i] = "" + d;
                     }
                     else if(typeof(DateTime) == (reader.GetFieldType(reader.GetOrdinal(colName[i]))))
                     {
                         DateTime day = reader.GetDateTime(reader.GetOrdinal(colName[i]));
-                        policyInfo[row, i] = day.ToString("yyyy/MM/dd");
+                        policy[i] = day.ToString("yyyy/MM/dd");
                     }
                     else
                     {
-                        policyInfo[row, i] = reader.GetString(reader.GetOrdinal(colName[i]));
-                        if (i == 1)
-                        {
-                            policyInfo[row, i] += " " + reader.GetString(reader.GetOrdinal("policy_holder_last_name"));
-                        }
+                        policy[i] = reader.GetString(reader.GetOrdinal(colName[i]));
                     }
                 }
-                row++;
+                policyInfo.Add(policy);
             }
             conn.Close();
+            foreach (string[] s in policyInfo.ToArray())
+            {
+                if (!(s[0].Equals("null")) && !(s[0].Equals(thePolicyNum)))
+                {
+                    policyInfo.Remove(s);
+                }
+                if (!(s[1].Equals("")) && !(s[1].Equals(theClientFirstName)))
+                {
+                    policyInfo.Remove(s);
+                }
+                if (!(s[2].Equals("")) && !(s[2].Equals(theClientLastName)))
+                {
+                    policyInfo.Remove(s);
+                }
+            }
             return policyInfo;
         }
 
