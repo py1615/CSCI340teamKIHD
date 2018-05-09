@@ -49,7 +49,7 @@ namespace LIC_KIHD_MW
             string theAgentID = agentID;
             String connectionString = LIC_KIHD_GUI.Properties.Settings.Default.SQL_connection;
             SqlConnection conn = new SqlConnection(connectionString);
-            String query = "execute search " + thePolicyNum + ", '" + firstName + "', '" + lastName + "', " + theAgentID + "";
+            String query = "execute search " + thePolicyNum + ", '" + theClientFirstName + "', '" + theClientLastName + "', " + theAgentID + "";
             SqlCommand command = new SqlCommand(query);
             command.Connection = conn;
             conn.Open();
