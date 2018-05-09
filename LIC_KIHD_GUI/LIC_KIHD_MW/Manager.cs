@@ -62,13 +62,13 @@ namespace LIC_KIHD_MW
             conn.Close();
             conn.Open();
             reader = command.ExecuteReader();
-            string[,] policyInfo = new string[row,RETURN_INFO];
+            string[,] policyInfo = new string[row,RETURN_INFOM];
             row = 0;
             string[] colName = {"policy_number", "policy_holder_first_name", "dob", "policy_start", "payoff_amount", 
                 "monthly_premium"};
             while (reader.Read())
             {
-                for(int i = 0; i < RETURN_INFO; i ++)
+                for(int i = 0; i < RETURN_INFOM; i ++)
                 {
                     if(reader.IsDBNull(reader.GetOrdinal(colName[i])))
                     {
