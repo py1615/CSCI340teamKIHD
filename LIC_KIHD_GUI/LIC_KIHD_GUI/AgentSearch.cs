@@ -38,9 +38,9 @@ namespace LIC_KIHD_GUI
             MessageBox.Show(String.Format("You are successfully logged out"));
             
             loginPage login = new loginPage();
-
+            this.Hide();
             login.ShowDialog();
-            this.Close();
+            
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -88,7 +88,8 @@ namespace LIC_KIHD_GUI
         {
             dataGridView1.Rows.Clear();
             string policyNumber = "null";
-            string clientName = "";
+            string clientFirstName = "";
+            string clientLastName = "";
             LIC_KIHD_MW.Agent agent = new LIC_KIHD_MW.Agent("", "", "", "");
             if (string.IsNullOrEmpty(policyNumBox.Text) && string.IsNullOrEmpty(clientNameBox.Text))
             {
@@ -102,11 +103,15 @@ namespace LIC_KIHD_GUI
                 }
                 if (!string.IsNullOrEmpty(clientNameBox.Text))
                 {
-                    clientName = clientNameBox.Text;
+                    clientFirstName = clientNameBox.Text;
                 }
-                string[,] searchResult = agent.search(policyNumber, clientName, agentId);
+                if(!string.IsNullOrEmpty(ClientLastN.Text))
+                {
+                    clientLastName = ClientLastN.Text;
+                }
+                string[,] searchResult = agent.search(policyNumber, clientFirstName, clientLastName, agentId);
 
-                if (searchResult != null)
+                if (searchResult != null && searchResult.GetLength(0) > 0)
                 {
                     for (int i = 0; i < searchResult.GetLength(0); i++)
                     {
@@ -120,7 +125,7 @@ namespace LIC_KIHD_GUI
                 }
                 else
                 {
-                    MessageBox.Show("The information you entered is wrong!");
+                    MessageBox.Show("No result is found");
                     policyNumBox.Clear();
                     clientNameBox.Clear();
                 }

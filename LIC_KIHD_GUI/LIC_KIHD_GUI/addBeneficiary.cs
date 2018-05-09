@@ -46,6 +46,7 @@ namespace LIC_KIHD_GUI
             po.addBeneficiary(policyN, firstName.Text, lastName.Text);
             addBeneficiary addMore = new addBeneficiary(policyN);
             Hide();
+            addMore.Closed += (s, arges) => this.Close();
             addMore.ShowDialog();
         }
 
@@ -56,7 +57,15 @@ namespace LIC_KIHD_GUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Close();
+            var confirmResult = MessageBox.Show("Have you done with adding beneficiary?",
+                                          "Caution",
+                                          MessageBoxButtons.YesNo);
+            if (confirmResult == DialogResult.Yes)
+            {
+                this.Close();
+
+            }
+            
         }
     }
 }

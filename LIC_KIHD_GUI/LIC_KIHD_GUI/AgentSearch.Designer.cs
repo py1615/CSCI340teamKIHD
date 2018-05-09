@@ -46,7 +46,7 @@
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.View = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.ClientLastN = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -162,18 +162,18 @@
             resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
             // 
-            // textBox1
+            // ClientLastN
             // 
-            resources.ApplyResources(this.textBox1, "textBox1");
-            this.textBox1.Name = "textBox1";
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            resources.ApplyResources(this.ClientLastN, "ClientLastN");
+            this.ClientLastN.Name = "ClientLastN";
+            this.ClientLastN.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // AgentSearch
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.ClientLastN);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.agentSearchButton);
@@ -211,6 +211,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewButtonColumn View;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox ClientLastN;
     }
 }

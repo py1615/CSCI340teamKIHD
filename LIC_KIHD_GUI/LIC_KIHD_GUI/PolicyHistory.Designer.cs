@@ -63,11 +63,12 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2});
-            this.dataGridView1.Location = new System.Drawing.Point(36, 125);
+            this.dataGridView1.Location = new System.Drawing.Point(52, 126);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 27;
-            this.dataGridView1.Size = new System.Drawing.Size(446, 469);
+            this.dataGridView1.Size = new System.Drawing.Size(403, 469);
             this.dataGridView1.TabIndex = 4;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 

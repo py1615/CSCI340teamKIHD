@@ -113,7 +113,7 @@ namespace LIC_KIHD_GUI
          
         
 
-            if ((fieldFilled || !string.IsNullOrWhiteSpace(textBox14.Text)) && noError && string.IsNullOrEmpty(comboBox1.Text))
+            if (fieldFilled  && noError && !string.IsNullOrEmpty(comboBox1.Text))
             {
                 LIC_KIHD_MW.Address addre = new LIC_KIHD_MW.Address("","","","");
                 LIC_KIHD_MW.PolicyHolder holder = new LIC_KIHD_MW.PolicyHolder("","","",addre);
@@ -121,7 +121,7 @@ namespace LIC_KIHD_GUI
                 LIC_KIHD_MW.Policy po = new LIC_KIHD_MW.Policy(holder, "",1,1,1,1,1,1,1,"","","","", BENE,"");
                
                 state = comboBox1.SelectedItem.ToString();
-                DateTime txtMyDate = DateTime.Now;//DateTime.Parse(BirthBox.Text);
+                DateTime txtMyDate = DateTime.Parse(BirthBox.Text);
                 double premium = po.CalculatePremium(textBox15.Text, txtMyDate, FatherBox.Text, motherBox.Text, cigBox.Text, smokeBox.Text, bloodBox.Text,
                         aveGramsBox.Text, HeartDisease, cancer, hospital, textBox14.Text);
 
