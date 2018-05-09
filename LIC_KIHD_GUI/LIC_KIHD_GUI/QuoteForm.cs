@@ -114,7 +114,7 @@ namespace LIC_KIHD_GUI
             addBeneficiary addB = new addBeneficiary(policynumber);
             addB.Closed += (s, arges) => this.Close();
             // complete register and return back
-            MessageBox.Show("The policy had been created successfully, and your policy number is" + policynumber);
+            MessageBox.Show("The policy had been created successfully, and your policy number is " + policynumber);
             addB.ShowDialog();
             
         }

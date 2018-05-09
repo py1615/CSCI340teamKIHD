@@ -38,9 +38,9 @@ namespace LIC_KIHD_GUI
             MessageBox.Show(String.Format("You are successfully logged out"));
             
             loginPage login = new loginPage();
-
+            this.Hide();
             login.ShowDialog();
-            this.Close();
+            
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -106,7 +106,7 @@ namespace LIC_KIHD_GUI
                 }
                 string[,] searchResult = agent.search(policyNumber, clientName, agentId);
 
-                if (searchResult != null)
+                if (searchResult != null && searchResult.GetLength(0) > 0)
                 {
                     for (int i = 0; i < searchResult.GetLength(0); i++)
                     {
@@ -120,7 +120,7 @@ namespace LIC_KIHD_GUI
                 }
                 else
                 {
-                    MessageBox.Show("The information you entered is wrong!");
+                    MessageBox.Show("No result is found");
                     policyNumBox.Clear();
                     clientNameBox.Clear();
                 }
