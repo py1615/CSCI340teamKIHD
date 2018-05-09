@@ -93,7 +93,7 @@ namespace LIC_KIHD_MW
             command.Connection = conn;
             conn.Open();
             SqlDataReader reader = command.ExecuteReader();
-            string[] policyInfo = {"first_name", "last_name", "dob", "street_address", "city_address", "state_address", "zip_address", "fathers_age_of_death",
+            string[] policyInfo = {"policy_holder_first_name", "policy_holder_last_name", "dob", "street_address", "city_address", "state_address", "zip_address", "fathers_age_of_death",
                 "mothers_age_of_death", "cigs_day", "smoking_history", "systolic_blood_pressure", "avg_grams_fat_day", "heart_disease", "cancer", "hospitalized",
                 "dangerous_activities", "policy_start", "policy_end", "payoff_amount", "monthly_premium", "policy_status"};
             string[] policy = new string[policyInfo.Length];
