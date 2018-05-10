@@ -22,9 +22,9 @@ namespace LIC_KIHD_MW
         }
         public List<string[]> search(string policyNum, string clientFirstName, string clientLastName, string agentID)
         {
-            string thePolicyNum = policyNum;
-            string theClientFirstName = clientFirstName;
-            string theClientLastName = clientLastName;
+            string thePolicyNum = "null";
+            string theClientFirstName = "";
+            string theClientLastName = "";
             string theAgentFirstName = "";
             string theAgentLastName = "";
             string theAgentID = agentID;
@@ -68,15 +68,15 @@ namespace LIC_KIHD_MW
             conn.Close();
             foreach (string[] s in policyInfo.ToArray())
             {
-                if (!(thePolicyNum.Equals("null")) && !(s[0].Equals(thePolicyNum)))
+                if (!(policyNum.Equals("null")) && !(s[0].Equals(policyNum)))
                 {
                     policyInfo.Remove(s);
                 }
-                if (!(theClientFirstName.Equals("")) && !(s[1].Equals(theClientFirstName)))
+                if (!(clientFirstName.Equals("")) && !(s[1].Equals(clientFirstName)))
                 {
                     policyInfo.Remove(s);
                 }
-                if (!(theClientLastName.Equals("")) && !(s[2].Equals(theClientLastName)))
+                if (!(clientLastName.Equals("")) && !(s[2].Equals(cientLastName)))
                 {
                     policyInfo.Remove(s);
                 }
