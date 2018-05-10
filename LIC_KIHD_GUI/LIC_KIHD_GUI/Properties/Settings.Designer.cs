@@ -25,11 +25,20 @@ namespace LIC_KIHD_GUI.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DATABASE\\CSCI3400011030;Initial Catalog=LIC_KIHD;Integrated Security=" +
-            "false;user=\'LIC_KIHD_MW\';pwd=\'KIHD\';")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Initial Catalog=master;Data Source=LAPTOP-GITK5LL2;Integrated Security=True;")]
         public string SQL_connection {
             get {
                 return ((string)(this["SQL_connection"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DATABASE\\CSCI3400011030;Initial Catalog=LIC_KIHD;Integrated Security=" +
+            "false;user=\'LIC_KIHD_MW\';pwd=\'KIHD\';")]
+        public string InternalConnection {
+            get {
+                return ((string)(this["InternalConnection"]));
             }
         }
     }
