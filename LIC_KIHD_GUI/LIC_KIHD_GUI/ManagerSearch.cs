@@ -64,10 +64,10 @@ namespace LIC_KIHD_GUI
         {
             dataGridView1.Rows.Clear();
             string policyNumber = "null";
-            string clientFirstName = "";
-            string clientLastName = "";
-            string agentFirstName = "";
-            string agentLastName = "";
+            string clientFirstName = "null";
+            string clientLastName = "null";
+            string agentFirstName = "null";
+            string agentLastName = "null";
             if (string.IsNullOrEmpty(textBox1.Text) && string.IsNullOrEmpty(textBox2.Text) && string.IsNullOrEmpty(textBox3.Text) && string.IsNullOrEmpty(barForClientLastN.Text) &&
                 string.IsNullOrEmpty(BarForAgentLastN.Text))
             {
@@ -101,17 +101,6 @@ namespace LIC_KIHD_GUI
                 //search = agent.managerSearch(policyNumber, clientFirstName, clientLastName, agentID);
                 if (search != null && search.Count > 0)
                 {
-                    /*for (int i = 0; i < searchResult.GetLength(0); i++)
-                    {
-
-                        string[] row = new string[searchResult.GetLength(1)];
-                        for (int j = 0; j < searchResult.GetLength(1); j++)
-                        {
-
-                            row[j] = searchResult[i, j];
-                        }
-                        dataGridView1.Rows.Add(row);
-                    }*/
                     for (int i = 0; i < search.Count; i++)
                     {
                         string[] row = new string[search[i].Length];
