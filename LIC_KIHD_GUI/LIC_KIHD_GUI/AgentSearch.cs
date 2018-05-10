@@ -130,8 +130,7 @@ namespace LIC_KIHD_GUI
                 else
                 {
                     MessageBox.Show("No result is found");
-                    policyNumBox.Clear();
-                    clientNameBox.Clear();
+                    
                 }
             }
         }

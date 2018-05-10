@@ -63,42 +63,22 @@ namespace LIC_KIHD_GUI
         private void agentSearchButton_Click(object sender, EventArgs e)
         {
             dataGridView1.Rows.Clear();
-            string policyNumber = "null";
-            string clientFirstName = "null";
-            string clientLastName = "null";
-            string agentFirstName = "null";
-            string agentLastName = "null";
-            if (string.IsNullOrEmpty(textBox1.Text) && string.IsNullOrEmpty(textBox2.Text) && string.IsNullOrEmpty(textBox3.Text) && string.IsNullOrEmpty(barForClientLastN.Text) &&
-                string.IsNullOrEmpty(BarForAgentLastN.Text))
+            string policyNumber = string.IsNullOrEmpty(barForPolicyNumber.Text)?  "null" : barForPolicyNumber.Text ;
+            string clientFirstName = string.IsNullOrEmpty(barForClientFirstName.Text) ? "null" : barForClientFirstName.Text;
+            string clientLastName = string.IsNullOrEmpty(barForClientLastN.Text) ? "null" : barForClientLastN.Text;
+            string agentFirstName = string.IsNullOrEmpty(barForAgentFirstName.Text) ? "null" : barForAgentFirstName.Text;
+            string agentLastName = string.IsNullOrEmpty(BarForAgentLastName.Text) ? "null" : BarForAgentLastName.Text;
+            if (string.IsNullOrEmpty(barForPolicyNumber.Text) && string.IsNullOrEmpty(barForAgentFirstName.Text) && string.IsNullOrEmpty(barForClientFirstName.Text) 
+                && string.IsNullOrEmpty(barForClientLastN.Text) && string.IsNullOrEmpty(BarForAgentLastName.Text))
             {
                 MessageBox.Show("Please enter policy number and client's name!");
             }
             else 
             {
-                if(!string.IsNullOrEmpty(textBox1.Text))
-                {
-                    policyNumber = textBox1.Text;
-                }
-                if (!string.IsNullOrEmpty(textBox3.Text))
-                {
-                    clientFirstName = textBox3.Text;
-                }
-                if (!string.IsNullOrEmpty(textBox2.Text))
-                {
-                    agentFirstName = textBox2.Text;
-                }
-                if(!string.IsNullOrEmpty(barForClientLastN.Text))
-                {
-                    clientLastName = barForClientLastN.Text;
-                }
-                if(!string.IsNullOrEmpty(BarForAgentLastN.Text))
-                {
-                    agentLastName = barForClientLastN.Text;
-                }
+                
                 LIC_KIHD_MW.Manager agent = new LIC_KIHD_MW.Manager("", "", "", "","","");
                
                 List<string[]> search = agent.managerSearch(policyNumber, clientFirstName, clientLastName, agentFirstName, agentLastName);
-                //search = agent.managerSearch(policyNumber, clientFirstName, clientLastName, agentID);
                 if (search != null && search.Count > 0)
                 {
                     for (int i = 0; i < search.Count; i++)
@@ -115,11 +95,7 @@ namespace LIC_KIHD_GUI
                 else
                 {
                     MessageBox.Show("No result is found.");
-                    textBox1.Clear();
-                    textBox3.Clear();
-                    barForClientLastN.Clear();
-                    textBox2.Clear();
-                    BarForAgentLastN.Clear();
+                   
                 }
             }
         }
@@ -150,6 +126,11 @@ namespace LIC_KIHD_GUI
                     InactivePolicy inactive = new InactivePolicy(searchInfo, policyN);
                     inactive.ShowDialog();
                 }
+                else if(searchInfo[21] == "I")
+                {
+                    InactivePolicy inactive = new InactivePolicy(searchInfo, policyN);
+                    inactive.ShowDialog();
+                }
 
             }
 
@@ -163,6 +144,11 @@ namespace LIC_KIHD_GUI
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void barForPolicyNumber_TextChanged(object sender, EventArgs e)
         {
 
         }
