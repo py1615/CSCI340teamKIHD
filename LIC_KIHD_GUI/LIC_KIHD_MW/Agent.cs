@@ -76,7 +76,7 @@ namespace LIC_KIHD_MW
                 {
                     policyInfo.Remove(s);
                 }
-                if (!(clientLastName.Equals("")) && !(s[2].Equals(cientLastName)))
+                if (!(clientLastName.Equals("")) && !(s[2].Equals(clientLastName)))
                 {
                     policyInfo.Remove(s);
                 }
