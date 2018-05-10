@@ -100,6 +100,8 @@ FROM client_policy FULL OUTER JOIN policy_holder ON client_policy.policy_holder_
 WHERE --policy_number = @policy_number or agent_id = @agent_id or policy_holder.first_name = @first_name or policy_holder.last_name = @last_name
 --or employee.first_name = @agent_first or employee.last_name = @agent_last
 
+(id = CONVERT(VARCHAR(20), @agent_id) OR ISNULL(@agent_id, '') = '') AND
+
 policy_number = CONVERT(NUMERIC(30), @policy_number)
 OR ((policy_number = CONVERT(NUMERIC(30), @policy_number) OR ISNULL(@policy_number, '') = '')
 AND (agent_id = CONVERT(VARCHAR(20), @agent_id) OR ISNULL(@agent_id, '') = '')
@@ -120,7 +122,7 @@ SET NOCOUNT ON;
 SELECT
 CONVERT(VARCHAR(20), policy_holder.policy_holder_id) AS policy_holder_id,
 policy_holder.first_name AS policy_holder_first_name,
-policy_holder.last_name AS policy_holder_first_name,
+policy_holder.last_name AS policy_holder_last_name,
 street_address,
 city_address,
 state_address,
