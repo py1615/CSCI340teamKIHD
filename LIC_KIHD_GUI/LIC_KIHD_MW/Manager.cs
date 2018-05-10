@@ -49,8 +49,10 @@ namespace LIC_KIHD_MW
             string theAgentID = "null";
             String connectionString = LIC_KIHD_GUI.Properties.Settings.Default.SQL_connection;
             SqlConnection conn = new SqlConnection(connectionString);
-            String query = "execute search " + thePolicyNum + ", '" + theClientFirstName + "', '" + theClientLastName + "', '" + theAgentFirstName + "', '" 
-                + theAgentLastName + "', "+ theAgentID + "";
+            String query = "execute search " + thePolicyNum + ", " + theClientFirstName + ", " + theClientLastName + ", " + theAgentFirstName + ", " 
+                + theAgentLastName + ", "+ theAgentID + "";
+            Console.WriteLine(query);
+            Console.WriteLine(query);
             SqlCommand command = new SqlCommand(query);
             command.Connection = conn;
             conn.Open();
@@ -85,29 +87,6 @@ namespace LIC_KIHD_MW
                 policyInfo.Add(policy);
             }
             conn.Close();
-            foreach(string[] s in policyInfo.ToArray())
-            {
-                if (!(thePolicyNum.Equals("null")) && !(s[0].Equals(thePolicyNum)))
-                {
-                    policyInfo.Remove(s);
-                }
-                if (!(theClientFirstName.Equals("")) && !(s[1].Equals(theClientFirstName)))
-                {
-                    policyInfo.Remove(s);
-                }
-                if (!(theClientLastName.Equals("")) && !(s[2].Equals(theClientLastName)))
-                {
-                    policyInfo.Remove(s);
-                }
-                if (!(theAgentFirstName.Equals("")) && !(s[9].Equals(theAgentFirstName)))
-                {
-                    policyInfo.Remove(s);
-                }
-                if (!(theAgentLastName.Equals("")) && !(s[10].Equals(theAgentLastName)))
-                {
-                    policyInfo.Remove(s);
-                }
-            }
             return policyInfo;
         }
 
