@@ -12,7 +12,7 @@ namespace LIC_KIHD_GUI
 {
     public partial class InactivePolicy : Form
     {
-        private LIC_KIHD_MW.Agent agent;
+  
         public InactivePolicy(string[] policy, string policyN)
         {
             InitializeComponent();
@@ -24,10 +24,10 @@ namespace LIC_KIHD_GUI
             labelForCity.Text = policy[4];
             labelForState.Text = policy[5];
             labelForZipCode.Text = policy[6];
-            labelForFatherDeathAtAge.Text = policy[7];
-            labelForMotherDeathAtAge.Text = policy[8];
+            labelForFatherDeathAtAge.Text = convertAge(policy[7]);
+            labelForMotherDeathAtAge.Text = convertAge(policy[8]);
             labelForCigPerDay.Text = policy[9];
-            labelForSmokeHistory.Text = policy[10];
+            labelForSmokeHistory.Text = convertAge(policy[10]);
             labelForBloodPressure.Text = policy[11];
             labelAvgFat.Text = policy[12];
             labelForHeartDisease.Text = policy[13];
@@ -54,18 +54,45 @@ namespace LIC_KIHD_GUI
 
         private void ViewHistory_Click(object sender, EventArgs e)
         {
-            
-            string[,] get = agent.getPayments(labelFordob.Text);
+            LIC_KIHD_MW.Agent agent = new LIC_KIHD_MW.Agent("", "", "", "");
+            string[,] get = agent.getPayments(labelForPolicyNumber.Text);
             PolicyHistory policyHis = new PolicyHistory(get);
             policyHis.ShowDialog();
         }
 
         private void viewBeneficiary_Click(object sender, EventArgs e)
         {
-            
-            string[,] get = agent.beneficiaryName(labelFordob.Text);
+            LIC_KIHD_MW.Agent agent = new LIC_KIHD_MW.Agent("", "", "", "");
+            string[,] get = agent.beneficiaryName(labelForPolicyNumber.Text);
             BeneficiaryPage beneficiary = new BeneficiaryPage(get);
             beneficiary.ShowDialog();
+        }
+        private string convertAge(string ageForConverting)
+        {
+
+            if (!(ageForConverting == "0"))
+            {
+
+                char[] convert = ageForConverting.ToCharArray();
+                char[] newChar = new char[convert.Length];
+                if (convert[0] == 0)
+                {
+                    newChar[0] = convert[1];
+                    newChar[1] = convert[2];
+                }
+                else
+                {
+                    for (int i = 0; i < 3; i++)
+                    {
+                        newChar[i] = convert[i];
+                    }
+                }
+                string converted = new string(newChar);
+
+                return converted;
+            }
+
+            return "0";
         }
     }
 }

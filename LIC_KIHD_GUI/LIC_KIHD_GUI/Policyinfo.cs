@@ -24,10 +24,12 @@ namespace LIC_KIHD_GUI
             labelForCity.Text = policy[4];
             labelForState.Text = policy[5];
             labelZip.Text = policy[6];
-            labelForFatherAtAge.Text = policy[7];
-            labelForMotherAtAge.Text = policy[8];
+            
+            
+            labelForFatherAtAge.Text = convertAge(policy[7]);
+            labelForMotherAtAge.Text = convertAge(policy[8]);
             labelForCigPerDay.Text = policy[9];
-            labelForSmokeHistory.Text = policy[10];
+            labelForSmokeHistory.Text = convertAge(policy[10]);
             labelForBloodPressure.Text = policy[11];
             labelForAvgGrams.Text = policy[12];
             labelForHeartDisease.Text = policy[13];
@@ -108,6 +110,31 @@ namespace LIC_KIHD_GUI
             {
                 MessageBox.Show("This policy has been claimed successfully");
             }
+        }
+        private string convertAge(string ageForConverting)
+        {
+            char[] convert = ageForConverting.ToCharArray();
+            char[] newChar = new char[convert.Length];
+            if (!(ageForConverting == "0"))
+            {
+       
+
+                if (convert[0] == 0)
+                {
+                    newChar[0] = convert[1];
+                    newChar[1] = convert[2];
+                }
+                else
+                {
+                    for (int i = 0; i < 3; i++)
+                    {
+                        newChar[i] = convert[i];
+                    }
+                }
+            }
+            string converted = new string(newChar);
+
+            return converted;
         }
     }
 }

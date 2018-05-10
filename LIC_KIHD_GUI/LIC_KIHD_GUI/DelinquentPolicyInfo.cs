@@ -16,29 +16,29 @@ namespace LIC_KIHD_GUI
         public DelinquentPolicyInfo(string[] policy ,string policyN)
         {
             InitializeComponent();
-            label25.Text = policyN;
-            label26.Text = policy[0];
-            label27.Text = policy[1];
-            label28.Text = policy[2];
-            label29.Text = policy[3];
-            label30.Text = policy[4];
-            label31.Text = policy[5];
-            label32.Text = policy[6];
-            label33.Text = policy[7];
-            label34.Text = policy[8];
-            label35.Text = policy[9];
-            label36.Text = policy[10];
-            label37.Text = policy[11];
-            label38.Text = policy[12];
-            label39.Text = policy[13];
-            label40.Text = policy[14];
-            label41.Text = policy[15];
-            label42.Text = policy[16];
-            label43.Text = policy[17];
-            label44.Text = policy[18];
-            label45.Text = policy[19];
-            label46.Text = policy[20];
-            label47.Text = policy[21];
+            labelForPolicyNumber.Text = policyN;
+            labelForFirstName.Text = policy[0];
+            labelForLastName.Text = policy[1];
+            labelForDateOfBirth.Text = policy[2];
+            labelForStreet.Text = policy[3];
+            labelForCity.Text = policy[4];
+            labelForState.Text = policy[5];
+            labelForZip.Text = policy[6];
+            labelFatherAgeAtDeath.Text =convertAge(policy[7]);
+            labelMotherAgeAtDeath.Text = convertAge(policy[8]);
+            labelForCigPerDay.Text = policy[9];
+            labelForSmokeHistory.Text = convertAge(policy[10]);
+            labelForBloodPressure.Text = policy[11];
+            labelForAvgFAT.Text = policy[12];
+            labelForHeartDisease.Text = policy[13];
+            labelForCancer.Text = policy[14];
+            labelForHospitalized.Text = policy[15];
+            labelForDangerousActivities.Text = policy[16];
+            labelPolicyStartDate.Text = policy[17];
+            labelForPolicyEndDate.Text = policy[18];
+            labelForPayoffamount.Text = policy[19];
+            labelForPremium.Text = policy[20];
+            labelForStatus.Text = policy[21];
             policynumber = policyN;
         }
 
@@ -60,7 +60,7 @@ namespace LIC_KIHD_GUI
             {
                 po.Cancel(policynumber);
                 MessageBox.Show("Policy has been cancelled successfully");// If 'Yes', do something here.
-                label47.Text = "C";
+                labelForStatus.Text = "C";
             }
             else
             {
@@ -76,7 +76,7 @@ namespace LIC_KIHD_GUI
         private void viewBeneficiary_Click(object sender, EventArgs e)
         {
             LIC_KIHD_MW.Agent agent = new LIC_KIHD_MW.Agent("", "", "", "");
-            string[,] get = agent.beneficiaryName(label25.Text);
+            string[,] get = agent.beneficiaryName(labelForPolicyNumber.Text);
             BeneficiaryPage beneficiary = new BeneficiaryPage(get);
           
             beneficiary.ShowDialog();
@@ -85,7 +85,7 @@ namespace LIC_KIHD_GUI
         private void PaymentHistory_Click(object sender, EventArgs e)
         {
             LIC_KIHD_MW.Agent agent = new LIC_KIHD_MW.Agent("", "", "", "");
-            string[,] get = agent.getPayments(label25.Text);
+            string[,] get = agent.getPayments(labelForPolicyNumber.Text);
             PolicyHistory policyHis = new PolicyHistory(get);
             policyHis.ShowDialog();
         }
@@ -107,7 +107,7 @@ namespace LIC_KIHD_GUI
             LIC_KIHD_MW.Beneficiary BENE = new LIC_KIHD_MW.Beneficiary("", "");
             LIC_KIHD_MW.Policy po = new LIC_KIHD_MW.Policy(holder, "", 1, 1, 1, 1, 1, 1, 1, "", "", "", "", BENE, "");
 
-            bool highNetLoss = po.MakeClaim(label25.Text);
+            bool highNetLoss = po.MakeClaim(labelForPolicyNumber.Text);
             if (highNetLoss)
             {
                 MessageBox.Show("This policy has high impact new loss!");
@@ -116,6 +116,38 @@ namespace LIC_KIHD_GUI
             {
                 MessageBox.Show("This policy has been claimed successfully");
             }
+        }
+
+        private void label25_Click(object sender, EventArgs e)
+        {
+
+        }
+        private string convertAge(string ageForConverting)
+        {
+       
+            if (!(ageForConverting == "0"))
+            {
+
+                char[] convert = ageForConverting.ToCharArray();
+                char[] newChar = new char[convert.Length];
+                if (convert[0] == 0)
+                {
+                    newChar[0] = convert[1];
+                    newChar[1] = convert[2];
+                }
+                else
+                {
+                    for (int i = 0; i < 3; i++)
+                    {
+                        newChar[i] = convert[i];
+                    }
+                }
+                string converted = new string(newChar);
+
+                return converted;
+            }
+           
+            return "0";
         }
     }
 }
