@@ -41,7 +41,7 @@ namespace LIC_KIHD_GUI
             CancerLabel.Text = cancer;
             Hospitalized.Text = hospital;
             DangerousActivities.Text = dangerous;
-            PayoffAmount.Text =  "$"+ payoff;
+            labelForPayoffAmount.Text =  "$"+ payoff;
             payoffA = payoff;
             PolicyStart.Text = DateTime.Now.ToString();
             MonthlyPremium.Text = "$" + premium;

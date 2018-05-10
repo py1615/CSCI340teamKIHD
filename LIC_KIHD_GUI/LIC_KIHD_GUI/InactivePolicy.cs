@@ -12,33 +12,34 @@ namespace LIC_KIHD_GUI
 {
     public partial class InactivePolicy : Form
     {
+        private LIC_KIHD_MW.Agent agent;
         public InactivePolicy(string[] policy, string policyN)
         {
             InitializeComponent();
-            label23.Text = policyN;
-            label23.Text = policy[0];
-            label24.Text = policy[1];
-            label25.Text = policy[2];
-            label26.Text = policy[3];
-            label27.Text = policy[4];
-            label28.Text = policy[5];
-            label29.Text = policy[6];
-            label30.Text = policy[7];
-            label31.Text = policy[8];
-            label32.Text = policy[9];
-            label33.Text = policy[10];
-            label34.Text = policy[11];
-            label35.Text = policy[12];
-            label36.Text = policy[13];
-            label37.Text = policy[14];
-            label38.Text = policy[15];
-            label39.Text = policy[16];
-            label40.Text = policy[17];
-            label41.Text = policy[18];
-            label21.Text = policy[20];
-            label43.Text = policyN;
-            label42.Text = policy[19];
-        
+            labelForFirstName.Text = policyN;
+            labelForFirstName.Text = policy[0];
+            labelForLastName.Text = policy[1];
+            labelFordob.Text = policy[2];
+            labelForStreetAddress.Text = policy[3];
+            labelForCity.Text = policy[4];
+            labelForState.Text = policy[5];
+            labelForZipCode.Text = policy[6];
+            labelForFatherDeathAtAge.Text = policy[7];
+            labelForMotherDeathAtAge.Text = policy[8];
+            labelForCigPerDay.Text = policy[9];
+            labelForSmokeHistory.Text = policy[10];
+            labelForBloodPressure.Text = policy[11];
+            labelAvgFat.Text = policy[12];
+            labelForHeartDisease.Text = policy[13];
+            labelForCancer.Text = policy[14];
+            labelForHospitalized.Text = policy[15];
+            labelForDangerousActivities.Text = policy[16];
+            labelForPolicyStartDate.Text = policy[17];
+            labelForPolicyEndDate.Text = policy[18];
+            labelForPremium.Text = policy[20];
+            labelForPolicyNumber.Text = policyN;
+            labelForPayoff.Text = policy[19];
+            
         }
 
         private void InactivePolicy_Load(object sender, EventArgs e)
@@ -53,16 +54,16 @@ namespace LIC_KIHD_GUI
 
         private void ViewHistory_Click(object sender, EventArgs e)
         {
-            LIC_KIHD_MW.Agent agent = new LIC_KIHD_MW.Agent("", "", "", "");
-            string[,] get = agent.getPayments(label25.Text);
+            
+            string[,] get = agent.getPayments(labelFordob.Text);
             PolicyHistory policyHis = new PolicyHistory(get);
             policyHis.ShowDialog();
         }
 
         private void viewBeneficiary_Click(object sender, EventArgs e)
         {
-            LIC_KIHD_MW.Agent agent = new LIC_KIHD_MW.Agent("", "", "", "");
-            string[,] get = agent.beneficiaryName(label25.Text);
+            
+            string[,] get = agent.beneficiaryName(labelFordob.Text);
             BeneficiaryPage beneficiary = new BeneficiaryPage(get);
             beneficiary.ShowDialog();
         }

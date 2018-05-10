@@ -31,19 +31,14 @@
             this.logOutButton = new System.Windows.Forms.Button();
             this.registrationButton = new System.Windows.Forms.Button();
             this.agentSearchButton = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.barForAgentFirstName = new System.Windows.Forms.TextBox();
+            this.barForPolicyNumber = new System.Windows.Forms.TextBox();
             this.ClientName = new System.Windows.Forms.Label();
             this.policyNumber = new System.Windows.Forms.Label();
             this.managerSearchTitle = new System.Windows.Forms.Label();
             this.agentName = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.barForClientFirstName = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.UserRegistrationButton = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.BarForAgentLastN = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.barForClientLastN = new System.Windows.Forms.TextBox();
             this.P = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,6 +51,11 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ViewButton = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.UserRegistrationButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.BarForAgentLastName = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.barForClientLastN = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -98,24 +98,25 @@
             this.agentSearchButton.UseVisualStyleBackColor = true;
             this.agentSearchButton.Click += new System.EventHandler(this.agentSearchButton_Click);
             // 
-            // textBox2
+            // barForAgentFirstName
             // 
-            this.textBox2.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.textBox2.Location = new System.Drawing.Point(553, 206);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(240, 26);
-            this.textBox2.TabIndex = 9;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.barForAgentFirstName.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.barForAgentFirstName.Location = new System.Drawing.Point(553, 206);
+            this.barForAgentFirstName.Margin = new System.Windows.Forms.Padding(4);
+            this.barForAgentFirstName.Name = "barForAgentFirstName";
+            this.barForAgentFirstName.Size = new System.Drawing.Size(240, 26);
+            this.barForAgentFirstName.TabIndex = 9;
+            this.barForAgentFirstName.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
-            // textBox1
+            // barForPolicyNumber
             // 
-            this.textBox1.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.textBox1.Location = new System.Drawing.Point(553, 169);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(240, 26);
-            this.textBox1.TabIndex = 10;
+            this.barForPolicyNumber.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.barForPolicyNumber.Location = new System.Drawing.Point(553, 169);
+            this.barForPolicyNumber.Margin = new System.Windows.Forms.Padding(4);
+            this.barForPolicyNumber.Name = "barForPolicyNumber";
+            this.barForPolicyNumber.Size = new System.Drawing.Size(240, 26);
+            this.barForPolicyNumber.TabIndex = 10;
+            this.barForPolicyNumber.TextChanged += new System.EventHandler(this.barForPolicyNumber_TextChanged);
             // 
             // ClientName
             // 
@@ -167,14 +168,14 @@
             this.agentName.TabIndex = 13;
             this.agentName.Text = "Agent First Name";
             // 
-            // textBox3
+            // barForClientFirstName
             // 
-            this.textBox3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(553, 284);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(240, 26);
-            this.textBox3.TabIndex = 14;
+            this.barForClientFirstName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.barForClientFirstName.Location = new System.Drawing.Point(553, 284);
+            this.barForClientFirstName.Margin = new System.Windows.Forms.Padding(4);
+            this.barForClientFirstName.Name = "barForClientFirstName";
+            this.barForClientFirstName.Size = new System.Drawing.Size(240, 26);
+            this.barForClientFirstName.TabIndex = 14;
             // 
             // dataGridView1
             // 
@@ -201,48 +202,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(1355, 528);
             this.dataGridView1.TabIndex = 15;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // UserRegistrationButton
-            // 
-            this.UserRegistrationButton.Location = new System.Drawing.Point(830, 13);
-            this.UserRegistrationButton.Name = "UserRegistrationButton";
-            this.UserRegistrationButton.Size = new System.Drawing.Size(161, 43);
-            this.UserRegistrationButton.TabIndex = 16;
-            this.UserRegistrationButton.Text = "User Registration";
-            this.UserRegistrationButton.UseVisualStyleBackColor = true;
-            this.UserRegistrationButton.Click += new System.EventHandler(this.UserRegistrationButton_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(363, 249);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(116, 19);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "Agent Last Name";
-            // 
-            // BarForAgentLastN
-            // 
-            this.BarForAgentLastN.Location = new System.Drawing.Point(553, 246);
-            this.BarForAgentLastN.Name = "BarForAgentLastN";
-            this.BarForAgentLastN.Size = new System.Drawing.Size(240, 26);
-            this.BarForAgentLastN.TabIndex = 19;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(363, 329);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(115, 19);
-            this.label2.TabIndex = 20;
-            this.label2.Text = "Client Last Name";
-            // 
-            // barForClientLastN
-            // 
-            this.barForClientLastN.Location = new System.Drawing.Point(553, 326);
-            this.barForClientLastN.Name = "barForClientLastN";
-            this.barForClientLastN.Size = new System.Drawing.Size(240, 26);
-            this.barForClientLastN.TabIndex = 21;
             // 
             // P
             // 
@@ -318,6 +277,48 @@
             this.ViewButton.UseColumnTextForButtonValue = true;
             this.ViewButton.Width = 50;
             // 
+            // UserRegistrationButton
+            // 
+            this.UserRegistrationButton.Location = new System.Drawing.Point(830, 13);
+            this.UserRegistrationButton.Name = "UserRegistrationButton";
+            this.UserRegistrationButton.Size = new System.Drawing.Size(161, 43);
+            this.UserRegistrationButton.TabIndex = 16;
+            this.UserRegistrationButton.Text = "User Registration";
+            this.UserRegistrationButton.UseVisualStyleBackColor = true;
+            this.UserRegistrationButton.Click += new System.EventHandler(this.UserRegistrationButton_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(363, 249);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(116, 19);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Agent Last Name";
+            // 
+            // BarForAgentLastName
+            // 
+            this.BarForAgentLastName.Location = new System.Drawing.Point(553, 246);
+            this.BarForAgentLastName.Name = "BarForAgentLastName";
+            this.BarForAgentLastName.Size = new System.Drawing.Size(240, 26);
+            this.BarForAgentLastName.TabIndex = 19;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(363, 329);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(115, 19);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "Client Last Name";
+            // 
+            // barForClientLastN
+            // 
+            this.barForClientLastN.Location = new System.Drawing.Point(553, 326);
+            this.barForClientLastN.Name = "barForClientLastN";
+            this.barForClientLastN.Size = new System.Drawing.Size(240, 26);
+            this.barForClientLastN.TabIndex = 21;
+            // 
             // managerSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -326,16 +327,16 @@
             this.ClientSize = new System.Drawing.Size(1355, 974);
             this.Controls.Add(this.barForClientLastN);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.BarForAgentLastN);
+            this.Controls.Add(this.BarForAgentLastName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.UserRegistrationButton);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.barForClientFirstName);
             this.Controls.Add(this.agentName);
             this.Controls.Add(this.managerSearchTitle);
             this.Controls.Add(this.agentSearchButton);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.barForAgentFirstName);
+            this.Controls.Add(this.barForPolicyNumber);
             this.Controls.Add(this.ClientName);
             this.Controls.Add(this.policyNumber);
             this.Controls.Add(this.logOutButton);
@@ -356,17 +357,17 @@
         private System.Windows.Forms.Button logOutButton;
         private System.Windows.Forms.Button registrationButton;
         private System.Windows.Forms.Button agentSearchButton;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox barForAgentFirstName;
+        private System.Windows.Forms.TextBox barForPolicyNumber;
         private System.Windows.Forms.Label ClientName;
         private System.Windows.Forms.Label policyNumber;
         private System.Windows.Forms.Label managerSearchTitle;
         private System.Windows.Forms.Label agentName;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox barForClientFirstName;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button UserRegistrationButton;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox BarForAgentLastN;
+        private System.Windows.Forms.TextBox BarForAgentLastName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox barForClientLastN;
         private System.Windows.Forms.DataGridViewTextBoxColumn P;
