@@ -58,12 +58,12 @@ namespace LIC_KIHD_MW
             conn.Open();
             SqlDataReader reader = command.ExecuteReader();
             List<string[]> policyInfo = new List<string[]>();
-            string[] policy = new string[RETURN_INFOM];
             string[] colName = {"policy_number", "policy_holder_first_name", "policy_holder_last_name", "dob", "policy_start", "payoff_amount", 
                 "monthly_premium", "policy_status", "agent_id", "agent_first_name", "agent_last_name"};
             while (reader.Read())
             {
-                for(int i = 0; i < RETURN_INFOM; i ++)
+                string[] policy = new string[RETURN_INFOM];
+                for (int i = 0; i < RETURN_INFOM; i ++)
                 {
                     if(reader.IsDBNull(reader.GetOrdinal(colName[i])))
                     {
