@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="SQL_connection" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">Initial Catalog=master;Data Source=LAPTOP-GITK5LL2;Integrated Security=True;</Value>
+      <Value Profile="(Default)">Data Source=DATABASE\CSCI3400011030;Initial Catalog=LIC_KIHD;Integrated Security=false;user='LIC_KIHD_MW';pwd='KIHD';</Value>
     </Setting>
     <Setting Name="InternalConnection" Type="System.String" Scope="Application">
       <Value Profile="(Default)">Data Source=DATABASE\CSCI3400011030;Initial Catalog=LIC_KIHD;Integrated Security=false;user='LIC_KIHD_MW';pwd='KIHD';</Value>

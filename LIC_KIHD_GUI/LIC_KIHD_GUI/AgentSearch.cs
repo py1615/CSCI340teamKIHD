@@ -89,8 +89,8 @@ namespace LIC_KIHD_GUI
         {
             dataGridView1.Rows.Clear();
             string policyNumber = "null";
-            string clientFirstName = "";
-            string clientLastName = "";
+            string clientFirstName = "null";
+            string clientLastName = "null";
             LIC_KIHD_MW.Agent agent = new LIC_KIHD_MW.Agent("", "", "", "");
             if (string.IsNullOrEmpty(policyNumBox.Text) && string.IsNullOrEmpty(clientNameBox.Text))
             {
@@ -112,18 +112,10 @@ namespace LIC_KIHD_GUI
                 }
                 
                 List<string[]> search = agent.search(policyNumber, clientFirstName, clientLastName, agentId);
-                //search = agent.search(policyNumber, clientFirstName, clientLastName, agentId);
+               
                 if (search != null && search.Count > 0)
                 {
-                    /*for (int i = 0; i < searchResult.GetLength(0); i++)
-                    {
-                        string[] row = new string[searchResult.GetLength(1)];
-                        for (int j = 0; j < searchResult.GetLength(1); j++)
-                        {
-                            row[j] = searchResult[i, j];
-                        }
-                        dataGridView1.Rows.Add(row);
-                    }*/
+                   
                     for (int i = 0; i < search.Count; i++)
                     {
                         string[] row = new string[search[i].Length];
