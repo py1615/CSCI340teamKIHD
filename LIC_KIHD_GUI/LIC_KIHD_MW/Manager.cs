@@ -86,6 +86,28 @@ namespace LIC_KIHD_MW
                 }
                 policyInfo.Add(policy);
             }
+            foreach(string[] s in policyInfo.ToArray())
+            {
+                if(!(thePolicyNum.Equals("null")) && !(s[0].Equals(thePolicyNum)))
+                {
+                    policyInfo.Remove(s);
+                }else if(!(theClientFirstName.Equals("null")) && !(s[1].Equals(theClientFirstName)))
+                {
+                    policyInfo.Remove(s);
+                }
+                else if (!(theClientLastName.Equals("null")) && !(s[2].Equals(theClientLastName)))
+                {
+                    policyInfo.Remove(s);
+                }
+                else if (!(theAgentFirstName.Equals("null")) && !(s[9].Equals(theAgentFirstName)))
+                {
+                    policyInfo.Remove(s);
+                }
+                else if (!(theAgentLastName.Equals("null")) && !(s[10].Equals(theAgentLastName)))
+                {
+                    policyInfo.Remove(s);
+                }
+            }
             conn.Close();
             return policyInfo;
         }

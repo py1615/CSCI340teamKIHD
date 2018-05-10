@@ -8,7 +8,7 @@ namespace LIC_KIHD_MW
     class Agent
     {
         private readonly static int POLICY_ARRAY_INDEX = 22;
-        private readonly static int RETURN_INFO = 7;
+        private readonly static int RETURN_INFO = 8;
         private string firstName;
         private string lastName;
         private string department;
@@ -38,7 +38,7 @@ namespace LIC_KIHD_MW
             SqlDataReader reader = command.ExecuteReader();
             List<string[]> policyInfo = new List<string[]>();
             string[] colName = {"policy_number", "policy_holder_first_name", "policy_holder_last_name", "policy_start", "policy_status", "payoff_amount", 
-                "monthly_premium"};
+                "monthly_premium", "agent_id"};
             while (reader.Read())
             {
                 string[] policy = new string[RETURN_INFO];
@@ -64,6 +64,25 @@ namespace LIC_KIHD_MW
                     }
                 }
                 policyInfo.Add(policy);
+            }
+            foreach (string[] s in policyInfo.ToArray())
+            {
+                if (!(thePolicyNum.Equals("null")) && !(s[0].Equals(thePolicyNum)))
+                {
+                    policyInfo.Remove(s);
+                }
+                else if (!(theClientFirstName.Equals("null")) && !(s[1].Equals(theClientFirstName)))
+                {
+                    policyInfo.Remove(s);
+                }
+                else if (!(theClientLastName.Equals("null")) && !(s[2].Equals(theClientLastName)))
+                {
+                    policyInfo.Remove(s);
+                }
+                else if (!(s[7].Equals(theAgentID)))
+                {
+                    policyInfo.Remove(s);
+                }
             }
             conn.Close();
             return policyInfo;
