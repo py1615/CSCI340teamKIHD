@@ -22,27 +22,27 @@ namespace LIC_KIHD_MW
         }
         public List<string[]> search(string policyNum, string clientFirstName, string clientLastName, string agentID)
         {
-            string thePolicyNum = "null";
-            string theClientFirstName = "";
-            string theClientLastName = "";
-            string theAgentFirstName = "";
-            string theAgentLastName = "";
+            string thePolicyNum = policyNum;
+            string theClientFirstName = clientFirstName;
+            string theClientLastName = clientLastName;
+            string theAgentFirstName = "null";
+            string theAgentLastName = "null";
             string theAgentID = agentID;
             String connectionString = LIC_KIHD_GUI.Properties.Settings.Default.SQL_connection;
             SqlConnection conn = new SqlConnection(connectionString);
-            String query = "execute search " + thePolicyNum + ", '" + theClientFirstName + "', '" + theClientLastName + "', '" + theAgentFirstName + "', '" 
-                + theAgentLastName + "', "+ theAgentID + "";
+            String query = "execute search " + thePolicyNum + ", " + theClientFirstName + ", " + theClientLastName + ", " + theAgentFirstName + ", " 
+                + theAgentLastName + ", "+ theAgentID + "";
             SqlCommand command = new SqlCommand(query);
             command.Connection = conn;
             conn.Open();
             SqlDataReader reader = command.ExecuteReader();
             List<string[]> policyInfo = new List<string[]>();
-            string[] policy = new string[RETURN_INFO];
             string[] colName = {"policy_number", "policy_holder_first_name", "policy_holder_last_name", "policy_start", "policy_status", "payoff_amount", 
                 "monthly_premium"};
             while (reader.Read())
             {
-                for(int i = 0; i < RETURN_INFO; i ++)
+                string[] policy = new string[RETURN_INFO];
+                for (int i = 0; i < RETURN_INFO; i ++)
                 {
                     if(reader.IsDBNull(reader.GetOrdinal(colName[i])))
                     {
@@ -66,21 +66,6 @@ namespace LIC_KIHD_MW
                 policyInfo.Add(policy);
             }
             conn.Close();
-            foreach (string[] s in policyInfo.ToArray())
-            {
-                if (!(policyNum.Equals("null")) && !(s[0].Equals(policyNum)))
-                {
-                    policyInfo.Remove(s);
-                }
-                if (!(clientFirstName.Equals("")) && !(s[1].Equals(clientFirstName)))
-                {
-                    policyInfo.Remove(s);
-                }
-                if (!(clientLastName.Equals("")) && !(s[2].Equals(clientLastName)))
-                {
-                    policyInfo.Remove(s);
-                }
-            }
             return policyInfo;
         }
 

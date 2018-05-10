@@ -47,22 +47,6 @@ namespace LIC_KIHD_MW
             string theAgentFirstName = agentFirstName;
             string theAgentLastName = agentLastName;
             string theAgentID = "null";
-            if (clientFirstName.CompareTo("") == 0)
-            {
-                theClientFirstName = "null";
-            }
-            if (clientLastName.CompareTo("") == 0)
-            {
-                theClientLastName = "null";
-            }
-            if (theAgentFirstName.CompareTo("") == 0)
-            {
-                theAgentFirstName = "null";
-            }
-            if (theAgentLastName.CompareTo("") == 0)
-            {
-                theAgentLastName = "null";
-            }
             String connectionString = LIC_KIHD_GUI.Properties.Settings.Default.SQL_connection;
             SqlConnection conn = new SqlConnection(connectionString);
             String query = "execute search " + thePolicyNum + ", " + theClientFirstName + ", " + theClientLastName + ", " + theAgentFirstName + ", " 
@@ -103,29 +87,6 @@ namespace LIC_KIHD_MW
                 policyInfo.Add(policy);
             }
             conn.Close();
-            //foreach(string[] s in policyInfo.ToArray())
-            //{
-                //if (!(thePolicyNum.Equals("null")) && !(s[0].Equals(thePolicyNum)))
-                //{
-                    //policyInfo.Remove(s);
-                //}
-                //if (!(theClientFirstName.Equals("")) && !(s[1].Equals(theClientFirstName)))
-                //{
-                    //policyInfo.Remove(s);
-                //}
-                //if (!(theClientLastName.Equals("")) && !(s[2].Equals(theClientLastName)))
-                //{
-                    //policyInfo.Remove(s);
-                //}
-                //if (!(theAgentFirstName.Equals("")) && !(s[9].Equals(theAgentFirstName)))
-                //{
-                    //policyInfo.Remove(s);
-                //}
-                //if (!(theAgentLastName.Equals("")) && !(s[10].Equals(theAgentLastName)))
-                //{
-                    //policyInfo.Remove(s);
-                //}
-            //}
             return policyInfo;
         }
 
