@@ -92,7 +92,7 @@ namespace LIC_KIHD_GUI
 
         private void ReportButton_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Delinquent Account had been reported!");
         }
 
         private void label47_Click(object sender, EventArgs e)
