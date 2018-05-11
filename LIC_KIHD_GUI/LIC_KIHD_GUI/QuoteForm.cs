@@ -45,8 +45,8 @@ namespace LIC_KIHD_GUI
             payoffA = payoff;
             PolicyStart.Text = DateTime.Now.ToString();
             MonthlyPremium.Text = "$" + premium;
-            //monthPremium = premium;
-            monthPremium = "100";
+            monthPremium = premium;
+            //monthPremium = "100";
             agentID = agent;
             hd = hdpass;
             ca = cancerpass;
@@ -65,7 +65,7 @@ namespace LIC_KIHD_GUI
                                         MessageBoxButtons.YesNo);
             if (confirmResult == DialogResult.Yes)
             {
-                this.Close();
+                this.Hide();
 
             }
         }
@@ -115,6 +115,7 @@ namespace LIC_KIHD_GUI
             addB.Closed += (s, arges) => this.Close();
             // complete register and return back
             MessageBox.Show("The policy had been created successfully, and your policy number is " + policynumber);
+           
             addB.ShowDialog();
             
         }

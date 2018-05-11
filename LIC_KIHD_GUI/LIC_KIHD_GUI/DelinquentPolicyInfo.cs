@@ -60,7 +60,7 @@ namespace LIC_KIHD_GUI
             {
                 po.Cancel(policynumber);
                 MessageBox.Show("Policy has been cancelled successfully");// If 'Yes', do something here.
-                labelForStatus.Text = "C";
+                labelForStatus.Text = "I";
             }
             else
             {
@@ -110,7 +110,7 @@ namespace LIC_KIHD_GUI
             bool highNetLoss = po.MakeClaim(labelForPolicyNumber.Text);
             if (highNetLoss)
             {
-                MessageBox.Show("This policy has high impact new loss!");
+                MessageBox.Show("A loss off 5.4% has been detected. Please notify the Obfuscation Department!");
             }
             else
             {

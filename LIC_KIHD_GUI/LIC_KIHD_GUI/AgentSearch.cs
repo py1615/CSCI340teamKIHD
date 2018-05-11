@@ -49,8 +49,8 @@ namespace LIC_KIHD_GUI
             //LIC_KIHD_MW.Policy result = new LIC_KIHD_MW.Policy();//need MW
             LIC_KIHD_MW.Agent agent = new LIC_KIHD_MW.Agent("", "", "", "");
             string policyN = "";  //need MW
-            View.Text = "View";
-            View.UseColumnTextForButtonValue = true;
+            this.View.UseColumnTextForButtonValue = true;
+            this.View.Text = "View";
 
             if (e.ColumnIndex == dataGridView1.Columns["View"].Index)
             {
@@ -72,6 +72,11 @@ namespace LIC_KIHD_GUI
                     InactivePolicy inactive = new InactivePolicy(searchInfo, policyN);
                     inactive.ShowDialog();
                 }
+                else if(searchInfo[21] == "I")
+                {
+                    InactivePolicy inactive = new InactivePolicy(searchInfo, policyN);
+                    inactive.ShowDialog();
+                }
 
             }
 
@@ -87,11 +92,13 @@ namespace LIC_KIHD_GUI
 
         private void agentSearchButton_Click(object sender, EventArgs e)
         {
+            this.View.UseColumnTextForButtonValue = true;
+            this.View.Text = "View";
             dataGridView1.Rows.Clear();
             string policyNumber = "null";
             string clientFirstName = "null";
             string clientLastName = "null";
-            LIC_KIHD_MW.Agent agent = new LIC_KIHD_MW.Agent("", "", "", "");
+            LIC_KIHD_MW.Agent agent = new LIC_KIHD_MW.Agent("", "", "", agentId);
             if (string.IsNullOrEmpty(policyNumBox.Text) && string.IsNullOrEmpty(clientNameBox.Text) && string.IsNullOrEmpty(ClientLastN.Text))
             {
                 MessageBox.Show("Please enter policy number and client's name!");
@@ -119,7 +126,7 @@ namespace LIC_KIHD_GUI
                     for (int i = 0; i < search.Count; i++)
                     {
                         string[] row = new string[search[i].Length];
-                        for (int j = 0; j < search[i].Length; j++)
+                        for (int j = 0; j < search[i].Length -1; j++)
                         {
 
                             row[j] = search[i][j];

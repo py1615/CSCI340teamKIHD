@@ -41,9 +41,9 @@ namespace LIC_KIHD_GUI
         private void registrationButton_Click(object sender, EventArgs e)
         {
             
-            PolicyRegistration policyRegiser = new PolicyRegistration(agentID);
+            PolicyRegistration policyRegister = new PolicyRegistration(agentID);
             
-            policyRegiser.ShowDialog();
+            policyRegister.ShowDialog();
         }
 
         private void saveFileDialog1_FileOk(object sender, CancelEventArgs e)
@@ -76,7 +76,7 @@ namespace LIC_KIHD_GUI
             else 
             {
                 
-                LIC_KIHD_MW.Manager agent = new LIC_KIHD_MW.Manager("", "", "", "","","");
+                LIC_KIHD_MW.Manager agent = new LIC_KIHD_MW.Manager(agentFirstName, agentLastName, "", "","", agentID);
                
                 List<string[]> search = agent.managerSearch(policyNumber, clientFirstName, clientLastName, agentFirstName, agentLastName);
                 if (search != null && search.Count > 0)
@@ -105,12 +105,12 @@ namespace LIC_KIHD_GUI
             string policyN;
             this.ViewButton.UseColumnTextForButtonValue = true;
             this.ViewButton.Text = "View";
-            LIC_KIHD_MW.Agent agent = new LIC_KIHD_MW.Agent("", "", "", "");
+            LIC_KIHD_MW.Agent manager = new LIC_KIHD_MW.Agent(barForAgentFirstName.Text, BarForAgentLastName.Text, "", agentID);
             if (e.ColumnIndex == dataGridView1.Columns["ViewButton"].Index)
             {
 
                 policyN = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
-                string[] searchInfo = agent.searchOnClick(policyN);
+                string[] searchInfo = manager.searchOnClick(policyN);
                 if (searchInfo[21] == "A")
                 {
                     Policyinfo infoPage = new Policyinfo(searchInfo, policyN);
