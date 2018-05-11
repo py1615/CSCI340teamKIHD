@@ -77,7 +77,7 @@ namespace LIC_KIHD_MW
             string policyNumber = "";
             while(reader.Read())
             {
-                policyNumber += (reader.GetDecimal(reader.GetOrdinal("policy_number")));
+                policyNumber = reader.GetString(reader.GetOrdinal("policy_number"));
             }
             conn.Close();
             return policyNumber;

@@ -97,18 +97,18 @@ policy_status,
 employee.first_name AS agent_first_name,
 employee.last_name AS agent_last_name
 FROM client_policy FULL OUTER JOIN policy_holder ON client_policy.policy_holder_id = policy_holder.policy_holder_id FULL OUTER JOIN employee ON agent_id = id
-WHERE --policy_number = @policy_number or agent_id = @agent_id or policy_holder.first_name = @first_name or policy_holder.last_name = @last_name
---or employee.first_name = @agent_first or employee.last_name = @agent_last
+WHERE policy_number = @policy_number or agent_id = @agent_id or policy_holder.first_name = @first_name or policy_holder.last_name = @last_name
+or employee.first_name = @agent_first or employee.last_name = @agent_last
 
-(id = CONVERT(VARCHAR(20), @agent_id) OR ISNULL(@agent_id, '') = '') AND
+--(id = CONVERT(VARCHAR(20), @agent_id) OR ISNULL(@agent_id, '') = '') AND
 
-policy_number = CONVERT(NUMERIC(30), @policy_number)
-OR ((policy_number = CONVERT(NUMERIC(30), @policy_number) OR ISNULL(@policy_number, '') = '')
-AND (agent_id = CONVERT(VARCHAR(20), @agent_id) OR ISNULL(@agent_id, '') = '')
-AND ((policy_holder.first_name = @first_name AND policy_holder.last_name = @last_name)
-OR (policy_holder.first_name = @first_name AND ISNULL(@last_name, '') = '')
-OR (ISNULL(@first_name, '') = '' AND policy_holder.last_name = @last_name)
-OR (ISNULL(@first_name, '') = '' AND ISNULL(@last_name, '') = '')));
+--policy_number = CONVERT(NUMERIC(30), @policy_number)
+--OR ((policy_number = CONVERT(NUMERIC(30), @policy_number) OR ISNULL(@policy_number, '') = '')
+--AND (agent_id = CONVERT(VARCHAR(20), @agent_id) OR ISNULL(@agent_id, '') = '')
+--AND ((policy_holder.first_name = @first_name AND policy_holder.last_name = @last_name)
+--OR (policy_holder.first_name = @first_name AND ISNULL(@last_name, '') = '')
+--OR (ISNULL(@first_name, '') = '' AND policy_holder.last_name = @last_name)
+--OR (ISNULL(@first_name, '') = '' AND ISNULL(@last_name, '') = '')));
 
 END
 GO
